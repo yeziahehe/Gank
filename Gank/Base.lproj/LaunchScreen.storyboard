@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +17,47 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="9Ks-rR-M6e">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="PlN-pq-hLe"/>
+                                    <constraint firstAttribute="height" constant="80" id="acO-eO-fy3"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GankFont" translatesAutoresizingMaskIntoConstraints="NO" id="nCv-kg-jaT">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="AiO-9k-oaw"/>
+                                    <constraint firstAttribute="height" constant="27" id="DU6-2g-WXW"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="V1.0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YPb-bu-WG0">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AFj-1M-vMw"/>
+                                    <constraint firstAttribute="width" constant="100" id="t4g-BZ-SXU"/>
+                                </constraints>
+                                <color key="textColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9Ks-rR-M6e" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CuE-6s-Mun"/>
+                            <constraint firstItem="nCv-kg-jaT" firstAttribute="top" secondItem="9Ks-rR-M6e" secondAttribute="bottom" constant="20" id="IXx-Vf-pLp"/>
+                            <constraint firstItem="YPb-bu-WG0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LyP-aL-STe"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="YPb-bu-WG0" secondAttribute="bottom" constant="40" id="dYW-Yh-Ma6"/>
+                            <constraint firstItem="nCv-kg-jaT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lng-ca-XQC"/>
+                            <constraint firstItem="nCv-kg-jaT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-10" id="odO-7Q-vrn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GankFont" width="138" height="27"/>
+        <image name="GankLogo" width="80" height="80"/>
+    </resources>
 </document>
