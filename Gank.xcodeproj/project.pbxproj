@@ -512,6 +512,7 @@
 				2C83C90D1DAE0F4500FCE89A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C83C90E1DAE0F4500FCE89A /* Build configuration list for PBXNativeTarget "GankTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +521,7 @@
 				2C83C9101DAE0F4500FCE89A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C83C9111DAE0F4500FCE89A /* Build configuration list for PBXNativeTarget "GankUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +530,7 @@
 				2C83C9131DAE0F4500FCE89A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
