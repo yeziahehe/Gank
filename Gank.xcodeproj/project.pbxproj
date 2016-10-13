@@ -14,6 +14,7 @@
 		2C83C8F11DAE0F4500FCE89A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C83C8EF1DAE0F4500FCE89A /* LaunchScreen.storyboard */; };
 		2C83C8FC1DAE0F4500FCE89A /* GankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83C8FB1DAE0F4500FCE89A /* GankTests.swift */; };
 		2C83C9071DAE0F4500FCE89A /* GankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83C9061DAE0F4500FCE89A /* GankUITests.swift */; };
+		2CE43A841DAFD98F00660852 /* GKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE43A831DAFD98F00660852 /* GKConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		2C83C9021DAE0F4500FCE89A /* GankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C83C9061DAE0F4500FCE89A /* GankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankUITests.swift; sourceTree = "<group>"; };
 		2C83C9081DAE0F4500FCE89A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CE43A831DAFD98F00660852 /* GKConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKConfig.swift; path = Helpers/GKConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		2C83C8E51DAE0F4500FCE89A /* Gank */ = {
 			isa = PBXGroup;
 			children = (
+				2CE43A821DAFD94300660852 /* Helpers */,
 				2C83C8E61DAE0F4500FCE89A /* AppDelegate.swift */,
 				2C83C8E81DAE0F4500FCE89A /* ViewController.swift */,
 				2C83C8EA1DAE0F4500FCE89A /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				2C83C9081DAE0F4500FCE89A /* Info.plist */,
 			);
 			path = GankUITests;
+			sourceTree = "<group>";
+		};
+		2CE43A821DAFD94300660852 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2CE43A831DAFD98F00660852 /* GKConfig.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE43A841DAFD98F00660852 /* GKConfig.swift in Sources */,
 				2C83C8E91DAE0F4500FCE89A /* ViewController.swift in Sources */,
 				2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */,
 			);
