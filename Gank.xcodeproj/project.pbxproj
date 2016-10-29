@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */; };
+		2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A15701DC1F237003D5444 /* GankTabBarController.swift */; };
 		2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83C8E61DAE0F4500FCE89A /* AppDelegate.swift */; };
-		2C83C8E91DAE0F4500FCE89A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83C8E81DAE0F4500FCE89A /* ViewController.swift */; };
 		2C83C8EC1DAE0F4500FCE89A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C83C8EA1DAE0F4500FCE89A /* Main.storyboard */; };
 		2C83C8EE1DAE0F4500FCE89A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C83C8ED1DAE0F4500FCE89A /* Assets.xcassets */; };
 		2C83C8F11DAE0F4500FCE89A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C83C8EF1DAE0F4500FCE89A /* LaunchScreen.storyboard */; };
 		2C83C8FC1DAE0F4500FCE89A /* GankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83C8FB1DAE0F4500FCE89A /* GankTests.swift */; };
 		2C83C9071DAE0F4500FCE89A /* GankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83C9061DAE0F4500FCE89A /* GankUITests.swift */; };
+		2C971B6A1DC200DA00843481 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C971B691DC200DA00843481 /* BaseViewController.swift */; };
+		2C971B6C1DC200F600843481 /* SegueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C971B6B1DC200F600843481 /* SegueViewController.swift */; };
+		2C971B6F1DC2019500843481 /* UIColor+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C971B6E1DC2019500843481 /* UIColor+Gank.swift */; };
+		2C971B741DC203E200843481 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C971B731DC203E200843481 /* NewViewController.swift */; };
+		2C971B761DC203F400843481 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C971B751DC203F400843481 /* CategoryViewController.swift */; };
+		2C971B781DC2040400843481 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C971B771DC2040400843481 /* MeViewController.swift */; };
 		2CE43A841DAFD98F00660852 /* GKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE43A831DAFD98F00660852 /* GKConfig.swift */; };
+		2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */; };
+		2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D681DC260B20011BB48 /* GankNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Gank.swift"; sourceTree = "<group>"; };
+		2C2A15701DC1F237003D5444 /* GankTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankTabBarController.swift; sourceTree = "<group>"; };
 		2C83C8E31DAE0F4500FCE89A /* Gank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C83C8E61DAE0F4500FCE89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C83C8E81DAE0F4500FCE89A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2C83C8EB1DAE0F4500FCE89A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C83C8ED1DAE0F4500FCE89A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C83C8F01DAE0F4500FCE89A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +58,15 @@
 		2C83C9021DAE0F4500FCE89A /* GankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C83C9061DAE0F4500FCE89A /* GankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankUITests.swift; sourceTree = "<group>"; };
 		2C83C9081DAE0F4500FCE89A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C971B691DC200DA00843481 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2C971B6B1DC200F600843481 /* SegueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueViewController.swift; sourceTree = "<group>"; };
+		2C971B6E1DC2019500843481 /* UIColor+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Gank.swift"; sourceTree = "<group>"; };
+		2C971B731DC203E200843481 /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
+		2C971B751DC203F400843481 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		2C971B771DC2040400843481 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		2CE43A831DAFD98F00660852 /* GKConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GKConfig.swift; path = Helpers/GKConfig.swift; sourceTree = "<group>"; };
+		2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Gank.swift"; sourceTree = "<group>"; };
+		2CE80D681DC260B20011BB48 /* GankNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +94,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C2A156E1DC1F1E0003D5444 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CE80D671DC260A30011BB48 /* Nav */,
+				2C2A156F1DC1F219003D5444 /* TabBar */,
+				2C971B701DC2038000843481 /* New */,
+				2C971B721DC2038D00843481 /* Category */,
+				2C971B711DC2038D00843481 /* Me */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2C2A156F1DC1F219003D5444 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A15701DC1F237003D5444 /* GankTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		2C83C8DA1DAE0F4500FCE89A = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +137,11 @@
 		2C83C8E51DAE0F4500FCE89A /* Gank */ = {
 			isa = PBXGroup;
 			children = (
+				2C971B661DC2007E00843481 /* Base */,
+				2C971B6D1DC2015500843481 /* Extensions */,
+				2C2A156E1DC1F1E0003D5444 /* ViewControllers */,
 				2CE43A821DAFD94300660852 /* Helpers */,
 				2C83C8E61DAE0F4500FCE89A /* AppDelegate.swift */,
-				2C83C8E81DAE0F4500FCE89A /* ViewController.swift */,
 				2C83C8EA1DAE0F4500FCE89A /* Main.storyboard */,
 				2C83C8ED1DAE0F4500FCE89A /* Assets.xcassets */,
 				2C83C8EF1DAE0F4500FCE89A /* LaunchScreen.storyboard */,
@@ -128,12 +168,71 @@
 			path = GankUITests;
 			sourceTree = "<group>";
 		};
+		2C971B661DC2007E00843481 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2C971B681DC200C100843481 /* ViewControllers */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2C971B681DC200C100843481 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C971B691DC200DA00843481 /* BaseViewController.swift */,
+				2C971B6B1DC200F600843481 /* SegueViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2C971B6D1DC2015500843481 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C971B6E1DC2019500843481 /* UIColor+Gank.swift */,
+				2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */,
+				2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2C971B701DC2038000843481 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				2C971B731DC203E200843481 /* NewViewController.swift */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
+		2C971B711DC2038D00843481 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				2C971B771DC2040400843481 /* MeViewController.swift */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		2C971B721DC2038D00843481 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				2C971B751DC203F400843481 /* CategoryViewController.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		2CE43A821DAFD94300660852 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				2CE43A831DAFD98F00660852 /* GKConfig.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		2CE80D671DC260A30011BB48 /* Nav */ = {
+			isa = PBXGroup;
+			children = (
+				2CE80D681DC260B20011BB48 /* GankNavigationController.swift */,
+			);
+			path = Nav;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +372,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C971B781DC2040400843481 /* MeViewController.swift in Sources */,
+				2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */,
+				2C971B6A1DC200DA00843481 /* BaseViewController.swift in Sources */,
+				2C971B741DC203E200843481 /* NewViewController.swift in Sources */,
+				2C971B6F1DC2019500843481 /* UIColor+Gank.swift in Sources */,
+				2C971B761DC203F400843481 /* CategoryViewController.swift in Sources */,
 				2CE43A841DAFD98F00660852 /* GKConfig.swift in Sources */,
-				2C83C8E91DAE0F4500FCE89A /* ViewController.swift in Sources */,
+				2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */,
+				2C971B6C1DC200F600843481 /* SegueViewController.swift in Sources */,
+				2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */,
 				2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */,
+				2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

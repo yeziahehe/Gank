@@ -15,7 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window?.backgroundColor = UIColor.white
+        
+        // Global Tint Color
+        window?.tintColor = UIColor.gankTintColor()
+        window?.tintAdjustmentMode = .normal
+        
+        let storyboard = UIStoryboard.gank_main
+        window?.rootViewController = storyboard.instantiateInitialViewController()
+        
         return true
     }
 
@@ -40,7 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
