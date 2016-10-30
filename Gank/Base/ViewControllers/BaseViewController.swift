@@ -30,7 +30,7 @@ class BaseViewController: SegueViewController {
         navigationController.navigationBar.isTranslucent = true
         navigationController.navigationBar.shadowImage = nil
         navigationController.navigationBar.barStyle = .default
-        navigationController.navigationBar.setBackgroundImage(UIImage.init(named: "nav_bg"), for: .default)
+        navigationController.navigationBar.setBackgroundImage(UIImage.gank_navBg, for: .default)
         
         if navigationController.isNavigationBarHidden {
             navigationController.setNavigationBarHidden(false, animated: animatedOnNavigationBar)
