@@ -4,6 +4,9 @@ use_frameworks!
 
 def pods
     pod 'Alamofire', '~> 4.0'
+    pod 'Kingfisher','~> 3.1.0'
+    pod 'SwiftyJSON'
+    pod 'XCGLogger', '~> 4.0.0'
 end
 
 target 'Gank' do
