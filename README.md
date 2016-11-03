@@ -8,6 +8,7 @@
 <a href="#前言">前言</a> -
 <a href="#功能">功能</a> -
 <a href="#运行环境">运行环境</a> -
+<a href="#API">API</a> -
 <a href="#版本">版本</a> -
 <a href="#贡献">贡献</a> -
 <a href="#致谢">致谢</a> -
@@ -37,6 +38,10 @@
 - iOS 10.0+
 - Xcode 8.0+
 - Swift 3.0
+
+## API
+
+根据项目和干货集中营文档整理的 [Gank API 文档](https://github.com/yeziahehe/Gank/blob/master/API.md)。
 
 ## 版本
 
