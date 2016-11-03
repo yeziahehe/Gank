@@ -40,7 +40,7 @@
 
 ## 版本
 
-详情请查看 [Releases](https://github.com/yeziahehe/Gank/releases)。
+详情请查看 [版本日志](https://github.com/yeziahehe/Gank/blob/master/RELEASES.md)。
 
 ## 贡献
 
