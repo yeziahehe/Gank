@@ -14,7 +14,7 @@
 ### 请求方式
 
 | 请求方式 | URL |
-| :--: | -- |
+| :---: | --- |
 | `GET` | `http://gank.io/api/day/history` |
 
 ### 返回示例
@@ -35,8 +35,8 @@
 ```
 
 | 返回参数 | 类型 | 描述 |
-| :--: | :--:| -- |
-| error | Bool | 错误类型：true/false |
+| :---: | :---:| --- |
+| error | Bool | 错误类型：true \| false |
 | results | Array[String] | 历史干货日期 |
 
 ## #2 某日干货
@@ -49,7 +49,7 @@
 ### 请求方式
 
 | 请求方式 | URL |
-| :--: | -- |
+| :---: | --- |
 | `GET` | `http://gank.io/api/day/{year}/{month}/{day}` |
 
 ### 返回示例
@@ -138,9 +138,9 @@
 ```
 
 | 返回参数 | 类型 | 描述 |
-| :--: | :--:| -- |
-| category | Array[String] | 干货类型：Android/iOS/休息视频/福利/拓展资源/前端/瞎推荐/App	|
-| error | Bool | 错误类型：true/false |
+| :---: | :---:| --- |
+| category | Array[String] | 干货类型：Android \| iOS \| 休息视频 \| 福利 \| 拓展资源 \| 前端 \| 瞎推荐 \| App	|
+| error | Bool | 错误类型：true \| false |
 | results | JSON Object | 干货详情 |
 | _id | String | 干货 id |
 | createdAt | String | 干货创建时间 |
