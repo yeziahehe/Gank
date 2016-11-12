@@ -12,6 +12,10 @@ final class NewViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        allGankHistoryDate(failureHandler: nil, completion: { data in
+            gankLog.debug("data:\(data)")
+        })
                 
     }
     

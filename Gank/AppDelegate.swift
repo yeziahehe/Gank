@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import ReachabilitySwift
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let reachability = Reachability()!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -21,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Global Tint Color
         window?.tintColor = UIColor.gankTintColor()
         window?.tintAdjustmentMode = .normal
+        
+        // 配置网络变化检测
+        configureNetworkReachable()
         
         let storyboard = UIStoryboard.gank_main
         window?.rootViewController = storyboard.instantiateInitialViewController()
@@ -48,6 +54,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        reachability.stopNotifier()
+    }
+    
+    fileprivate func configureNetworkReachable() {
+        
+//        let manager = NetworkReachabilityManager(host: "gank.io")
+//        
+//        manager?.listener = { status in
+//            
+//            if status == .notReachable {
+//                print("Network Status Changed: \(status)")
+//            } else if status == .reachable(.ethernetOrWiFi) {
+//                print("Network Status Changed: \(status)")
+//            }
+//        }
+//        
+//        manager?.startListening()
+        
+        reachability.whenReachable = { reachability in
+            if reachability.isReachableViaWiFi {
+                gankLog.debug("当前是 WiFi 网络连接")
+            } else {
+                gankLog.debug("当前 2G/3G/4G 网络连接")
+            }
+        }
+        
+        reachability.whenUnreachable = { reachability in
+            gankLog.debug("当前无网络连接")
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            gankLog.debug("Unable to start notifier")
+        }
     }
 
 }
