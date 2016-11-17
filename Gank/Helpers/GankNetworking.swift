@@ -8,41 +8,36 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 public struct Resource<A>: CustomStringConvertible {
     let path: String
     let method: HTTPMethod
-    let requestBody: Data?
-    let headers: [String: String]
-    let parse: (Data) -> A?
+    let requestParamters: Parameters?
+    let parse: (JSON) -> A?
     
     public var description: String {
-        let decodeRequestBody: JSONDictionary
-        if let requestBody = requestBody {
-            decodeRequestBody = decodeJSON(requestBody) ?? [:]
-        } else {
-            decodeRequestBody = [:]
-        }
-        
-        return "Resource(Method: \(method), path: \(path), headers: \(headers), requestBody: \(decodeRequestBody))"
+        return "Resource(Method: \(method), path: \(path), requestParamters: \(requestParamters))"
     }
     
-    public init(path: String, method: HTTPMethod, requestBody: Data?, headers: [String: String], parse: @escaping (Data) -> A?) {
+    public init(path: String, method: HTTPMethod, requestParamters: Parameters?, parse: @escaping (JSON) -> A?) {
         self.path = path
         self.method = method
-        self.requestBody = requestBody
-        self.headers = headers
+        self.requestParamters = requestParamters
         self.parse = parse
     }
 }
 
 public enum Reason: CustomStringConvertible {
+    case error
     case couldNotParseJSON
     case noData
     case other(Error?)
     
     public var description: String {
         switch self {
+        case .error:
+            return "Error"
         case .couldNotParseJSON:
             return "CouldNotParseJSON"
         case .noData:
@@ -78,105 +73,41 @@ public func apiRequest<A>(_ modifyRequest: (URLRequest) -> (), baseURL: URL, res
     let url = baseURL.appendingPathComponent(resource.path)
     let method = resource.method
     
+    if let parameters = resource.requestParamters {
+        return
+    }
+    
     Alamofire.request(url, method: method).validate().responseJSON { response in
-        if let responseData = response.data {
-           if let result = resource.parse(responseData) {
-                completion(result)
+        switch response.result {
+        case .success(let value):
+            let error = isErrorInData(value)
+            if error {
+                failure(.error, errorMessageInData(value))
             } else {
-                let dataString = String(data: responseData, encoding: .utf8)
-                print(dataString!)
-                print("\(resource)\n")
-                failure(.couldNotParseJSON, "JSON 解析失败")
+                if let result = resource.parse(JSON(value)) {
+                    completion(result)
+                } else {
+                    failure(.couldNotParseJSON, errorMessageInData(value))
+                }
             }
-            
-        } else {
-            failure(.noData, "无数据")
-            print("\(resource)\n")
+        case .failure(let error):
+            failure(.noData, errorMessageInData(error))
         }
     }
 }
 
-func isErrorInData(_ data: Data?) -> Bool {
-    if let data = data {
-        if let json = decodeJSON(data) {
-            if let isError = json["error"] as? Bool {
-                return isError
-            }
-        }
+func isErrorInData(_ data: Any) -> Bool {
+    let json = JSON(data)
+    if let isError = json["error"].bool {
+        return isError
     }
     return true
 }
 
-func errorMessageInData(_ data: Data?) -> String? {
-    if let data = data {
-        if let json = decodeJSON(data) {
-            if let errorMessage = json["msg"] as? String {
-                return errorMessage
-            }
-        }
+func errorMessageInData(_ data: Any) -> String? {
+    let json = JSON(data)
+    if let errorMessage = json["msg"].string {
+        return errorMessage
     }
-    
     return nil
-}
-
-func resultsInData(_ data: Data?) -> JSONDictionary {
-    if let data = data {
-        if let json = decodeJSON(data) {
-            if let results = json["results"] as? JSONDictionary {
-                return results
-            }
-        }
-    }
-    return [:]
-}
-
-// Here are some convenience functions for dealing with JSON APIs
-
-public typealias JSONDictionary = [String: Any]
-
-public func decodeJSON(_ data: Data) -> JSONDictionary? {
-    
-    guard data.count > 0 else {
-        return [:] // 允许不返回数据，只有状态码
-    }
-    
-    guard let result = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) else {
-        return nil
-    }
-    
-    if let dictionary = result as? JSONDictionary {
-        return dictionary
-    } else if let array = result as? [JSONDictionary] {
-        return ["data": array]
-    } else {
-        return nil
-    }
-}
-
-public func encodeJSON(_ dict: JSONDictionary) -> Data? {
-    return dict.count > 0 ? (try? JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions())) : nil
-}
-
-public func jsonResource<A>(path: String, method: HTTPMethod, requestParameters: JSONDictionary, parse: @escaping (JSONDictionary) -> A?) -> Resource<A> {
-    
-    let jsonParse: (Data) -> A? = { data in
-        if let json = decodeJSON(data) {
-            return parse(json)
-        }
-        return nil
-    }
-    
-    let jsonBody = encodeJSON(requestParameters)
-    var headers = [
-        "Content-Type": "application/json",
-        ]
-    
-    let locale = Locale.autoupdatingCurrent
-    if let
-        languageCode = (locale as NSLocale).object(forKey: NSLocale.Key.languageCode) as? String,
-        let countryCode = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as? String {
-        headers["Accept-Language"] = languageCode + "-" + countryCode
-    }
-    
-    return Resource(path: path, method: method, requestBody: jsonBody, headers: headers, parse: jsonParse)
 }

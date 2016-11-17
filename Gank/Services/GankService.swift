@@ -8,33 +8,34 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 public let gankHost = "gank.io"
 public let gankBaseURL = URL(string: "http://gank.io/api")!
 
 // MARK: - 干货历史日期
-
-public struct GankHistoryDate {
-    public let date: String
+public func allGankHistoryDate(failureHandler: FailureHandler?, completion: @escaping (Array<String>) -> Void) {
     
-//    public var hasGankToday: Bool {
-//        
-//    }
-//    
-//    public func hasGank(_ date: Date -> Bool) {
-//        
-//    }
-}
-
-
-public func allGankHistoryDate(failureHandler: FailureHandler?, completion: @escaping (JSONDictionary) -> Void) {
-    
-    let parse: (JSONDictionary) -> JSONDictionary? = { data in
-        return data
+    let parse: (JSON) -> Array<String>? = { data in
+        let historyDateArray = data["results"].arrayValue.map({$0.stringValue})
+        return historyDateArray
     }
     
-    let resource = jsonResource(path: "/day/history", method: .get, requestParameters: [:], parse: parse)
+    let resource = Resource(path: "/day/history", method: .get, requestParamters: nil, parse: parse)
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 
+}
+
+// MARK: - 今日是否有干货
+public func hasGankToday(failureHandler: FailureHandler?, completion: @escaping (Bool) -> Void) {
+    let parse: (JSON) -> Bool? = { data in
+        let lastestDate = data["results"][0].stringValue
+        let now = Date()
+        return lastestDate == now.toString()
+    }
+    
+    let resource = Resource(path: "/day/history", method: .get, requestParamters: nil, parse: parse)
+    
+    apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
