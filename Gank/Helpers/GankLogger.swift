@@ -28,7 +28,3 @@ let gankLog: XCGLogger = {
     
     return gankLog
 }()
-
-
-
-
