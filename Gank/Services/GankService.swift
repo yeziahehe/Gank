@@ -39,3 +39,5 @@ public func hasGankToday(failureHandler: FailureHandler?, completion: @escaping 
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
+
+// MARK: - 某日干货
