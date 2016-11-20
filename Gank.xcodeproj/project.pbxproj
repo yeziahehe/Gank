@@ -658,6 +658,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coryphaei.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b296976e-c50a-4d91-9bcc-ca746f769553";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -673,6 +674,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coryphaei.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b296976e-c50a-4d91-9bcc-ca746f769553";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
