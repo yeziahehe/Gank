@@ -12,11 +12,6 @@ final class NewViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        hasGankToday(failureHandler: nil, completion: { data in
-            gankLog.debug("bool:\(data)")
-        })
-                
     }
     
 }

@@ -26,6 +26,7 @@
 		2C971B761DC203F400843481 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C971B751DC203F400843481 /* CategoryViewController.swift */; };
 		2C971B781DC2040400843481 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C971B771DC2040400843481 /* MeViewController.swift */; };
 		2C98A41B1DDDFBDB001CBE37 /* Date+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C98A41A1DDDFBDB001CBE37 /* Date+Gank.swift */; };
+		2C98A41D1DE00935001CBE37 /* GankServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */; };
 		2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B61DCF611100526C15 /* GankNetworking.swift */; };
 		2CCFD9BA1DCFA6DE00526C15 /* GankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B91DCFA6DE00526C15 /* GankService.swift */; };
 		2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */; };
@@ -76,6 +77,7 @@
 		2C971B751DC203F400843481 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		2C971B771DC2040400843481 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		2C98A41A1DDDFBDB001CBE37 /* Date+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Gank.swift"; sourceTree = "<group>"; };
+		2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankServiceTests.swift; sourceTree = "<group>"; };
 		2CCFD9B61DCF611100526C15 /* GankNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GankNetworking.swift; path = Helpers/GankNetworking.swift; sourceTree = "<group>"; };
 		2CCFD9B81DCF797800526C15 /* Gank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gank.entitlements; sourceTree = "<group>"; };
 		2CCFD9B91DCFA6DE00526C15 /* GankService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankService.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				2C83C8FB1DAE0F4500FCE89A /* GankTests.swift */,
+				2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */,
 				2C83C8FD1DAE0F4500FCE89A /* Info.plist */,
 			);
 			path = GankTests;
@@ -505,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C98A41D1DE00935001CBE37 /* GankServiceTests.swift in Sources */,
 				2C83C8FC1DAE0F4500FCE89A /* GankTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
