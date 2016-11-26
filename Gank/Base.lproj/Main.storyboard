@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZyB-vR-zFu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZyB-vR-zFu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,34 +27,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUY-fE-yWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1090" y="-275"/>
-        </scene>
-        <!--干货集中营-->
-        <scene sceneID="OEN-Hi-j6u">
-            <objects>
-                <viewController storyboardIdentifier="NewViewController" id="R68-Me-JLF" customClass="NewViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HJn-M7-U5p"/>
-                        <viewControllerLayoutGuide type="bottom" id="Pqc-4n-ead"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Dwi-dg-lBe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="干货集中营" id="1Oh-tJ-1bP">
-                        <rightBarButtonItems>
-                            <barButtonItem image="calendar" id="nAg-PQ-JFd">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </barButtonItem>
-                            <barButtonItem image="new" id="W6R-GZ-paX">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zoS-7a-Q5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1927" y="1178"/>
         </scene>
         <!--我-->
         <scene sceneID="fnB-vd-TKJ">
@@ -79,7 +53,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ByC-VK-wfX" customClass="GankNavigationController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" image="me" selectedImage="me_active" id="m68-hK-B4B"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="avp-cD-7XP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="avp-cD-7XP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -121,7 +95,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h3X-p8-Lvy" customClass="GankNavigationController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="分类" image="category" selectedImage="category_active" id="DR3-ur-nTs"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bwg-wi-OuC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bwg-wi-OuC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -144,7 +118,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u1o-vd-2yA" customClass="GankNavigationController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="今日" image="new" selectedImage="new_active" id="Wyb-gN-AtM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="NJM-aW-ceN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NJM-aW-ceN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -154,16 +128,25 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="R68-Me-JLF" kind="relationship" relationship="rootViewController" id="XYh-wW-XfV"/>
+                        <segue destination="P3u-GX-Ngs" kind="relationship" relationship="rootViewController" id="XYh-wW-XfV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94J-mT-0Xg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1927" y="489"/>
         </scene>
+        <!--NewViewController-->
+        <scene sceneID="clg-Dm-mky">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NewViewController" storyboardName="New" referencedIdentifier="NewViewController" id="P3u-GX-Ngs" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="uOz-hH-SuM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUa-wq-gek" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1927" y="1178"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="calendar" width="20" height="20"/>
         <image name="category" width="22" height="21"/>
         <image name="category_active" width="23" height="22"/>
         <image name="me" width="20" height="23"/>

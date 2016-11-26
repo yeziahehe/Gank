@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--干货集中营-->
+        <scene sceneID="OEN-Hi-j6u">
+            <objects>
+                <viewController storyboardIdentifier="NewViewController" id="R68-Me-JLF" customClass="NewViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HJn-M7-U5p"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pqc-4n-ead"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dwi-dg-lBe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTV-M0-Zyd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7UY-M9-T0D">
+                                        <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meizi_loading_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Az3-eH-Mi2">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
+                                            </imageView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="J3B-e5-F1e">
+                                                <rect key="frame" x="0.0" y="249" width="375" height="418"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="R68-Me-JLF" id="O7s-na-D1j"/>
+                                                    <outlet property="delegate" destination="R68-Me-JLF" id="Xtv-NO-sfG"/>
+                                                </connections>
+                                            </tableView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date_loading_bg" translatesAutoresizingMaskIntoConstraints="NO" id="czR-qU-AyO">
+                                                <rect key="frame" x="285" y="214" width="70" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="6GZ-7z-3e5"/>
+                                                    <constraint firstAttribute="height" constant="70" id="fqN-5A-xce"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="J3B-e5-F1e" secondAttribute="bottom" id="0zy-jG-QJU"/>
+                                            <constraint firstAttribute="trailing" secondItem="czR-qU-AyO" secondAttribute="trailing" constant="20" id="2vz-pg-Gu8"/>
+                                            <constraint firstItem="J3B-e5-F1e" firstAttribute="top" secondItem="Az3-eH-Mi2" secondAttribute="bottom" id="6fV-7B-g6M"/>
+                                            <constraint firstAttribute="trailing" secondItem="Az3-eH-Mi2" secondAttribute="trailing" id="AoK-7d-CAU"/>
+                                            <constraint firstItem="J3B-e5-F1e" firstAttribute="leading" secondItem="7UY-M9-T0D" secondAttribute="leading" id="M5p-75-Gzt"/>
+                                            <constraint firstItem="czR-qU-AyO" firstAttribute="centerY" secondItem="Az3-eH-Mi2" secondAttribute="bottom" id="cqp-DH-w97"/>
+                                            <constraint firstItem="Az3-eH-Mi2" firstAttribute="leading" secondItem="7UY-M9-T0D" secondAttribute="leading" id="jf3-Iv-b44"/>
+                                            <constraint firstItem="Az3-eH-Mi2" firstAttribute="top" secondItem="7UY-M9-T0D" secondAttribute="top" id="kd8-dX-4Au"/>
+                                            <constraint firstAttribute="trailing" secondItem="J3B-e5-F1e" secondAttribute="trailing" id="y9G-7I-IjR"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7UY-M9-T0D" firstAttribute="leading" secondItem="hTV-M0-Zyd" secondAttribute="leading" id="Cnb-Sv-jHb"/>
+                                    <constraint firstItem="7UY-M9-T0D" firstAttribute="top" secondItem="hTV-M0-Zyd" secondAttribute="top" id="KGe-GA-Rd2"/>
+                                    <constraint firstAttribute="bottom" secondItem="7UY-M9-T0D" secondAttribute="bottom" id="nl6-3N-mGs"/>
+                                    <constraint firstAttribute="trailing" secondItem="7UY-M9-T0D" secondAttribute="trailing" id="rNY-dB-Cst"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hTV-M0-Zyd" firstAttribute="top" secondItem="Dwi-dg-lBe" secondAttribute="top" id="6x0-n2-lUc"/>
+                            <constraint firstItem="7UY-M9-T0D" firstAttribute="width" secondItem="Dwi-dg-lBe" secondAttribute="width" id="AoW-wJ-RqK"/>
+                            <constraint firstAttribute="trailing" secondItem="hTV-M0-Zyd" secondAttribute="trailing" id="BM7-lF-rcM"/>
+                            <constraint firstAttribute="bottom" secondItem="hTV-M0-Zyd" secondAttribute="bottom" id="F37-t1-Kaj"/>
+                            <constraint firstItem="7UY-M9-T0D" firstAttribute="height" secondItem="Dwi-dg-lBe" secondAttribute="height" priority="999" id="mlD-8G-16J"/>
+                            <constraint firstItem="hTV-M0-Zyd" firstAttribute="leading" secondItem="Dwi-dg-lBe" secondAttribute="leading" id="xoN-Hk-vKd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="干货集中营" id="1Oh-tJ-1bP">
+                        <rightBarButtonItems>
+                            <barButtonItem image="calendar" id="nAg-PQ-JFd">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                            <barButtonItem image="new" id="W6R-GZ-paX">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
+                        <color key="tintColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </simulatedNavigationBarMetrics>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
+                        <color key="tintColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </simulatedTabBarMetrics>
+                    <connections>
+                        <outlet property="contentScrollView" destination="hTV-M0-Zyd" id="mKX-my-dyO"/>
+                        <outlet property="meiziImageView" destination="Az3-eH-Mi2" id="Rpj-ak-gDb"/>
+                        <outlet property="newTableView" destination="J3B-e5-F1e" id="LvB-QI-5q0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zoS-7a-Q5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1927.2" y="1177.961019490255"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar" width="20" height="20"/>
+        <image name="date_loading_bg" width="72" height="72"/>
+        <image name="meizi_loading_bg" width="375" height="249"/>
+        <image name="new" width="24" height="24"/>
+    </resources>
+    <color key="tintColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+</document>
