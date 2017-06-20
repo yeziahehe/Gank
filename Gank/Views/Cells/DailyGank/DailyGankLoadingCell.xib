@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="158"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6hI-wO-Wfv" id="JmP-UN-WPn">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="157.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title_loading" translatesAutoresizingMaskIntoConstraints="NO" id="3wt-Q4-ita">
@@ -49,7 +49,7 @@
                     <constraint firstItem="KIo-qy-dvD" firstAttribute="top" secondItem="XQt-Xl-fjX" secondAttribute="bottom" constant="10" id="0CG-ch-WiW"/>
                     <constraint firstItem="XQt-Xl-fjX" firstAttribute="leading" secondItem="JmP-UN-WPn" secondAttribute="leading" constant="20" id="2o7-2v-WCR"/>
                     <constraint firstItem="KIo-qy-dvD" firstAttribute="leading" secondItem="JmP-UN-WPn" secondAttribute="leading" constant="20" id="BN2-so-knb"/>
-                    <constraint firstItem="ccF-ob-Y1S" firstAttribute="top" secondItem="JmP-UN-WPn" secondAttribute="top" constant="85" id="CGu-pc-1QI"/>
+                    <constraint firstItem="ccF-ob-Y1S" firstAttribute="top" secondItem="3wt-Q4-ita" secondAttribute="bottom" constant="30" id="CGu-pc-1QI"/>
                     <constraint firstItem="XQt-Xl-fjX" firstAttribute="top" secondItem="ccF-ob-Y1S" secondAttribute="bottom" constant="10" id="MqX-iE-HSI"/>
                     <constraint firstItem="3wt-Q4-ita" firstAttribute="centerX" secondItem="JmP-UN-WPn" secondAttribute="centerX" id="Qv3-qE-35b"/>
                     <constraint firstAttribute="bottom" secondItem="KIo-qy-dvD" secondAttribute="bottom" constant="4" id="akO-09-gjb"/>

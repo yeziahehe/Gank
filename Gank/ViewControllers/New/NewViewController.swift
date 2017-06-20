@@ -15,7 +15,8 @@ final class NewViewController: BaseViewController {
             newTableView.registerNibOf(DailyGankCell.self)
             newTableView.registerNibOf(DailyGankLoadingCell.self)
             
-            newTableView.rowHeight = 158
+            newTableView.rowHeight = UITableViewAutomaticDimension
+            newTableView.estimatedRowHeight = 158
             newTableView.tableFooterView = UIView()
             newTableView.separatorStyle = .none
         }
@@ -66,12 +67,21 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         return CGFloat.leastNormalMagnitude
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 185
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: DailyGankLoadingCell = tableView.dequeueReusableCell()
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         contentScrollView.contentSize = CGSize(width: 375, height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
+        gankLog.debug(contentScrollView.contentSize.height)
         return cell
         
     }
