@@ -148,6 +148,17 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		2C1CCC1A1EF813DD00679E3E /* DailyGank */ = {
+			isa = PBXGroup;
+			children = (
+				2C4D023D1DE2076800C044B5 /* DailyGankCell.swift */,
+				2C4D023E1DE2076800C044B5 /* DailyGankCell.xib */,
+				2C4D023F1DE2076800C044B5 /* DailyGankLoadingCell.swift */,
+				2C4D02401DE2076800C044B5 /* DailyGankLoadingCell.xib */,
+			);
+			path = DailyGank;
+			sourceTree = "<group>";
+		};
 		2C2A156E1DC1F1E0003D5444 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,10 +193,7 @@
 		2C4D023C1DE2076800C044B5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2C4D023D1DE2076800C044B5 /* DailyGankCell.swift */,
-				2C4D023E1DE2076800C044B5 /* DailyGankCell.xib */,
-				2C4D023F1DE2076800C044B5 /* DailyGankLoadingCell.swift */,
-				2C4D02401DE2076800C044B5 /* DailyGankLoadingCell.xib */,
+				2C1CCC1A1EF813DD00679E3E /* DailyGank */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -449,7 +457,7 @@
 					2C83C8E21DAE0F4500FCE89A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 3WTM5PLDUE;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -753,13 +761,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gank/Gank.entitlements;
-				DEVELOPMENT_TEAM = 3WTM5PLDUE;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Gank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coryphaei.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "88253b2d-2b10-4e7b-8df3-02665ef357f6";
-				PROVISIONING_PROFILE_SPECIFIER = Gank_Dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -770,14 +780,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gank/Gank.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 3WTM5PLDUE;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Gank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coryphaei.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9ea9dfed-c51a-485d-b994-8d0277ff62fe";
-				PROVISIONING_PROFILE_SPECIFIER = Gank_Dis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

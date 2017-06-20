@@ -17,6 +17,7 @@ final class NewViewController: BaseViewController {
             
             newTableView.rowHeight = 158
             newTableView.tableFooterView = UIView()
+            newTableView.separatorStyle = .none
         }
     }
     
