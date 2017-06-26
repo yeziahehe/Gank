@@ -30,8 +30,27 @@ extension Date {
     
     // Check date if it is today
     public var isToday: Bool {
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd"
-        return format.string(from: self) == format.string(from: Date())
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: self) == formatter.string(from: Date())
     }
+    
+    public func yearToString(format: String = "yyyy") -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+    
+    public func monthToString(format: String = "MM") -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+    
+    public func dayToString(format: String = "dd") -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+    
 }

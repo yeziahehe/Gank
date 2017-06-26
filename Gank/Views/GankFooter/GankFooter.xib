@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GankFooter">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感谢所有默默付出的编辑们，愿大家都有美好的一天。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ply-qT-Tfb">
+                    <rect key="frame" x="45" y="30" width="285" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="00Z-WJ-wiw"/>
+                        <constraint firstAttribute="width" constant="285" id="ffR-LB-lgn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="Pvg-wx-5o4">
+                    <rect key="frame" x="30" y="36" width="15" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="PYR-fO-1HH"/>
+                        <constraint firstAttribute="width" constant="15" id="lbn-nk-fWp"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="w1O-F5-IyQ">
+                    <rect key="frame" x="330" y="36" width="15" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="JDb-QM-98U"/>
+                        <constraint firstAttribute="width" constant="15" id="wyy-hS-Lya"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Pvg-wx-5o4" secondAttribute="bottom" constant="36" id="0YQ-CV-xlw"/>
+                <constraint firstItem="Pvg-wx-5o4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="36" id="3UZ-0a-Z6K"/>
+                <constraint firstItem="Ply-qT-Tfb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6a0-He-EIU"/>
+                <constraint firstItem="Pvg-wx-5o4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-150" id="Kj2-sL-sfc"/>
+                <constraint firstAttribute="bottom" secondItem="w1O-F5-IyQ" secondAttribute="bottom" constant="36" id="VmT-GG-TTf"/>
+                <constraint firstAttribute="bottom" secondItem="Ply-qT-Tfb" secondAttribute="bottom" constant="30" id="b9X-Nu-nX4"/>
+                <constraint firstItem="w1O-F5-IyQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="36" id="em3-Jb-e4p"/>
+                <constraint firstItem="Ply-qT-Tfb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="gEu-OJ-JKh"/>
+                <constraint firstItem="w1O-F5-IyQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="150" id="qf6-Zg-74B"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="-240.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="line" width="345" height="1"/>
+    </resources>
+</document>
