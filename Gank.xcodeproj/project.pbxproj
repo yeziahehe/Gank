@@ -20,6 +20,8 @@
 		2C4D02491DE2076800C044B5 /* DailyGankTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4D02431DE2076800C044B5 /* DailyGankTitle.xib */; };
 		2C4D024D1DE207F700C044B5 /* GankFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D024C1DE207F700C044B5 /* GankFooter.swift */; };
 		2C4D024F1DE2080600C044B5 /* GankFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4D024E1DE2080600C044B5 /* GankFooter.xib */; };
+		2C4DFB351F0022500068A73F /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DFB341F0022500068A73F /* SafeDispatch.swift */; };
+		2C4DFB371F0028270068A73F /* String+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DFB361F0028270068A73F /* String+Gank.swift */; };
 		2C531D901DE6DAF500C920FB /* UITableView+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C531D8F1DE6DAF500C920FB /* UITableView+Gank.swift */; };
 		2C531D931DE6DD2000C920FB /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C531D921DE6DD2000C920FB /* Reusable.swift */; };
 		2C531D951DE6DD6500C920FB /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C531D941DE6DD6500C920FB /* NibLoadable.swift */; };
@@ -78,6 +80,8 @@
 		2C4D02431DE2076800C044B5 /* DailyGankTitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyGankTitle.xib; sourceTree = "<group>"; };
 		2C4D024C1DE207F700C044B5 /* GankFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankFooter.swift; sourceTree = "<group>"; };
 		2C4D024E1DE2080600C044B5 /* GankFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GankFooter.xib; sourceTree = "<group>"; };
+		2C4DFB341F0022500068A73F /* SafeDispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SafeDispatch.swift; path = Helpers/SafeDispatch.swift; sourceTree = "<group>"; };
+		2C4DFB361F0028270068A73F /* String+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Gank.swift"; sourceTree = "<group>"; };
 		2C531D8F1DE6DAF500C920FB /* UITableView+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Gank.swift"; sourceTree = "<group>"; };
 		2C531D921DE6DD2000C920FB /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		2C531D941DE6DD6500C920FB /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 				2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */,
 				2C98A41A1DDDFBDB001CBE37 /* Date+Gank.swift */,
 				2C531D8F1DE6DAF500C920FB /* UITableView+Gank.swift */,
+				2C4DFB361F0028270068A73F /* String+Gank.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				2C75352B1DC8D02900C957A4 /* GankConfig.swift */,
 				2C75352D1DC8D03900C957A4 /* GankLogger.swift */,
 				2CCFD9B61DCF611100526C15 /* GankNetworking.swift */,
+				2C4DFB341F0022500068A73F /* SafeDispatch.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -543,7 +549,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		85288FA81E4895AF70962E30 /* [CP] Copy Pods Resources */ = {
@@ -602,7 +608,9 @@
 				2C971B6C1DC200F600843481 /* SegueViewController.swift in Sources */,
 				2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */,
 				2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */,
+				2C4DFB371F0028270068A73F /* String+Gank.swift in Sources */,
 				2C531D951DE6DD6500C920FB /* NibLoadable.swift in Sources */,
+				2C4DFB351F0022500068A73F /* SafeDispatch.swift in Sources */,
 				2C75352E1DC8D03900C957A4 /* GankLogger.swift in Sources */,
 				2CCFD9BA1DCFA6DE00526C15 /* GankService.swift in Sources */,
 				2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */,

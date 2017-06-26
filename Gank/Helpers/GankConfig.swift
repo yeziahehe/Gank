@@ -6,4 +6,20 @@
 //  Copyright © 2016年 Suzhou Coryphaei Information&Technology Co., Ltd. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class GankConfig {
+
+    class func getScreenRect() -> CGRect {
+        return UIScreen.main.bounds
+    }
+    
+    class func getScreenHeight() -> CGFloat {
+        return UIScreen.main.bounds.height
+    }
+    
+    class func getScreenWidth() -> CGFloat {
+        return UIScreen.main.bounds.width
+    }
+
+}

@@ -14,16 +14,10 @@ final class NewViewController: BaseViewController {
         didSet {
             newTableView.registerNibOf(DailyGankCell.self)
             newTableView.registerNibOf(DailyGankLoadingCell.self)
-            
-            newTableView.rowHeight = UITableViewAutomaticDimension
-            newTableView.estimatedRowHeight = 158
-            newTableView.tableFooterView = UIView()
-            newTableView.separatorStyle = .none
         }
     }
     
     @IBOutlet weak var meiziImageView: UIImageView!
-    
     @IBOutlet weak var contentScrollView: UIScrollView!
     
     fileprivate lazy var newFooterView: GankFooter = GankFooter()
@@ -37,16 +31,32 @@ final class NewViewController: BaseViewController {
     
     deinit {
         newTableView?.delegate = nil
-        
         gankLog.debug("deinit NewViewController")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        newTableView.rowHeight = 158
+        newTableView.tableFooterView = UIView()
+        newTableView.separatorStyle = .none
+        
+        self.loadData()
+        
         #if DEBUG
             view.addSubview(newFPSLabel)
         #endif
+        
+        
+    }
+    
+    fileprivate func loadData() {
+        gankLastest(falureHandler: nil, completion: { (isToday, category, lastestGank) in
+            //var categoryArray = lastestGank
+            gankLog.debug(isToday)
+            gankLog.debug(category)
+            gankLog.debug(lastestGank)
+        })
     }
     
 }
@@ -54,6 +64,11 @@ final class NewViewController: BaseViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegat
 
 extension NewViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    fileprivate enum Section: Int {
+        case loadGank
+        case newGank
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -67,21 +82,12 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         return CGFloat.leastNormalMagnitude
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 185
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: DailyGankLoadingCell = tableView.dequeueReusableCell()
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         
-        contentScrollView.contentSize = CGSize(width: 375, height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
-        gankLog.debug(contentScrollView.contentSize.height)
+        contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
         return cell
         
     }
