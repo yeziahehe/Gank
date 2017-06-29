@@ -97,8 +97,9 @@ public func gankWithDay(year: String, month: String, day: String, failureHandler
     
     let parse: (JSON) -> (Bool, Array<String>, Dictionary<String, Array<Gank>>)? = { data in
         
-        let category = data["category"].arrayValue.map({$0.stringValue})
-        var gank = [String: Array<Gank>]()
+        let categoryArray: [String] = data["category"].arrayValue.map({$0.stringValue})
+        let categories = Array<String>().sortByGankOrder(categoryArray)
+        var gank: [String: Array<Gank>] = [:]
         var isToday = false
         
         for (key, gankArrayJSON):(String, JSON) in data["results"] {
@@ -113,7 +114,7 @@ public func gankWithDay(year: String, month: String, day: String, failureHandler
         lastestGankDate(failureHandler: nil, completion: { (today, _) in
             isToday = today
         })
-        return (isToday, category, gank)
+        return (isToday, categories, gank)
     }
     
     let resource = Resource(path: "/day/\(year)/\(month)/\(day)", method: .get, requestParamters: nil, parse: parse)
@@ -128,5 +129,12 @@ public func gankLastest(falureHandler: FailureHandler?, completion: @escaping (B
         let lastestGankDate = date.toDate()!
         gankWithDay(year: lastestGankDate.yearToString(), month: lastestGankDate.monthToString(), day: lastestGankDate.dayToString(), failureHandler: falureHandler, completion: completion)
     })
+    
+}
+
+// MARK: - 今日干货
+public func gankInToday(falureHandler: FailureHandler?, completion: @escaping (Bool, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
+    
+    gankWithDay(year: Date().yearToString(), month: Date().monthToString(), day: Date().dayToString(), failureHandler: falureHandler, completion: completion)
     
 }

@@ -22,6 +22,10 @@ final class NewViewController: BaseViewController {
     
     fileprivate lazy var newFooterView: GankFooter = GankFooter()
     
+    fileprivate var isGankToday: Bool = false
+    fileprivate var gankCategories: [String] = []
+    fileprivate var gankDictionary: [String: Array<Gank>] = [:]
+    
     #if DEBUG
     private lazy var newFPSLabel: FPSLabel = {
         let label = FPSLabel()
@@ -37,26 +41,23 @@ final class NewViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        newTableView.rowHeight = 158
         newTableView.tableFooterView = UIView()
         newTableView.separatorStyle = .none
+        newTableView.rowHeight = 158
         
-        self.loadData()
+        gankLastest(falureHandler: nil, completion: { (isToday, categories, lastestGank) in
+            self.isGankToday = isToday
+            self.gankCategories = categories
+            self.gankDictionary = lastestGank
+            self.newTableView.estimatedRowHeight = 95.5
+            self.newTableView.rowHeight = UITableViewAutomaticDimension
+            self.newTableView.reloadData()
+        })
         
         #if DEBUG
             view.addSubview(newFPSLabel)
         #endif
         
-        
-    }
-    
-    fileprivate func loadData() {
-        gankLastest(falureHandler: nil, completion: { (isToday, category, lastestGank) in
-            //var categoryArray = lastestGank
-            gankLog.debug(isToday)
-            gankLog.debug(category)
-            gankLog.debug(lastestGank)
-        })
     }
     
 }
@@ -65,16 +66,18 @@ final class NewViewController: BaseViewController {
 
 extension NewViewController: UITableViewDataSource, UITableViewDelegate {
     
-    fileprivate enum Section: Int {
-        case loadGank
-        case newGank
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        
+        return gankCategories.isEmpty ? 1 : gankCategories.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        guard gankCategories.isEmpty else {
+            let key: String = gankCategories[section]
+            gankLog.debug(gankDictionary[key]!.count)
+            return gankDictionary[key]!.count
+        }
         return 2
     }
     
@@ -84,12 +87,56 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: DailyGankLoadingCell = tableView.dequeueReusableCell()
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        guard gankCategories.isEmpty else {
+            let cell: DailyGankCell = tableView.dequeueReusableCell()
+            let key: String = gankCategories[indexPath.section]
+            let gankDetail: Gank = gankDictionary[key]![indexPath.row]
+            
+            cell.timeLabel.text = gankDetail.publishedAt
+            cell.authorLabel.text = gankDetail.who
+            cell.titleLabel.text = gankDetail.desc
+//            cell.selectionStyle = UITableViewCellSelectionStyle.default
+//            newTableView.frame.size.height = newTableView.contentSize.height
+//            contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
+            return cell
+        }
         
-        contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
+        let cell: DailyGankLoadingCell = tableView.dequeueReusableCell()
+//        cell.selectionStyle = UITableViewCellSelectionStyle.none
+//        newTableView.frame.size.height = newTableView.contentSize.height
+//        contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
+        
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard gankCategories.isEmpty else {
+            
+            guard let cell = cell as? DailyGankCell else {
+                return
+            }
+            
+//            let key: String = gankCategories[indexPath.section]
+//            let gankDetail: Gank = gankDictionary[key]![indexPath.row]
+//
+//            cell.timeLabel.text = gankDetail.publishedAt
+//            cell.authorLabel.text = gankDetail.who
+//            cell.titleLabel.text = gankDetail.desc
+            cell.selectionStyle = UITableViewCellSelectionStyle.default
+            newTableView.frame.size.height = newTableView.contentSize.height
+            contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
+            return
+        }
+        
+        guard  let cell = cell as? DailyGankLoadingCell else {
+            return
+        }
+        
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        newTableView.frame.size.height = newTableView.contentSize.height
+        contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

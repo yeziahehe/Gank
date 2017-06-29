@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     
-    func toDate() -> Date? {
+    public func toDate() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
