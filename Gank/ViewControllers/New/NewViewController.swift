@@ -55,13 +55,6 @@ final class NewViewController: BaseViewController {
             SafeDispatch.async {
                 self.newTableView.reloadData()
             }
-            
-            //self.newTableView.reloadData()
-            
-            // 3 new lines of codes to force size adjustment
-//            self.newTableView.setNeedsLayout()
-//            self.newTableView.layoutIfNeeded()
-//            self.newTableView.reloadData()
         })
         
         #if DEBUG
@@ -89,7 +82,6 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         
         guard gankCategories.isEmpty else {
             let key: String = gankCategories[section]
-            gankLog.debug("😁")
             return gankDictionary[key]!.count
         }
         return 2
