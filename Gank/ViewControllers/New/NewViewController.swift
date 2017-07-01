@@ -20,7 +20,6 @@ final class NewViewController: BaseViewController {
     
     @IBOutlet weak var meiziImageView: UIImageView!
     @IBOutlet weak var contentScrollView: UIScrollView!
-    @IBOutlet weak var meiziImageViewConstraint: NSLayoutConstraint!
     
     fileprivate lazy var newFooterView: GankFooter = GankFooter()
     fileprivate var isGankToday: Bool = false
@@ -64,18 +63,8 @@ final class NewViewController: BaseViewController {
     }
     
     fileprivate func configUI() {
-        meiziImageView.kf.setImage(with: URL(string: meiziUrl)) {
-            (image, error, cacheType, imageURL) in
-            SafeDispatch.async { [weak self] in
-                if let image = image {
-                    self?.meiziImageViewConstraint.constant = GankConfig.getScreenWidth()/image.size.width * image.size.height
-                }
-            }
-            self.newTableView.reloadData()
-            self.newTableView.setNeedsLayout()
-            self.newTableView.layoutIfNeeded()
-            self.newTableView.reloadData()
-        }
+        meiziImageView.kf.setImage(with: URL(string: meiziUrl))
+        newTableView.reloadData()
     }
     
 }

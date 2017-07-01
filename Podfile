@@ -8,6 +8,7 @@ def pods
     pod 'ReachabilitySwift'
     pod 'SwiftyJSON'
     pod 'Kingfisher','~> 3.1.0'
+    pod 'FaceAware'
 end
 
 target 'Gank' do
