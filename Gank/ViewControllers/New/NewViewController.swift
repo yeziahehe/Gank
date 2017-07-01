@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class NewViewController: BaseViewController {
     
@@ -19,10 +20,11 @@ final class NewViewController: BaseViewController {
     
     @IBOutlet weak var meiziImageView: UIImageView!
     @IBOutlet weak var contentScrollView: UIScrollView!
+    @IBOutlet weak var meiziImageViewConstraint: NSLayoutConstraint!
     
     fileprivate lazy var newFooterView: GankFooter = GankFooter()
-    
     fileprivate var isGankToday: Bool = false
+    fileprivate var meiziUrl: String = ""
     fileprivate var gankCategories: [String] = []
     fileprivate var gankDictionary: [String: Array<Gank>] = [:]
     
@@ -45,16 +47,14 @@ final class NewViewController: BaseViewController {
         newTableView.separatorStyle = .none
         newTableView.rowHeight = 158
         
-        gankLastest(falureHandler: nil, completion: { (isToday, categories, lastestGank) in
+        gankLastest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             self.isGankToday = isToday
+            self.meiziUrl = meizi
             self.gankCategories = categories
             self.gankDictionary = lastestGank
             self.newTableView.estimatedRowHeight = 195.5
             self.newTableView.rowHeight = UITableViewAutomaticDimension
-            
-            SafeDispatch.async {
-                self.newTableView.reloadData()
-            }
+            self.configUI()
         })
         
         #if DEBUG
@@ -63,8 +63,19 @@ final class NewViewController: BaseViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.newTableView.reloadData()
+    fileprivate func configUI() {
+        meiziImageView.kf.setImage(with: URL(string: meiziUrl)) {
+            (image, error, cacheType, imageURL) in
+            SafeDispatch.async { [weak self] in
+                if let image = image {
+                    self?.meiziImageViewConstraint.constant = GankConfig.getScreenWidth()/image.size.width * image.size.height
+                }
+            }
+            self.newTableView.reloadData()
+            self.newTableView.setNeedsLayout()
+            self.newTableView.layoutIfNeeded()
+            self.newTableView.reloadData()
+        }
     }
     
 }
@@ -103,14 +114,14 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = gankDetail.desc
             cell.selectionStyle = UITableViewCellSelectionStyle.default
             newTableView.frame.size.height = newTableView.contentSize.height
-            contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
+            contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:meiziImageView.frame.size.height + newTableView.contentSize.height)
             return cell
         }
         
         let cell: DailyGankLoadingCell = tableView.dequeueReusableCell()
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         newTableView.frame.size.height = newTableView.contentSize.height
-        contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
+        contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:meiziImageView.frame.size.height + newTableView.contentSize.height)
         
         return cell
         

@@ -29,14 +29,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7UY-M9-T0D">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meizi_loading_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Az3-eH-Mi2">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meizi_loading_bg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Az3-eH-Mi2">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="235"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="185" id="Wtd-rl-nBS"/>
+                                                    <constraint firstAttribute="height" constant="235" id="Wtd-rl-nBS"/>
                                                 </constraints>
                                             </imageView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="J3B-e5-F1e">
-                                                <rect key="frame" x="0.0" y="185" width="375" height="482"/>
+                                                <rect key="frame" x="0.0" y="235" width="375" height="432"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="R68-Me-JLF" id="O7s-na-D1j"/>
@@ -44,7 +44,7 @@
                                                 </connections>
                                             </tableView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date_loading_bg" translatesAutoresizingMaskIntoConstraints="NO" id="czR-qU-AyO">
-                                                <rect key="frame" x="285" y="150" width="70" height="70"/>
+                                                <rect key="frame" x="285" y="200" width="70" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="H1X-em-JUd"/>
                                                     <constraint firstAttribute="height" constant="70" id="rtX-hG-NOB"/>
@@ -102,6 +102,7 @@
                     <connections>
                         <outlet property="contentScrollView" destination="hTV-M0-Zyd" id="mKX-my-dyO"/>
                         <outlet property="meiziImageView" destination="Az3-eH-Mi2" id="Rpj-ak-gDb"/>
+                        <outlet property="meiziImageViewConstraint" destination="Wtd-rl-nBS" id="uaR-Wa-RpJ"/>
                         <outlet property="newTableView" destination="J3B-e5-F1e" id="LvB-QI-5q0"/>
                     </connections>
                 </viewController>

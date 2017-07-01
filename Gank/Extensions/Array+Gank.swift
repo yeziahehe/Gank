@@ -14,6 +14,7 @@ extension Array {
         
         let allCategories: [String] = ["福利", "iOS", "Android", "前端", "瞎推荐", "拓展资源", "App", "休息视频"]
         var sortedCategories: [String] = allCategories
+        var gankCategories: [String] = gankArray
         
         for category in allCategories {
             var i: Int = 0
@@ -22,13 +23,22 @@ extension Array {
                     i += 1
                     continue
                 }
+                gankCategories.remove(at: gankCategories.index(of: gankCategory)!)
                 break
             }
-            //TODO: 出现数组中没有的分类处理
             if i == gankArray.count {
                 sortedCategories.remove(at: sortedCategories.index(of: category)!)
             }
         }
+        
+        // 处理数组中未出现的分类
+        if !gankCategories.isEmpty {
+            for newCategory in gankCategories {
+                sortedCategories.append(newCategory)
+            }
+        }
+        
+        sortedCategories.remove(at: sortedCategories.index(of: "福利")!)
         
         return sortedCategories
     }
