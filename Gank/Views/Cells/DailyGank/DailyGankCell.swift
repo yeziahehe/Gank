@@ -17,6 +17,7 @@ final class DailyGankCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    
     }
+    
 }

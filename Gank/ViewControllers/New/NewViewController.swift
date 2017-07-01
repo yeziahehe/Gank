@@ -49,15 +49,29 @@ final class NewViewController: BaseViewController {
             self.isGankToday = isToday
             self.gankCategories = categories
             self.gankDictionary = lastestGank
-            self.newTableView.estimatedRowHeight = 95.5
+            self.newTableView.estimatedRowHeight = 195.5
             self.newTableView.rowHeight = UITableViewAutomaticDimension
-            self.newTableView.reloadData()
+            
+            SafeDispatch.async {
+                self.newTableView.reloadData()
+            }
+            
+            //self.newTableView.reloadData()
+            
+            // 3 new lines of codes to force size adjustment
+//            self.newTableView.setNeedsLayout()
+//            self.newTableView.layoutIfNeeded()
+//            self.newTableView.reloadData()
         })
         
         #if DEBUG
             view.addSubview(newFPSLabel)
         #endif
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.newTableView.reloadData()
     }
     
 }
@@ -75,7 +89,7 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         
         guard gankCategories.isEmpty else {
             let key: String = gankCategories[section]
-            gankLog.debug(gankDictionary[key]!.count)
+            gankLog.debug("😁")
             return gankDictionary[key]!.count
         }
         return 2
@@ -95,48 +109,19 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             cell.timeLabel.text = gankDetail.publishedAt
             cell.authorLabel.text = gankDetail.who
             cell.titleLabel.text = gankDetail.desc
-//            cell.selectionStyle = UITableViewCellSelectionStyle.default
-//            newTableView.frame.size.height = newTableView.contentSize.height
-//            contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
+            cell.selectionStyle = UITableViewCellSelectionStyle.default
+            newTableView.frame.size.height = newTableView.contentSize.height
+            contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
             return cell
         }
         
         let cell: DailyGankLoadingCell = tableView.dequeueReusableCell()
-//        cell.selectionStyle = UITableViewCellSelectionStyle.none
-//        newTableView.frame.size.height = newTableView.contentSize.height
-//        contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
-        
-        return cell
-        
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        guard gankCategories.isEmpty else {
-            
-            guard let cell = cell as? DailyGankCell else {
-                return
-            }
-            
-//            let key: String = gankCategories[indexPath.section]
-//            let gankDetail: Gank = gankDictionary[key]![indexPath.row]
-//
-//            cell.timeLabel.text = gankDetail.publishedAt
-//            cell.authorLabel.text = gankDetail.who
-//            cell.titleLabel.text = gankDetail.desc
-            cell.selectionStyle = UITableViewCellSelectionStyle.default
-            newTableView.frame.size.height = newTableView.contentSize.height
-            contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
-            return
-        }
-        
-        guard  let cell = cell as? DailyGankLoadingCell else {
-            return
-        }
-        
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         newTableView.frame.size.height = newTableView.contentSize.height
         contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:(meiziImageView.image?.size.height)! + newTableView.contentSize.height)
+        
+        return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
