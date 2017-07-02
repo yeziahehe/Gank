@@ -21,4 +21,20 @@ extension String {
         }
     }
     
+    public func toDateOfSecond() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        if let date = dateFormatter.date(from: self) {
+            return date
+        } else {
+            return nil
+        }
+    }
+    
+    public var toTimeFormat: String {
+        var string = self.replacingOccurrences(of: "T", with: " ")
+        string = string[startIndex...string.index(startIndex, offsetBy: 18)]
+        return string
+    }
 }

@@ -14,6 +14,10 @@ final class NewViewController: BaseViewController {
     
     @IBOutlet weak var newTableView: UITableView! {
         didSet {
+            newTableView.tableFooterView = UIView()
+            newTableView.separatorStyle = .none
+            newTableView.rowHeight = 158
+            
             newTableView.registerNibOf(DailyGankCell.self)
             newTableView.registerNibOf(DailyGankLoadingCell.self)
         }
@@ -42,11 +46,7 @@ final class NewViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        newTableView.tableFooterView = UIView()
-        newTableView.separatorStyle = .none
-        newTableView.rowHeight = 158
-        
+
         gankLastest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
                 self?.isGankToday = isToday
@@ -64,6 +64,9 @@ final class NewViewController: BaseViewController {
         #endif
         
     }
+}
+
+extension NewViewController {
     
     fileprivate func configUI() {
         KingfisherManager.shared.retrieveImage(with: URL(string: meiziUrl)!, options: nil, progressBlock: nil) {
@@ -77,18 +80,11 @@ final class NewViewController: BaseViewController {
             }
         }
     }
-    
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegat
 
 extension NewViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableViewHeight() -> CGFloat {
-        newTableView.layoutIfNeeded()
-        
-        return newTableView.contentSize.height
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -115,9 +111,7 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             let key: String = gankCategories[indexPath.section]
             let gankDetail: Gank = gankDictionary[key]![indexPath.row]
             
-            cell.timeLabel.text = gankDetail.publishedAt
-            cell.authorLabel.text = gankDetail.who
-            cell.titleLabel.text = gankDetail.desc
+            cell.configure(withGankDetail: gankDetail)
             cell.selectionStyle = UITableViewCellSelectionStyle.default
             newTableView.frame.size.height = newTableView.contentSize.height
             contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:meiziImageView.frame.size.height + newTableView.contentSize.height)
@@ -134,6 +128,7 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
