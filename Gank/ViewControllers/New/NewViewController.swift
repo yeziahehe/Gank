@@ -46,7 +46,7 @@ final class NewViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         gankLastest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
                 self?.isGankToday = isToday
@@ -101,7 +101,19 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard gankCategories.isEmpty else {
+            return 56
+        }
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard gankCategories.isEmpty else {
+            let headerView = GankHeaderView.instanceFromNib()
+            headerView.configure(titleString: gankCategories[section])
+            return headerView
+        }
+        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
