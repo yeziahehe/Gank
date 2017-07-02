@@ -30,9 +30,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meizi_loading_bg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Az3-eH-Mi2">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="Wtd-rl-nBS"/>
+                                                    <constraint firstAttribute="height" constant="250" id="Wtd-rl-nBS"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="debugFaceAware" value="YES"/>
@@ -40,7 +40,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="J3B-e5-F1e">
-                                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                                                <rect key="frame" x="0.0" y="250" width="375" height="417"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="R68-Me-JLF" id="O7s-na-D1j"/>
@@ -48,7 +48,7 @@
                                                 </connections>
                                             </tableView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date_loading_bg" translatesAutoresizingMaskIntoConstraints="NO" id="czR-qU-AyO">
-                                                <rect key="frame" x="285" y="165" width="70" height="70"/>
+                                                <rect key="frame" x="285" y="215" width="70" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="H1X-em-JUd"/>
                                                     <constraint firstAttribute="height" constant="70" id="rtX-hG-NOB"/>

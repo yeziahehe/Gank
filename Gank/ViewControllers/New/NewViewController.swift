@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import FaceAware
 
 final class NewViewController: BaseViewController {
     
@@ -47,13 +48,15 @@ final class NewViewController: BaseViewController {
         newTableView.rowHeight = 158
         
         gankLastest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
-            self.isGankToday = isToday
-            self.meiziUrl = meizi
-            self.gankCategories = categories
-            self.gankDictionary = lastestGank
-            self.newTableView.estimatedRowHeight = 195.5
-            self.newTableView.rowHeight = UITableViewAutomaticDimension
-            self.configUI()
+            SafeDispatch.async { [weak self] in
+                self?.isGankToday = isToday
+                self?.meiziUrl = meizi
+                self?.gankCategories = categories
+                self?.gankDictionary = lastestGank
+                self?.newTableView.estimatedRowHeight = 195.5
+                self?.newTableView.rowHeight = UITableViewAutomaticDimension
+                self?.configUI()
+            }
         })
         
         #if DEBUG
@@ -63,8 +66,16 @@ final class NewViewController: BaseViewController {
     }
     
     fileprivate func configUI() {
-        meiziImageView.kf.setImage(with: URL(string: meiziUrl))
-        newTableView.reloadData()
+        KingfisherManager.shared.retrieveImage(with: URL(string: meiziUrl)!, options: nil, progressBlock: nil) {
+            (image, error, cacheType, imageURL) in
+            
+            SafeDispatch.async { [weak self] in
+                if let image = image {
+                    self?.meiziImageView.set(image:image, focusOnFaces:true)
+                }
+                self?.newTableView.reloadData()
+            }
+        }
     }
     
 }
@@ -72,6 +83,12 @@ final class NewViewController: BaseViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegat
 
 extension NewViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableViewHeight() -> CGFloat {
+        newTableView.layoutIfNeeded()
+        
+        return newTableView.contentSize.height
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -114,6 +131,9 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
