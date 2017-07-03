@@ -14,7 +14,7 @@ let kWeek = kDay * 7
 let kMonth = kDay * 31
 let kYear = kDay * 365
 
-public extension Date {
+extension Date {
     
     public var timeAgo: String {
         let now = Date()

@@ -26,7 +26,12 @@ final class NewViewController: BaseViewController {
     @IBOutlet weak var meiziImageView: UIImageView!
     @IBOutlet weak var contentScrollView: UIScrollView!
     
-    fileprivate lazy var newFooterView: GankFooter = GankFooter()
+    fileprivate lazy var customFooterView: CustomFooterView = {
+        let footerView = CustomFooterView.instanceFromNib()
+        footerView.frame = CGRect(x: 0, y: 0, width: GankConfig.getScreenWidth(), height: 73)
+        return footerView
+    }()
+    
     fileprivate var isGankToday: Bool = false
     fileprivate var meiziUrl: String = ""
     fileprivate var gankCategories: [String] = []
@@ -53,6 +58,7 @@ final class NewViewController: BaseViewController {
                 self?.meiziUrl = meizi
                 self?.gankCategories = categories
                 self?.gankDictionary = lastestGank
+                self?.newTableView.tableFooterView = self?.customFooterView
                 self?.newTableView.estimatedRowHeight = 195.5
                 self?.newTableView.rowHeight = UITableViewAutomaticDimension
                 self?.configUI()
@@ -122,18 +128,22 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             let cell: DailyGankCell = tableView.dequeueReusableCell()
             let key: String = gankCategories[indexPath.section]
             let gankDetail: Gank = gankDictionary[key]![indexPath.row]
-            
+            gankLog.debug(indexPath.section)
+            gankLog.debug(gankDetail)
             cell.configure(withGankDetail: gankDetail)
             cell.selectionStyle = UITableViewCellSelectionStyle.default
-            newTableView.frame.size.height = newTableView.contentSize.height
-            contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:meiziImageView.frame.size.height + newTableView.contentSize.height)
+            
+//            if indexPath.section == 4 {
+//                newTableView.frame.size.height = newTableView.contentSize.height
+//                contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:meiziImageView.frame.size.height + newTableView.contentSize.height)
+//            }
             return cell
         }
         
         let cell: DailyGankLoadingCell = tableView.dequeueReusableCell()
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        newTableView.frame.size.height = newTableView.contentSize.height
-        contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:meiziImageView.frame.size.height + newTableView.contentSize.height)
+//        newTableView.frame.size.height = newTableView.contentSize.height
+//        contentScrollView.contentSize = CGSize(width: GankConfig.getScreenWidth(), height:meiziImageView.frame.size.height + newTableView.contentSize.height)
         
         return cell
         
