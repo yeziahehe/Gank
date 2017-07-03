@@ -17,6 +17,18 @@ final class DailyGankCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    
+    }
+    
+    func configure(withGankDetail gankDetail: Gank) {
+        timeLabel.text = gankDetail.publishedAt.toTimeFormat.toDateOfSecond()!.timeAgo
+        titleLabel.text = gankDetail.desc
+        guard let who = gankDetail.who else {
+            authorLabel.text = "via. 机器人"
+            return
+        }
+        authorLabel.text = String(format:"via. %@", who)
         
     }
+    
 }

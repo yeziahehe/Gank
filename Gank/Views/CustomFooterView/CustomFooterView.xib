@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomFooterView" customModule="Gank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感谢所有默默付出的编辑们，愿大家都有美好的一天。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kin-MS-c5R">
+                    <rect key="frame" x="45" y="30" width="285" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="K0W-lo-hFe"/>
+                        <constraint firstAttribute="width" constant="285" id="c5H-JI-CRJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="g2D-JB-Fl2">
+                    <rect key="frame" x="30" y="36" width="15" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="lxA-gr-buB"/>
+                        <constraint firstAttribute="width" constant="15" id="mmp-bQ-YLF"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="SuA-Cy-tmL">
+                    <rect key="frame" x="330" y="36" width="15" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="NTM-Mi-iQS"/>
+                        <constraint firstAttribute="height" constant="1" id="YE9-Li-Z5r"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="g2D-JB-Fl2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="36" id="3Dc-2r-lGp"/>
+                <constraint firstAttribute="bottom" secondItem="SuA-Cy-tmL" secondAttribute="bottom" constant="36" id="7UA-5m-EPC"/>
+                <constraint firstAttribute="bottom" secondItem="Kin-MS-c5R" secondAttribute="bottom" constant="30" id="HGU-ls-4Yt"/>
+                <constraint firstItem="Kin-MS-c5R" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="KgV-Af-9CZ"/>
+                <constraint firstItem="Kin-MS-c5R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="LHa-8k-vsa"/>
+                <constraint firstAttribute="bottom" secondItem="g2D-JB-Fl2" secondAttribute="bottom" constant="36" id="Le9-uT-owK"/>
+                <constraint firstItem="g2D-JB-Fl2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-150" id="RRl-rd-x6b"/>
+                <constraint firstItem="SuA-Cy-tmL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="36" id="TqU-cY-9qA"/>
+                <constraint firstItem="SuA-Cy-tmL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="150" id="wLp-fU-Nvy"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="line" width="345" height="1"/>
+    </resources>
+</document>

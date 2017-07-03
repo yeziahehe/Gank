@@ -27,7 +27,7 @@ class BaseViewController: SegueViewController {
         
         navigationController.navigationBar.barTintColor = UIColor.gankNavgationBarTitleColor()
         navigationController.navigationBar.backgroundColor = nil
-        navigationController.navigationBar.isTranslucent = true
+        navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.shadowImage = nil
         navigationController.navigationBar.barStyle = .default
         navigationController.navigationBar.setBackgroundImage(UIImage.gank_navBg, for: .default)
