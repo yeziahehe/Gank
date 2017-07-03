@@ -23,8 +23,7 @@ final class GankHeaderView: UIView {
     
     class func instanceFromNib() -> GankHeaderView {
         return UINib(nibName: "GankHeaderView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! GankHeaderView
-        
-//        return Bundle.main.loadNibNamed("GankHeaderView", owner: nil, options: nil)?.last as! GankHeaderView
+
     }
     
 }

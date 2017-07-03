@@ -53,4 +53,10 @@ extension Date {
         return formatter.string(from: self)
     }
     
+    public func monthToNameString(format: String = "LLL") -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+    
 }

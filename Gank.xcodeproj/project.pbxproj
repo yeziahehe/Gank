@@ -11,6 +11,8 @@
 		2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */; };
 		2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */; };
 		2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A15701DC1F237003D5444 /* GankTabBarController.swift */; };
+		2C2B78B61F0A767B00863819 /* CoverHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B78B51F0A767B00863819 /* CoverHeaderView.swift */; };
+		2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */; };
 		2C30764D1F037E0100F595F2 /* Array+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C30764C1F037E0100F595F2 /* Array+Gank.swift */; };
 		2C4D021E1DE1EAE800C044B5 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4D021D1DE1EAE800C044B5 /* New.storyboard */; };
 		2C4D02441DE2076800C044B5 /* DailyGankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D023D1DE2076800C044B5 /* DailyGankCell.swift */; };
@@ -74,6 +76,8 @@
 		2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Gank.swift"; sourceTree = "<group>"; };
 		2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Gank.swift"; sourceTree = "<group>"; };
 		2C2A15701DC1F237003D5444 /* GankTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankTabBarController.swift; sourceTree = "<group>"; };
+		2C2B78B51F0A767B00863819 /* CoverHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverHeaderView.swift; sourceTree = "<group>"; };
+		2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverHeaderView.xib; sourceTree = "<group>"; };
 		2C30764C1F037E0100F595F2 /* Array+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Gank.swift"; sourceTree = "<group>"; };
 		2C4D021D1DE1EAE800C044B5 /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		2C4D023D1DE2076800C044B5 /* DailyGankCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyGankCell.swift; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 			children = (
 				2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */,
 				2C6AEC6E1F094AFC005B79F9 /* GankHeaderView.xib */,
+				2C2B78B51F0A767B00863819 /* CoverHeaderView.swift */,
+				2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */,
 			);
 			path = GankHeaderView;
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 				2C83C8EC1DAE0F4500FCE89A /* Main.storyboard in Resources */,
 				2C4D021E1DE1EAE800C044B5 /* New.storyboard in Resources */,
 				2C4D02451DE2076800C044B5 /* DailyGankCell.xib in Resources */,
+				2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */,
 				2C4D02471DE2076800C044B5 /* DailyGankLoadingCell.xib in Resources */,
 				2C6AEC6F1F094AFC005B79F9 /* GankHeaderView.xib in Resources */,
 			);
@@ -617,6 +624,7 @@
 				2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */,
 				2C971B6C1DC200F600843481 /* SegueViewController.swift in Sources */,
 				2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */,
+				2C2B78B61F0A767B00863819 /* CoverHeaderView.swift in Sources */,
 				2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */,
 				2C4DFB371F0028270068A73F /* String+Gank.swift in Sources */,
 				2C6AEC741F0959EE005B79F9 /* CustomFooterView.swift in Sources */,

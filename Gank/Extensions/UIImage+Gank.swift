@@ -14,4 +14,16 @@ extension UIImage {
         return UIImage(named: "nav_bg")!
     }
     
+    static var gank_dateBg: UIImage {
+        return UIImage(named: "date_bg")!
+    }
+    
+    static var gank_meiziLoadingBg: UIImage {
+        return UIImage(named: "meizi_loading_bg")!
+    }
+    
+    static var gank_dateLoadingBg: UIImage {
+        return UIImage(named: "date_loading_bg")!
+    }
+    
 }

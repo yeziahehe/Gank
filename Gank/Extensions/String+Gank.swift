@@ -37,4 +37,6 @@ extension String {
         string = string[startIndex...string.index(startIndex, offsetBy: 18)]
         return string
     }
+    
 }
+
