@@ -20,10 +20,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="y4c-ox-KPb"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="debugFaceAware" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="focusOnFaces" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date_loading_bg" translatesAutoresizingMaskIntoConstraints="NO" id="kdu-yH-s6p">
                     <rect key="frame" x="285" y="215" width="70" height="70"/>
