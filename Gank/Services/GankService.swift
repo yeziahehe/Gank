@@ -99,9 +99,10 @@ public func gankWithDay(year: String, month: String, day: String, failureHandler
         
         let categoryArray: [String] = data["category"].arrayValue.map({$0.stringValue})
         let categories = Array<String>().sortByGankOrder(categoryArray)
+        let date = year + "-" + month + "-" + day
+        let now = Date()
         var gank: [String: Array<Gank>] = [:]
         var meiziGank: Gank!
-        var isToday = false
         
         for (key, gankArrayJSON):(String, JSON) in data["results"] {
             var gankArray = [Gank]()
@@ -117,10 +118,7 @@ public func gankWithDay(year: String, month: String, day: String, failureHandler
             gank[key] = gankArray
         }
         
-        lastestGankDate(failureHandler: nil, completion: { (today, _) in
-            isToday = today
-        })
-        return (isToday, meiziGank, categories, gank)
+        return (date == now.toString(), meiziGank, categories, gank)
     }
     
     let resource = Resource(path: "/day/\(year)/\(month)/\(day)", method: .get, requestParamters: nil, parse: parse)
