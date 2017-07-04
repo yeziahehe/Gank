@@ -18,6 +18,7 @@ class CoverHeaderView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     func configure(meiziData meiziDetail: Gank) {
