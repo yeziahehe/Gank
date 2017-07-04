@@ -127,7 +127,7 @@ public func gankWithDay(year: String, month: String, day: String, failureHandler
 }
 
 // MARK: - 最近一天干货
-public func gankLastest(falureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
+public func gankLatest(falureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
     
     lastestGankDate(failureHandler: nil, completion:{ (_, date) in
         let lastestGankDate = date.toDate()!

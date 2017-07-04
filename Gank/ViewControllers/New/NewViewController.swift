@@ -56,7 +56,7 @@ final class NewViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gankLastest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
+        gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
                 self?.isGankToday = isToday
                 self?.gankCategories = categories
@@ -75,6 +75,16 @@ final class NewViewController: BaseViewController {
         #endif
         
     }
+    
+    @IBAction func closeTip(_ sender: UIButton) {
+        tipView.isHidden = true
+    }
+    
+    @IBAction func getNewGank(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    
 }
 
 extension NewViewController {
@@ -82,6 +92,10 @@ extension NewViewController {
     fileprivate func loadUI() {
         
     }
+    
+    
+    
+    
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegat

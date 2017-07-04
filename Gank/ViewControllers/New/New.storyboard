@@ -50,6 +50,9 @@
                                             <constraint firstAttribute="height" constant="30" id="eIA-Xv-4sy"/>
                                         </constraints>
                                         <state key="normal" image="tip_close"/>
+                                        <connections>
+                                            <action selector="closeTip:" destination="R68-Me-JLF" eventType="touchUpInside" id="YDg-hs-hmw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,6 +85,9 @@
                             </barButtonItem>
                             <barButtonItem image="new" id="W6R-GZ-paX">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="getNewGank:" destination="R68-Me-JLF" id="bmL-dl-aDd"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
