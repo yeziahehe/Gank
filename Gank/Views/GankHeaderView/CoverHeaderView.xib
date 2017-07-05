@@ -12,24 +12,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="CoverHeaderView" customModule="Gank" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="285"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="385"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meizi_loading_bg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKG-xm-t9J">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="250" id="ZeJ-GJ-aaN"/>
+                        <constraint firstAttribute="height" constant="350" id="ZeJ-GJ-aaN"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date_loading_bg" translatesAutoresizingMaskIntoConstraints="NO" id="kdu-yH-s6p">
-                    <rect key="frame" x="285" y="215" width="70" height="70"/>
+                    <rect key="frame" x="285" y="315" width="70" height="70"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="GXX-y0-si6"/>
                         <constraint firstAttribute="height" constant="70" id="aVx-5W-R7d"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQY-Po-vag">
-                    <rect key="frame" x="299" y="229" width="42" height="21"/>
+                    <rect key="frame" x="299" y="329" width="42" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="42" id="K93-cf-4UY"/>
                         <constraint firstAttribute="height" constant="21" id="tgl-zQ-Cds"/>
@@ -39,7 +39,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M33-ka-Mkh">
-                    <rect key="frame" x="299" y="252" width="42" height="21"/>
+                    <rect key="frame" x="299" y="352" width="42" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="42" id="21B-9Y-qwO"/>
                         <constraint firstAttribute="height" constant="21" id="hgz-kb-rI3"/>
@@ -69,7 +69,7 @@
                 <outlet property="meiziImageView" destination="kKG-xm-t9J" id="ocb-Ly-FXm"/>
                 <outlet property="monthLabel" destination="M33-ka-Mkh" id="tfB-SH-tJO"/>
             </connections>
-            <point key="canvasLocation" x="33.5" y="-136.5"/>
+            <point key="canvasLocation" x="33.5" y="-186.5"/>
         </view>
     </objects>
     <resources>

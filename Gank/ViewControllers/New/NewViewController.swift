@@ -32,7 +32,7 @@ final class NewViewController: BaseViewController {
     
     fileprivate lazy var coverHeaderView: CoverHeaderView = {
         let headerView = CoverHeaderView.instanceFromNib()
-        headerView.frame = CGRect(x: 0, y: 0, width: GankConfig.getScreenWidth(), height: 285)
+        headerView.frame = CGRect(x: 0, y: 0, width: GankConfig.getScreenWidth(), height: 385)
         return headerView
     }()
     
