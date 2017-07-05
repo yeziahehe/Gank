@@ -12,6 +12,11 @@ import FaceAware
 
 final class NewViewController: BaseViewController {
     
+    @IBOutlet weak var dailyGankButton: UIBarButtonItem! {
+        didSet {
+        }
+    }
+        
     @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var newTableView: UITableView! {
         didSet {
@@ -55,7 +60,7 @@ final class NewViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
                 self?.isGankToday = isToday
