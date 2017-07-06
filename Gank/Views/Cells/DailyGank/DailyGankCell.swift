@@ -23,6 +23,7 @@ final class DailyGankCell: UITableViewCell {
     func configure(withGankDetail gankDetail: Gank) {
         timeLabel.text = gankDetail.publishedAt.toTimeFormat.toDateOfSecond()!.timeAgo
         titleLabel.text = gankDetail.desc
+        titleLabel.setLineHeight(lineHeight: 1.2)
         guard let who = gankDetail.who else {
             authorLabel.text = "via. 机器人"
             return

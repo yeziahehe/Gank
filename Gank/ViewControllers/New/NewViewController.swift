@@ -12,6 +12,7 @@ import FaceAware
 
 final class NewViewController: BaseViewController {
     
+    @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var newTableView: UITableView! {
         didSet {
             newTableView.tableHeaderView = coverHeaderView
@@ -36,8 +37,7 @@ final class NewViewController: BaseViewController {
         return footerView
     }()
     
-    fileprivate var isGankToday: Bool = false
-    fileprivate var meiziGank: Gank!
+    fileprivate var isGankToday: Bool = true
     fileprivate var gankCategories: [String] = []
     fileprivate var gankDictionary: [String: Array<Gank>] = [:]
     
@@ -59,7 +59,6 @@ final class NewViewController: BaseViewController {
         gankLastest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
                 self?.isGankToday = isToday
-                self?.meiziGank = meizi
                 self?.gankCategories = categories
                 self?.gankDictionary = lastestGank
                 self?.newTableView.tableFooterView = self?.customFooterView
@@ -67,6 +66,7 @@ final class NewViewController: BaseViewController {
                 self?.newTableView.rowHeight = UITableViewAutomaticDimension
                 self?.coverHeaderView.configure(meiziData: meizi)
                 self?.newTableView.reloadData()
+                self?.tipView.isHidden = isToday
             }
         })
         
@@ -106,6 +106,10 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         guard gankCategories.isEmpty else {
             return 56
         }
+        return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
     
