@@ -1,0 +1,11 @@
+language: objective-c
+osx_image: xcode8.3
+before_install:
+  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
+  - pod repo update
+branches:
+  only:
+  - blog
+script:
+  - set -o pipefail
+  - xcodebuild clean build -sdk iphonesimulator -workspace Gank.xcworkspace -scheme Gank CODE_SIGNING_REQUIRED=NO | xcpretty -c || true
