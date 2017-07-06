@@ -82,6 +82,9 @@
                         <rightBarButtonItems>
                             <barButtonItem image="calendar" id="nAg-PQ-JFd">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="showCalendar:" destination="R68-Me-JLF" id="xXt-Rc-ziJ"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="new" id="W6R-GZ-paX">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,6 +95,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="calendarButton" destination="nAg-PQ-JFd" id="uPE-8W-gE2"/>
                         <outlet property="dailyGankButton" destination="W6R-GZ-paX" id="k0y-eP-6o4"/>
                         <outlet property="newTableView" destination="J3B-e5-F1e" id="LvB-QI-5q0"/>
                         <outlet property="tipView" destination="1Rp-Wb-QiC" id="8R0-fP-Kun"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import Kingfisher
 
 class CoverHeaderView: UIView {
@@ -21,17 +22,25 @@ class CoverHeaderView: UIView {
         
     }
     
-    func configure(meiziData meiziDetail: Gank) {
-        KingfisherManager.shared.retrieveImage(with: URL(string: meiziDetail.url)!, options: nil, progressBlock: nil) { (image, error, cacheType, imageURL) in
-            SafeDispatch.async { [weak self] in
-                if let image = image {
-                    self?.meiziImageView.set(image:image, focusOnFaces:true)
-                }
-            }
+    func configure(meiziData meiziDetail: Gank) -> CGFloat {
+        var height: CGFloat = 200
+        
+        guard let data: Data = try? Data(contentsOf: URL(string: meiziDetail.url)!) else {
+            return height
         }
+        
+        guard let image: UIImage = UIImage(data: data) else {
+            return height
+        }
+        
+        height = GankConfig.getScreenWidth() / image.size.width * image.size.height
+            
+        meiziImageView.image = image
         dateBackImageView.image = UIImage.gank_dateBg
         dayLabel.text = meiziDetail.publishedAt.toTimeFormat.toDateOfSecond()!.dayToString()
         monthLabel.text = meiziDetail.publishedAt.toTimeFormat.toDateOfSecond()!.monthToNameString()
+        
+        return height
     }
     
     func refresh() {

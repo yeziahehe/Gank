@@ -12,11 +12,8 @@ import FaceAware
 
 final class NewViewController: BaseViewController {
     
-    @IBOutlet weak var dailyGankButton: UIBarButtonItem! {
-        didSet {
-        }
-    }
-        
+    @IBOutlet weak var dailyGankButton: UIBarButtonItem!         
+    @IBOutlet weak var calendarButton: UIBarButtonItem!
     @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var newTableView: UITableView! {
         didSet {
@@ -32,7 +29,7 @@ final class NewViewController: BaseViewController {
     
     fileprivate lazy var coverHeaderView: CoverHeaderView = {
         let headerView = CoverHeaderView.instanceFromNib()
-        headerView.frame = CGRect(x: 0, y: 0, width: GankConfig.getScreenWidth(), height: 385)
+        headerView.frame = CGRect(x: 0, y: 0, width: GankConfig.getScreenWidth(), height: 235)
         return headerView
     }()
     
@@ -43,6 +40,7 @@ final class NewViewController: BaseViewController {
     }()
     
     fileprivate var isGankToday: Bool = true
+    fileprivate var meiziImageUrl: Gank?
     fileprivate var gankCategories: [String] = []
     fileprivate var gankDictionary: [String: Array<Gank>] = [:]
     
@@ -60,18 +58,18 @@ final class NewViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.setRightBarButtonItems([calendarButton], animated: false)
                 
         gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
+                // config data
                 self?.isGankToday = isToday
+                self?.meiziImageUrl = meizi
                 self?.gankCategories = categories
                 self?.gankDictionary = lastestGank
-                self?.newTableView.tableFooterView = self?.customFooterView
-                self?.newTableView.estimatedRowHeight = 195.5
-                self?.newTableView.rowHeight = UITableViewAutomaticDimension
-                self?.coverHeaderView.configure(meiziData: meizi)
-                self?.newTableView.reloadData()
-                self?.tipView.isHidden = isToday
+                // config UI
+                self?.configureUI()
             }
         })
         
@@ -89,17 +87,32 @@ final class NewViewController: BaseViewController {
         
     }
     
+    @IBAction func showCalendar(_ sender: UIBarButtonItem) {
+    }
     
 }
 
 extension NewViewController {
     
-    fileprivate func loadUI() {
+    fileprivate func configureUI() {
+        newTableView.tableFooterView = customFooterView
+        newTableView.estimatedRowHeight = 195.5
+        newTableView.rowHeight = UITableViewAutomaticDimension
+        let height = coverHeaderView.configure(meiziData: meiziImageUrl!)
+        coverHeaderView.frame.size = CGSize(width: GankConfig.getScreenWidth(), height: height)
+        newTableView.reloadData()
+        tipView.isHidden = isGankToday
         
+        if isGankToday {
+            navigationItem.setRightBarButtonItems([calendarButton], animated: false)
+            return
+        }
+        navigationItem.setRightBarButtonItems([dailyGankButton, calendarButton], animated: false)
     }
     
-    
-    
+    fileprivate func refreshUI() {
+        
+    }
     
 }
 
