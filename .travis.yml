@@ -5,7 +5,8 @@ before_install:
   - pod repo update
 branches:
   only:
-  - blog
+  - master
+  - develop
 script:
   - set -o pipefail
   - xcodebuild clean build -sdk iphonesimulator -workspace Gank.xcworkspace -scheme Gank CODE_SIGNING_REQUIRED=NO | xcpretty -c || true
