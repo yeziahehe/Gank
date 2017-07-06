@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="J3B-e5-F1e">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="J3B-e5-F1e">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -50,6 +50,9 @@
                                             <constraint firstAttribute="height" constant="30" id="eIA-Xv-4sy"/>
                                         </constraints>
                                         <state key="normal" image="tip_close"/>
+                                        <connections>
+                                            <action selector="closeTip:" destination="R68-Me-JLF" eventType="touchUpInside" id="YDg-hs-hmw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,13 +82,21 @@
                         <rightBarButtonItems>
                             <barButtonItem image="calendar" id="nAg-PQ-JFd">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="showCalendar:" destination="R68-Me-JLF" id="xXt-Rc-ziJ"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="new" id="W6R-GZ-paX">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="getNewGank:" destination="R68-Me-JLF" id="bmL-dl-aDd"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="calendarButton" destination="nAg-PQ-JFd" id="uPE-8W-gE2"/>
+                        <outlet property="dailyGankButton" destination="W6R-GZ-paX" id="k0y-eP-6o4"/>
                         <outlet property="newTableView" destination="J3B-e5-F1e" id="LvB-QI-5q0"/>
                         <outlet property="tipView" destination="1Rp-Wb-QiC" id="8R0-fP-Kun"/>
                     </connections>
