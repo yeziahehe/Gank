@@ -36,27 +36,19 @@ extension Date {
     }
     
     public func yearToString(format: String = "yyyy") -> String{
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        return formatter.string(from: self)
+        return self.toString(format: format)
     }
     
     public func monthToString(format: String = "MM") -> String{
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        return formatter.string(from: self)
+        return self.toString(format: format)
     }
     
     public func dayToString(format: String = "dd") -> String{
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        return formatter.string(from: self)
+        return self.toString(format: format)
     }
     
     public func monthToNameString(format: String = "LLL") -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        return formatter.string(from: self)
+        return self.toString(format: format)
     }
     
 }
