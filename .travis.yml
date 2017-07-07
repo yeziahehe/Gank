@@ -9,4 +9,9 @@ branches:
   - develop
 script:
   - set -o pipefail
-  - xcodebuild clean build -sdk iphonesimulator -workspace Gank.xcworkspace -scheme Gank CODE_SIGNING_REQUIRED=NO | xcpretty -c || true
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - xcodebuild clean -workspace Gank.xcworkspace -scheme Gank | xcpretty -c
+  - xcodebuild -scheme Gank -workspace Gank.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' test | xcpretty -c
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

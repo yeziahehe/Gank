@@ -24,6 +24,7 @@
 <a href="https://github.com/yeziahehe/Gank/releases"><img src="https://img.shields.io/badge/release-1.0.0-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/version-karma-red.svg"></a>
 <a href="https://travis-ci.org/yeziahehe/Gank"><img src="https://travis-ci.org/yeziahehe/Gank.svg"></a>
+<a href="https://codecov.io/gh/yeziahehe/Gank"><img src="https://codecov.io/gh/yeziahehe/Gank/branch/master/graph/badge.svg"></a>
 <a href="https://codebeat.co/projects/github-com-yeziahehe-gank"><img alt="codebeat badge" src="https://codebeat.co/badges/109fa6e9-5814-4f3c-a49b-dd0788ebf84b" /></a>
 </p>
 
@@ -33,7 +34,8 @@
 
 ## 功能
 
-- [x]集成 [flow.ci](http://flow.ci/)
+- [x]~~集成 [flow.ci](http://flow.ci/)~~，已替换成[Travis CI](https://travis-ci.org)
+- [x]集成[codecov](https://codecov.io)
 
 ## 运行环境
 
