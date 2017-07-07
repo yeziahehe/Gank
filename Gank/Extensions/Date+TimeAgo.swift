@@ -29,14 +29,14 @@ extension Date {
             return String(format: "1分钟前")
         case 120..<kMinute*60:
             return String(format: "%d分钟前", deltaSeconds/60)
-        case kMinute*60..<kMinute*120:
+        case kMinute*60..<120*60:
             return String(format: "1小时前")
-        case kMinute*60..<kDay:
+        case 120*60..<kDay*60:
             let value = Int(floor(Float(deltaSeconds/60/kMinute)))
             return String(format: "%d小时前", value)
-        case kDay..<kDay*2:
+        case kDay*60..<kDay*120:
             return String(format: "1天前")
-        case kDay*2..<kYear:
+        case kDay*120..<kYear*60:
             let value = Int(floor(Float(deltaSeconds/60/kDay)))
             return String(format: "%d天前", value)
         default:
