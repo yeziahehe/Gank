@@ -96,7 +96,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calendarButton" destination="nAg-PQ-JFd" id="uPE-8W-gE2"/>
-                        <outlet property="dailyGankButton" destination="W6R-GZ-paX" id="k0y-eP-6o4"/>
+                        <outlet property="dailyGankButton" destination="W6R-GZ-paX" id="LI6-Mr-0Yn"/>
                         <outlet property="newTableView" destination="J3B-e5-F1e" id="LvB-QI-5q0"/>
                         <outlet property="tipView" destination="1Rp-Wb-QiC" id="8R0-fP-Kun"/>
                     </connections>

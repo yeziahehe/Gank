@@ -9,11 +9,12 @@
 import UIKit
 import Kingfisher
 import FaceAware
+import AudioToolbox.AudioServices
 
 final class NewViewController: BaseViewController {
     
-    @IBOutlet weak var dailyGankButton: UIBarButtonItem!         
-    @IBOutlet weak var calendarButton: UIBarButtonItem!
+    @IBOutlet var dailyGankButton: UIBarButtonItem!
+    @IBOutlet var calendarButton: UIBarButtonItem!
     @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var newTableView: UITableView! {
         didSet {
@@ -84,7 +85,12 @@ final class NewViewController: BaseViewController {
     }
     
     @IBAction func getNewGank(_ sender: UIBarButtonItem) {
+        // Instantiate a new generator.
+        var feedbackGenerator : UISelectionFeedbackGenerator? = UISelectionFeedbackGenerator()
         
+        // Prepare the generator when the gesture begins.
+        feedbackGenerator?.prepare()
+        feedbackGenerator?.selectionChanged()
     }
     
     @IBAction func showCalendar(_ sender: UIBarButtonItem) {
@@ -104,10 +110,10 @@ extension NewViewController {
         tipView.isHidden = isGankToday
         
         if isGankToday {
-            navigationItem.setRightBarButtonItems([calendarButton], animated: false)
+            navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
             return
         }
-        navigationItem.setRightBarButtonItems([dailyGankButton, calendarButton], animated: false)
+        navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
     }
     
     fileprivate func refreshUI() {
