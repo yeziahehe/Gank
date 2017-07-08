@@ -21,46 +21,4 @@ final class GankServiceTests: XCTestCase {
         
         waitForExpectations(timeout: 15, handler: nil)
     }
-    
-    func testHasGankToday() {
-        let expectation = self.expectation(description: "get today has gank")
-        
-        hasGankToday(failureHandler: nil, completion: { hasGankToday in
-            print("today has gank: \(hasGankToday)")
-            expectation.fulfill()
-        })
-        
-        waitForExpectations(timeout: 15, handler: nil)
-    }
-    
-    func testGankWithDay() {
-        let expectation = self.expectation(description: "get gank with day")
-        
-        gankWithDay(year:"2016", month:"11", day:"18", failureHandler: nil, completion: { gank in
-            if !gank.isEmpty {
-                expectation.fulfill()
-            }
-        })
-        
-        waitForExpectations(timeout: 15, handler: nil)
-    }
-    
-    func testGankInToday() {
-        let expectation = self.expectation(description: "get gank today")
-        
-        hasGankToday(failureHandler: nil, completion: { hasGankToday in
-            if hasGankToday {
-                gankInToday(failureHandler: nil, completion: { gank in
-                    if !gank.isEmpty {
-                        expectation.fulfill()
-                    }
-                })
-
-            } else {
-                expectation.fulfill()
-            }
-        })
-        
-        waitForExpectations(timeout: 15, handler: nil)
-    }
 }

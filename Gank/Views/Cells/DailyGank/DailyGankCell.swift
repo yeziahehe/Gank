@@ -25,10 +25,10 @@ final class DailyGankCell: UITableViewCell {
         titleLabel.text = gankDetail.desc
         titleLabel.setLineHeight(lineHeight: 1.2)
         guard let who = gankDetail.who else {
-            authorLabel.text = "via. 机器人"
+            authorLabel.text = String.titleDailyGankAuthorBot
             return
         }
-        authorLabel.text = String(format:"via. %@", who)
+        authorLabel.text = String.titleDailyGankAuthor(who)
         
     }
     

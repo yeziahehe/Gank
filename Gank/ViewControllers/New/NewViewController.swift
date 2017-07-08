@@ -9,11 +9,12 @@
 import UIKit
 import Kingfisher
 import FaceAware
+import AudioToolbox.AudioServices
 
 final class NewViewController: BaseViewController {
     
-    @IBOutlet weak var dailyGankButton: UIBarButtonItem!         
-    @IBOutlet weak var calendarButton: UIBarButtonItem!
+    @IBOutlet var dailyGankButton: UIBarButtonItem!
+    @IBOutlet var calendarButton: UIBarButtonItem!
     @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var newTableView: UITableView! {
         didSet {
@@ -39,6 +40,8 @@ final class NewViewController: BaseViewController {
         return footerView
     }()
     
+    var feedbackGenerator : UIImpactFeedbackGenerator? = UIImpactFeedbackGenerator(style: .heavy)
+    
     fileprivate var isGankToday: Bool = true
     fileprivate var meiziImageUrl: Gank?
     fileprivate var gankCategories: [String] = []
@@ -53,6 +56,7 @@ final class NewViewController: BaseViewController {
     
     deinit {
         newTableView?.delegate = nil
+        feedbackGenerator = nil
         gankLog.debug("deinit NewViewController")
     }
     
@@ -60,7 +64,8 @@ final class NewViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationItem.setRightBarButtonItems([calendarButton], animated: false)
-                
+        feedbackGenerator?.prepare()
+        
         gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
                 // config data
@@ -84,7 +89,8 @@ final class NewViewController: BaseViewController {
     }
     
     @IBAction func getNewGank(_ sender: UIBarButtonItem) {
-        
+        feedbackGenerator?.impactOccurred()
+        GankAlert.alertKnown(title: nil, message: String.messageNoDailyGank, inViewController: self)
     }
     
     @IBAction func showCalendar(_ sender: UIBarButtonItem) {
@@ -104,10 +110,10 @@ extension NewViewController {
         tipView.isHidden = isGankToday
         
         if isGankToday {
-            navigationItem.setRightBarButtonItems([calendarButton], animated: false)
+            navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
             return
         }
-        navigationItem.setRightBarButtonItems([dailyGankButton, calendarButton], animated: false)
+        navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
     }
     
     fileprivate func refreshUI() {

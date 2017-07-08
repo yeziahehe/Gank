@@ -19,27 +19,27 @@ extension Date {
     public var timeAgo: String {
         let now = Date()
         let deltaSeconds = max(Int(now.timeIntervalSince(self)), 0)
-        let deltaMinutes = deltaSeconds / 60
         
-        if deltaSeconds < 5 {
+        switch deltaSeconds {
+        case 0..<5:
             return String(format: "刚刚")
-        } else if deltaSeconds < kMinute {
+        case 5..<kMinute:
             return String(format: "%d秒前", deltaSeconds)
-        } else if deltaSeconds < 120 {
+        case kMinute..<120:
             return String(format: "1分钟前")
-        } else if deltaMinutes < kMinute {
-            return String(format: "%d分钟前", deltaMinutes)
-        } else if deltaMinutes < 120 {
+        case 120..<kMinute*60:
+            return String(format: "%d分钟前", deltaSeconds/60)
+        case kMinute*60..<120*60:
             return String(format: "1小时前")
-        } else if deltaMinutes < kDay {
-            let value = Int(floor(Float(deltaMinutes / kMinute)))
+        case 120*60..<kDay*60:
+            let value = Int(floor(Float(deltaSeconds/60/kMinute)))
             return String(format: "%d小时前", value)
-        } else if deltaMinutes < (kDay * 2) {
+        case kDay*60..<kDay*120:
             return String(format: "1天前")
-        } else if deltaMinutes < kYear {
-            let value = Int(floor(Float(deltaMinutes / kDay)))
+        case kDay*120..<kYear*60:
+            let value = Int(floor(Float(deltaSeconds/60/kDay)))
             return String(format: "%d天前", value)
-        } else {
+        default:
             return self.toString()
         }
     }
