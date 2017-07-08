@@ -17,7 +17,24 @@ extension String {
 }
 
 extension String {
+    
     static var titleDailyGankAuthorBot: String {
         return "via. 机器人"
+    }
+    
+    static var titleKnown: String {
+        return "知道了"
+    }
+    
+    static var titleToday: String {
+        return "干货更新啦"
+    }
+    
+    static var messageNoDailyGank: String {
+        return "今日干货未更新，有新干货会第一时间推送给你~"
+    }
+    
+    static var messageTodayGank: String {
+        return "今天的干货很棒，欢迎戳来看预览~ "
     }
 }

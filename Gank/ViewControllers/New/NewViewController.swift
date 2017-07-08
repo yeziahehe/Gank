@@ -90,6 +90,7 @@ final class NewViewController: BaseViewController {
     
     @IBAction func getNewGank(_ sender: UIBarButtonItem) {
         feedbackGenerator?.impactOccurred()
+        GankAlert.alertKnown(title: nil, message: String.messageNoDailyGank, inViewController: self)
     }
     
     @IBAction func showCalendar(_ sender: UIBarButtonItem) {
