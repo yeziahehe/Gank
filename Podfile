@@ -5,6 +5,7 @@ use_frameworks!
 def pods
     pod 'XCGLogger'
     pod 'Alamofire', '~> 4.0'
+    pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
     pod 'ReachabilitySwift'
     pod 'SwiftyJSON'
     pod 'Kingfisher','~> 3.1.0'

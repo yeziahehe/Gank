@@ -17,7 +17,7 @@ public struct Resource<A>: CustomStringConvertible {
     let parse: (JSON) -> A?
     
     public var description: String {
-        return "Resource(Method: \(method), path: \(path), requestParamters: \(requestParamters))"
+        return "Resource(Method: \(method), path: \(path), requestParamters: \(String(describing: requestParamters)))"
     }
     
     public init(path: String, method: HTTPMethod, requestParamters: Parameters?, parse: @escaping (JSON) -> A?) {
@@ -43,7 +43,7 @@ public enum Reason: CustomStringConvertible {
         case .noData:
             return "NoData"
         case .other(let error):
-            return "Other, Error: \(error)"
+            return "Other, Error: \(String(describing: error))"
         }
     }
 }
@@ -73,7 +73,7 @@ public func apiRequest<A>(_ modifyRequest: (URLRequest) -> (), baseURL: URL, res
     let url = baseURL.appendingPathComponent(resource.path)
     let method = resource.method
     
-    if let parameters = resource.requestParamters {
+    if resource.requestParamters != nil {
         return
     }
     

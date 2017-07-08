@@ -9,6 +9,7 @@
 import UIKit
 import ReachabilitySwift
 import Alamofire
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -72,6 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //        
 //        manager?.startListening()
+        
+        NetworkActivityIndicatorManager.shared.isEnabled = true
         
         reachability.whenReachable = { reachability in
             if reachability.isReachableViaWiFi {

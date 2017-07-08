@@ -74,7 +74,7 @@ final class NewViewController: BaseViewController {
                 self?.gankCategories = categories
                 self?.gankDictionary = lastestGank
                 // config UI
-                self?.configureUI()
+                self?.makeUI()
             }
         })
         
@@ -100,7 +100,7 @@ final class NewViewController: BaseViewController {
 
 extension NewViewController {
     
-    fileprivate func configureUI() {
+    fileprivate func makeUI() {
         newTableView.tableFooterView = customFooterView
         newTableView.estimatedRowHeight = 195.5
         newTableView.rowHeight = UITableViewAutomaticDimension
