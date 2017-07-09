@@ -99,8 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate lazy var tabbarSoundEffect: GankSoundEffect = {
         
-        let bundle = Bundle.main
-        guard let fileURL = bundle.url(forResource: "tap", withExtension: "m4a") else {
+        guard let fileURL = Bundle.main.url(forResource: "tabbar", withExtension: "m4a") else {
             fatalError("YepSoundEffect: file no found!")
         }
         return GankSoundEffect(fileURL: fileURL)
