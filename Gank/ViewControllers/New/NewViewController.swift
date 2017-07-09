@@ -9,7 +9,6 @@
 import UIKit
 import Kingfisher
 import FaceAware
-import AudioToolbox.AudioServices
 
 final class NewViewController: BaseViewController {
     
@@ -47,8 +46,6 @@ final class NewViewController: BaseViewController {
         return footerView
     }()
     
-    var feedbackGenerator : UIImpactFeedbackGenerator? = UIImpactFeedbackGenerator(style: .heavy)
-    
     fileprivate var isGankToday: Bool = true
     fileprivate var meiziGank: Gank?
     fileprivate var gankCategories: [String] = []
@@ -63,7 +60,6 @@ final class NewViewController: BaseViewController {
     
     deinit {
         newTableView?.delegate = nil
-        feedbackGenerator = nil
         gankLog.debug("deinit NewViewController")
     }
     
@@ -71,7 +67,6 @@ final class NewViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationItem.setRightBarButtonItems([calendarButton], animated: false)
-        feedbackGenerator?.prepare()
         
         gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
@@ -92,6 +87,7 @@ final class NewViewController: BaseViewController {
     
     @IBAction func getNewGank(_ sender: UIBarButtonItem) {
         
+        GankConfig.heavyFeedbackEffectAction?()
         activityIndicatorView.startAnimating()
         navigationItem.setRightBarButtonItems([calendarButton, UIBarButtonItem(customView: activityIndicatorView)], animated: false)
         
@@ -146,7 +142,6 @@ extension NewViewController {
     
     fileprivate func makeActivityIndicator() {
         navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
-        feedbackGenerator?.impactOccurred()
         GankAlert.alertKnown(title: nil, message: String.messageNoDailyGank, inViewController: self)
     }
     

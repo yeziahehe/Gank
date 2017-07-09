@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 配置网络变化检测
         configureNetworkReachable()
         
+        configureGankConfig()
+        
         let storyboard = UIStoryboard.gank_main
         window?.rootViewController = storyboard.instantiateInitialViewController()
         
@@ -92,6 +94,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try reachability.startNotifier()
         } catch {
             gankLog.debug("Unable to start notifier")
+        }
+    }
+    
+    fileprivate lazy var tabbarSoundEffect: GankSoundEffect = {
+        
+        let bundle = Bundle.main
+        guard let fileURL = bundle.url(forResource: "tap", withExtension: "m4a") else {
+            fatalError("YepSoundEffect: file no found!")
+        }
+        return GankSoundEffect(fileURL: fileURL)
+    }()
+    
+    fileprivate lazy var heavyFeedbackEffect: GankFeedbackEffect = {
+        return GankFeedbackEffect(style: .heavy)
+    }()
+    
+    fileprivate func configureGankConfig() {
+        
+        GankConfig.tabbarSoundEffectAction = { [weak self] in
+            self?.tabbarSoundEffect.play()
+        }
+        
+        GankConfig.heavyFeedbackEffectAction = { [weak self] in
+            self?.heavyFeedbackEffect.play()
         }
     }
 
