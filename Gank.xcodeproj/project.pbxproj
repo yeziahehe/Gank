@@ -14,7 +14,6 @@
 		2C279E651F10911C00A256FF /* String+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279E641F10911C00A256FF /* String+Named.swift */; };
 		2C279E721F11F2DB00A256FF /* GankSoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279E711F11F2DB00A256FF /* GankSoundEffect.swift */; };
 		2C279E741F11F3C400A256FF /* GankFeedbackEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279E731F11F3C400A256FF /* GankFeedbackEffect.swift */; };
-		2C279E791F1200DA00A256FF /* tap.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C279E781F1200DA00A256FF /* tap.m4a */; };
 		2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A15701DC1F237003D5444 /* GankTabBarController.swift */; };
 		2C2B78B61F0A767B00863819 /* CoverHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B78B51F0A767B00863819 /* CoverHeaderView.swift */; };
 		2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */; };
@@ -85,7 +84,6 @@
 		2C279E641F10911C00A256FF /* String+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Named.swift"; sourceTree = "<group>"; };
 		2C279E711F11F2DB00A256FF /* GankSoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankSoundEffect.swift; path = Helpers/GankSoundEffect.swift; sourceTree = "<group>"; };
 		2C279E731F11F3C400A256FF /* GankFeedbackEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankFeedbackEffect.swift; path = Helpers/GankFeedbackEffect.swift; sourceTree = "<group>"; };
-		2C279E781F1200DA00A256FF /* tap.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = tap.m4a; path = ../../../../Desktop/tap.m4a; sourceTree = "<group>"; };
 		2C2A15701DC1F237003D5444 /* GankTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankTabBarController.swift; sourceTree = "<group>"; };
 		2C2B78B51F0A767B00863819 /* CoverHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverHeaderView.swift; sourceTree = "<group>"; };
 		2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverHeaderView.xib; sourceTree = "<group>"; };
@@ -130,6 +128,7 @@
 		2C971B771DC2040400843481 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		2C98A41A1DDDFBDB001CBE37 /* Date+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Gank.swift"; sourceTree = "<group>"; };
 		2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankServiceTests.swift; sourceTree = "<group>"; };
+		2CAC73611F12049C00AB51D0 /* tap.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.m4a; sourceTree = "<group>"; };
 		2CCFD9B61DCF611100526C15 /* GankNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GankNetworking.swift; path = Helpers/GankNetworking.swift; sourceTree = "<group>"; };
 		2CCFD9B81DCF797800526C15 /* Gank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gank.entitlements; sourceTree = "<group>"; };
 		2CCFD9B91DCFA6DE00526C15 /* GankService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankService.swift; sourceTree = "<group>"; };
@@ -188,7 +187,7 @@
 		2C279E751F11FBE000A256FF /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				2C279E781F1200DA00A256FF /* tap.m4a */,
+				2CAC73611F12049C00AB51D0 /* tap.m4a */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -559,7 +558,6 @@
 				2C4D02451DE2076800C044B5 /* DailyGankCell.xib in Resources */,
 				2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */,
 				2C4D02471DE2076800C044B5 /* DailyGankLoadingCell.xib in Resources */,
-				2C279E791F1200DA00A256FF /* tap.m4a in Resources */,
 				2C6AEC6F1F094AFC005B79F9 /* GankHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
