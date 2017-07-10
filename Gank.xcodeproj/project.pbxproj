@@ -12,6 +12,8 @@
 		2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */; };
 		2C279E631F0FF9B400A256FF /* GankAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279E621F0FF9B400A256FF /* GankAlert.swift */; };
 		2C279E651F10911C00A256FF /* String+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279E641F10911C00A256FF /* String+Named.swift */; };
+		2C279E721F11F2DB00A256FF /* GankSoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279E711F11F2DB00A256FF /* GankSoundEffect.swift */; };
+		2C279E741F11F3C400A256FF /* GankFeedbackEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279E731F11F3C400A256FF /* GankFeedbackEffect.swift */; };
 		2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A15701DC1F237003D5444 /* GankTabBarController.swift */; };
 		2C2B78B61F0A767B00863819 /* CoverHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B78B51F0A767B00863819 /* CoverHeaderView.swift */; };
 		2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */; };
@@ -50,6 +52,7 @@
 		2C971B781DC2040400843481 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C971B771DC2040400843481 /* MeViewController.swift */; };
 		2C98A41B1DDDFBDB001CBE37 /* Date+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C98A41A1DDDFBDB001CBE37 /* Date+Gank.swift */; };
 		2C98A41D1DE00935001CBE37 /* GankServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */; };
+		2CAC73641F124BF500AB51D0 /* tabbar.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC73631F124B6C00AB51D0 /* tabbar.m4a */; };
 		2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B61DCF611100526C15 /* GankNetworking.swift */; };
 		2CCFD9BA1DCFA6DE00526C15 /* GankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B91DCFA6DE00526C15 /* GankService.swift */; };
 		2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */; };
@@ -80,6 +83,8 @@
 		2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Gank.swift"; sourceTree = "<group>"; };
 		2C279E621F0FF9B400A256FF /* GankAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankAlert.swift; path = Helpers/GankAlert.swift; sourceTree = "<group>"; };
 		2C279E641F10911C00A256FF /* String+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Named.swift"; sourceTree = "<group>"; };
+		2C279E711F11F2DB00A256FF /* GankSoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankSoundEffect.swift; path = Helpers/GankSoundEffect.swift; sourceTree = "<group>"; };
+		2C279E731F11F3C400A256FF /* GankFeedbackEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankFeedbackEffect.swift; path = Helpers/GankFeedbackEffect.swift; sourceTree = "<group>"; };
 		2C2A15701DC1F237003D5444 /* GankTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankTabBarController.swift; sourceTree = "<group>"; };
 		2C2B78B51F0A767B00863819 /* CoverHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverHeaderView.swift; sourceTree = "<group>"; };
 		2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverHeaderView.xib; sourceTree = "<group>"; };
@@ -124,6 +129,7 @@
 		2C971B771DC2040400843481 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		2C98A41A1DDDFBDB001CBE37 /* Date+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Gank.swift"; sourceTree = "<group>"; };
 		2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankServiceTests.swift; sourceTree = "<group>"; };
+		2CAC73631F124B6C00AB51D0 /* tabbar.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tabbar.m4a; sourceTree = "<group>"; };
 		2CCFD9B61DCF611100526C15 /* GankNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GankNetworking.swift; path = Helpers/GankNetworking.swift; sourceTree = "<group>"; };
 		2CCFD9B81DCF797800526C15 /* Gank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gank.entitlements; sourceTree = "<group>"; };
 		2CCFD9B91DCFA6DE00526C15 /* GankService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankService.swift; sourceTree = "<group>"; };
@@ -177,6 +183,14 @@
 				2C4D02401DE2076800C044B5 /* DailyGankLoadingCell.xib */,
 			);
 			path = DailyGank;
+			sourceTree = "<group>";
+		};
+		2C279E751F11FBE000A256FF /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2CAC73631F124B6C00AB51D0 /* tabbar.m4a */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		2C2A156E1DC1F1E0003D5444 /* ViewControllers */ = {
@@ -281,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				2CCFD9B81DCF797800526C15 /* Gank.entitlements */,
+				2C279E751F11FBE000A256FF /* Sounds */,
 				2C971B661DC2007E00843481 /* Base */,
 				2C531D911DE6DD1000C920FB /* Protocols */,
 				2C971B6D1DC2015500843481 /* Extensions */,
@@ -386,6 +401,8 @@
 				2CCFD9B61DCF611100526C15 /* GankNetworking.swift */,
 				2C4DFB341F0022500068A73F /* SafeDispatch.swift */,
 				2C279E621F0FF9B400A256FF /* GankAlert.swift */,
+				2C279E711F11F2DB00A256FF /* GankSoundEffect.swift */,
+				2C279E731F11F3C400A256FF /* GankFeedbackEffect.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -428,6 +445,7 @@
 				2C83C8E11DAE0F4500FCE89A /* Resources */,
 				EF10FE34CC6C8FB5644994E9 /* [CP] Embed Pods Frameworks */,
 				85288FA81E4895AF70962E30 /* [CP] Copy Pods Resources */,
+				2C279E701F11E72800A256FF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -489,6 +507,9 @@
 						DevelopmentTeam = 3WTM5PLDUE;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -533,6 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CAC73641F124BF500AB51D0 /* tabbar.m4a in Resources */,
 				2C83C8F11DAE0F4500FCE89A /* LaunchScreen.storyboard in Resources */,
 				2C6AEC761F0959F6005B79F9 /* CustomFooterView.xib in Resources */,
 				2C83C8EE1DAE0F4500FCE89A /* Assets.xcassets in Resources */,
@@ -562,6 +584,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2C279E701F11E72800A256FF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
 		476FE4985E1098314A45BDFC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -617,6 +652,7 @@
 				2C971B781DC2040400843481 /* MeViewController.swift in Sources */,
 				2C75352C1DC8D02900C957A4 /* GankConfig.swift in Sources */,
 				2C98A41B1DDDFBDB001CBE37 /* Date+Gank.swift in Sources */,
+				2C279E721F11F2DB00A256FF /* GankSoundEffect.swift in Sources */,
 				2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */,
 				2C2B78BA1F0A9CF600863819 /* UILabel+Gank.swift in Sources */,
 				2C6AEC711F095575005B79F9 /* UIView+Gank.swift in Sources */,
@@ -626,6 +662,7 @@
 				2C971B6A1DC200DA00843481 /* BaseViewController.swift in Sources */,
 				2C971B741DC203E200843481 /* NewViewController.swift in Sources */,
 				2C279E631F0FF9B400A256FF /* GankAlert.swift in Sources */,
+				2C279E741F11F3C400A256FF /* GankFeedbackEffect.swift in Sources */,
 				2C971B6F1DC2019500843481 /* UIColor+Gank.swift in Sources */,
 				2C971B761DC203F400843481 /* CategoryViewController.swift in Sources */,
 				2C4D02441DE2076800C044B5 /* DailyGankCell.swift in Sources */,

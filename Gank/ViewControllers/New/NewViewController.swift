@@ -9,7 +9,6 @@
 import UIKit
 import Kingfisher
 import FaceAware
-import AudioToolbox.AudioServices
 
 final class NewViewController: BaseViewController {
     
@@ -18,6 +17,7 @@ final class NewViewController: BaseViewController {
     @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var newTableView: UITableView! {
         didSet {
+            newTableView.isScrollEnabled = false
             newTableView.tableHeaderView = coverHeaderView
             newTableView.tableFooterView = UIView()
             newTableView.separatorStyle = .none
@@ -27,6 +27,12 @@ final class NewViewController: BaseViewController {
             newTableView.registerNibOf(DailyGankLoadingCell.self)
         }
     }
+    
+    fileprivate lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activityView.hidesWhenStopped = true
+        return activityView
+    }()
     
     fileprivate lazy var coverHeaderView: CoverHeaderView = {
         let headerView = CoverHeaderView.instanceFromNib()
@@ -40,10 +46,8 @@ final class NewViewController: BaseViewController {
         return footerView
     }()
     
-    var feedbackGenerator : UIImpactFeedbackGenerator? = UIImpactFeedbackGenerator(style: .heavy)
-    
     fileprivate var isGankToday: Bool = true
-    fileprivate var meiziImageUrl: Gank?
+    fileprivate var meiziGank: Gank?
     fileprivate var gankCategories: [String] = []
     fileprivate var gankDictionary: [String: Array<Gank>] = [:]
     
@@ -56,7 +60,6 @@ final class NewViewController: BaseViewController {
     
     deinit {
         newTableView?.delegate = nil
-        feedbackGenerator = nil
         gankLog.debug("deinit NewViewController")
     }
     
@@ -64,17 +67,11 @@ final class NewViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationItem.setRightBarButtonItems([calendarButton], animated: false)
-        feedbackGenerator?.prepare()
         
         gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
-                // config data
-                self?.isGankToday = isToday
-                self?.meiziImageUrl = meizi
-                self?.gankCategories = categories
-                self?.gankDictionary = lastestGank
-                // config UI
-                self?.configureUI()
+                self?.configureData(isToday, meizi, categories, lastestGank)
+                self?.makeUI()
             }
         })
         
@@ -89,8 +86,27 @@ final class NewViewController: BaseViewController {
     }
     
     @IBAction func getNewGank(_ sender: UIBarButtonItem) {
-        feedbackGenerator?.impactOccurred()
-        GankAlert.alertKnown(title: nil, message: String.messageNoDailyGank, inViewController: self)
+        
+        GankConfig.heavyFeedbackEffectAction?()
+        activityIndicatorView.startAnimating()
+        navigationItem.setRightBarButtonItems([calendarButton, UIBarButtonItem(customView: activityIndicatorView)], animated: false)
+        
+        
+        gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
+            SafeDispatch.async { [weak self] in
+                
+                self?.activityIndicatorView.stopAnimating()
+                
+                guard isToday else {
+                    self?.makeActivityIndicator()
+                    return
+                }
+                
+                self?.configureData(isToday, meizi, categories, lastestGank)
+                self?.makeUI()
+            }
+        })
+        
     }
     
     @IBAction func showCalendar(_ sender: UIBarButtonItem) {
@@ -100,20 +116,33 @@ final class NewViewController: BaseViewController {
 
 extension NewViewController {
     
-    fileprivate func configureUI() {
+    fileprivate func configureData(_ isToday: Bool, _ meizi: Gank, _ categories: Array<String>, _ lastestGank: Dictionary<String, Array<Gank>>) {
+        isGankToday = isToday
+        meiziGank = meizi
+        gankCategories = categories
+        gankDictionary = lastestGank
+    }
+    
+    fileprivate func makeUI() {
+        newTableView.isScrollEnabled = true
         newTableView.tableFooterView = customFooterView
         newTableView.estimatedRowHeight = 195.5
         newTableView.rowHeight = UITableViewAutomaticDimension
-        let height = coverHeaderView.configure(meiziData: meiziImageUrl!)
+        let height = coverHeaderView.configure(meiziData: meiziGank!)
         coverHeaderView.frame.size = CGSize(width: GankConfig.getScreenWidth(), height: height)
         newTableView.reloadData()
         tipView.isHidden = isGankToday
         
         if isGankToday {
-            navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
+            navigationItem.setRightBarButtonItems([calendarButton], animated: false)
             return
         }
         navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
+    }
+    
+    fileprivate func makeActivityIndicator() {
+        navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
+        GankAlert.alertKnown(title: nil, message: String.messageNoDailyGank, inViewController: self)
     }
     
     fileprivate func refreshUI() {

@@ -59,6 +59,12 @@
                     <constraint firstAttribute="trailing" secondItem="XQt-Xl-fjX" secondAttribute="trailing" constant="20" id="vpa-3a-oC5"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLongLoadingImageView" destination="XQt-Xl-fjX" id="9DF-gU-CH7"/>
+                <outlet property="contentMediumLoadingImageView" destination="KIo-qy-dvD" id="M67-gv-jzk"/>
+                <outlet property="contentshortLoadingImageView" destination="ccF-ob-Y1S" id="559-xV-DxW"/>
+                <outlet property="titleLoadingImageView" destination="3wt-Q4-ita" id="kRk-dH-uoj"/>
+            </connections>
             <point key="canvasLocation" x="34" y="182"/>
         </tableViewCell>
     </objects>

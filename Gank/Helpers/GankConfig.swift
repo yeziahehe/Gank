@@ -9,6 +9,9 @@
 import UIKit
 
 final class GankConfig {
+    
+    public static var tabbarSoundEffectAction: (() -> Void)?
+    public static var heavyFeedbackEffectAction: (() -> Void)?
 
     class func getScreenRect() -> CGRect {
         return UIScreen.main.bounds

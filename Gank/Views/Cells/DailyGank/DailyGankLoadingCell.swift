@@ -9,8 +9,17 @@
 import UIKit
 
 final class DailyGankLoadingCell: UITableViewCell {
+    
+    @IBOutlet var titleLoadingImageView: UIImageView!
+    @IBOutlet var contentshortLoadingImageView: UIImageView!
+    @IBOutlet var contentLongLoadingImageView: UIImageView!
+    @IBOutlet var contentMediumLoadingImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        titleLoadingImageView.startShimmering()
+        contentshortLoadingImageView.startShimmering()
+        contentLongLoadingImageView.startShimmering()
+        contentMediumLoadingImageView.startShimmering()
     }
 }

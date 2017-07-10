@@ -10,5 +10,19 @@ import UIKit
 
 final class GankTabBarController: UITabBarController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        delegate = self
+    }
 }
 
+// MARK: - UITabBarControllerDelegate
+
+extension GankTabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        GankConfig.tabbarSoundEffectAction?()
+    }
+}

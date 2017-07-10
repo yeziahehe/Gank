@@ -16,6 +16,11 @@ final class GankAlert {
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
+            let subView = alertController.view.subviews.first!
+            let alertContentView = subView.subviews.first!
+            alertContentView.backgroundColor = UIColor.white
+            alertContentView.layer.cornerRadius = 5
+            
             let action: UIAlertAction = UIAlertAction(title: dismissTitle, style: .default) { action in
                 if let dismissAction = dismissAction {
                     dismissAction()
