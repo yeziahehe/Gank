@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import FaceAware
+import UserNotifications
 
 final class NewViewController: BaseViewController {
     
@@ -98,7 +99,7 @@ final class NewViewController: BaseViewController {
                 self?.activityIndicatorView.stopAnimating()
                 
                 guard isToday else {
-                    self?.makeActivityIndicator()
+                    self?.makeAlert()
                     return
                 }
                 
@@ -140,8 +141,23 @@ extension NewViewController {
         navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
     }
     
-    fileprivate func makeActivityIndicator() {
+    fileprivate func makeAlert() {
         navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
+        
+        guard GankUserDefaults.isNotificationNotDetermined.value == false else {
+            GankAlert.confirmOrCancel(title: nil, message: String.messageOpenNotification, confirmTitle: String.promptConfirmOpenNotification, cancelTitle: String.promptCancelOpenNotification, inViewController: self, withConfirmAction: {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error in
+                    GankUserDefaults.isNotificationNotDetermined.value = false
+                    if granted {
+                        GankUserDefaults.isBackgroundEnable.value = true
+                    } else {
+                        GankUserDefaults.isBackgroundEnable.value = false
+                    }
+                })
+            }, cancelAction: {})
+            return
+        }
+        
         GankAlert.alertKnown(title: nil, message: String.messageNoDailyGank, inViewController: self)
     }
     

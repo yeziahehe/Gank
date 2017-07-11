@@ -12,6 +12,8 @@ final class GankConfig {
     
     public static var tabbarSoundEffectAction: (() -> Void)?
     public static var heavyFeedbackEffectAction: (() -> Void)?
+    
+    public static let appGroupID: String = "group.coryphaei.Gank"
 
     class func getScreenRect() -> CGRect {
         return UIScreen.main.bounds

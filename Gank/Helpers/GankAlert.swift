@@ -43,7 +43,12 @@ final class GankAlert {
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
-            let cancelAction: UIAlertAction = UIAlertAction(title: cancelTitle, style: .cancel) { action in
+            let subView = alertController.view.subviews.first!
+            let alertContentView = subView.subviews.first!
+            alertContentView.backgroundColor = UIColor.white
+            alertContentView.layer.cornerRadius = 5
+            
+            let cancelAction: UIAlertAction = UIAlertAction(title: cancelTitle, style: .destructive) { action in
                 cancelAction()
             }
             alertController.addAction(cancelAction)

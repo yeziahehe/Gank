@@ -37,4 +37,20 @@ extension String {
     static var messageTodayGank: String {
         return "今天的干货很棒，欢迎戳来看预览~ "
     }
+    
+    static var titleContentTitle: String {
+        return "干货更新啦"
+    }
+    
+    static var messageOpenNotification: String {
+        return "今日干货未更新，你可以打开推送，这样新干货会第一时间推送给你~"
+    }
+    
+    static var promptConfirmOpenNotification: String {
+        return "打开推送"
+    }
+    
+    static var promptCancelOpenNotification: String {
+        return "暂时不用"
+    }
 }
