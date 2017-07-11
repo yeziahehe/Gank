@@ -144,20 +144,14 @@ extension NewViewController {
     fileprivate func makeAlert() {
         navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
         
-        guard GankConfig.isNotificationNotDetermined?() == false else {
+        guard GankUserDefaults.isNotificationNotDetermined.value == false else {
             GankAlert.confirmOrCancel(title: nil, message: String.messageOpenNotification, confirmTitle: String.promptConfirmOpenNotification, cancelTitle: String.promptCancelOpenNotification, inViewController: self, withConfirmAction: {
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error in
-                    GankConfig.isNotificationNotDetermined = {
-                        return false
-                    }
+                    GankUserDefaults.isNotificationNotDetermined.value = false
                     if granted {
-                        GankConfig.isBackgroundEnable = {
-                            return true
-                        }
+                        GankUserDefaults.isBackgroundEnable.value = true
                     } else {
-                        GankConfig.isBackgroundEnable = {
-                            return false
-                        }
+                        GankUserDefaults.isBackgroundEnable.value = false
                     }
                 })
             }, cancelAction: {})

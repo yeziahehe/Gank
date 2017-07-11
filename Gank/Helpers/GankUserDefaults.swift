@@ -9,6 +9,8 @@
 import UIKit
 
 private let notificationDayKey = "notificationDay"
+private let isBackgroundEnableKey = "isBackgroundEnable"
+private let isNotificationNotDeterminedKey = "isNotificationNotDetermined"
 
 public struct Listener<T>: Hashable {
     
@@ -85,6 +87,22 @@ final public class GankUserDefaults {
         
         return Listenable<String?>(notificationDay) { notificationDay in
             defaults.set(notificationDay, forKey: notificationDayKey)
+        }
+    }()
+    
+    public static var isBackgroundEnable: Listenable<Bool?> = {
+        let isBackgroundEnable = defaults.bool(forKey: isBackgroundEnableKey)
+        
+        return Listenable<Bool?>(isBackgroundEnable) { isBackgroundEnable in
+            defaults.set(isBackgroundEnable, forKey: isBackgroundEnableKey)
+        }
+    }()
+    
+    public static var isNotificationNotDetermined: Listenable<Bool?> = {
+        let isNotificationNotDetermined = defaults.bool(forKey: isNotificationNotDeterminedKey)
+        
+        return Listenable<Bool?>(isNotificationNotDetermined) { isNotificationNotDetermined in
+            defaults.set(isNotificationNotDetermined, forKey: isNotificationNotDeterminedKey)
         }
     }()
 

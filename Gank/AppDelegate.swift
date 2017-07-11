@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         gankLog.debug("APP Perform Fetch")
         
-        if GankConfig.isBackgroundEnable?() == false {
+        if GankUserDefaults.isBackgroundEnable.value == false {
             completionHandler(.noData)
             return
         }
@@ -156,32 +156,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { settings in
             switch settings.authorizationStatus {
             case .notDetermined:
-                GankConfig.isBackgroundEnable = {
-                    return false
-                }
-                GankConfig.isNotificationNotDetermined = {
-                    return true
-                }
+                GankUserDefaults.isBackgroundEnable.value = false
+                GankUserDefaults.isNotificationNotDetermined.value = true
             case .authorized:
-                GankConfig.isBackgroundEnable = {
-                    return true
-                }
-                GankConfig.isNotificationNotDetermined = {
-                    return false
-                }
+                GankUserDefaults.isBackgroundEnable.value = true
+                GankUserDefaults.isNotificationNotDetermined.value = false
             case .denied:
-                GankConfig.isBackgroundEnable = {
-                    return false
-                }
-                GankConfig.isNotificationNotDetermined = {
-                    return false
-                }
-            }
+                GankUserDefaults.isBackgroundEnable.value = false
+                GankUserDefaults.isNotificationNotDetermined.value = false            }
         })
     }
     
     fileprivate func configureBackgroudFetch() {
-        guard GankConfig.isBackgroundEnable?() ?? false else {
+        guard GankUserDefaults.isBackgroundEnable.value ?? false else {
             return
         }
         
