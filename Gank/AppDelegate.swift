@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 import ReachabilitySwift
 import Alamofire
 import AlamofireNetworkActivityIndicator
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let reachability = Reachability()!
+    let notificationHandler = NotificationHandler()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -26,10 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = UIColor.gankTintColor()
         window?.tintAdjustmentMode = .normal
         
-        // 配置网络变化检测
+        // Network Status Minitor
         configureNetworkReachable()
         
+        // Global Configure
         configureGankConfig()
+        
+        // Background Fetch timer
+        UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
+        
+        // Notification
+        UNUserNotificationCenter.current().delegate = notificationHandler
         
         let storyboard = UIStoryboard.gank_main
         window?.rootViewController = storyboard.instantiateInitialViewController()
@@ -61,20 +70,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         reachability.stopNotifier()
     }
     
-    fileprivate func configureNetworkReachable() {
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        gankLog.debug("APP Perform Fetch")
         
-//        let manager = NetworkReachabilityManager(host: "gank.io")
-//        
-//        manager?.listener = { status in
-//            
-//            if status == .notReachable {
-//                print("Network Status Changed: \(status)")
-//            } else if status == .reachable(.ethernetOrWiFi) {
-//                print("Network Status Changed: \(status)")
-//            }
-//        }
-//        
-//        manager?.startListening()
+        if GankConfig.isBackgroundEnable?() == false {
+            completionHandler(.noData)
+            return
+        }
+        
+        lastestGankDate(failureHandler: { (_, _) in
+            completionHandler(.failed)
+        }, completion: { (isGankToday, _) in
+            if isGankToday {
+                let content = UNMutableNotificationContent()
+                content.title = String.titleContentTitle
+                content.body = String.messageTodayGank
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+                let requestIdentifier = "gank update"
+                let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request) { error in
+                    if error == nil {
+                        return
+                    }
+                }
+                SafeDispatch.async {
+                    completionHandler(.newData)
+                }
+            }
+        })
+    }
+    
+    fileprivate lazy var tabbarSoundEffect: GankSoundEffect = {
+        
+        guard let fileURL = Bundle.main.url(forResource: "tabbar", withExtension: "m4a") else {
+            fatalError("YepSoundEffect: file no found!")
+        }
+        return GankSoundEffect(fileURL: fileURL)
+    }()
+    
+    fileprivate lazy var heavyFeedbackEffect: GankFeedbackEffect = {
+        return GankFeedbackEffect(style: .heavy)
+    }()
+    
+    fileprivate func configureNetworkReachable() {
         
         NetworkActivityIndicatorManager.shared.isEnabled = true
         
@@ -97,18 +135,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    fileprivate lazy var tabbarSoundEffect: GankSoundEffect = {
-        
-        guard let fileURL = Bundle.main.url(forResource: "tabbar", withExtension: "m4a") else {
-            fatalError("YepSoundEffect: file no found!")
-        }
-        return GankSoundEffect(fileURL: fileURL)
-    }()
-    
-    fileprivate lazy var heavyFeedbackEffect: GankFeedbackEffect = {
-        return GankFeedbackEffect(style: .heavy)
-    }()
-    
     fileprivate func configureGankConfig() {
         
         GankConfig.tabbarSoundEffectAction = { [weak self] in
@@ -118,6 +144,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GankConfig.heavyFeedbackEffectAction = { [weak self] in
             self?.heavyFeedbackEffect.play()
         }
+        
+        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { settings in
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                GankConfig.isBackgroundEnable = {
+                    return false
+                }
+                GankConfig.isNotificationNotDetermined = {
+                    return true
+                }
+            case .authorized:
+                GankConfig.isBackgroundEnable = {
+                    return true
+                }
+                GankConfig.isNotificationNotDetermined = {
+                    return false
+                }
+            case .denied:
+                GankConfig.isBackgroundEnable = {
+                    return false
+                }
+                GankConfig.isNotificationNotDetermined = {
+                    return false
+                }
+            }
+        })
+    }
+    
+    fileprivate func configureBackgroudFetch() {
+        guard GankConfig.isBackgroundEnable?() ?? false else {
+            return
+        }
+        
     }
 
 }

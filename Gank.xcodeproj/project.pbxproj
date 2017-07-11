@@ -30,6 +30,8 @@
 		2C531D931DE6DD2000C920FB /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C531D921DE6DD2000C920FB /* Reusable.swift */; };
 		2C531D951DE6DD6500C920FB /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C531D941DE6DD6500C920FB /* NibLoadable.swift */; };
 		2C531D981DE6DEC900C920FB /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C531D971DE6DEC900C920FB /* FPSLabel.swift */; };
+		2C53F4051F14D59B0071A3AC /* GankUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */; };
+		2C604FD41F13FB7E00E12F06 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C604FD31F13FB7E00E12F06 /* NotificationHandler.swift */; };
 		2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */; };
 		2C6AEC6D1F094AF2005B79F9 /* GankHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */; };
 		2C6AEC6F1F094AFC005B79F9 /* GankHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AEC6E1F094AFC005B79F9 /* GankHeaderView.xib */; };
@@ -101,6 +103,8 @@
 		2C531D921DE6DD2000C920FB /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		2C531D941DE6DD6500C920FB /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		2C531D971DE6DEC900C920FB /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
+		2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankUserDefaults.swift; path = Helpers/GankUserDefaults.swift; sourceTree = "<group>"; };
+		2C604FD31F13FB7E00E12F06 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
 		2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankHeaderView.swift; sourceTree = "<group>"; };
 		2C6AEC6E1F094AFC005B79F9 /* GankHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GankHeaderView.xib; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				2CCFD9B91DCFA6DE00526C15 /* GankService.swift */,
+				2C604FD31F13FB7E00E12F06 /* NotificationHandler.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				2C279E621F0FF9B400A256FF /* GankAlert.swift */,
 				2C279E711F11F2DB00A256FF /* GankSoundEffect.swift */,
 				2C279E731F11F3C400A256FF /* GankFeedbackEffect.swift */,
+				2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				2C971B761DC203F400843481 /* CategoryViewController.swift in Sources */,
 				2C4D02441DE2076800C044B5 /* DailyGankCell.swift in Sources */,
 				2C136C311DC631EF0067E280 /* UIImage+Named.swift in Sources */,
+				2C53F4051F14D59B0071A3AC /* GankUserDefaults.swift in Sources */,
 				2C531D931DE6DD2000C920FB /* Reusable.swift in Sources */,
 				2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */,
 				2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */,
@@ -686,6 +693,7 @@
 				2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */,
 				2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */,
 				2C4D02461DE2076800C044B5 /* DailyGankLoadingCell.swift in Sources */,
+				2C604FD41F13FB7E00E12F06 /* NotificationHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
