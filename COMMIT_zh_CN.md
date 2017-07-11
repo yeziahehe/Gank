@@ -16,13 +16,14 @@
 
 ### Type
 
-- feat：新功能（feature）
-- fix：修补八阿哥
-- docs：文档（documentation）
-- style：格式（不影响代码运行的变动）
-- refactor：重构
-- test：测试用例
-- chore：构建过程或者辅助工具的变动
+- ✨feat：新功能（feature）
+- 🐛fix：修补八阿哥
+- 📝docs：文档（documentation）
+- 🎨style：格式（不影响代码运行的变动）
+- ⚡️refactor：重构
+- ✅test：测试用例
+
+**[About git commit emoji](https://github.com/yeziahehe/git-commit-emoji-cn)**
 
 ### Scope
 
