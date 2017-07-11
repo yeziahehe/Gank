@@ -14,6 +14,8 @@ final class GankConfig {
     public static var heavyFeedbackEffectAction: (() -> Void)?
     public static var isBackgroundEnable: (() -> Bool)?
     public static var isNotificationNotDetermined: (() -> Bool)?
+    
+    public static let appGroupID: String = "group.coryphaei.Gank"
 
     class func getScreenRect() -> CGRect {
         return UIScreen.main.bounds

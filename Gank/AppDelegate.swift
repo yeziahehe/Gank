@@ -80,21 +80,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         lastestGankDate(failureHandler: { (_, _) in
             completionHandler(.failed)
-        }, completion: { (isGankToday, _) in
+        }, completion: { (isGankToday, date) in
             if isGankToday {
-                let content = UNMutableNotificationContent()
-                content.title = String.titleContentTitle
-                content.body = String.messageTodayGank
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-                let requestIdentifier = "gank update"
-                let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request) { error in
-                    if error == nil {
-                        return
+                
+                guard let noticationDay = GankUserDefaults.notificationDay.value else {
+                    GankUserDefaults.notificationDay.value = date
+                    SafeDispatch.async {
+                        self.pushNotification()
+                        completionHandler(.newData)
                     }
+                    return
                 }
+                
+                guard noticationDay == date else {
+                    GankUserDefaults.notificationDay.value = date
+                    SafeDispatch.async {
+                        self.pushNotification()
+                        completionHandler(.newData)
+                    }
+                    return
+                }
+                
                 SafeDispatch.async {
-                    completionHandler(.newData)
+                    completionHandler(.noData)
                 }
             }
         })
@@ -177,6 +185,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
+    }
+    
+    fileprivate func pushNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = String.titleContentTitle
+        content.body = String.messageTodayGank
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let requestIdentifier = "gank update"
+        let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            if error == nil {
+                return
+            }
+        }
     }
 
 }
