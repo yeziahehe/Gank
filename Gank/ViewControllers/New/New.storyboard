@@ -83,7 +83,7 @@
                             <barButtonItem image="calendar" id="nAg-PQ-JFd">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="showCalendar:" destination="R68-Me-JLF" id="xXt-Rc-ziJ"/>
+                                    <segue destination="KBr-gx-4HX" kind="push" id="bLv-EE-e3p"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="new" id="W6R-GZ-paX">
@@ -105,6 +105,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zoS-7a-Q5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1927.2" y="1177.961019490255"/>
+        </scene>
+        <!--历史的车轮-->
+        <scene sceneID="aeQ-4J-dyX">
+            <objects>
+                <viewController storyboardIdentifier="HistoryViewController" hidesBottomBarWhenPushed="YES" id="KBr-gx-4HX" customClass="HistoryViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="66n-3c-VUM"/>
+                        <viewControllerLayoutGuide type="bottom" id="jKx-Ce-cQU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hSQ-lK-fh3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="历史的车轮" id="DV6-he-Twp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YVX-r3-OZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1132" y="445"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cNl-HS-uof">

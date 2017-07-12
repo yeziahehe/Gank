@@ -26,4 +26,8 @@ extension UIImage {
         return UIImage(named: "date_loading_bg")!
     }
     
+    static var gank_navBack: UIImage {
+        return UIImage(named: "nav_back")!
+    }
+    
 }

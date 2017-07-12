@@ -15,6 +15,7 @@ class BaseViewController: SegueViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         view.backgroundColor = UIColor.white
     }
     
@@ -25,12 +26,15 @@ class BaseViewController: SegueViewController {
             return
         }
         
+        navigationController.navigationBar.tintColor = UIColor.gankNavgationBarTitleColor()
         navigationController.navigationBar.barTintColor = UIColor.gankNavgationBarTitleColor()
         navigationController.navigationBar.backgroundColor = nil
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.shadowImage = nil
         navigationController.navigationBar.barStyle = .default
         navigationController.navigationBar.setBackgroundImage(UIImage.gank_navBg, for: .default)
+        navigationController.navigationBar.backIndicatorImage = UIImage.gank_navBack
+        navigationController.navigationBar.backIndicatorTransitionMaskImage = UIImage.gank_navBack
         
         if navigationController.isNavigationBarHidden {
             navigationController.setNavigationBarHidden(false, animated: animatedOnNavigationBar)

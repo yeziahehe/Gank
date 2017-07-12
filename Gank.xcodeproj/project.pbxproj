@@ -31,6 +31,7 @@
 		2C531D951DE6DD6500C920FB /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C531D941DE6DD6500C920FB /* NibLoadable.swift */; };
 		2C531D981DE6DEC900C920FB /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C531D971DE6DEC900C920FB /* FPSLabel.swift */; };
 		2C53F4051F14D59B0071A3AC /* GankUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */; };
+		2C53F4071F15F9A70071A3AC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53F4061F15F9A70071A3AC /* HistoryViewController.swift */; };
 		2C604FD41F13FB7E00E12F06 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C604FD31F13FB7E00E12F06 /* NotificationHandler.swift */; };
 		2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */; };
 		2C6AEC6D1F094AF2005B79F9 /* GankHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */; };
@@ -104,6 +105,7 @@
 		2C531D941DE6DD6500C920FB /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		2C531D971DE6DEC900C920FB /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankUserDefaults.swift; path = Helpers/GankUserDefaults.swift; sourceTree = "<group>"; };
+		2C53F4061F15F9A70071A3AC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		2C604FD31F13FB7E00E12F06 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
 		2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankHeaderView.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				2C971B731DC203E200843481 /* NewViewController.swift */,
+				2C53F4061F15F9A70071A3AC /* HistoryViewController.swift */,
 				2C4D021D1DE1EAE800C044B5 /* New.storyboard */,
 			);
 			path = New;
@@ -678,6 +681,7 @@
 				2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */,
 				2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */,
 				2C971B6C1DC200F600843481 /* SegueViewController.swift in Sources */,
+				2C53F4071F15F9A70071A3AC /* HistoryViewController.swift in Sources */,
 				2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */,
 				2C2B78B61F0A767B00863819 /* CoverHeaderView.swift in Sources */,
 				2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */,
