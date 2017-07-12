@@ -10,6 +10,7 @@ def pods
     pod 'SwiftyJSON'
     pod 'Kingfisher','~> 3.1.0'
     pod 'FaceAware'
+    pod 'JTAppleCalendar', '~> 7.0'
 end
 
 target 'Gank' do
