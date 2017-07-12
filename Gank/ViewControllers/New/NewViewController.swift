@@ -110,6 +110,10 @@ final class NewViewController: BaseViewController {
         
     }
     
+    @IBAction func showCalendar(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "showCalendar", sender: self)
+    }
+    
 }
 
 extension NewViewController {

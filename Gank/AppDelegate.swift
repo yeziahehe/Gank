@@ -85,8 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 guard let noticationDay = GankUserDefaults.notificationDay.value else {
                     GankUserDefaults.notificationDay.value = date
-                    SafeDispatch.async {
-                        self.pushNotification()
+                    SafeDispatch.async { [weak self] in
+                        self?.pushNotification()
                         completionHandler(.newData)
                     }
                     return
@@ -94,8 +94,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 guard noticationDay == date else {
                     GankUserDefaults.notificationDay.value = date
-                    SafeDispatch.async {
-                        self.pushNotification()
+                    SafeDispatch.async { [weak self] in
+                        self?.pushNotification()
                         completionHandler(.newData)
                     }
                     return
