@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UserNotifications
 import ReachabilitySwift
 import Alamofire
 import AlamofireNetworkActivityIndicator

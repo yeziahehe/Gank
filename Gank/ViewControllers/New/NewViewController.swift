@@ -52,13 +52,6 @@ final class NewViewController: BaseViewController {
     fileprivate var gankCategories: [String] = []
     fileprivate var gankDictionary: [String: Array<Gank>] = [:]
     
-    #if DEBUG
-    private lazy var newFPSLabel: FPSLabel = {
-        let label = FPSLabel()
-        return label
-    }()
-    #endif
-    
     deinit {
         newTableView?.delegate = nil
         gankLog.debug("deinit NewViewController")
@@ -75,10 +68,6 @@ final class NewViewController: BaseViewController {
                 self?.makeUI()
             }
         })
-        
-        #if DEBUG
-            view.addSubview(newFPSLabel)
-        #endif
         
     }
     
