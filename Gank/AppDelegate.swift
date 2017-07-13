@@ -73,34 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
-        lastestGankDate(failureHandler: { (_, _) in
-            completionHandler(.failed)
-        }, completion: { (isGankToday, date) in
-            if isGankToday {
-                
-                guard let noticationDay = GankUserDefaults.notificationDay.value else {
-                    GankUserDefaults.notificationDay.value = date
-                    SafeDispatch.async {
-                        GankNotificationService.shared.push()
-                        completionHandler(.newData)
-                    }
-                    return
-                }
-                
-                guard noticationDay == date else {
-                    GankUserDefaults.notificationDay.value = date
-                    SafeDispatch.async {
-                        GankNotificationService.shared.push()
-                        completionHandler(.newData)
-                    }
-                    return
-                }
-                
-                SafeDispatch.async {
-                    completionHandler(.noData)
-                }
-            }
-        })
+        GankBackgroundFetchService.shared.performFetchWithCompletionHandler { (result) in
+            completionHandler(result)
+        }
     }
     
     fileprivate lazy var tabbarSoundEffect: GankSoundEffect = {

@@ -56,6 +56,7 @@ final class GankNotificationService: NSObject {
                 self?.isAskAuthorization = true
                 if granted {
                     gankLog.debug("UserNotifications authorized")
+                    GankBackgroundFetchService.shared.turnOn()
                 } else {
                     gankLog.debug("UserNotifications denied")
                 }
