@@ -52,13 +52,6 @@ final class NewViewController: BaseViewController {
     fileprivate var gankCategories: [String] = []
     fileprivate var gankDictionary: [String: Array<Gank>] = [:]
     
-    #if DEBUG
-    private lazy var newFPSLabel: FPSLabel = {
-        let label = FPSLabel()
-        return label
-    }()
-    #endif
-    
     deinit {
         newTableView?.delegate = nil
         gankLog.debug("deinit NewViewController")
@@ -67,7 +60,7 @@ final class NewViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.setRightBarButtonItems([calendarButton], animated: false)
+        setRightBarButtonItems(type: .only)
         
         gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
@@ -75,10 +68,6 @@ final class NewViewController: BaseViewController {
                 self?.makeUI()
             }
         })
-        
-        #if DEBUG
-            view.addSubview(newFPSLabel)
-        #endif
         
     }
     
@@ -90,8 +79,7 @@ final class NewViewController: BaseViewController {
         
         GankConfig.heavyFeedbackEffectAction?()
         activityIndicatorView.startAnimating()
-        navigationItem.setRightBarButtonItems([calendarButton, UIBarButtonItem(customView: activityIndicatorView)], animated: false)
-        
+        setRightBarButtonItems(type: .indicator)
         
         gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
@@ -118,11 +106,28 @@ final class NewViewController: BaseViewController {
 
 extension NewViewController {
     
+    enum RightBarType {
+        case all
+        case only
+        case indicator
+    }
+    
     fileprivate func configureData(_ isToday: Bool, _ meizi: Gank, _ categories: Array<String>, _ lastestGank: Dictionary<String, Array<Gank>>) {
         isGankToday = isToday
         meiziGank = meizi
         gankCategories = categories
         gankDictionary = lastestGank
+    }
+    
+    fileprivate func setRightBarButtonItems(type: RightBarType) {
+        switch type {
+        case .only:
+            navigationItem.setRightBarButtonItems([calendarButton], animated: false)
+        case .indicator:
+            navigationItem.setRightBarButtonItems([calendarButton, UIBarButtonItem(customView: activityIndicatorView)], animated: false)
+        default:
+            navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
+        }
     }
     
     fileprivate func makeUI() {
@@ -136,25 +141,18 @@ extension NewViewController {
         tipView.isHidden = isGankToday
         
         if isGankToday {
-            navigationItem.setRightBarButtonItems([calendarButton], animated: false)
+            setRightBarButtonItems(type: .only)
             return
         }
-        navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
+        setRightBarButtonItems(type: .all)
     }
     
     fileprivate func makeAlert() {
-        navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
+        setRightBarButtonItems(type: .all)
         
-        guard GankUserDefaults.isNotificationNotDetermined.value == false else {
+        guard GankNotificationService.shared.isAskAuthorization == false else {
             GankAlert.confirmOrCancel(title: nil, message: String.messageOpenNotification, confirmTitle: String.promptConfirmOpenNotification, cancelTitle: String.promptCancelOpenNotification, inViewController: self, withConfirmAction: {
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error in
-                    GankUserDefaults.isNotificationNotDetermined.value = false
-                    if granted {
-                        GankUserDefaults.isBackgroundEnable.value = true
-                    } else {
-                        GankUserDefaults.isBackgroundEnable.value = false
-                    }
-                })
+                GankNotificationService.shared.checkAuthorization()
             }, cancelAction: {})
             return
         }

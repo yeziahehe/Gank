@@ -12,11 +12,22 @@ class BaseViewController: SegueViewController {
     
     var animatedOnNavigationBar = false
     
+    #if DEBUG
+    private lazy var newFPSLabel: FPSLabel = {
+        let label = FPSLabel()
+        return label
+    }()
+    #endif
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         view.backgroundColor = UIColor.white
+        
+        #if DEBUG
+            view.addSubview(newFPSLabel)
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
