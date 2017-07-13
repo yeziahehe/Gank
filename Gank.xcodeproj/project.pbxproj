@@ -33,7 +33,7 @@
 		2C531D981DE6DEC900C920FB /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C531D971DE6DEC900C920FB /* FPSLabel.swift */; };
 		2C53F4051F14D59B0071A3AC /* GankUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */; };
 		2C53F4071F15F9A70071A3AC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53F4061F15F9A70071A3AC /* HistoryViewController.swift */; };
-		2C604FD41F13FB7E00E12F06 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C604FD31F13FB7E00E12F06 /* NotificationHandler.swift */; };
+		2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */; };
 		2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */; };
 		2C6AEC6D1F094AF2005B79F9 /* GankHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */; };
 		2C6AEC6F1F094AFC005B79F9 /* GankHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AEC6E1F094AFC005B79F9 /* GankHeaderView.xib */; };
@@ -57,6 +57,7 @@
 		2C98A41B1DDDFBDB001CBE37 /* Date+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C98A41A1DDDFBDB001CBE37 /* Date+Gank.swift */; };
 		2C98A41D1DE00935001CBE37 /* GankServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */; };
 		2CAC73641F124BF500AB51D0 /* tabbar.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC73631F124B6C00AB51D0 /* tabbar.m4a */; };
+		2CBC3B771F172C5B00A49286 /* GankBackgroundFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC3B761F172C5B00A49286 /* GankBackgroundFetchService.swift */; };
 		2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B61DCF611100526C15 /* GankNetworking.swift */; };
 		2CCFD9BA1DCFA6DE00526C15 /* GankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B91DCFA6DE00526C15 /* GankService.swift */; };
 		2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */; };
@@ -108,7 +109,7 @@
 		2C531D971DE6DEC900C920FB /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankUserDefaults.swift; path = Helpers/GankUserDefaults.swift; sourceTree = "<group>"; };
 		2C53F4061F15F9A70071A3AC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		2C604FD31F13FB7E00E12F06 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankNotificationService.swift; sourceTree = "<group>"; };
 		2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
 		2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankHeaderView.swift; sourceTree = "<group>"; };
 		2C6AEC6E1F094AFC005B79F9 /* GankHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GankHeaderView.xib; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 		2C98A41A1DDDFBDB001CBE37 /* Date+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Gank.swift"; sourceTree = "<group>"; };
 		2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankServiceTests.swift; sourceTree = "<group>"; };
 		2CAC73631F124B6C00AB51D0 /* tabbar.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tabbar.m4a; sourceTree = "<group>"; };
+		2CBC3B761F172C5B00A49286 /* GankBackgroundFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankBackgroundFetchService.swift; sourceTree = "<group>"; };
 		2CCFD9B61DCF611100526C15 /* GankNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GankNetworking.swift; path = Helpers/GankNetworking.swift; sourceTree = "<group>"; };
 		2CCFD9B81DCF797800526C15 /* Gank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gank.entitlements; sourceTree = "<group>"; };
 		2CCFD9B91DCFA6DE00526C15 /* GankService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankService.swift; sourceTree = "<group>"; };
@@ -178,7 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				2CCFD9B91DCFA6DE00526C15 /* GankService.swift */,
-				2C604FD31F13FB7E00E12F06 /* NotificationHandler.swift */,
+				2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */,
+				2CBC3B761F172C5B00A49286 /* GankBackgroundFetchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CBC3B771F172C5B00A49286 /* GankBackgroundFetchService.swift in Sources */,
 				2C971B781DC2040400843481 /* MeViewController.swift in Sources */,
 				2C75352C1DC8D02900C957A4 /* GankConfig.swift in Sources */,
 				2C98A41B1DDDFBDB001CBE37 /* Date+Gank.swift in Sources */,
@@ -709,7 +713,7 @@
 				2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */,
 				2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */,
 				2C4D02461DE2076800C044B5 /* DailyGankLoadingCell.swift in Sources */,
-				2C604FD41F13FB7E00E12F06 /* NotificationHandler.swift in Sources */,
+				2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
