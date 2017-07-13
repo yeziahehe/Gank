@@ -74,7 +74,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         GankBackgroundFetchService.shared.performFetchWithCompletionHandler { (result) in
-            completionHandler(result)
+            SafeDispatch.async {
+                completionHandler(result)
+            }
         }
     }
     
