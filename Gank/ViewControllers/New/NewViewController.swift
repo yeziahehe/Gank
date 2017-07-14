@@ -150,7 +150,7 @@ extension NewViewController {
     fileprivate func makeAlert() {
         setRightBarButtonItems(type: .all)
         
-        guard GankNotificationService.shared.isAskAuthorization == false else {
+        guard GankNotificationService.shared.isAskAuthorization == true else {
             GankAlert.confirmOrCancel(title: nil, message: String.messageOpenNotification, confirmTitle: String.promptConfirmOpenNotification, cancelTitle: String.promptCancelOpenNotification, inViewController: self, withConfirmAction: {
                 GankNotificationService.shared.checkAuthorization()
             }, cancelAction: {})

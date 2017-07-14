@@ -53,7 +53,7 @@ final class GankNotificationService: NSObject {
     public func authorize() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             SafeDispatch.async { [weak self] in
-                self?.isAskAuthorization = true
+                self?.initAuthorization()
                 if granted {
                     gankLog.debug("UserNotifications authorized")
                     GankBackgroundFetchService.shared.turnOn()
