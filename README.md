@@ -34,8 +34,10 @@
 
 ## 功能
 
-- [x]~~集成 [flow.ci](http://flow.ci/)~~，已替换成[Travis CI](https://travis-ci.org)
-- [x]集成[codecov](https://codecov.io)
+- [x]~~集成 [flow.ci](http://flow.ci/)~~，已替换成 [Travis CI](https://travis-ci.org)
+- [x]集成 [codecov](https://codecov.io)
+- [x]集成 [codebeat](https://codebeat.co/)
+- [ ]集成 [DateHelper](https://github.com/melvitax/DateHelper)
 
 ## 运行环境
 
@@ -43,13 +45,11 @@
 - Xcode 8.0+
 - Swift 3.0
 
-## API
+## 文档
 
-根据项目和干货集中营文档整理的 [Gank API 文档](https://github.com/yeziahehe/Gank/blob/master/API.md)。
-
-## 版本
-
-详情请查看 [版本日志](https://github.com/yeziahehe/Gank/blob/master/RELEASES.md)。
+- 根据项目和干货集中营文档整理的 [Gank API 文档](https://github.com/yeziahehe/Gank/blob/master/API.md)。
+- 详情请查看 [版本日志](https://github.com/yeziahehe/Gank/blob/master/RELEASES.md)。
+- 个人整理的 [Git Commit Message 规范文档](https://github.com/yeziahehe/Gank/blob/master/COMMIT_zh_CN.md)。
 
 ## 贡献
 
