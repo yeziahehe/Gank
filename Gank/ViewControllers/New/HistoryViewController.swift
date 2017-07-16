@@ -14,6 +14,7 @@ class HistoryViewController: BaseViewController {
     @IBOutlet var calendarView: JTAppleCalendarView!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
+    fileprivate var gankHisDate: Array<String> = []
     
     let formatter = DateFormatter()
     
@@ -55,8 +56,8 @@ extension HistoryViewController: JTAppleCalendarViewDataSource {
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
         
-        let startDate = formatter.date(from: "2015 05 18")!
-        let endDate = formatter.date(from: "2017 07 12" )!
+        let startDate = formatter.date(from: gankHisDate.last!)!
+        let endDate = formatter.date(from: gankHisDate.first!)!
         
         let parameters = ConfigurationParameters(startDate:startDate, endDate:endDate)
         return parameters
