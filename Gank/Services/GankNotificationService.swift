@@ -20,7 +20,7 @@ final class GankNotificationService: NSObject {
         initAuthorization()
     }
     
-    fileprivate func initAuthorization() {
+    public func initAuthorization() {
         UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { settings in
             SafeDispatch.async { [weak self] in
                 switch settings.authorizationStatus {
