@@ -18,6 +18,7 @@ public func allGankHistoryDate(failureHandler: FailureHandler?, completion: @esc
     
     let parse: (JSON) -> Array<String>? = { data in
         let historyDateArray = data["results"].arrayValue.map({$0.stringValue})
+        GankUserDefaults.historyDate.value = historyDateArray
         return historyDateArray
     }
     
@@ -30,6 +31,7 @@ public func allGankHistoryDate(failureHandler: FailureHandler?, completion: @esc
 // MARK: - 最近一次有干货的日期并判断是否是今天
 public func lastestGankDate(failureHandler: FailureHandler?, completion: @escaping (Bool, String) -> Void) {
     let parse: (JSON) -> (Bool, String)? = { data in
+        GankUserDefaults.historyDate.value = data["results"].arrayValue.map({$0.stringValue})
         let lastestDate = data["results"][0].stringValue
         let now = Date()
         return (lastestDate == now.toString(), lastestDate)
