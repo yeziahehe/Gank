@@ -22,14 +22,21 @@ class CoverHeaderView: UIView {
         
     }
     
-    func configure(meiziData meiziDetail: Gank) -> CGFloat {
+    func configure(meiziData meiziDetail: Gank?) -> CGFloat {
         var height: CGFloat = 200
         
-        guard let data: Data = try? Data(contentsOf: URL(string: meiziDetail.url)!) else {
+        guard let detail: Gank = meiziDetail else {
+            meiziImageView.image = UIImage.gank_meiziLoadingBg
+            return height
+        }
+        
+        guard let data: Data = try? Data(contentsOf: URL(string: detail.url)!) else {
+            meiziImageView.image = UIImage.gank_meiziLoadingBg
             return height
         }
         
         guard let image: UIImage = UIImage(data: data) else {
+            meiziImageView.image = UIImage.gank_meiziLoadingBg
             return height
         }
         
@@ -37,8 +44,8 @@ class CoverHeaderView: UIView {
             
         meiziImageView.image = image
         dateBackImageView.image = UIImage.gank_dateBg
-        dayLabel.text = meiziDetail.publishedAt.toTimeFormat.toDateOfSecond()!.dayToString()
-        monthLabel.text = meiziDetail.publishedAt.toTimeFormat.toDateOfSecond()!.monthToNameString()
+        dayLabel.text = detail.publishedAt.toTimeFormat.toDateOfSecond()!.dayToString()
+        monthLabel.text = detail.publishedAt.toTimeFormat.toDateOfSecond()!.monthToNameString()
         
         return height
     }

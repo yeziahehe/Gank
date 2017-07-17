@@ -77,7 +77,8 @@ extension HistoryViewController: JTAppleCalendarViewDelegate {
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         if historyDateArray.contains(date) {
-            gankLog.debug("fffff")
+            NotificationCenter.default.post(name: GankConfig.NotificationName.chooseGank, object: date.toString())
+            navigationController?.popViewController(animated: true)
         }
     }
     

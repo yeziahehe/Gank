@@ -26,5 +26,9 @@ final class GankConfig {
     class func getScreenWidth() -> CGFloat {
         return UIScreen.main.bounds.width
     }
+    
+    struct NotificationName {
+        static let chooseGank = Notification.Name(rawValue: "GankConfig.Notification.chooseGank")
+    }
 
 }
