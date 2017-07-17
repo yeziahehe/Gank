@@ -14,19 +14,23 @@ class HistoryViewController: BaseViewController {
     @IBOutlet var calendarView: JTAppleCalendarView!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
+    fileprivate var historyStringArray: [String] = GankUserDefaults.historyDate.value!
+    fileprivate var historyDateArray: [Date] = Array<String>().transToDate(GankUserDefaults.historyDate.value!)
     
     let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         configureCalendarView()
+        calendarView.selectDates(historyDateArray)
+        
     }
     
     func configureCalendarView() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
+        calendarView.allowsMultipleSelection = true
         
         calendarView.visibleDates { (visibleDates) in
             SafeDispatch.async { [weak self] in
@@ -51,12 +55,12 @@ class HistoryViewController: BaseViewController {
 extension HistoryViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         
-        formatter.dateFormat = "YYYY MM dd"
+        formatter.dateFormat = "YYYY-MM-dd"
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
         
-        let startDate = formatter.date(from: "2015 05 18")!
-        let endDate = formatter.date(from: "2017 07 12" )!
+        let startDate = formatter.date(from: historyStringArray.last!)!
+        let endDate = formatter.date(from: historyStringArray.first!)!
         
         let parameters = ConfigurationParameters(startDate:startDate, endDate:endDate)
         return parameters
@@ -71,18 +75,11 @@ extension HistoryViewController: JTAppleCalendarViewDelegate {
         return cell
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        guard let gankDateCell = cell as? GankDateCell else {
-            return
-        }
-        gankDateCell.configure(cellState)
-    }
-    
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        guard let gankDateCell = cell as? GankDateCell else {
-            return
+        if historyDateArray.contains(date) {
+            NotificationCenter.default.post(name: GankConfig.NotificationName.chooseGank, object: date.toString())
+            navigationController?.popViewController(animated: true)
         }
-        gankDateCell.configure(cellState)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {

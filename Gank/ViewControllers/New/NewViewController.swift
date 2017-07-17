@@ -53,6 +53,7 @@ final class NewViewController: BaseViewController {
     fileprivate var gankDictionary: [String: Array<Gank>] = [:]
     
     deinit {
+        NotificationCenter.default.removeObserver(self)
         newTableView?.delegate = nil
         gankLog.debug("deinit NewViewController")
     }
@@ -68,6 +69,8 @@ final class NewViewController: BaseViewController {
                 self?.makeUI()
             }
         })
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(NewViewController.refreshUIWithNotification(_:)), name: GankConfig.NotificationName.chooseGank, object: nil)
         
     }
     
@@ -102,6 +105,22 @@ final class NewViewController: BaseViewController {
         self.performSegue(withIdentifier: "showCalendar", sender: self)
     }
     
+    @objc fileprivate func refreshUIWithNotification(_ notification: Notification) {
+        guard let date = notification.object as? String else {
+            return
+        }
+        
+        refreshData()
+        refreshUI()
+        
+        gankWithDay(date: date, failureHandler: nil) { (isToday, meizi, categories, lastestGank) in
+            SafeDispatch.async { [weak self] in
+                self?.configureData(isToday, meizi, categories, lastestGank)
+                self?.makeUI(isChoose:true)
+            }
+        }
+    }
+    
 }
 
 extension NewViewController {
@@ -110,13 +129,6 @@ extension NewViewController {
         case all
         case only
         case indicator
-    }
-    
-    fileprivate func configureData(_ isToday: Bool, _ meizi: Gank, _ categories: Array<String>, _ lastestGank: Dictionary<String, Array<Gank>>) {
-        isGankToday = isToday
-        meiziGank = meizi
-        gankCategories = categories
-        gankDictionary = lastestGank
     }
     
     fileprivate func setRightBarButtonItems(type: RightBarType) {
@@ -130,15 +142,31 @@ extension NewViewController {
         }
     }
     
-    fileprivate func makeUI() {
+    fileprivate func configureData(_ isToday: Bool, _ meizi: Gank, _ categories: Array<String>, _ lastestGank: Dictionary<String, Array<Gank>>) {
+        isGankToday = isToday
+        meiziGank = meizi
+        gankCategories = categories
+        gankDictionary = lastestGank
+    }
+    
+    fileprivate func refreshData() {
+        isGankToday = false
+        meiziGank = nil
+        gankCategories = []
+        gankDictionary = [:]
+    }
+    
+    fileprivate func makeUI(isChoose: Bool = false) {
         newTableView.isScrollEnabled = true
         newTableView.tableFooterView = customFooterView
         newTableView.estimatedRowHeight = 195.5
         newTableView.rowHeight = UITableViewAutomaticDimension
-        let height = coverHeaderView.configure(meiziData: meiziGank!)
+        let height = coverHeaderView.configure(meiziData: meiziGank)
         coverHeaderView.frame.size = CGSize(width: GankConfig.getScreenWidth(), height: height)
         newTableView.reloadData()
-        tipView.isHidden = isGankToday
+        if isChoose == false {
+            tipView.isHidden = isGankToday
+        }
         
         if isGankToday {
             setRightBarButtonItems(type: .only)
@@ -147,10 +175,22 @@ extension NewViewController {
         setRightBarButtonItems(type: .all)
     }
     
+    fileprivate func refreshUI() {
+        newTableView.isScrollEnabled = false
+        newTableView.tableFooterView = UIView()
+        newTableView.separatorStyle = .none
+        newTableView.rowHeight = 158
+        let height = coverHeaderView.configure(meiziData: meiziGank)
+        coverHeaderView.frame.size = CGSize(width: GankConfig.getScreenWidth(), height: height)
+        newTableView.reloadData()
+        tipView.isHidden = true
+        setRightBarButtonItems(type: .only)
+    }
+    
     fileprivate func makeAlert() {
         setRightBarButtonItems(type: .all)
         
-        guard GankNotificationService.shared.isAskAuthorization == false else {
+        guard GankNotificationService.shared.isAskAuthorization == true else {
             GankAlert.confirmOrCancel(title: nil, message: String.messageOpenNotification, confirmTitle: String.promptConfirmOpenNotification, cancelTitle: String.promptCancelOpenNotification, inViewController: self, withConfirmAction: {
                 GankNotificationService.shared.checkAuthorization()
             }, cancelAction: {})
@@ -158,10 +198,6 @@ extension NewViewController {
         }
         
         GankAlert.alertKnown(title: nil, message: String.messageNoDailyGank, inViewController: self)
-    }
-    
-    fileprivate func refreshUI() {
-        
     }
     
 }

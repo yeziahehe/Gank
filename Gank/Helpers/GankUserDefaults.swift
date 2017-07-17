@@ -10,6 +10,7 @@ import UIKit
 
 private let notificationDayKey = "notificationDay"
 private let isBackgroundEnableKey = "isBackgroundEnable"
+private let historyDateKey = "historyDate"
 
 public struct Listener<T>: Hashable {
     
@@ -47,9 +48,6 @@ final public class Listenable<T> {
     public func bindListener(_ name: String, action: @escaping Listener<T>.Action) {
         let listener = Listener(name: name, action: action)
         listenerSet.update(with: listener)
-        
-        // @available(swift, obsoleted: 3.0)
-        // listenerSet.insert(listener)
     }
     
     public func bindAndFireListener(_ name: String, action: @escaping Listener<T>.Action) {
@@ -94,6 +92,20 @@ final public class GankUserDefaults {
         
         return Listenable<Bool?>(isBackgroundEnable) { isBackgroundEnable in
             defaults.set(isBackgroundEnable, forKey: isBackgroundEnableKey)
+        }
+    }()
+    
+    public static var historyDate: Listenable<[String]?> = {
+        var historyDate: [String]?
+        if let data = defaults.object(forKey: historyDateKey) as? Data {
+            historyDate =  NSKeyedUnarchiver.unarchiveObject(with: data) as? [String]
+        }
+        
+        return Listenable<[String]?>(historyDate) { historyDate in
+            if let object  = historyDate {
+                let encodedObject = NSKeyedArchiver.archivedData(withRootObject: object)
+                defaults.set(historyDate, forKey: historyDateKey)
+            }
         }
     }()
 

@@ -42,4 +42,12 @@ extension Array {
         
         return sortedCategories
     }
+    
+    public func transToDate(_ historyArray: [String]) -> Array<Date> {
+        var array: [Date] = []
+        for dateItem in historyArray {
+            array.append(dateItem.toDate()!)
+        }
+        return array
+    }
 }

@@ -125,6 +125,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self?.heavyFeedbackEffect.play()
         }
         
+        GankNotificationService.shared.initAuthorization()
+        
     }
 
 }
