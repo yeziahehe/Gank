@@ -268,5 +268,7 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         defer {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+        
+        self.performSegue(withIdentifier: "showDetail", sender: self)
     }
 }

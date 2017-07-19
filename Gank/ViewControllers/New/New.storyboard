@@ -73,7 +73,7 @@
                             <constraint firstAttribute="trailing" secondItem="J3B-e5-F1e" secondAttribute="trailing" id="TtC-gK-b0g"/>
                             <constraint firstItem="1Rp-Wb-QiC" firstAttribute="leading" secondItem="Dwi-dg-lBe" secondAttribute="leading" id="XOd-7Y-jfP"/>
                             <constraint firstItem="J3B-e5-F1e" firstAttribute="leading" secondItem="Dwi-dg-lBe" secondAttribute="leading" id="br6-N5-GR6"/>
-                            <constraint firstItem="Pqc-4n-ead" firstAttribute="top" secondItem="J3B-e5-F1e" secondAttribute="bottom" id="db4-SQ-Mv4"/>
+                            <constraint firstAttribute="bottom" secondItem="J3B-e5-F1e" secondAttribute="bottom" id="db4-SQ-Mv4"/>
                             <constraint firstItem="J3B-e5-F1e" firstAttribute="top" secondItem="Dwi-dg-lBe" secondAttribute="top" id="ghr-uZ-Fkl"/>
                             <constraint firstAttribute="trailing" secondItem="1Rp-Wb-QiC" secondAttribute="trailing" id="n2R-CE-QBZ"/>
                         </constraints>
@@ -101,6 +101,7 @@
                         <outlet property="newTableView" destination="J3B-e5-F1e" id="LvB-QI-5q0"/>
                         <outlet property="tipView" destination="1Rp-Wb-QiC" id="8R0-fP-Kun"/>
                         <segue destination="KBr-gx-4HX" kind="show" identifier="showCalendar" id="XPU-yh-n9o"/>
+                        <segue destination="Wcs-CL-ia9" kind="show" identifier="showDetail" id="9gt-Wp-NyG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zoS-7a-Q5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -311,12 +312,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVX-r3-OZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1133.5999999999999" y="443.92803598200902"/>
+            <point key="canvasLocation" x="-1146" y="1178"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cNl-HS-uof">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="h5I-6G-k4S" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h5I-6G-k4S" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y0t-NZ-ePj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -328,6 +329,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7j-TR-hBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2705" y="1178"/>
+        </scene>
+        <!--WebView-->
+        <scene sceneID="SEr-Op-leH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WebView" id="Wcs-CL-ia9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHB-ud-hOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1928" y="1655"/>
         </scene>
     </scenes>
     <resources>

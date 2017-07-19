@@ -58,6 +58,8 @@
 		2C98A41D1DE00935001CBE37 /* GankServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */; };
 		2CAC73641F124BF500AB51D0 /* tabbar.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC73631F124B6C00AB51D0 /* tabbar.m4a */; };
 		2CBC3B771F172C5B00A49286 /* GankBackgroundFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC3B761F172C5B00A49286 /* GankBackgroundFetchService.swift */; };
+		2CCE93281F1E1729009DABA9 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCE93271F1E1729009DABA9 /* WebView.storyboard */; };
+		2CCE932A1F1E305F009DABA9 /* GankDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE93291F1E3005009DABA9 /* GankDetailViewController.swift */; };
 		2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B61DCF611100526C15 /* GankNetworking.swift */; };
 		2CCFD9BA1DCFA6DE00526C15 /* GankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B91DCFA6DE00526C15 /* GankService.swift */; };
 		2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */; };
@@ -140,6 +142,8 @@
 		2C98A41C1DE00935001CBE37 /* GankServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankServiceTests.swift; sourceTree = "<group>"; };
 		2CAC73631F124B6C00AB51D0 /* tabbar.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tabbar.m4a; sourceTree = "<group>"; };
 		2CBC3B761F172C5B00A49286 /* GankBackgroundFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankBackgroundFetchService.swift; sourceTree = "<group>"; };
+		2CCE93271F1E1729009DABA9 /* WebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = WebView.storyboard; path = Gank/ViewControllers/WebView/WebView.storyboard; sourceTree = SOURCE_ROOT; };
+		2CCE93291F1E3005009DABA9 /* GankDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankDetailViewController.swift; sourceTree = "<group>"; };
 		2CCFD9B61DCF611100526C15 /* GankNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GankNetworking.swift; path = Helpers/GankNetworking.swift; sourceTree = "<group>"; };
 		2CCFD9B81DCF797800526C15 /* Gank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gank.entitlements; sourceTree = "<group>"; };
 		2CCFD9B91DCFA6DE00526C15 /* GankService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankService.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 		2C2A156E1DC1F1E0003D5444 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CCE93221F1E0F98009DABA9 /* WebView */,
 				2CE80D671DC260A30011BB48 /* Nav */,
 				2C2A156F1DC1F219003D5444 /* TabBar */,
 				2C971B701DC2038000843481 /* New */,
@@ -415,6 +420,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		2CCE93221F1E0F98009DABA9 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				2CCE93291F1E3005009DABA9 /* GankDetailViewController.swift */,
+				2CCE93271F1E1729009DABA9 /* WebView.storyboard */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		2CE43A821DAFD94300660852 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +596,7 @@
 				2C6AEC761F0959F6005B79F9 /* CustomFooterView.xib in Resources */,
 				2C83C8EE1DAE0F4500FCE89A /* Assets.xcassets in Resources */,
 				2C83C8EC1DAE0F4500FCE89A /* Main.storyboard in Resources */,
+				2CCE93281F1E1729009DABA9 /* WebView.storyboard in Resources */,
 				2C4D021E1DE1EAE800C044B5 /* New.storyboard in Resources */,
 				2C4D02451DE2076800C044B5 /* DailyGankCell.xib in Resources */,
 				2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */,
@@ -710,6 +725,7 @@
 				2C75352E1DC8D03900C957A4 /* GankLogger.swift in Sources */,
 				2CCFD9BA1DCFA6DE00526C15 /* GankService.swift in Sources */,
 				2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */,
+				2CCE932A1F1E305F009DABA9 /* GankDetailViewController.swift in Sources */,
 				2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */,
 				2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */,
 				2C4D02461DE2076800C044B5 /* DailyGankLoadingCell.swift in Sources */,
