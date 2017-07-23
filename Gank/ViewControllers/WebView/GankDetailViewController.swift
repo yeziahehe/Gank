@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class GankDetailViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate {
+class GankDetailViewController: BaseViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
     var progressView: UIProgressView!
@@ -21,7 +21,7 @@ class GankDetailViewController: BaseViewController, WKNavigationDelegate, WKUIDe
     
     fileprivate lazy var closeButton: UIButton = {
         let closeButton = UIButton(type: .custom)
-        closeButton.titleEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
+        closeButton.titleEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0)
         closeButton.frame = CGRect(x: 0, y: 0, width: 35, height: 44)
         closeButton.setTitle("关闭", for: UIControlState())
         closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -33,7 +33,7 @@ class GankDetailViewController: BaseViewController, WKNavigationDelegate, WKUIDe
     
     fileprivate lazy var customBackBarItem: UIBarButtonItem = {
         let customBackBarItem = UIBarButtonItem.init(image: UIImage.gank_navBack, style: .plain, target: self, action: #selector(customBackItemClicked))
-        customBackBarItem.imageInsets = UIEdgeInsetsMake(0, -15, 0, 0)
+        customBackBarItem.imageInsets = UIEdgeInsetsMake(0, -8, 0, 0)
         return customBackBarItem
     }()
     
@@ -63,7 +63,6 @@ class GankDetailViewController: BaseViewController, WKNavigationDelegate, WKUIDe
         webView.allowsBackForwardNavigationGestures = true
         
         webView?.navigationDelegate = self
-        webView?.uiDelegate = self
         
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
@@ -119,12 +118,38 @@ extension GankDetailViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func showMore(_ sender: UIBarButtonItem) {
+        let shareViewController = YFShareViewController.init()
+        shareViewController.delegate = self
+        
+        shareViewController.addInfo("此网页由 gank.io 提供")
+        shareViewController.addItems(title: "微信", image: UIImage.wechat, type: .important)
+        shareViewController.addItems(title: "朋友圈", image: UIImage.moments, type: .important)
+        shareViewController.addItems(title: "微博", image: UIImage.weibo, type: .important)
+        shareViewController.addItems(title: "QQ", image: UIImage.QQ, type: .important)
+        shareViewController.addItems(title: "印象笔记", image: UIImage.evernote, type: .important)
+        shareViewController.addItems(title: "Pocket", image: UIImage.Pocket, type: .important)
+        shareViewController.addItems(title: "有道云笔记", image: UIImage.youdao, type: .important)
+        shareViewController.addItems(title: "Safari打开", image: UIImage.safari, type: .normal)
+        shareViewController.addItems(title: "复制链接", image: UIImage.copylink, type: .normal)
+        shareViewController.addItems(title: "刷新", image: UIImage.refresh, type: .normal)
+        shareViewController.addItems(title: "搜索页面内容", image: UIImage.search, type: .normal)
+        
+        shareViewController.showFromBottom()
+    }
+    
     fileprivate func updateNavigationItems(){
         if webView.canGoBack {
             navigationItem.setLeftBarButtonItems([customBackBarItem, UIBarButtonItem(customView:closeButton)], animated: false)
         } else {
             navigationItem.setLeftBarButtonItems([customBackBarItem],animated: false)
         }
+        
+    }
+}
+
+extension GankDetailViewController: YFShareViewDelegate {
+    func shareview(_ shareview: YFShareViewController, didSelectItemAt index: Int, type: YFShareItemType) {
         
     }
 }

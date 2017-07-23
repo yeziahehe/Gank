@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1013551F24FEB90020A63C /* YFShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1013531F24FE850020A63C /* YFShareItemView.swift */; };
+		2C1013561F24FECB0020A63C /* YFShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1013541F24FE850020A63C /* YFShareViewController.swift */; };
+		2C1013571F24FECF0020A63C /* YFShareViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1013521F24FE850020A63C /* YFShareViewProtocols.swift */; };
 		2C136C311DC631EF0067E280 /* UIImage+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C136C301DC631EF0067E280 /* UIImage+Named.swift */; };
 		2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */; };
 		2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */; };
@@ -85,6 +88,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C1013521F24FE850020A63C /* YFShareViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFShareViewProtocols.swift; sourceTree = "<group>"; };
+		2C1013531F24FE850020A63C /* YFShareItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFShareItemView.swift; sourceTree = "<group>"; };
+		2C1013541F24FE850020A63C /* YFShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFShareViewController.swift; sourceTree = "<group>"; };
 		2C136C301DC631EF0067E280 /* UIImage+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Named.swift"; sourceTree = "<group>"; };
 		2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Gank.swift"; sourceTree = "<group>"; };
 		2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Gank.swift"; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 				2C4D023C1DE2076800C044B5 /* Cells */,
 				2C6AEC6B1F094ACE005B79F9 /* GankHeaderView */,
 				2C6AEC721F0959D7005B79F9 /* CustomFooterView */,
+				2C5EFDA41F205D8B00580E4D /* YFMoreOperationViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +280,16 @@
 				2C531D971DE6DEC900C920FB /* FPSLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		2C5EFDA41F205D8B00580E4D /* YFMoreOperationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2C1013531F24FE850020A63C /* YFShareItemView.swift */,
+				2C1013541F24FE850020A63C /* YFShareViewController.swift */,
+				2C1013521F24FE850020A63C /* YFShareViewProtocols.swift */,
+			);
+			path = YFMoreOperationViewController;
 			sourceTree = "<group>";
 		};
 		2C6AEC6B1F094ACE005B79F9 /* GankHeaderView */ = {
@@ -694,6 +711,7 @@
 				2C279E721F11F2DB00A256FF /* GankSoundEffect.swift in Sources */,
 				2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */,
 				2C421CA51F161B4A0027C388 /* GankDateCell.swift in Sources */,
+				2C1013571F24FECF0020A63C /* YFShareViewProtocols.swift in Sources */,
 				2C2B78BA1F0A9CF600863819 /* UILabel+Gank.swift in Sources */,
 				2C6AEC711F095575005B79F9 /* UIView+Gank.swift in Sources */,
 				2C531D901DE6DAF500C920FB /* UITableView+Gank.swift in Sources */,
@@ -719,6 +737,7 @@
 				2C4DFB371F0028270068A73F /* String+Gank.swift in Sources */,
 				2C6AEC741F0959EE005B79F9 /* CustomFooterView.swift in Sources */,
 				2C531D951DE6DD6500C920FB /* NibLoadable.swift in Sources */,
+				2C1013551F24FEB90020A63C /* YFShareItemView.swift in Sources */,
 				2C4DFB351F0022500068A73F /* SafeDispatch.swift in Sources */,
 				2C30764D1F037E0100F595F2 /* Array+Gank.swift in Sources */,
 				2C279E651F10911C00A256FF /* String+Named.swift in Sources */,
@@ -728,6 +747,7 @@
 				2CCE932A1F1E305F009DABA9 /* GankDetailViewController.swift in Sources */,
 				2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */,
 				2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */,
+				2C1013561F24FECB0020A63C /* YFShareViewController.swift in Sources */,
 				2C4D02461DE2076800C044B5 /* DailyGankLoadingCell.swift in Sources */,
 				2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */,
 			);
