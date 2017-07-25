@@ -117,26 +117,6 @@ extension GankDetailViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func showMore(_ sender: UIBarButtonItem) {
-        let shareViewController = YFShareViewController.init()
-        shareViewController.delegate = self
-        
-        shareViewController.addInfo("此网页由 gank.io 提供")
-        shareViewController.addItems(title: "微信", image: UIImage.wechat, type: .important)
-        shareViewController.addItems(title: "朋友圈", image: UIImage.moments, type: .important)
-        shareViewController.addItems(title: "微博", image: UIImage.weibo, type: .important)
-        shareViewController.addItems(title: "QQ", image: UIImage.QQ, type: .important)
-        shareViewController.addItems(title: "印象笔记", image: UIImage.evernote, type: .important)
-        shareViewController.addItems(title: "Pocket", image: UIImage.Pocket, type: .important)
-        shareViewController.addItems(title: "有道云笔记", image: UIImage.youdao, type: .important)
-        shareViewController.addItems(title: "Safari打开", image: UIImage.safari, type: .normal)
-        shareViewController.addItems(title: "复制链接", image: UIImage.copylink, type: .normal)
-        shareViewController.addItems(title: "刷新", image: UIImage.refresh, type: .normal)
-        shareViewController.addItems(title: "搜索页面内容", image: UIImage.search, type: .normal)
-        
-        shareViewController.showFromBottom()
-    }
-    
     fileprivate func updateNavigationItems(){
         if webView.canGoBack {
             navigationItem.setLeftBarButtonItems([customBackBarItem, UIBarButtonItem(customView:closeButton)], animated: false)
@@ -145,10 +125,47 @@ extension GankDetailViewController {
         }
         
     }
+    
+    @IBAction func showMore(_ sender: UIBarButtonItem) {
+        let shareViewController = YFShareViewController.init()
+        shareViewController.delegate = self
+        
+        gankLog.debug(gankURL)
+        
+        shareViewController.addInfo(gankURL.toGankUrl())
+        shareViewController.addItems(title: "微信", image: UIImage.wechat, type: .important, tag: "wechat")
+        shareViewController.addItems(title: "朋友圈", image: UIImage.moments, type: .important, tag: "moments")
+        shareViewController.addItems(title: "微博", image: UIImage.weibo, type: .important, tag: "weibo")
+        shareViewController.addItems(title: "QQ", image: UIImage.QQ, type: .important, tag: "QQ")
+        shareViewController.addItems(title: "印象笔记", image: UIImage.evernote, type: .important, tag: "evernote")
+        shareViewController.addItems(title: "Pocket", image: UIImage.Pocket, type: .important, tag: "Pocket")
+        shareViewController.addItems(title: "有道云笔记", image: UIImage.youdao, type: .important, tag:"youdao")
+        shareViewController.addItems(title: "Safari打开", image: UIImage.safari, type: .normal, tag:"safari")
+        shareViewController.addItems(title: "复制链接", image: UIImage.copylink, type: .normal, tag:"copylink")
+        shareViewController.addItems(title: "刷新", image: UIImage.refresh, type: .normal, tag:"refresh")
+        //shareViewController.addItems(title: "搜索页面内容", image: UIImage.search, type: .normal, tag:"search")
+        
+        shareViewController.showFromBottom()
+    }
+    
 }
 
 extension GankDetailViewController: YFShareViewDelegate {
-    func shareview(_ shareview: YFShareViewController, didSelectItemAt index: Int, type: YFShareItemType) {
-        
+    
+    func shareView(_ shareview: YFShareViewController, didSelectItemAt tag: String, type: YFShareItemType) {
+        switch tag {
+        case "wechat":
+            return
+        case "safari":
+            UIApplication.shared.open(URL(string: gankURL)!, options: [:], completionHandler: nil)
+            return
+        case "copylink":
+            return
+        case "refresh":
+            webView.load(URLRequest(url: URL(string: gankURL)!))
+            return
+        default:
+            return
+        }
     }
 }

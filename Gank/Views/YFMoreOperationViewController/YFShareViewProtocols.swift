@@ -13,4 +13,12 @@ public protocol YFShareViewDelegate: class {
     ///     - moreOperation: The YFMoreOperation ViewController requesting this information.
     ///     - tag: The YFMoreOperationItem Tag.
     func shareview(_ shareview: YFShareViewController, didSelectItemAt index: Int, type: YFShareItemType)
+    
+    func shareView(_ shareview: YFShareViewController, didSelectItemAt tag: String, type: YFShareItemType)
+}
+
+extension YFShareViewDelegate {
+    func shareview(_ shareview: YFShareViewController, didSelectItemAt index: Int, type: YFShareItemType) {
+        
+    }
 }

@@ -10,20 +10,21 @@ import UIKit
 
 public class YFShareItemView: UIButton {
     
-    var itemType: YFShareItemType?
+    var itemType: YFShareItemType!
+    var itemTag: String!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
         titleLabel?.numberOfLines = 0
         imageView?.backgroundColor = UIColor.clear
-        contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         titleLabel?.numberOfLines = 0
         imageView?.backgroundColor = UIColor.clear
-        contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -38,9 +39,9 @@ public class YFShareItemView: UIButton {
         let contentLimitSize = size
         
         let imageLimitWidth = contentLimitSize.width - imageEdgeInsets.top - imageEdgeInsets.bottom
-        let imageSize = imageView!.sizeThatFits(CGSize.init(width: imageLimitWidth, height: CGFloat.greatestFiniteMagnitude))
+        let imageSize = imageView!.sizeThatFits(CGSize(width: imageLimitWidth, height: CGFloat.greatestFiniteMagnitude))
         
-        let titleLimitSize = CGSize.init(width: contentLimitSize.width - titleEdgeInsets.top - titleEdgeInsets.bottom, height: contentLimitSize.height - imageEdgeInsets.top - imageEdgeInsets.bottom - imageSize.height - titleEdgeInsets.top - titleEdgeInsets.bottom)
+        let titleLimitSize = CGSize(width: contentLimitSize.width - titleEdgeInsets.top - titleEdgeInsets.bottom, height: contentLimitSize.height - imageEdgeInsets.top - imageEdgeInsets.bottom - imageSize.height - titleEdgeInsets.top - titleEdgeInsets.bottom)
         var titleSize = titleLabel!.sizeThatFits(titleLimitSize)
         titleSize.height = fmin(titleSize.height, titleLimitSize.height)
         
@@ -60,14 +61,14 @@ public class YFShareItemView: UIButton {
         let contentSize = bounds.size
         
         let imageLimitWidth = contentSize.width - imageEdgeInsets.top - imageEdgeInsets.bottom
-        let imageSize = imageView!.sizeThatFits(CGSize.init(width: imageLimitWidth, height: CGFloat.greatestFiniteMagnitude))
-        var imageFrame = CGRect.init(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
+        let imageSize = imageView!.sizeThatFits(CGSize(width: imageLimitWidth, height: CGFloat.greatestFiniteMagnitude))
+        var imageFrame = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
         
         
-        let titleLimitSize = CGSize.init(width: contentSize.width - titleEdgeInsets.left - titleEdgeInsets.right, height: contentSize.height - imageEdgeInsets.top - imageEdgeInsets.bottom - imageSize.height - titleEdgeInsets.top - titleEdgeInsets.bottom)
+        let titleLimitSize = CGSize(width: contentSize.width - titleEdgeInsets.left - titleEdgeInsets.right, height: contentSize.height - imageEdgeInsets.top - imageEdgeInsets.bottom - imageSize.height - titleEdgeInsets.top - titleEdgeInsets.bottom)
         var titleSize = titleLabel!.sizeThatFits(titleLimitSize)
         titleSize.height = fmin(titleSize.height, titleLimitSize.height)
-        var titleFrame = CGRect.init(x: 0, y: 0, width: titleSize.width, height: titleSize.height)
+        var titleFrame = CGRect(x: 0, y: 0, width: titleSize.width, height: titleSize.height)
         
         imageFrame.origin.x = imageEdgeInsets.left + (imageLimitWidth - imageSize.width)/2
         titleFrame.origin.x = titleEdgeInsets.left + (titleLimitSize.width - titleSize.width)/2
