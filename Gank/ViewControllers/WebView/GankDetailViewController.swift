@@ -13,6 +13,7 @@ class GankDetailViewController: BaseViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
     var progressView: UIProgressView!
+    public var gankURL: String!
     
     fileprivate lazy var closeButtonItem: UIBarButtonItem = {
         let closeButtonItem = UIBarButtonItem.init(title: "关闭", style: .plain, target: self, action: #selector(closeItemClicked))
@@ -49,9 +50,7 @@ class GankDetailViewController: BaseViewController, WKNavigationDelegate {
         addWKWebView()
         addProgressView()
         
-        let myURL = URL(string: "http://yeziahehe.com")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+        webView.load(URLRequest(url: URL(string: gankURL)!))
     }
     
     fileprivate func addWKWebView() {

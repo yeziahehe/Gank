@@ -20,6 +20,9 @@ public class YFShareViewController: UIViewController {
     var normalItems: [YFShareItemView] = []
     weak var delegate: YFShareViewDelegate?
     
+    var previousKeyWindow: UIWindow?
+    var containerWindow: UIWindow?
+    
     fileprivate var maskView: UIControl = {
         let maskView = UIControl.init()
         maskView.alpha = 0
@@ -106,6 +109,10 @@ public class YFShareViewController: UIViewController {
         contentView.addSubview(normalItemsScrollView)
         containerView.addSubview(cancelButton)
         containerView.layer.addSublayer(cancelButtonDividingLayer)
+    }
+    
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIApplication.shared.statusBarStyle
     }
     
     public override func viewDidLayoutSubviews() {
@@ -199,19 +206,35 @@ extension YFShareViewController {
     
     public func showFromBottom() {
         
-        containerView.frame.origin.y = view.bounds.height
-        UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(view)
+        previousKeyWindow = UIApplication.shared.keyWindow
+        containerWindow = UIWindow.init()
+        containerWindow?.backgroundColor = UIColor.clear
+        containerWindow?.rootViewController = self
+        containerWindow?.makeKeyAndVisible()
+        
         containerView.transform = CGAffineTransform.init(translationX: 0, y: view.bounds.height - contentView.frame.minY)
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
-            SafeDispatch.async { [weak self] in
-                self?.maskView.alpha = 1
-                self?.containerView.frame.origin.y = (self?.view.bounds.height)! - (self?.containerView.frame.height)!
-                self?.containerView.transform = CGAffineTransform.identity
-            }
+            self.maskView.alpha = 1
+            self.containerView.frame.origin.y = self.view.bounds.height - self.containerView.frame.height
+            self.containerView.transform = CGAffineTransform.identity
         })
     }
     
     public func hideToButtom() {
+        
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseOut, animations: {
+            self.maskView.alpha = 0
+            self.containerView.frame.origin.y = self.view.bounds.height
+        }) { (complete) in
+            if complete {
+                if UIApplication.shared.keyWindow == self.containerWindow {
+                    self.previousKeyWindow?.makeKey()
+                }
+                self.containerWindow?.isHidden = true
+                self.containerWindow?.rootViewController = nil
+                self.previousKeyWindow = nil
+            }
+        }
         
     }
     

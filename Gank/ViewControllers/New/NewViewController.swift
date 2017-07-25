@@ -74,6 +74,24 @@ final class NewViewController: BaseViewController {
         
     }
     
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case "showDetail":
+            let vc = segue.destination as! GankDetailViewController
+            let url = sender as! String
+            vc.gankURL = url
+            
+        default:
+            break
+        }
+    }
+    
     @IBAction func closeTip(_ sender: UIButton) {
         tipView.isHidden = true
     }
@@ -102,7 +120,7 @@ final class NewViewController: BaseViewController {
     }
     
     @IBAction func showCalendar(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "showCalendar", sender: self)
+        self.performSegue(withIdentifier: "showCalendar", sender: nil)
     }
     
     @objc fileprivate func refreshUIWithNotification(_ notification: Notification) {
@@ -268,7 +286,8 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         defer {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
-        self.performSegue(withIdentifier: "showDetail", sender: self)
+        let key: String = gankCategories[indexPath.section]
+        let gankDetail: Gank = gankDictionary[key]![indexPath.row]
+        self.performSegue(withIdentifier: "showDetail", sender: gankDetail.url)
     }
 }
