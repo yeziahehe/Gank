@@ -30,48 +30,4 @@ extension UIImage {
         return UIImage(named: "nav_back")!
     }
     
-    static var wechat: UIImage {
-        return UIImage(named: "wechat")!
-    }
-    
-    static var moments: UIImage {
-        return UIImage(named: "moments")!
-    }
-    
-    static var weibo: UIImage {
-        return UIImage(named: "weibo")!
-    }
-    
-    static var QQ: UIImage {
-        return UIImage(named: "QQ")!
-    }
-    
-    static var evernote: UIImage {
-        return UIImage(named: "evernote")!
-    }
-    
-    static var Pocket: UIImage {
-        return UIImage(named: "Pocket")!
-    }
-    
-    static var youdao: UIImage {
-        return UIImage(named: "youdao")!
-    }
-    
-    static var safari: UIImage {
-        return UIImage(named: "safari")!
-    }
-    
-    static var copylink: UIImage {
-        return UIImage(named: "copylink")!
-    }
-    
-    static var refresh: UIImage {
-        return UIImage(named: "refresh")!
-    }
-    
-    static var search: UIImage {
-        return UIImage(named: "search")!
-    }
-    
 }

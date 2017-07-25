@@ -22,6 +22,7 @@
 		2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */; };
 		2C2B78BA1F0A9CF600863819 /* UILabel+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B78B91F0A9CF600863819 /* UILabel+Gank.swift */; };
 		2C30764D1F037E0100F595F2 /* Array+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C30764C1F037E0100F595F2 /* Array+Gank.swift */; };
+		2C3867C31F277F68004952A3 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3867C21F277F68004952A3 /* Category.storyboard */; };
 		2C421CA51F161B4A0027C388 /* GankDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C421CA41F161B4A0027C388 /* GankDateCell.swift */; };
 		2C4D021E1DE1EAE800C044B5 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4D021D1DE1EAE800C044B5 /* New.storyboard */; };
 		2C4D02441DE2076800C044B5 /* DailyGankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D023D1DE2076800C044B5 /* DailyGankCell.swift */; };
@@ -103,6 +104,7 @@
 		2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverHeaderView.xib; sourceTree = "<group>"; };
 		2C2B78B91F0A9CF600863819 /* UILabel+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Gank.swift"; sourceTree = "<group>"; };
 		2C30764C1F037E0100F595F2 /* Array+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Gank.swift"; sourceTree = "<group>"; };
+		2C3867C21F277F68004952A3 /* Category.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		2C421CA41F161B4A0027C388 /* GankDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankDateCell.swift; sourceTree = "<group>"; };
 		2C4D021D1DE1EAE800C044B5 /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		2C4D023D1DE2076800C044B5 /* DailyGankCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyGankCell.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				2C971B751DC203F400843481 /* CategoryViewController.swift */,
+				2C3867C21F277F68004952A3 /* Category.storyboard */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3867C31F277F68004952A3 /* Category.storyboard in Resources */,
 				2CAC73641F124BF500AB51D0 /* tabbar.m4a in Resources */,
 				2C83C8F11DAE0F4500FCE89A /* LaunchScreen.storyboard in Resources */,
 				2C6AEC761F0959F6005B79F9 /* CustomFooterView.xib in Resources */,

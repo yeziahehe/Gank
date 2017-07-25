@@ -71,25 +71,6 @@
             <point key="canvasLocation" x="-271" y="489"/>
         </scene>
         <!--分类-->
-        <scene sceneID="zRo-c9-swm">
-            <objects>
-                <viewController storyboardIdentifier="CategoryViewController" id="fh1-Mf-Hgt" customClass="CategoryViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bk3-Gv-j5p"/>
-                        <viewControllerLayoutGuide type="bottom" id="IaW-kj-K18"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Itn-Zo-H0j">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="分类" id="BzK-k9-Jmg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QQY-9j-o59" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1090" y="1178"/>
-        </scene>
-        <!--分类-->
         <scene sceneID="TZW-w8-1YY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h3X-p8-Lvy" customClass="GankNavigationController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,7 +86,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="fh1-Mf-Hgt" kind="relationship" relationship="rootViewController" id="SHK-jd-VVF"/>
+                        <segue destination="X8y-o3-cGJ" kind="relationship" relationship="rootViewController" id="SHK-jd-VVF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1n-8n-TVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,6 +125,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUa-wq-gek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1927" y="1178"/>
+        </scene>
+        <!--CategoryViewController-->
+        <scene sceneID="FDw-nM-zq9">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CategoryViewController" storyboardName="Category" referencedIdentifier="CategoryViewController" id="X8y-o3-cGJ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="93W-ii-DNX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4n-8E-ZzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1090" y="1178"/>
         </scene>
     </scenes>
     <resources>
