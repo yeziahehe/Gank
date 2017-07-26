@@ -74,8 +74,6 @@ final class NewViewController: BaseViewController {
         
     }
     
-    // MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {
             return

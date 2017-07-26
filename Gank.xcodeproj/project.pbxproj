@@ -44,6 +44,11 @@
 		2C6AEC711F095575005B79F9 /* UIView+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC701F095575005B79F9 /* UIView+Gank.swift */; };
 		2C6AEC741F0959EE005B79F9 /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC731F0959EE005B79F9 /* CustomFooterView.swift */; };
 		2C6AEC761F0959F6005B79F9 /* CustomFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AEC751F0959F6005B79F9 /* CustomFooterView.xib */; };
+		2C74F1321F287CCD002A9EEF /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F1311F287CCD002A9EEF /* ArticleViewController.swift */; };
+		2C74F1341F2880F5002A9EEF /* MeiziViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F1331F2880F5002A9EEF /* MeiziViewController.swift */; };
+		2C74F1361F288243002A9EEF /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F1351F288243002A9EEF /* VideoViewController.swift */; };
+		2C74F1401F28CB36002A9EEF /* ArticleGankLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F13E1F28CB36002A9EEF /* ArticleGankLoadingCell.swift */; };
+		2C74F1411F28CB36002A9EEF /* ArticleGankLoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C74F13F1F28CB36002A9EEF /* ArticleGankLoadingCell.xib */; };
 		2C75352C1DC8D02900C957A4 /* GankConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C75352B1DC8D02900C957A4 /* GankConfig.swift */; };
 		2C75352E1DC8D03900C957A4 /* GankLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C75352D1DC8D03900C957A4 /* GankLogger.swift */; };
 		2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83C8E61DAE0F4500FCE89A /* AppDelegate.swift */; };
@@ -126,6 +131,11 @@
 		2C6AEC701F095575005B79F9 /* UIView+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gank.swift"; sourceTree = "<group>"; };
 		2C6AEC731F0959EE005B79F9 /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
 		2C6AEC751F0959F6005B79F9 /* CustomFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomFooterView.xib; sourceTree = "<group>"; };
+		2C74F1311F287CCD002A9EEF /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		2C74F1331F2880F5002A9EEF /* MeiziViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeiziViewController.swift; sourceTree = "<group>"; };
+		2C74F1351F288243002A9EEF /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		2C74F13E1F28CB36002A9EEF /* ArticleGankLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleGankLoadingCell.swift; sourceTree = "<group>"; };
+		2C74F13F1F28CB36002A9EEF /* ArticleGankLoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleGankLoadingCell.xib; sourceTree = "<group>"; };
 		2C75352B1DC8D02900C957A4 /* GankConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GankConfig.swift; path = Helpers/GankConfig.swift; sourceTree = "<group>"; };
 		2C75352D1DC8D03900C957A4 /* GankLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GankLogger.swift; path = Helpers/GankLogger.swift; sourceTree = "<group>"; };
 		2C83C8E31DAE0F4500FCE89A /* Gank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +273,7 @@
 			children = (
 				2C421C9B1F16138D0027C388 /* GankDate */,
 				2C1CCC1A1EF813DD00679E3E /* DailyGank */,
+				2C74F13D1F28CAF1002A9EEF /* Category */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -312,6 +323,15 @@
 				2C6AEC751F0959F6005B79F9 /* CustomFooterView.xib */,
 			);
 			path = CustomFooterView;
+			sourceTree = "<group>";
+		};
+		2C74F13D1F28CAF1002A9EEF /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				2C74F13E1F28CB36002A9EEF /* ArticleGankLoadingCell.swift */,
+				2C74F13F1F28CB36002A9EEF /* ArticleGankLoadingCell.xib */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		2C83C8DA1DAE0F4500FCE89A = {
@@ -435,6 +455,9 @@
 			isa = PBXGroup;
 			children = (
 				2C971B751DC203F400843481 /* CategoryViewController.swift */,
+				2C74F1311F287CCD002A9EEF /* ArticleViewController.swift */,
+				2C74F1331F2880F5002A9EEF /* MeiziViewController.swift */,
+				2C74F1351F288243002A9EEF /* VideoViewController.swift */,
 				2C3867C21F277F68004952A3 /* Category.storyboard */,
 			);
 			path = Category;
@@ -614,6 +637,7 @@
 				2C3867C31F277F68004952A3 /* Category.storyboard in Resources */,
 				2CAC73641F124BF500AB51D0 /* tabbar.m4a in Resources */,
 				2C83C8F11DAE0F4500FCE89A /* LaunchScreen.storyboard in Resources */,
+				2C74F1411F28CB36002A9EEF /* ArticleGankLoadingCell.xib in Resources */,
 				2C6AEC761F0959F6005B79F9 /* CustomFooterView.xib in Resources */,
 				2C83C8EE1DAE0F4500FCE89A /* Assets.xcassets in Resources */,
 				2C83C8EC1DAE0F4500FCE89A /* Main.storyboard in Resources */,
@@ -722,6 +746,7 @@
 				2C6AEC6D1F094AF2005B79F9 /* GankHeaderView.swift in Sources */,
 				2C531D981DE6DEC900C920FB /* FPSLabel.swift in Sources */,
 				2C971B6A1DC200DA00843481 /* BaseViewController.swift in Sources */,
+				2C74F1321F287CCD002A9EEF /* ArticleViewController.swift in Sources */,
 				2C971B741DC203E200843481 /* NewViewController.swift in Sources */,
 				2C279E631F0FF9B400A256FF /* GankAlert.swift in Sources */,
 				2C279E741F11F3C400A256FF /* GankFeedbackEffect.swift in Sources */,
@@ -740,6 +765,7 @@
 				2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */,
 				2C4DFB371F0028270068A73F /* String+Gank.swift in Sources */,
 				2C6AEC741F0959EE005B79F9 /* CustomFooterView.swift in Sources */,
+				2C74F1341F2880F5002A9EEF /* MeiziViewController.swift in Sources */,
 				2C531D951DE6DD6500C920FB /* NibLoadable.swift in Sources */,
 				2C1013551F24FEB90020A63C /* YFShareItemView.swift in Sources */,
 				2C4DFB351F0022500068A73F /* SafeDispatch.swift in Sources */,
@@ -749,8 +775,10 @@
 				2CCFD9BA1DCFA6DE00526C15 /* GankService.swift in Sources */,
 				2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */,
 				2CCE932A1F1E305F009DABA9 /* GankDetailViewController.swift in Sources */,
+				2C74F1361F288243002A9EEF /* VideoViewController.swift in Sources */,
 				2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */,
 				2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */,
+				2C74F1401F28CB36002A9EEF /* ArticleGankLoadingCell.swift in Sources */,
 				2C1013561F24FECB0020A63C /* YFShareViewController.swift in Sources */,
 				2C4D02461DE2076800C044B5 /* DailyGankLoadingCell.swift in Sources */,
 				2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */,

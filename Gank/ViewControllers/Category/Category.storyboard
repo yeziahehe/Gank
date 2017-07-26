@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dSM-ER-ZcQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dSM-ER-ZcQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnr-Y7-0fC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="all" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnr-Y7-0fC">
                                 <rect key="frame" x="35" y="107" width="61" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="0Am-kT-emO"/>
@@ -133,48 +133,82 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heC-aB-GXk">
                                         <rect key="frame" x="0.0" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="all"/>
+                                        <connections>
+                                            <action selector="showArticle:" destination="fh1-Mf-Hgt" eventType="touchUpInside" id="6w8-o4-tgE"/>
+                                            <segue destination="gb1-jy-n8o" kind="show" identifier="showArticle" id="2Mx-gB-71D"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZS-jG-kmj">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZS-jG-kmj">
                                         <rect key="frame" x="122" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="ios"/>
+                                        <connections>
+                                            <action selector="showArticle:" destination="fh1-Mf-Hgt" eventType="touchUpInside" id="Mfo-m6-fyt"/>
+                                            <segue destination="gb1-jy-n8o" kind="show" identifier="showArticle" id="19F-QD-eZb"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwW-Bo-eMa">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwW-Bo-eMa">
                                         <rect key="frame" x="244" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="android"/>
+                                        <connections>
+                                            <action selector="showArticle:" destination="fh1-Mf-Hgt" eventType="touchUpInside" id="T0w-T0-KCx"/>
+                                            <segue destination="gb1-jy-n8o" kind="show" identifier="showArticle" id="5nU-nz-dzP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="vGD-91-CUY">
                                 <rect key="frame" x="35" y="187" width="305" height="61"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vY-WS-giB">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vY-WS-giB">
                                         <rect key="frame" x="0.0" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="frontend"/>
+                                        <connections>
+                                            <action selector="showArticle:" destination="fh1-Mf-Hgt" eventType="touchUpInside" id="HQq-TS-Jp7"/>
+                                            <segue destination="gb1-jy-n8o" kind="show" identifier="showArticle" id="gQB-tg-vMz"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wg-hT-gi1">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wg-hT-gi1">
                                         <rect key="frame" x="122" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="resource"/>
+                                        <connections>
+                                            <action selector="showArticle:" destination="fh1-Mf-Hgt" eventType="touchUpInside" id="Uyr-Im-jgr"/>
+                                            <segue destination="gb1-jy-n8o" kind="show" identifier="showArticle" id="RaI-QM-l0o"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFF-Si-bNi">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFF-Si-bNi">
                                         <rect key="frame" x="244" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="app"/>
+                                        <connections>
+                                            <action selector="showArticle:" destination="fh1-Mf-Hgt" eventType="touchUpInside" id="urA-ub-h0g"/>
+                                            <segue destination="gb1-jy-n8o" kind="show" identifier="showArticle" id="6Ys-6b-kiT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="qnC-12-AXC">
                                 <rect key="frame" x="35" y="334" width="305" height="61"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSv-4x-GPH">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSv-4x-GPH">
                                         <rect key="frame" x="0.0" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="recomm"/>
+                                        <connections>
+                                            <action selector="showArticle:" destination="fh1-Mf-Hgt" eventType="touchUpInside" id="8Rx-Sg-I9o"/>
+                                            <segue destination="gb1-jy-n8o" kind="show" identifier="showArticle" id="GwG-hz-BWC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbB-2J-vRl">
                                         <rect key="frame" x="122" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="video"/>
+                                        <connections>
+                                            <segue destination="wf3-bb-4Vk" kind="show" id="GPd-wA-ujg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwj-hb-YVw">
                                         <rect key="frame" x="244" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="meizi"/>
+                                        <connections>
+                                            <segue destination="cAM-zJ-U9v" kind="show" id="Z8c-QL-AFC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -213,6 +247,9 @@
                     <navigationItem key="navigationItem" title="分类" id="BzK-k9-Jmg">
                         <barButtonItem key="rightBarButtonItem" image="nav_search" id="WIw-9j-vYu">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="0zL-Vf-1eh" kind="show" id="rfG-S9-8Kb"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -220,6 +257,150 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQY-9j-o59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1090.4000000000001" y="1177.961019490255"/>
+        </scene>
+        <!--福利-->
+        <scene sceneID="5GB-GR-mT2">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="cAM-zJ-U9v" customClass="MeiziViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="deC-Yh-fub"/>
+                        <viewControllerLayoutGuide type="bottom" id="aDF-ZM-63I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yND-LL-0Hl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vi5-xa-gCQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aPl-ew-xor">
+                                    <size key="itemSize" width="160" height="160"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HdF-4H-c9G">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vi5-xa-gCQ" firstAttribute="top" secondItem="yND-LL-0Hl" secondAttribute="top" id="9t9-9f-Spn"/>
+                            <constraint firstItem="aDF-ZM-63I" firstAttribute="top" secondItem="Vi5-xa-gCQ" secondAttribute="bottom" id="WZE-Y2-57t"/>
+                            <constraint firstItem="Vi5-xa-gCQ" firstAttribute="leading" secondItem="yND-LL-0Hl" secondAttribute="leading" id="lH6-l2-eT9"/>
+                            <constraint firstAttribute="trailing" secondItem="Vi5-xa-gCQ" secondAttribute="trailing" id="oa6-uD-zNb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="福利" id="ewi-oP-7HA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mp5-pW-nue" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-314" y="2531"/>
+        </scene>
+        <!--休息视频-->
+        <scene sceneID="tGD-pD-XzX">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="wf3-bb-4Vk" customClass="VideoViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bhc-qE-ArM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ap0-Qv-rC0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uSo-ww-Rx3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ze5-XE-5JT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ze5-XE-5JT" firstAttribute="leading" secondItem="uSo-ww-Rx3" secondAttribute="leading" id="EXR-Ke-pLf"/>
+                            <constraint firstItem="Ze5-XE-5JT" firstAttribute="top" secondItem="uSo-ww-Rx3" secondAttribute="top" id="Fii-jV-IsE"/>
+                            <constraint firstItem="Ap0-Qv-rC0" firstAttribute="top" secondItem="Ze5-XE-5JT" secondAttribute="bottom" id="GZN-JW-mca"/>
+                            <constraint firstAttribute="trailing" secondItem="Ze5-XE-5JT" secondAttribute="trailing" id="MO3-FF-tRc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="休息视频" id="5b7-A1-ynJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="688-SQ-QKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-314.39999999999998" y="1856.2218890554725"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ALO-Gw-7es">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="0zL-Vf-1eh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VBV-LE-76h"/>
+                        <viewControllerLayoutGuide type="bottom" id="TVb-kL-4PE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z96-00-VUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="aDb-Ev-LT0" id="WvN-gG-rlI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9x-7Y-LOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="aDb-Ev-LT0">
+                    <connections>
+                        <outlet property="delegate" destination="0zL-Vf-1eh" id="AYZ-Kj-Lzm"/>
+                        <outlet property="searchContentsController" destination="0zL-Vf-1eh" id="ZnM-Xm-Jxu"/>
+                        <outlet property="searchResultsDataSource" destination="0zL-Vf-1eh" id="G57-KB-Bvy"/>
+                        <outlet property="searchResultsDelegate" destination="0zL-Vf-1eh" id="IK1-Wf-b0i"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-314" y="475"/>
+        </scene>
+        <!--Article View Controller-->
+        <scene sceneID="1Df-hp-y6P">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="gb1-jy-n8o" customClass="ArticleViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NZc-5j-kaJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hev-Ds-Lco"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mOe-Kb-VXH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ffd-Wh-1NE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gb1-jy-n8o" id="JQ8-vH-wEU"/>
+                                    <outlet property="delegate" destination="gb1-jy-n8o" id="vDm-BA-eMX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ffd-Wh-1NE" secondAttribute="bottom" id="Qen-zD-PtQ"/>
+                            <constraint firstItem="ffd-Wh-1NE" firstAttribute="top" secondItem="mOe-Kb-VXH" secondAttribute="top" id="SUD-xZ-XIo"/>
+                            <constraint firstItem="ffd-Wh-1NE" firstAttribute="leading" secondItem="mOe-Kb-VXH" secondAttribute="leading" id="gJv-of-jaH"/>
+                            <constraint firstAttribute="trailing" secondItem="ffd-Wh-1NE" secondAttribute="trailing" id="uam-h2-HL7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="articleTableView" destination="ffd-Wh-1NE" id="wNy-Bs-EqI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lfp-Pc-3l0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-314" y="1178"/>
         </scene>
     </scenes>
     <resources>
@@ -234,5 +415,8 @@
         <image name="resource" width="61" height="61"/>
         <image name="video" width="61" height="61"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GwG-hz-BWC"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
