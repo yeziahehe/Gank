@@ -21,13 +21,13 @@ final class DailyGankCell: UITableViewCell {
     
     }
     
-    func configure(withGankDetail gankDetail: Gank, isHiddenTag: Bool) {
+    func configure(withGankDetail gankDetail: Gank, isHiddenTag: Bool = true) {
         timeLabel.text = gankDetail.publishedAt.toTimeFormat.toDateOfSecond()!.timeAgo
         titleLabel.text = gankDetail.desc
         titleLabel.setLineHeight(lineHeight: 1.2)
         tagLabel.isHidden = isHiddenTag
         if isHiddenTag == false {
-            tagLabel.text = gankDetail.type
+            tagLabel.text = String(format:" %@ ", gankDetail.type)
             switch gankDetail.type {
             case "iOS":
                 tagLabel.backgroundColor = UIColor.gankIosTagColor()
@@ -62,10 +62,6 @@ final class DailyGankCell: UITableViewCell {
             return
         }
         authorLabel.text = String.titleDailyGankAuthor(who)
-    }
-    
-    func configure(withGankDetail gankDetail: Gank) {
-        configure(withGankDetail: gankDetail, isHiddenTag: true)
     }
     
 }

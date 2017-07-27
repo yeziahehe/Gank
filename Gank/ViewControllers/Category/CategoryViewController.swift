@@ -46,6 +46,8 @@ final class CategoryViewController: BaseViewController {
             case .recomm:
                 vc.category = "瞎推荐"
                 break
+            case .video:
+                vc.category = "休息视频"
             }
             
         default:
@@ -61,6 +63,7 @@ final class CategoryViewController: BaseViewController {
         case resource
         case app
         case recomm
+        case video
     }
     
     @IBAction func showArticle(_ sender: Any?) {

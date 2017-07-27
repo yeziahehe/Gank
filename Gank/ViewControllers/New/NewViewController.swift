@@ -63,7 +63,7 @@ final class NewViewController: BaseViewController {
         
         setRightBarButtonItems(type: .only)
         
-        gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
+        gankLatest(failureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
                 self?.configureData(isToday, meizi, categories, lastestGank)
                 self?.makeUI()
@@ -100,7 +100,7 @@ final class NewViewController: BaseViewController {
         activityIndicatorView.startAnimating()
         setRightBarButtonItems(type: .indicator)
         
-        gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
+        gankLatest(failureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
             SafeDispatch.async { [weak self] in
                 
                 self?.activityIndicatorView.stopAnimating()
@@ -218,7 +218,7 @@ extension NewViewController {
     
 }
 
-// MARK: - UITableViewDataSource, UITableViewDelegat
+// MARK: - UITableViewDataSource, UITableViewDelegate
 
 extension NewViewController: UITableViewDataSource, UITableViewDelegate {
     

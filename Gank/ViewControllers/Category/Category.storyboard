@@ -196,11 +196,12 @@
                                             <segue destination="gb1-jy-n8o" kind="show" identifier="showArticle" id="GwG-hz-BWC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbB-2J-vRl">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbB-2J-vRl">
                                         <rect key="frame" x="122" y="0.0" width="61" height="61"/>
                                         <state key="normal" image="video"/>
                                         <connections>
-                                            <segue destination="wf3-bb-4Vk" kind="show" id="GPd-wA-ujg"/>
+                                            <action selector="showArticle:" destination="fh1-Mf-Hgt" eventType="touchUpInside" id="XNR-fO-n3W"/>
+                                            <segue destination="gb1-jy-n8o" kind="show" identifier="showArticle" id="Gl5-vz-SXq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwj-hb-YVw">
@@ -303,38 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mp5-pW-nue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-314" y="2531"/>
-        </scene>
-        <!--休息视频-->
-        <scene sceneID="tGD-pD-XzX">
-            <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="wf3-bb-4Vk" customClass="VideoViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bhc-qE-ArM"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ap0-Qv-rC0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uSo-ww-Rx3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ze5-XE-5JT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Ze5-XE-5JT" firstAttribute="leading" secondItem="uSo-ww-Rx3" secondAttribute="leading" id="EXR-Ke-pLf"/>
-                            <constraint firstItem="Ze5-XE-5JT" firstAttribute="top" secondItem="uSo-ww-Rx3" secondAttribute="top" id="Fii-jV-IsE"/>
-                            <constraint firstItem="Ap0-Qv-rC0" firstAttribute="top" secondItem="Ze5-XE-5JT" secondAttribute="bottom" id="GZN-JW-mca"/>
-                            <constraint firstAttribute="trailing" secondItem="Ze5-XE-5JT" secondAttribute="trailing" id="MO3-FF-tRc"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="休息视频" id="5b7-A1-ynJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="688-SQ-QKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-314.39999999999998" y="1856.2218890554725"/>
+            <point key="canvasLocation" x="-314" y="1905"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ALO-Gw-7es">
@@ -386,7 +356,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ffd-Wh-1NE" secondAttribute="bottom" id="Qen-zD-PtQ"/>
                             <constraint firstItem="ffd-Wh-1NE" firstAttribute="top" secondItem="mOe-Kb-VXH" secondAttribute="top" id="SUD-xZ-XIo"/>
@@ -396,11 +365,20 @@
                     </view>
                     <connections>
                         <outlet property="articleTableView" destination="ffd-Wh-1NE" id="wNy-Bs-EqI"/>
+                        <segue destination="IeX-2o-4UV" kind="show" identifier="showDetail" id="8AP-9c-qLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfp-Pc-3l0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-314" y="1178"/>
+        </scene>
+        <!--WebView-->
+        <scene sceneID="sZp-zJ-82v">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WebView" id="IeX-2o-4UV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DoL-Wg-jtg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="526" y="1178"/>
         </scene>
     </scenes>
     <resources>
@@ -416,7 +394,7 @@
         <image name="video" width="61" height="61"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GwG-hz-BWC"/>
+        <segue reference="Gl5-vz-SXq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

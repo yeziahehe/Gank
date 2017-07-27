@@ -129,17 +129,33 @@ public func gankWithDay(date: String, failureHandler: FailureHandler?, completio
 }
 
 // MARK: - 最近一天干货
-public func gankLatest(falureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
+public func gankLatest(failureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
     
     lastestGankDate(failureHandler: nil, completion:{ (_, date) in
-        gankWithDay(date: date, failureHandler: falureHandler, completion: completion)
+        gankWithDay(date: date, failureHandler: failureHandler, completion: completion)
     })
     
 }
 
 // MARK: - 今日干货
-public func gankInToday(falureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
+public func gankInToday(failureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
     
-    gankWithDay(date: Date().toString(), failureHandler: falureHandler, completion: completion)
+    gankWithDay(date: Date().toString(), failureHandler: failureHandler, completion: completion)
     
+}
+
+// MARK: - 干货分类
+public func gankofCategory(category: String, count: Int = 20, page: Int, failureHandler: FailureHandler?, completion: @escaping (Array<Gank>) -> Void) {
+    
+    let parse: (JSON) -> (Array<Gank>)? = { data in
+        var gankArray = [Gank]()
+        for (_, gankJSON):(String, JSON) in data["results"] {
+            let gankInfo = Gank.fromJSON(gankJSON)
+            gankArray.append(gankInfo!)
+        }
+        return gankArray
+    }
+    let resource = Resource(path: String(format:"/data/%@/%d/%d", category, count, page), method: .get, requestParamters: nil, parse: parse)
+    
+    apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
