@@ -50,13 +50,13 @@ public struct Gank {
     public let desc: String
     public let images: String?
     public let publishedAt: String
-    public let source: String
+    public let source: String?
     public let type: String
     public let url: String
     public let used: Bool
     public let who: String?
         
-    public init(id: String, createdAt: String, desc: String, images: String?, publishedAt: String, source: String, type: String, url: String, used: Bool, who: String?) {
+    public init(id: String, createdAt: String, desc: String, images: String?, publishedAt: String, source: String?, type: String, url: String, used: Bool, who: String?) {
         self.id = id;
         self.createdAt = createdAt;
         self.desc = desc;
@@ -79,13 +79,13 @@ public struct Gank {
             let createdAt = gankInfo["createdAt"].string,
             let desc = gankInfo["desc"].string,
             let publishedAt = gankInfo["publishedAt"].string,
-            let source = gankInfo["source"].string,
             let type = gankInfo["type"].string,
             let url = gankInfo["url"].string,
             let used = gankInfo["used"].bool else {
             return nil
         }
         
+        let source = gankInfo["source"].string
         let images = gankInfo["images"].string
         let who = gankInfo["who"].string
         
@@ -131,7 +131,7 @@ public func gankWithDay(date: String, failureHandler: FailureHandler?, completio
 // MARK: - 最近一天干货
 public func gankLatest(failureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
     
-    lastestGankDate(failureHandler: nil, completion:{ (_, date) in
+    lastestGankDate(failureHandler: failureHandler, completion:{ (_, date) in
         gankWithDay(date: date, failureHandler: failureHandler, completion: completion)
     })
     
