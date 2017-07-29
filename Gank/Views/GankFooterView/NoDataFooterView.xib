@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NoDataFooterView" customModule="Gank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="轻触屏幕重试" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxn-RM-ymu">
+                    <rect key="frame" x="30" y="255.5" width="315" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="NHx-EY-Iwi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mu-lX-yAx">
+                    <rect key="frame" x="30" y="293.5" width="315" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="BGr-Ax-idr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="重试失败？查看解决方案">
+                        <color key="titleColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="showReason:" destination="iN0-l3-epB" eventType="touchUpInside" id="osL-0X-Kc6"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你好像处在离线状态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo9-in-vCx">
+                    <rect key="frame" x="30" y="211.5" width="315" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9mu-lX-yAx" firstAttribute="top" secondItem="Mxn-RM-ymu" secondAttribute="bottom" constant="10" id="5lL-c8-PU6"/>
+                <constraint firstItem="Mxn-RM-ymu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="G4a-jV-PSC"/>
+                <constraint firstItem="9mu-lX-yAx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="RfY-WB-dJg"/>
+                <constraint firstItem="Mxn-RM-ymu" firstAttribute="top" secondItem="Xo9-in-vCx" secondAttribute="bottom" constant="15" id="VTL-7N-aPM"/>
+                <constraint firstAttribute="trailing" secondItem="Mxn-RM-ymu" secondAttribute="trailing" constant="30" id="XT2-VM-zfY"/>
+                <constraint firstItem="Mxn-RM-ymu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="f8Z-Ra-UFs"/>
+                <constraint firstItem="Mxn-RM-ymu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-64" id="nwo-IE-CZe"/>
+                <constraint firstAttribute="trailing" secondItem="9mu-lX-yAx" secondAttribute="trailing" constant="30" id="oD4-oJ-X9d"/>
+                <constraint firstAttribute="trailing" secondItem="Xo9-in-vCx" secondAttribute="trailing" constant="30" id="smH-6G-eLN"/>
+                <constraint firstItem="Xo9-in-vCx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="vnw-Hr-cGg"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

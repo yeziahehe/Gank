@@ -10,6 +10,50 @@ import UIKit
 
 extension UITableView {
     
+    enum WayToUpdate {
+        
+        case none
+        case reloadData
+        case reloadIndexPaths([IndexPath])
+        
+        var needsLabor: Bool {
+            
+            switch self {
+            case .none:
+                return false
+            case .reloadData:
+                return true
+            case .reloadIndexPaths:
+                return true
+            }
+        }
+        
+        func performWithTableView(_ tableView: UITableView) {
+            
+            switch self {
+                
+            case .none:
+                print("tableView WayToUpdate: None")
+                break
+                
+            case .reloadData:
+                print("tableView WayToUpdate: ReloadData")
+                SafeDispatch.async {
+                    tableView.reloadData()
+                }
+                
+            case .reloadIndexPaths(let indexPaths):
+                print("tableView WayToUpdate: ReloadIndexPaths")
+                SafeDispatch.async {
+                    tableView.reloadRows(at: indexPaths, with: .none)
+                }
+            }
+        }
+    }
+}
+
+extension UITableView {
+    
     func registerClassOf<T: UITableViewCell>(_: T.Type) where T: Reusable {
         
         register(T.self, forCellReuseIdentifier: T.gank_reuseIdentifier)

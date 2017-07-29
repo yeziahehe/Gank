@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1013551F24FEB90020A63C /* YFShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1013531F24FE850020A63C /* YFShareItemView.swift */; };
+		2C1013561F24FECB0020A63C /* YFShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1013541F24FE850020A63C /* YFShareViewController.swift */; };
+		2C1013571F24FECF0020A63C /* YFShareViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1013521F24FE850020A63C /* YFShareViewProtocols.swift */; };
 		2C136C311DC631EF0067E280 /* UIImage+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C136C301DC631EF0067E280 /* UIImage+Named.swift */; };
 		2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */; };
 		2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */; };
@@ -19,6 +22,7 @@
 		2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */; };
 		2C2B78BA1F0A9CF600863819 /* UILabel+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B78B91F0A9CF600863819 /* UILabel+Gank.swift */; };
 		2C30764D1F037E0100F595F2 /* Array+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C30764C1F037E0100F595F2 /* Array+Gank.swift */; };
+		2C3867C31F277F68004952A3 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3867C21F277F68004952A3 /* Category.storyboard */; };
 		2C421CA51F161B4A0027C388 /* GankDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C421CA41F161B4A0027C388 /* GankDateCell.swift */; };
 		2C4D021E1DE1EAE800C044B5 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4D021D1DE1EAE800C044B5 /* New.storyboard */; };
 		2C4D02441DE2076800C044B5 /* DailyGankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D023D1DE2076800C044B5 /* DailyGankCell.swift */; };
@@ -34,14 +38,24 @@
 		2C53F4051F14D59B0071A3AC /* GankUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */; };
 		2C53F4071F15F9A70071A3AC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53F4061F15F9A70071A3AC /* HistoryViewController.swift */; };
 		2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */; };
+		2C6425241F2ADF87000CCE7B /* UITextView+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */; };
 		2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */; };
 		2C6AEC6D1F094AF2005B79F9 /* GankHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */; };
 		2C6AEC6F1F094AFC005B79F9 /* GankHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AEC6E1F094AFC005B79F9 /* GankHeaderView.xib */; };
 		2C6AEC711F095575005B79F9 /* UIView+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC701F095575005B79F9 /* UIView+Gank.swift */; };
 		2C6AEC741F0959EE005B79F9 /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC731F0959EE005B79F9 /* CustomFooterView.swift */; };
 		2C6AEC761F0959F6005B79F9 /* CustomFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AEC751F0959F6005B79F9 /* CustomFooterView.xib */; };
+		2C74F1321F287CCD002A9EEF /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F1311F287CCD002A9EEF /* ArticleViewController.swift */; };
+		2C74F1341F2880F5002A9EEF /* MeiziViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F1331F2880F5002A9EEF /* MeiziViewController.swift */; };
+		2C74F1401F28CB36002A9EEF /* ArticleGankLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F13E1F28CB36002A9EEF /* ArticleGankLoadingCell.swift */; };
+		2C74F1411F28CB36002A9EEF /* ArticleGankLoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C74F13F1F28CB36002A9EEF /* ArticleGankLoadingCell.xib */; };
 		2C75352C1DC8D02900C957A4 /* GankConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C75352B1DC8D02900C957A4 /* GankConfig.swift */; };
 		2C75352E1DC8D03900C957A4 /* GankLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C75352D1DC8D03900C957A4 /* GankLogger.swift */; };
+		2C7CE2C41F29BEC100B578A1 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE2C21F29BEC100B578A1 /* LoadMoreCell.swift */; };
+		2C7CE2C51F29BEC100B578A1 /* LoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7CE2C31F29BEC100B578A1 /* LoadMoreCell.xib */; };
+		2C7CE2C91F29CBAF00B578A1 /* NoDataFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE2C81F29CBAF00B578A1 /* NoDataFooterView.swift */; };
+		2C7CE2CB1F29CBBD00B578A1 /* NoDataFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7CE2CA1F29CBBD00B578A1 /* NoDataFooterView.xib */; };
+		2C7CE2CE1F29E42B00B578A1 /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CE2CD1F29E42B00B578A1 /* NetworkViewController.swift */; };
 		2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83C8E61DAE0F4500FCE89A /* AppDelegate.swift */; };
 		2C83C8EC1DAE0F4500FCE89A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C83C8EA1DAE0F4500FCE89A /* Main.storyboard */; };
 		2C83C8EE1DAE0F4500FCE89A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C83C8ED1DAE0F4500FCE89A /* Assets.xcassets */; };
@@ -85,6 +99,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C1013521F24FE850020A63C /* YFShareViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFShareViewProtocols.swift; sourceTree = "<group>"; };
+		2C1013531F24FE850020A63C /* YFShareItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFShareItemView.swift; sourceTree = "<group>"; };
+		2C1013541F24FE850020A63C /* YFShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFShareViewController.swift; sourceTree = "<group>"; };
 		2C136C301DC631EF0067E280 /* UIImage+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Named.swift"; sourceTree = "<group>"; };
 		2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Gank.swift"; sourceTree = "<group>"; };
 		2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Gank.swift"; sourceTree = "<group>"; };
@@ -97,6 +114,7 @@
 		2C2B78B71F0A768E00863819 /* CoverHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverHeaderView.xib; sourceTree = "<group>"; };
 		2C2B78B91F0A9CF600863819 /* UILabel+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Gank.swift"; sourceTree = "<group>"; };
 		2C30764C1F037E0100F595F2 /* Array+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Gank.swift"; sourceTree = "<group>"; };
+		2C3867C21F277F68004952A3 /* Category.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		2C421CA41F161B4A0027C388 /* GankDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankDateCell.swift; sourceTree = "<group>"; };
 		2C4D021D1DE1EAE800C044B5 /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		2C4D023D1DE2076800C044B5 /* DailyGankCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyGankCell.swift; sourceTree = "<group>"; };
@@ -112,14 +130,24 @@
 		2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankUserDefaults.swift; path = Helpers/GankUserDefaults.swift; sourceTree = "<group>"; };
 		2C53F4061F15F9A70071A3AC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankNotificationService.swift; sourceTree = "<group>"; };
+		2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Gank.swift"; sourceTree = "<group>"; };
 		2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
 		2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankHeaderView.swift; sourceTree = "<group>"; };
 		2C6AEC6E1F094AFC005B79F9 /* GankHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GankHeaderView.xib; sourceTree = "<group>"; };
 		2C6AEC701F095575005B79F9 /* UIView+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gank.swift"; sourceTree = "<group>"; };
 		2C6AEC731F0959EE005B79F9 /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
 		2C6AEC751F0959F6005B79F9 /* CustomFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomFooterView.xib; sourceTree = "<group>"; };
+		2C74F1311F287CCD002A9EEF /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		2C74F1331F2880F5002A9EEF /* MeiziViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeiziViewController.swift; sourceTree = "<group>"; };
+		2C74F13E1F28CB36002A9EEF /* ArticleGankLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleGankLoadingCell.swift; sourceTree = "<group>"; };
+		2C74F13F1F28CB36002A9EEF /* ArticleGankLoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleGankLoadingCell.xib; sourceTree = "<group>"; };
 		2C75352B1DC8D02900C957A4 /* GankConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GankConfig.swift; path = Helpers/GankConfig.swift; sourceTree = "<group>"; };
 		2C75352D1DC8D03900C957A4 /* GankLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GankLogger.swift; path = Helpers/GankLogger.swift; sourceTree = "<group>"; };
+		2C7CE2C21F29BEC100B578A1 /* LoadMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
+		2C7CE2C31F29BEC100B578A1 /* LoadMoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadMoreCell.xib; sourceTree = "<group>"; };
+		2C7CE2C81F29CBAF00B578A1 /* NoDataFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataFooterView.swift; sourceTree = "<group>"; };
+		2C7CE2CA1F29CBBD00B578A1 /* NoDataFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataFooterView.xib; sourceTree = "<group>"; };
+		2C7CE2CD1F29E42B00B578A1 /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		2C83C8E31DAE0F4500FCE89A /* Gank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C83C8E61DAE0F4500FCE89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C83C8EB1DAE0F4500FCE89A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,6 +240,7 @@
 		2C2A156E1DC1F1E0003D5444 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C7CE2CC1F29E40100B578A1 /* Network */,
 				2CCE93221F1E0F98009DABA9 /* WebView */,
 				2CE80D671DC260A30011BB48 /* Nav */,
 				2C2A156F1DC1F219003D5444 /* TabBar */,
@@ -244,7 +273,8 @@
 				2C531D961DE6DEBE00C920FB /* Labels */,
 				2C4D023C1DE2076800C044B5 /* Cells */,
 				2C6AEC6B1F094ACE005B79F9 /* GankHeaderView */,
-				2C6AEC721F0959D7005B79F9 /* CustomFooterView */,
+				2C6AEC721F0959D7005B79F9 /* GankFooterView */,
+				2C5EFDA41F205D8B00580E4D /* YFMoreOperationViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +284,8 @@
 			children = (
 				2C421C9B1F16138D0027C388 /* GankDate */,
 				2C1CCC1A1EF813DD00679E3E /* DailyGank */,
+				2C74F13D1F28CAF1002A9EEF /* Category */,
+				2C7CE2C11F29BEA300B578A1 /* LoadMore */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -275,6 +307,16 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		2C5EFDA41F205D8B00580E4D /* YFMoreOperationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2C1013531F24FE850020A63C /* YFShareItemView.swift */,
+				2C1013541F24FE850020A63C /* YFShareViewController.swift */,
+				2C1013521F24FE850020A63C /* YFShareViewProtocols.swift */,
+			);
+			path = YFMoreOperationViewController;
+			sourceTree = "<group>";
+		};
 		2C6AEC6B1F094ACE005B79F9 /* GankHeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,13 +328,41 @@
 			path = GankHeaderView;
 			sourceTree = "<group>";
 		};
-		2C6AEC721F0959D7005B79F9 /* CustomFooterView */ = {
+		2C6AEC721F0959D7005B79F9 /* GankFooterView */ = {
 			isa = PBXGroup;
 			children = (
 				2C6AEC731F0959EE005B79F9 /* CustomFooterView.swift */,
 				2C6AEC751F0959F6005B79F9 /* CustomFooterView.xib */,
+				2C7CE2C81F29CBAF00B578A1 /* NoDataFooterView.swift */,
+				2C7CE2CA1F29CBBD00B578A1 /* NoDataFooterView.xib */,
 			);
-			path = CustomFooterView;
+			path = GankFooterView;
+			sourceTree = "<group>";
+		};
+		2C74F13D1F28CAF1002A9EEF /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				2C74F13E1F28CB36002A9EEF /* ArticleGankLoadingCell.swift */,
+				2C74F13F1F28CB36002A9EEF /* ArticleGankLoadingCell.xib */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		2C7CE2C11F29BEA300B578A1 /* LoadMore */ = {
+			isa = PBXGroup;
+			children = (
+				2C7CE2C21F29BEC100B578A1 /* LoadMoreCell.swift */,
+				2C7CE2C31F29BEC100B578A1 /* LoadMoreCell.xib */,
+			);
+			path = LoadMore;
+			sourceTree = "<group>";
+		};
+		2C7CE2CC1F29E40100B578A1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2C7CE2CD1F29E42B00B578A1 /* NetworkViewController.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		2C83C8DA1DAE0F4500FCE89A = {
@@ -390,6 +460,7 @@
 				2C6AEC701F095575005B79F9 /* UIView+Gank.swift */,
 				2C2B78B91F0A9CF600863819 /* UILabel+Gank.swift */,
 				2C279E641F10911C00A256FF /* String+Named.swift */,
+				2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -416,6 +487,9 @@
 			isa = PBXGroup;
 			children = (
 				2C971B751DC203F400843481 /* CategoryViewController.swift */,
+				2C74F1311F287CCD002A9EEF /* ArticleViewController.swift */,
+				2C74F1331F2880F5002A9EEF /* MeiziViewController.swift */,
+				2C3867C21F277F68004952A3 /* Category.storyboard */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -591,12 +665,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3867C31F277F68004952A3 /* Category.storyboard in Resources */,
 				2CAC73641F124BF500AB51D0 /* tabbar.m4a in Resources */,
+				2C7CE2C51F29BEC100B578A1 /* LoadMoreCell.xib in Resources */,
 				2C83C8F11DAE0F4500FCE89A /* LaunchScreen.storyboard in Resources */,
+				2C74F1411F28CB36002A9EEF /* ArticleGankLoadingCell.xib in Resources */,
 				2C6AEC761F0959F6005B79F9 /* CustomFooterView.xib in Resources */,
 				2C83C8EE1DAE0F4500FCE89A /* Assets.xcassets in Resources */,
 				2C83C8EC1DAE0F4500FCE89A /* Main.storyboard in Resources */,
 				2CCE93281F1E1729009DABA9 /* WebView.storyboard in Resources */,
+				2C7CE2CB1F29CBBD00B578A1 /* NoDataFooterView.xib in Resources */,
 				2C4D021E1DE1EAE800C044B5 /* New.storyboard in Resources */,
 				2C4D02451DE2076800C044B5 /* DailyGankCell.xib in Resources */,
 				2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */,
@@ -694,12 +772,16 @@
 				2C279E721F11F2DB00A256FF /* GankSoundEffect.swift in Sources */,
 				2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */,
 				2C421CA51F161B4A0027C388 /* GankDateCell.swift in Sources */,
+				2C1013571F24FECF0020A63C /* YFShareViewProtocols.swift in Sources */,
+				2C7CE2C91F29CBAF00B578A1 /* NoDataFooterView.swift in Sources */,
 				2C2B78BA1F0A9CF600863819 /* UILabel+Gank.swift in Sources */,
 				2C6AEC711F095575005B79F9 /* UIView+Gank.swift in Sources */,
 				2C531D901DE6DAF500C920FB /* UITableView+Gank.swift in Sources */,
 				2C6AEC6D1F094AF2005B79F9 /* GankHeaderView.swift in Sources */,
 				2C531D981DE6DEC900C920FB /* FPSLabel.swift in Sources */,
 				2C971B6A1DC200DA00843481 /* BaseViewController.swift in Sources */,
+				2C6425241F2ADF87000CCE7B /* UITextView+Gank.swift in Sources */,
+				2C74F1321F287CCD002A9EEF /* ArticleViewController.swift in Sources */,
 				2C971B741DC203E200843481 /* NewViewController.swift in Sources */,
 				2C279E631F0FF9B400A256FF /* GankAlert.swift in Sources */,
 				2C279E741F11F3C400A256FF /* GankFeedbackEffect.swift in Sources */,
@@ -707,18 +789,22 @@
 				2C971B761DC203F400843481 /* CategoryViewController.swift in Sources */,
 				2C4D02441DE2076800C044B5 /* DailyGankCell.swift in Sources */,
 				2C136C311DC631EF0067E280 /* UIImage+Named.swift in Sources */,
+				2C7CE2CE1F29E42B00B578A1 /* NetworkViewController.swift in Sources */,
 				2C53F4051F14D59B0071A3AC /* GankUserDefaults.swift in Sources */,
 				2C531D931DE6DD2000C920FB /* Reusable.swift in Sources */,
 				2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */,
 				2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */,
 				2C971B6C1DC200F600843481 /* SegueViewController.swift in Sources */,
 				2C53F4071F15F9A70071A3AC /* HistoryViewController.swift in Sources */,
+				2C7CE2C41F29BEC100B578A1 /* LoadMoreCell.swift in Sources */,
 				2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */,
 				2C2B78B61F0A767B00863819 /* CoverHeaderView.swift in Sources */,
 				2C83C8E71DAE0F4500FCE89A /* AppDelegate.swift in Sources */,
 				2C4DFB371F0028270068A73F /* String+Gank.swift in Sources */,
 				2C6AEC741F0959EE005B79F9 /* CustomFooterView.swift in Sources */,
+				2C74F1341F2880F5002A9EEF /* MeiziViewController.swift in Sources */,
 				2C531D951DE6DD6500C920FB /* NibLoadable.swift in Sources */,
+				2C1013551F24FEB90020A63C /* YFShareItemView.swift in Sources */,
 				2C4DFB351F0022500068A73F /* SafeDispatch.swift in Sources */,
 				2C30764D1F037E0100F595F2 /* Array+Gank.swift in Sources */,
 				2C279E651F10911C00A256FF /* String+Named.swift in Sources */,
@@ -728,6 +814,8 @@
 				2CCE932A1F1E305F009DABA9 /* GankDetailViewController.swift in Sources */,
 				2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */,
 				2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */,
+				2C74F1401F28CB36002A9EEF /* ArticleGankLoadingCell.swift in Sources */,
+				2C1013561F24FECB0020A63C /* YFShareViewController.swift in Sources */,
 				2C4D02461DE2076800C044B5 /* DailyGankLoadingCell.swift in Sources */,
 				2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */,
 			);

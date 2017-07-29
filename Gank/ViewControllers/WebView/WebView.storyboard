@@ -23,7 +23,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="加载中..." id="oBi-ye-U8a">
-                        <barButtonItem key="rightBarButtonItem" image="nav_more" id="brF-GL-9KT"/>
+                        <barButtonItem key="rightBarButtonItem" image="nav_more" id="brF-GL-9KT">
+                            <connections>
+                                <action selector="showMore:" destination="EPw-kF-caZ" id="N0w-SY-2jO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>

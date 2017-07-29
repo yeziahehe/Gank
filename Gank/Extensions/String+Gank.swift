@@ -32,6 +32,12 @@ extension String {
         }
     }
     
+    public func toGankUrl() -> String {
+        let stringArray = self.components(separatedBy: "/")
+        return String(format:"此网页由 %@ 提供", stringArray[2])
+        
+    }
+    
     public var toTimeFormat: String {
         var string = self.replacingOccurrences(of: "T", with: " ")
         string = string[startIndex...string.index(startIndex, offsetBy: 18)]

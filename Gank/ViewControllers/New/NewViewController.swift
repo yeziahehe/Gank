@@ -13,6 +13,7 @@ import UserNotifications
 
 final class NewViewController: BaseViewController {
     
+    fileprivate var isNoData = false
     @IBOutlet var dailyGankButton: UIBarButtonItem!
     @IBOutlet var calendarButton: UIBarButtonItem!
     @IBOutlet weak var tipView: UIView!
@@ -41,6 +42,21 @@ final class NewViewController: BaseViewController {
         return headerView
     }()
     
+    fileprivate lazy var noDataFooterView: NoDataFooterView = {
+        let noDataFooterView = NoDataFooterView.instanceFromNib()
+        noDataFooterView.reasonAction = { [weak self] in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let networkViewController = storyboard.instantiateViewController(withIdentifier: "NetworkViewController")
+            self?.navigationController?.pushViewController(networkViewController , animated: true)
+        }
+        noDataFooterView.reloadAction = { [weak self] in
+            self?.updateNewView()
+        }
+        
+        noDataFooterView.frame = CGRect(x: 0, y: 0, width: GankConfig.getScreenWidth(), height: GankConfig.getScreenHeight()-64)
+        return noDataFooterView
+    }()
+    
     fileprivate lazy var customFooterView: CustomFooterView = {
         let footerView = CustomFooterView.instanceFromNib()
         footerView.frame = CGRect(x: 0, y: 0, width: GankConfig.getScreenWidth(), height: 73)
@@ -61,17 +77,26 @@ final class NewViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setRightBarButtonItems(type: .only)
-        
-        gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
-            SafeDispatch.async { [weak self] in
-                self?.configureData(isToday, meizi, categories, lastestGank)
-                self?.makeUI()
-            }
-        })
+        updateNewView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(NewViewController.refreshUIWithNotification(_:)), name: GankConfig.NotificationName.chooseGank, object: nil)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case "showDetail":
+            let vc = segue.destination as! GankDetailViewController
+            let url = sender as! String
+            vc.gankURL = url
+            
+        default:
+            break
+        }
     }
     
     @IBAction func closeTip(_ sender: UIButton) {
@@ -79,30 +104,12 @@ final class NewViewController: BaseViewController {
     }
     
     @IBAction func getNewGank(_ sender: UIBarButtonItem) {
-        
-        GankConfig.heavyFeedbackEffectAction?()
-        activityIndicatorView.startAnimating()
-        setRightBarButtonItems(type: .indicator)
-        
-        gankLatest(falureHandler: nil, completion: { (isToday, meizi, categories, lastestGank) in
-            SafeDispatch.async { [weak self] in
-                
-                self?.activityIndicatorView.stopAnimating()
-                
-                guard isToday else {
-                    self?.makeAlert()
-                    return
-                }
-                
-                self?.configureData(isToday, meizi, categories, lastestGank)
-                self?.makeUI()
-            }
-        })
+        updateNewView(mode: .today)
         
     }
     
     @IBAction func showCalendar(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "showCalendar", sender: self)
+        self.performSegue(withIdentifier: "showCalendar", sender: nil)
     }
     
     @objc fileprivate func refreshUIWithNotification(_ notification: Notification) {
@@ -110,25 +117,18 @@ final class NewViewController: BaseViewController {
             return
         }
         
-        refreshData()
-        refreshUI()
-        
-        gankWithDay(date: date, failureHandler: nil) { (isToday, meizi, categories, lastestGank) in
-            SafeDispatch.async { [weak self] in
-                self?.configureData(isToday, meizi, categories, lastestGank)
-                self?.makeUI(isChoose:true)
-            }
-        }
+        updateNewView(mode: .date, isChoose: true, date: date)
     }
     
 }
 
 extension NewViewController {
     
-    enum RightBarType {
+    fileprivate enum RightBarType {
         case all
         case only
         case indicator
+        case none
     }
     
     fileprivate func setRightBarButtonItems(type: RightBarType) {
@@ -137,10 +137,98 @@ extension NewViewController {
             navigationItem.setRightBarButtonItems([calendarButton], animated: false)
         case .indicator:
             navigationItem.setRightBarButtonItems([calendarButton, UIBarButtonItem(customView: activityIndicatorView)], animated: false)
-        default:
+        case .all:
             navigationItem.setRightBarButtonItems([calendarButton, dailyGankButton], animated: false)
+        case .none:
+            navigationItem.setRightBarButtonItems(nil, animated: false)
         }
     }
+    
+    fileprivate enum UpdateNewViewMode {
+        case lastest
+        case today
+        case date
+    }
+    
+    fileprivate func updateNewView(mode: UpdateNewViewMode = .lastest, isChoose: Bool = false, date: String = "") {
+        
+        isNoData = false
+        
+        switch mode {
+        case .lastest:
+            setRightBarButtonItems(type: .none)
+            gankLog.debug("UpdateNewViewMode lastest")
+        case .date:
+            isGankToday = false
+            meiziGank = nil
+            gankCategories = []
+            gankDictionary = [:]
+            
+            newTableView.isScrollEnabled = false
+            newTableView.separatorColor = .none
+            newTableView.tableFooterView = UIView()
+            newTableView.rowHeight = 158
+            newTableView.reloadData()
+            coverHeaderView.refresh()
+            tipView.isHidden = true
+            setRightBarButtonItems(type: .only)
+            gankLog.debug("UpdateNewViewMode date")
+        case .today:
+            GankConfig.heavyFeedbackEffectAction?()
+            activityIndicatorView.startAnimating()
+            setRightBarButtonItems(type: .indicator)
+            gankLog.debug("UpdateNewViewMode today")
+        }
+        
+        let failureHandler: FailureHandler = { reason, message in
+            
+            SafeDispatch.async { [weak self] in
+                
+                self?.isNoData = true
+                self?.newTableView.tableHeaderView = UIView()
+                self?.newTableView.isScrollEnabled = false
+                self?.newTableView.tableFooterView = self?.noDataFooterView
+                self?.newTableView.reloadData()
+                gankLog.debug("加载失败")
+                
+            }
+        }
+        
+        switch mode {
+        case .lastest:
+            gankLatest(failureHandler: failureHandler, completion: { (isToday, meizi, categories, lastestGank) in
+                SafeDispatch.async { [weak self] in
+                    
+                    self?.configureData(isToday, meizi, categories, lastestGank)
+                    self?.makeUI()
+                }
+            })
+        case .today:
+            gankLatest(failureHandler: failureHandler, completion: { (isToday, meizi, categories, lastestGank) in
+                SafeDispatch.async { [weak self] in
+                    
+                    self?.activityIndicatorView.stopAnimating()
+                    
+                    guard isToday else {
+                        self?.makeAlert()
+                        return
+                    }
+                    
+                    self?.configureData(isToday, meizi, categories, lastestGank)
+                    self?.makeUI()
+                }
+            })
+        case .date:
+            gankWithDay(date: date, failureHandler: failureHandler, completion: { (isToday, meizi, categories, lastestGank) in
+                SafeDispatch.async { [weak self] in
+                    self?.configureData(isToday, meizi, categories, lastestGank)
+                    self?.makeUI(isChoose:true)
+                }
+            })
+        }
+        
+    }
+    
     
     fileprivate func configureData(_ isToday: Bool, _ meizi: Gank, _ categories: Array<String>, _ lastestGank: Dictionary<String, Array<Gank>>) {
         isGankToday = isToday
@@ -149,15 +237,9 @@ extension NewViewController {
         gankDictionary = lastestGank
     }
     
-    fileprivate func refreshData() {
-        isGankToday = false
-        meiziGank = nil
-        gankCategories = []
-        gankDictionary = [:]
-    }
-    
     fileprivate func makeUI(isChoose: Bool = false) {
         newTableView.isScrollEnabled = true
+        newTableView.tableHeaderView = coverHeaderView
         newTableView.tableFooterView = customFooterView
         newTableView.estimatedRowHeight = 195.5
         newTableView.rowHeight = UITableViewAutomaticDimension
@@ -175,18 +257,6 @@ extension NewViewController {
         setRightBarButtonItems(type: .all)
     }
     
-    fileprivate func refreshUI() {
-        newTableView.isScrollEnabled = false
-        newTableView.tableFooterView = UIView()
-        newTableView.separatorStyle = .none
-        newTableView.rowHeight = 158
-        let height = coverHeaderView.configure(meiziData: meiziGank)
-        coverHeaderView.frame.size = CGSize(width: GankConfig.getScreenWidth(), height: height)
-        newTableView.reloadData()
-        tipView.isHidden = true
-        setRightBarButtonItems(type: .only)
-    }
-    
     fileprivate func makeAlert() {
         setRightBarButtonItems(type: .all)
         
@@ -202,26 +272,35 @@ extension NewViewController {
     
 }
 
-// MARK: - UITableViewDataSource, UITableViewDelegat
+// MARK: - UITableViewDataSource, UITableViewDelegate
 
 extension NewViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        guard !isNoData else {
+            return 0
+        }
         
         return gankCategories.isEmpty ? 1 : gankCategories.count
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard gankCategories.isEmpty else {
-            let key: String = gankCategories[section]
-            return gankDictionary[key]!.count
+        guard !isNoData else {
+            return 0
         }
-        return 2
+        
+        guard !gankCategories.isEmpty else {
+            return 2
+        }
+        
+        let key: String = gankCategories[section]
+        return gankDictionary[key]!.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard gankCategories.isEmpty else {
+        guard gankCategories.isEmpty || isNoData else {
             return 56
         }
         return CGFloat.leastNormalMagnitude
@@ -269,6 +348,11 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             tableView.deselectRow(at: indexPath, animated: true)
         }
         
-        self.performSegue(withIdentifier: "showDetail", sender: self)
+        
+        if !gankCategories.isEmpty {
+            let key: String = gankCategories[indexPath.section]
+            let gankDetail: Gank = gankDictionary[key]![indexPath.row]
+            self.performSegue(withIdentifier: "showDetail", sender: gankDetail.url)
+        }
     }
 }

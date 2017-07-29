@@ -50,13 +50,13 @@ public struct Gank {
     public let desc: String
     public let images: String?
     public let publishedAt: String
-    public let source: String
+    public let source: String?
     public let type: String
     public let url: String
     public let used: Bool
     public let who: String?
         
-    public init(id: String, createdAt: String, desc: String, images: String?, publishedAt: String, source: String, type: String, url: String, used: Bool, who: String?) {
+    public init(id: String, createdAt: String, desc: String, images: String?, publishedAt: String, source: String?, type: String, url: String, used: Bool, who: String?) {
         self.id = id;
         self.createdAt = createdAt;
         self.desc = desc;
@@ -79,13 +79,13 @@ public struct Gank {
             let createdAt = gankInfo["createdAt"].string,
             let desc = gankInfo["desc"].string,
             let publishedAt = gankInfo["publishedAt"].string,
-            let source = gankInfo["source"].string,
             let type = gankInfo["type"].string,
             let url = gankInfo["url"].string,
             let used = gankInfo["used"].bool else {
             return nil
         }
         
+        let source = gankInfo["source"].string
         let images = gankInfo["images"].string
         let who = gankInfo["who"].string
         
@@ -129,17 +129,33 @@ public func gankWithDay(date: String, failureHandler: FailureHandler?, completio
 }
 
 // MARK: - 最近一天干货
-public func gankLatest(falureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
+public func gankLatest(failureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
     
-    lastestGankDate(failureHandler: nil, completion:{ (_, date) in
-        gankWithDay(date: date, failureHandler: falureHandler, completion: completion)
+    lastestGankDate(failureHandler: failureHandler, completion:{ (_, date) in
+        gankWithDay(date: date, failureHandler: failureHandler, completion: completion)
     })
     
 }
 
 // MARK: - 今日干货
-public func gankInToday(falureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
+public func gankInToday(failureHandler: FailureHandler?, completion: @escaping (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>) -> Void) {
     
-    gankWithDay(date: Date().toString(), failureHandler: falureHandler, completion: completion)
+    gankWithDay(date: Date().toString(), failureHandler: failureHandler, completion: completion)
     
+}
+
+// MARK: - 干货分类
+public func gankofCategory(category: String, count: Int = 20, page: Int, failureHandler: FailureHandler?, completion: @escaping (Array<Gank>) -> Void) {
+    
+    let parse: (JSON) -> (Array<Gank>)? = { data in
+        var gankArray = [Gank]()
+        for (_, gankJSON):(String, JSON) in data["results"] {
+            let gankInfo = Gank.fromJSON(gankJSON)
+            gankArray.append(gankInfo!)
+        }
+        return gankArray
+    }
+    let resource = Resource(path: String(format:"/data/%@/%d/%d", category, count, page), method: .get, requestParamters: nil, parse: parse)
+    
+    apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
