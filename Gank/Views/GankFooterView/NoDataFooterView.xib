@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="轻触屏幕重试" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxn-RM-ymu">
-                    <rect key="frame" x="30" y="319.5" width="315" height="28"/>
+                    <rect key="frame" x="30" y="255.5" width="315" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="NHx-EY-Iwi"/>
                     </constraints>
@@ -25,7 +25,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mu-lX-yAx">
-                    <rect key="frame" x="30" y="357.5" width="315" height="26"/>
+                    <rect key="frame" x="30" y="293.5" width="315" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="BGr-Ax-idr"/>
                     </constraints>
@@ -38,7 +38,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你好像处在离线状态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo9-in-vCx">
-                    <rect key="frame" x="30" y="275.5" width="315" height="29"/>
+                    <rect key="frame" x="30" y="211.5" width="315" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                 <constraint firstItem="Mxn-RM-ymu" firstAttribute="top" secondItem="Xo9-in-vCx" secondAttribute="bottom" constant="15" id="VTL-7N-aPM"/>
                 <constraint firstAttribute="trailing" secondItem="Mxn-RM-ymu" secondAttribute="trailing" constant="30" id="XT2-VM-zfY"/>
                 <constraint firstItem="Mxn-RM-ymu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="f8Z-Ra-UFs"/>
-                <constraint firstItem="Mxn-RM-ymu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nwo-IE-CZe"/>
+                <constraint firstItem="Mxn-RM-ymu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-64" id="nwo-IE-CZe"/>
                 <constraint firstAttribute="trailing" secondItem="9mu-lX-yAx" secondAttribute="trailing" constant="30" id="oD4-oJ-X9d"/>
                 <constraint firstAttribute="trailing" secondItem="Xo9-in-vCx" secondAttribute="trailing" constant="30" id="smH-6G-eLN"/>
                 <constraint firstItem="Xo9-in-vCx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="vnw-Hr-cGg"/>

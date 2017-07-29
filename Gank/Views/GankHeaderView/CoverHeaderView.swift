@@ -47,10 +47,11 @@ class CoverHeaderView: UIView {
         dayLabel.text = detail.publishedAt.toTimeFormat.toDateOfSecond()!.dayToString()
         monthLabel.text = detail.publishedAt.toTimeFormat.toDateOfSecond()!.monthToNameString()
         
-        return height
+        return height + 35
     }
     
     func refresh() {
+        self.frame.size = CGSize(width: GankConfig.getScreenWidth(), height: 235)
         meiziImageView.image = UIImage.gank_meiziLoadingBg
         dateBackImageView.image = UIImage.gank_dateLoadingBg
         dayLabel.text = ""
