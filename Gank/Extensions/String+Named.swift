@@ -53,4 +53,8 @@ extension String {
     static var promptCancelOpenNotification: String {
         return "暂时不用"
     }
+    
+    static var titleSearch: String {
+        return "搜索真的好了！不骗你！"
+    }
 }

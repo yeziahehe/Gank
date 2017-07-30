@@ -39,6 +39,7 @@
 		2C53F4071F15F9A70071A3AC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53F4061F15F9A70071A3AC /* HistoryViewController.swift */; };
 		2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */; };
 		2C6425241F2ADF87000CCE7B /* UITextView+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */; };
+		2C6425261F2CDFF9000CCE7B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6425251F2CDFF9000CCE7B /* SearchViewController.swift */; };
 		2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */; };
 		2C6AEC6D1F094AF2005B79F9 /* GankHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */; };
 		2C6AEC6F1F094AFC005B79F9 /* GankHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AEC6E1F094AFC005B79F9 /* GankHeaderView.xib */; };
@@ -131,6 +132,7 @@
 		2C53F4061F15F9A70071A3AC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankNotificationService.swift; sourceTree = "<group>"; };
 		2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Gank.swift"; sourceTree = "<group>"; };
+		2C6425251F2CDFF9000CCE7B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
 		2C6AEC6C1F094AF2005B79F9 /* GankHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankHeaderView.swift; sourceTree = "<group>"; };
 		2C6AEC6E1F094AFC005B79F9 /* GankHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GankHeaderView.xib; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				2C971B751DC203F400843481 /* CategoryViewController.swift */,
+				2C6425251F2CDFF9000CCE7B /* SearchViewController.swift */,
 				2C74F1311F287CCD002A9EEF /* ArticleViewController.swift */,
 				2C74F1331F2880F5002A9EEF /* MeiziViewController.swift */,
 				2C3867C21F277F68004952A3 /* Category.storyboard */,
@@ -795,6 +798,7 @@
 				2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */,
 				2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */,
 				2C971B6C1DC200F600843481 /* SegueViewController.swift in Sources */,
+				2C6425261F2CDFF9000CCE7B /* SearchViewController.swift in Sources */,
 				2C53F4071F15F9A70071A3AC /* HistoryViewController.swift in Sources */,
 				2C7CE2C41F29BEC100B578A1 /* LoadMoreCell.swift in Sources */,
 				2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */,

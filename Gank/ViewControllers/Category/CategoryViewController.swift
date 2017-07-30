@@ -66,6 +66,10 @@ final class CategoryViewController: BaseViewController {
         case video
     }
     
+    @IBAction func showSearch(_ sender: Any) {
+        self.performSegue(withIdentifier: "showArticle", sender: nil)
+    }
+    
     @IBAction func showArticle(_ sender: Any?) {
         self.performSegue(withIdentifier: "showArticle", sender: nil)
     }
