@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoDataFooterCollectionView" id="U6b-Vx-4bR" customClass="NoDataFooterCollectionView" customModule="Gank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="轻触屏幕重试" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yn-af-ocK">
+                    <rect key="frame" x="30" y="255" width="315" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="HWH-Vt-gPo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EE-wd-5ek">
+                    <rect key="frame" x="30" y="293" width="315" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="Eve-kU-8sX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="重试失败？查看解决方案">
+                        <color key="titleColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="showReason:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="mUK-9d-0yN"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你好像处在离线状态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4t7-0t-kLk">
+                    <rect key="frame" x="30" y="211" width="315" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="5Yn-af-ocK" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="2Gs-ht-npc"/>
+                <constraint firstAttribute="trailing" secondItem="4t7-0t-kLk" secondAttribute="trailing" constant="30" id="A1o-KL-fYl"/>
+                <constraint firstItem="5Yn-af-ocK" firstAttribute="top" secondItem="4t7-0t-kLk" secondAttribute="bottom" constant="15" id="Dq9-RC-Zpj"/>
+                <constraint firstAttribute="trailing" secondItem="5Yn-af-ocK" secondAttribute="trailing" constant="30" id="FL3-fh-0Ql"/>
+                <constraint firstItem="8EE-wd-5ek" firstAttribute="top" secondItem="5Yn-af-ocK" secondAttribute="bottom" constant="10" id="GqV-OK-nTj"/>
+                <constraint firstItem="8EE-wd-5ek" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="30" id="RzW-vx-fyV"/>
+                <constraint firstItem="4t7-0t-kLk" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="30" id="Y6g-9N-dvt"/>
+                <constraint firstAttribute="trailing" secondItem="8EE-wd-5ek" secondAttribute="trailing" constant="30" id="ZY7-m1-tKe"/>
+                <constraint firstItem="5Yn-af-ocK" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" constant="-64" id="bsk-eb-QeB"/>
+                <constraint firstItem="5Yn-af-ocK" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="30" id="nQY-61-DR0"/>
+            </constraints>
+        </collectionReusableView>
+    </objects>
+</document>

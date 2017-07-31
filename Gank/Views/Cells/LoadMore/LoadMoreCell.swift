@@ -10,7 +10,6 @@ import UIKit
 
 class LoadMoreCell: UITableViewCell {
     
-    
     var isLoading: Bool = false {
         didSet {
             if isLoading {
