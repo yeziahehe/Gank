@@ -30,4 +30,8 @@ extension UIImage {
         return UIImage(named: "nav_back")!
     }
     
+    static var gank_meiziLoading: UIImage {
+        return UIImage(named: "meizi_loading")!
+    }
+    
 }
