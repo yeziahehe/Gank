@@ -34,4 +34,11 @@ extension UIImage {
         return UIImage(named: "meizi_loading")!
     }
     
+    static var gank_navClose: UIImage {
+        return UIImage(named: "nav_close")!
+    }
+    
+    static var gank_navSave: UIImage {
+        return UIImage(named: "nav_save")!
+    }
 }

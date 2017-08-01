@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import SKPhotoBrowser
+import Proposer
+import Photos
 
 class MeiziViewController: BaseViewController {
     
     fileprivate var meiziArray = [Gank]()
+    fileprivate var meiziImages = [SKPhoto]()
     fileprivate var page: Int = 1
     fileprivate var canLoadMore: Bool = false
     fileprivate var isLoading: Bool = false
@@ -52,6 +56,13 @@ class MeiziViewController: BaseViewController {
         super.viewDidLoad()
 
         updateMeiziView()
+        configureSKPhotoBrowser()
+    }
+    
+    fileprivate func configureSKPhotoBrowser() {
+        SKPhotoBrowserOptions.displayBackAndForwardButton = false
+        SKPhotoBrowserOptions.displayAction = false
+        SKPhotoBrowserOptions.displayDeleteButton = true
     }
     
     fileprivate enum UpdateMeiziViewMode {
@@ -124,10 +135,20 @@ class MeiziViewController: BaseViewController {
                 
                 switch mode {
                 case .first:
+                    strongSelf.meiziImages = [SKPhoto]()
+                    for item in newGankArray {
+                        let photo = SKPhoto.photoWithImageURL(item.url)
+                        strongSelf.meiziImages.append(photo)
+                    }
                     strongSelf.meiziArray = newGankArray
                     wayToUpdate = .reloadData
                     
                 case .top:
+                    strongSelf.meiziImages = [SKPhoto]()
+                    for item in newGankArray {
+                        let photo = SKPhoto.photoWithImageURL(item.url)
+                        strongSelf.meiziImages.append(photo)
+                    }
                     strongSelf.meiziArray = newGankArray
                     
                     if Set(oldGankArray.map({ $0.id })) == Set(newGankArray.map({ $0.id })) {
@@ -146,6 +167,10 @@ class MeiziViewController: BaseViewController {
                         }
                     }
                     
+                    for item in realNewGankArray {
+                        let photo = SKPhoto.photoWithImageURL(item.url)
+                        strongSelf.meiziImages.append(photo)
+                    }
                     strongSelf.meiziArray += realNewGankArray
                     
                     let newGankArrayCount = strongSelf.meiziArray.count
@@ -292,8 +317,14 @@ extension MeiziViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         if !meiziArray.isEmpty {
             
-            let gankDetail: Gank = meiziArray[indexPath.row]
-            self.performSegue(withIdentifier: "showDetail", sender: gankDetail.url)
+            let cell: MeiziCollectionCell = collectionView.cellForItem(at: indexPath) as! MeiziCollectionCell
+            let originImage = cell.meiziImage.image
+            let browser = SKPhotoBrowser(originImage: originImage ?? UIImage(), photos: meiziImages, animatedFromView: cell)
+            browser.delegate = self
+            browser.updateCloseButton(UIImage.gank_navClose, size: CGSize(width:63, height:63))
+            browser.updateDeleteButton(UIImage.gank_navSave, size: CGSize(width:60, height:60))
+            browser.initializePageIndex(indexPath.row)
+            present(browser, animated: true, completion: {})
         }
     }
     
@@ -390,4 +421,30 @@ extension MeiziViewController: UICollectionViewDataSource, UICollectionViewDeleg
         return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
     }
     
+}
+
+extension MeiziViewController: SKPhotoBrowserDelegate {
+    func removePhoto(_ browser: SKPhotoBrowser, index: Int, reload: @escaping (() -> Void)) {
+        
+        proposeToAccess(.photos, agreed: {
+            PHPhotoLibrary.shared().performChanges({
+                let image = browser.photoAtIndex(index).underlyingImage
+                PHAssetChangeRequest.creationRequestForAsset(from: image!)
+            }, completionHandler: { success, error in
+                if success {
+                    //TODO
+                    gankLog.debug("save image")
+                } else {
+                    gankLog.debug("error creating asset: \(error.debugDescription)")
+                }
+            })
+            
+        }, rejected: { [weak self] in
+            self?.alertCanNotAccessCameraRoll()
+        })
+    }
+    
+    func willDismissAtPageIndex(_ index: Int) {
+        meiziCollectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredVertically, animated: false)
+    }
 }

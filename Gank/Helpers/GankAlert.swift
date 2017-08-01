@@ -62,3 +62,19 @@ final class GankAlert {
         }
     }
 }
+
+extension UIViewController {
+    
+    func alertCanNotAccessCameraRoll() {
+        
+        SafeDispatch.async {
+            GankAlert.confirmOrCancel(title: String.titleSorry, message: "请设置允许 Gank 访问你的照片。", confirmTitle: String.promptConfirmOpenCameraRoll, cancelTitle: String.promptCancelOpenCameraRoll, inViewController: self, withConfirmAction: {
+                
+                UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+                
+            }, cancelAction: {
+            })
+        }
+    }
+}
+
