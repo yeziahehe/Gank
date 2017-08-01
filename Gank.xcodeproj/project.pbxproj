@@ -90,6 +90,7 @@
 		2CCFD9BA1DCFA6DE00526C15 /* GankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B91DCFA6DE00526C15 /* GankService.swift */; };
 		2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */; };
 		2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D681DC260B20011BB48 /* GankNavigationController.swift */; };
+		2CF53F7D1F30BDDD001C3D0A /* GankHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF53F7C1F30BDDD001C3D0A /* GankHUD.swift */; };
 		97C3B78E580C1CFD9009E70B /* Pods_Gank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7CD6BF2000B54F8882894B0 /* Pods_Gank.framework */; };
 /* End PBXBuildFile section */
 
@@ -201,6 +202,7 @@
 		2CCFD9B91DCFA6DE00526C15 /* GankService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankService.swift; sourceTree = "<group>"; };
 		2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Gank.swift"; sourceTree = "<group>"; };
 		2CE80D681DC260B20011BB48 /* GankNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankNavigationController.swift; sourceTree = "<group>"; };
+		2CF53F7C1F30BDDD001C3D0A /* GankHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankHUD.swift; path = Helpers/GankHUD.swift; sourceTree = "<group>"; };
 		7E9A160EDC9C3F33678E041B /* Pods-Gank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.release.xcconfig"; sourceTree = "<group>"; };
 		B7CD6BF2000B54F8882894B0 /* Pods_Gank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E61A210F557598C5D18E83F4 /* Pods-Gank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.debug.xcconfig"; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 				2C279E711F11F2DB00A256FF /* GankSoundEffect.swift */,
 				2C279E731F11F3C400A256FF /* GankFeedbackEffect.swift */,
 				2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */,
+				2CF53F7C1F30BDDD001C3D0A /* GankHUD.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -845,6 +848,7 @@
 				2C531D931DE6DD2000C920FB /* Reusable.swift in Sources */,
 				2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */,
 				2C5446BA1F2E0ECB007E43C2 /* MeiziLoadingCollectionCell.swift in Sources */,
+				2CF53F7D1F30BDDD001C3D0A /* GankHUD.swift in Sources */,
 				2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */,
 				2C5446BE1F2E0EE5007E43C2 /* LoadMoreCollectionCell.swift in Sources */,
 				2C971B6C1DC200F600843481 /* SegueViewController.swift in Sources */,

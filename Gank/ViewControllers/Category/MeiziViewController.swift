@@ -105,7 +105,7 @@ class MeiziViewController: BaseViewController {
                     self?.meiziCollectionView.reloadData()
                     gankLog.debug("加载失败")
                 case .top, .loadMore:
-                    //TODO 加载失败
+                    GankHUD.error("加载失败")
                     gankLog.debug("加载失败")
                 }
                 
@@ -432,7 +432,7 @@ extension MeiziViewController: SKPhotoBrowserDelegate {
                 PHAssetChangeRequest.creationRequestForAsset(from: image!)
             }, completionHandler: { success, error in
                 if success {
-                    //TODO
+                    GankHUD.success("保存成功")
                     gankLog.debug("save image")
                 } else {
                     gankLog.debug("error creating asset: \(error.debugDescription)")
