@@ -67,7 +67,7 @@ final class CategoryViewController: BaseViewController {
     }
     
     @IBAction func showSearch(_ sender: Any) {
-        self.performSegue(withIdentifier: "showArticle", sender: nil)
+        self.performSegue(withIdentifier: "showSearch", sender: nil)
     }
     
     @IBAction func showArticle(_ sender: Any?) {

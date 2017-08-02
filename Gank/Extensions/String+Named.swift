@@ -57,4 +57,16 @@ extension String {
     static var titleSearch: String {
         return "搜索真的好了！不骗你！"
     }
+    
+    static var titleSorry: String {
+        return "无法保存"
+    }
+    
+    static var promptConfirmOpenCameraRoll: String {
+        return "现在就改"
+    }
+    
+    static var promptCancelOpenCameraRoll: String {
+        return "暂时不用"
+    }
 }

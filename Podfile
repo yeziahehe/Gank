@@ -11,6 +11,9 @@ def pods
     pod 'Kingfisher','~> 3.1.0'
     pod 'FaceAware'
     pod 'JTAppleCalendar', '~> 7.0'
+    pod 'SKPhotoBrowser'
+    pod 'Proposer', '~> 1.1.0'
+    pod 'SVProgressHUD'
 end
 
 target 'Gank' do

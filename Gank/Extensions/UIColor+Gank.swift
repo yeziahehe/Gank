@@ -26,6 +26,10 @@ extension UIColor {
         return UIColor(red: 178/255.0, green: 178/255.0, blue: 178/255.0, alpha: 1.0)
     }
     
+    class func gankLoadingColor() -> UIColor {
+        return UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+    }
+    
     class func gankNavgationBarTitleColor() -> UIColor {
         return UIColor.white
     }

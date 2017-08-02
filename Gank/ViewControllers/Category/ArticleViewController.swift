@@ -138,7 +138,7 @@ class ArticleViewController: BaseViewController {
                     self?.articleTableView.reloadData()
                     gankLog.debug("加载失败")
                 case .top, .loadMore:
-                    //TODO 加载失败
+                    GankHUD.error("加载失败")
                     gankLog.debug("加载失败")
                 }
                 

@@ -250,7 +250,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="showSearch:" destination="fh1-Mf-Hgt" id="LvM-8x-DZ7"/>
-                                <segue destination="0zL-Vf-1eh" kind="show" identifier="showSearch" id="rfG-S9-8Kb"/>
+                                <segue destination="0zL-Vf-1eh" kind="show" identifier="showSearch" animates="NO" id="rs0-2x-aHD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -326,12 +326,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lg7-gN-V48">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lg7-gN-V48">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="0zL-Vf-1eh" id="6By-uA-Pmy"/>
-                                    <outlet property="delegate" destination="0zL-Vf-1eh" id="RKg-Xb-BQ4"/>
+                                    <outlet property="dataSource" destination="0zL-Vf-1eh" id="vsL-ji-Qep"/>
+                                    <outlet property="delegate" destination="0zL-Vf-1eh" id="lNE-kf-kzj"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -345,6 +345,8 @@
                     </view>
                     <connections>
                         <outlet property="searchDisplayController" destination="dZ5-z9-C5q" id="ZX4-lK-V3d"/>
+                        <outlet property="searchTableView" destination="lg7-gN-V48" id="lSI-CI-U1b"/>
+                        <segue destination="IeX-2o-4UV" kind="show" identifier="showDetail" id="BWX-B8-j7v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9x-7Y-LOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -435,6 +437,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Gl5-vz-SXq"/>
+        <segue reference="BWX-B8-j7v"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
