@@ -46,17 +46,17 @@ public func lastestGankDate(failureHandler: FailureHandler?, completion: @escapi
 
 public struct Gank {
     public let id: String
-    public let createdAt: String
+    public let createdAt: String?
     public let desc: String
     public let images: String?
     public let publishedAt: String
     public let source: String?
     public let type: String
     public let url: String
-    public let used: Bool
+    public let used: Bool?
     public let who: String?
         
-    public init(id: String, createdAt: String, desc: String, images: String?, publishedAt: String, source: String?, type: String, url: String, used: Bool, who: String?) {
+    public init(id: String, createdAt: String?, desc: String, images: String?, publishedAt: String, source: String?, type: String, url: String, used: Bool?, who: String?) {
         self.id = id;
         self.createdAt = createdAt;
         self.desc = desc;
@@ -75,18 +75,26 @@ public struct Gank {
     
     public static func fromJSON(_ gankInfo: JSON) -> Gank? {
         guard let
-            gankID = gankInfo["_id"].string,
-            let createdAt = gankInfo["createdAt"].string,
-            let desc = gankInfo["desc"].string,
+            desc = gankInfo["desc"].string,
             let publishedAt = gankInfo["publishedAt"].string,
             let type = gankInfo["type"].string,
-            let url = gankInfo["url"].string,
-            let used = gankInfo["used"].bool else {
+            let url = gankInfo["url"].string else {
             return nil
         }
         
+        var gankID: String = ""
+        if gankInfo["_id"].string != nil {
+            gankID = gankInfo["_id"].string!
+        } else if gankInfo["ganhuo_id"].string != nil {
+            gankID = gankInfo["ganhuo_id"].string!
+        } else {
+            return nil
+        }
+        
+        let createdAt = gankInfo["createdAt"].string
         let source = gankInfo["source"].string
         let images = gankInfo["images"].string
+        let used = gankInfo["used"].bool
         let who = gankInfo["who"].string
         
         return Gank(id: gankID, createdAt:createdAt, desc: desc, images: images, publishedAt: publishedAt, source: source, type: type, url: url, used: used, who: who)
@@ -156,6 +164,21 @@ public func gankofCategory(category: String, count: Int = 20, page: Int, failure
         return gankArray
     }
     let resource = Resource(path: String(format:"/data/%@/%d/%d", category, count, page), method: .get, requestParamters: nil, parse: parse)
+    
+    apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
+}
+
+// MARK: - 搜索
+public func gankSearch(query: String, category: String = "all", count: Int = 10, page: Int, failureHandler: FailureHandler?, completion: @escaping (Array<Gank>) -> Void) {
+    let parse: (JSON) -> (Array<Gank>)? = { data in
+        var gankArray = [Gank]()
+        for (_, gankJSON):(String, JSON) in data["results"] {
+            let gankInfo = Gank.fromJSON(gankJSON)
+            gankArray.append(gankInfo!)
+        }
+        return gankArray
+    }
+    let resource = Resource(path: String(format:"/search/query/%@/category/%@/count/%d/page/%d", query, category, count, page), method: .get, requestParamters: nil, parse: parse)
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }

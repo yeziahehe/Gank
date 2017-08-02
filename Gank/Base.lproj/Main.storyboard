@@ -85,7 +85,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4l-dd-Rit">
                                 <rect key="frame" x="15" y="0.0" width="345" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text"> 如果干货集中营一直无法连接网络，不要担心，这其实是iOS10中国区系统的一个错误，你可能未开启干货集中营使用网络的权限，可以用一下简单的方法来尝试解决：
+                                <mutableString key="text"> 如果干货集中营一直无法连接网络，不要担心，这其实是 iOS10 中国区系统的一个错误，你可能未开启干货集中营使用网络的权限，可以用一下简单的方法来尝试解决：
 
 方法一：检查网络权限是否打开
 
