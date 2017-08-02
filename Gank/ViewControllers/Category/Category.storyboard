@@ -250,7 +250,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="showSearch:" destination="fh1-Mf-Hgt" id="LvM-8x-DZ7"/>
-                                <segue destination="0zL-Vf-1eh" kind="show" identifier="showSearch" id="rs0-2x-aHD"/>
+                                <segue destination="0zL-Vf-1eh" kind="show" identifier="showSearch" animates="NO" id="rs0-2x-aHD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

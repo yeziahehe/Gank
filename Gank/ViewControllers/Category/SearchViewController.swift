@@ -64,13 +64,9 @@ class SearchViewController: BaseViewController {
         gankLog.debug("deinit ArticleViewController")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        searchController.isActive = true
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        searchController.isActive = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
