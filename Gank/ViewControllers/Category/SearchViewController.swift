@@ -49,7 +49,8 @@ class SearchViewController: BaseViewController {
         searchController.searchBar.tintColor = UIColor.gankTintColor()
         searchController.searchBar.barTintColor = UIColor.gankLoadingColor()
         searchController.searchBar.backgroundColor = UIColor.white
-        searchController.searchBar.backgroundImage = UIImage()
+        searchController.searchBar.layer.borderWidth = 1
+        searchController.searchBar.layer.borderColor = UIColor.gankLoadingColor().cgColor
         searchController.searchBar.sizeToFit()
         return searchController
     }()
@@ -66,7 +67,16 @@ class SearchViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         searchController.isActive = true
-        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewDidLoad() {

@@ -28,7 +28,7 @@ final class GankNavigationController: UINavigationController, UIGestureRecognize
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent;
+        return UIStatusBarStyle.lightContent
     }
 
 }
