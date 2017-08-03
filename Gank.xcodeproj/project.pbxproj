@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C1013551F24FEB90020A63C /* YFShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1013531F24FE850020A63C /* YFShareItemView.swift */; };
-		2C1013561F24FECB0020A63C /* YFShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1013541F24FE850020A63C /* YFShareViewController.swift */; };
-		2C1013571F24FECF0020A63C /* YFShareViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1013521F24FE850020A63C /* YFShareViewProtocols.swift */; };
 		2C136C311DC631EF0067E280 /* UIImage+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C136C301DC631EF0067E280 /* UIImage+Named.swift */; };
 		2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */; };
 		2C221C691DC4B58E00428928 /* UIStoryBoard+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */; };
@@ -114,9 +111,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C1013521F24FE850020A63C /* YFShareViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFShareViewProtocols.swift; sourceTree = "<group>"; };
-		2C1013531F24FE850020A63C /* YFShareItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFShareItemView.swift; sourceTree = "<group>"; };
-		2C1013541F24FE850020A63C /* YFShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFShareViewController.swift; sourceTree = "<group>"; };
 		2C136C301DC631EF0067E280 /* UIImage+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Named.swift"; sourceTree = "<group>"; };
 		2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Gank.swift"; sourceTree = "<group>"; };
 		2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Gank.swift"; sourceTree = "<group>"; };
@@ -304,7 +298,6 @@
 				2C4D023C1DE2076800C044B5 /* Cells */,
 				2C6AEC6B1F094ACE005B79F9 /* GankHeaderView */,
 				2C6AEC721F0959D7005B79F9 /* GankFooterView */,
-				2C5EFDA41F205D8B00580E4D /* YFMoreOperationViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -347,16 +340,6 @@
 				2C5446B91F2E0ECB007E43C2 /* MeiziLoadingCollectionCell.xib */,
 			);
 			path = Meizi;
-			sourceTree = "<group>";
-		};
-		2C5EFDA41F205D8B00580E4D /* YFMoreOperationViewController */ = {
-			isa = PBXGroup;
-			children = (
-				2C1013531F24FE850020A63C /* YFShareItemView.swift */,
-				2C1013541F24FE850020A63C /* YFShareViewController.swift */,
-				2C1013521F24FE850020A63C /* YFShareViewProtocols.swift */,
-			);
-			path = YFMoreOperationViewController;
 			sourceTree = "<group>";
 		};
 		2C6AEC6B1F094ACE005B79F9 /* GankHeaderView */ = {
@@ -778,13 +761,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gank-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		85288FA81E4895AF70962E30 /* [CP] Copy Pods Resources */ = {
@@ -808,9 +794,36 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Gank/Pods-Gank-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/FaceAware/FaceAware.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
+				"${BUILT_PRODUCTS_DIR}/Proposer/Proposer.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/YFMoreViewController/YFMoreViewController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaceAware.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Proposer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YFMoreViewController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -833,7 +846,6 @@
 				2C5446B61F2E0D1C007E43C2 /* MeiziCollectionCell.swift in Sources */,
 				2CF53F7F1F31F2E6001C3D0A /* SearchFooterView.swift in Sources */,
 				2C421CA51F161B4A0027C388 /* GankDateCell.swift in Sources */,
-				2C1013571F24FECF0020A63C /* YFShareViewProtocols.swift in Sources */,
 				2C7CE2C91F29CBAF00B578A1 /* NoDataFooterView.swift in Sources */,
 				2C2B78BA1F0A9CF600863819 /* UILabel+Gank.swift in Sources */,
 				2C6AEC711F095575005B79F9 /* UIView+Gank.swift in Sources */,
@@ -872,7 +884,6 @@
 				2C74F1341F2880F5002A9EEF /* MeiziViewController.swift in Sources */,
 				2C5446C21F2E1A3D007E43C2 /* CustomFooterCollectionView.swift in Sources */,
 				2C531D951DE6DD6500C920FB /* NibLoadable.swift in Sources */,
-				2C1013551F24FEB90020A63C /* YFShareItemView.swift in Sources */,
 				2C4DFB351F0022500068A73F /* SafeDispatch.swift in Sources */,
 				2C30764D1F037E0100F595F2 /* Array+Gank.swift in Sources */,
 				2C279E651F10911C00A256FF /* String+Named.swift in Sources */,
@@ -883,7 +894,6 @@
 				2C136C361DC6DAF20067E280 /* Bundle+Gank.swift in Sources */,
 				2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */,
 				2C74F1401F28CB36002A9EEF /* ArticleGankLoadingCell.swift in Sources */,
-				2C1013561F24FECB0020A63C /* YFShareViewController.swift in Sources */,
 				2C4D02461DE2076800C044B5 /* DailyGankLoadingCell.swift in Sources */,
 				2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */,
 			);

@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import YFMoreViewController
 
 class GankDetailViewController: BaseViewController, WKNavigationDelegate {
     
@@ -127,32 +128,30 @@ extension GankDetailViewController {
     }
     
     @IBAction func showMore(_ sender: UIBarButtonItem) {
-        let shareViewController = YFShareViewController.init()
-        shareViewController.delegate = self
+        let moreViewController = YFMoreViewController.init()
+        moreViewController.delegate = self
+                
+        moreViewController.addInfo(gankURL.toGankUrl())
+        moreViewController.addItems(title: "微信", image: #imageLiteral(resourceName: "wechat"), type: .important, tag: "wechat")
+        moreViewController.addItems(title: "朋友圈", image: #imageLiteral(resourceName: "moments"), type: .important, tag: "moments")
+        moreViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
+        moreViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
+        moreViewController.addItems(title: "印象笔记", image: #imageLiteral(resourceName: "evernote"), type: .important, tag: "evernote")
+        moreViewController.addItems(title: "Pocket", image: #imageLiteral(resourceName: "Pocket"), type: .important, tag: "Pocket")
+        moreViewController.addItems(title: "有道云笔记", image: #imageLiteral(resourceName: "youdao"), type: .important, tag:"youdao")
+        moreViewController.addItems(title: "Safari打开", image: #imageLiteral(resourceName: "safari"), type: .normal, tag:"safari")
+        moreViewController.addItems(title: "复制链接", image: #imageLiteral(resourceName: "copylink"), type: .normal, tag:"copylink")
+        moreViewController.addItems(title: "刷新", image: #imageLiteral(resourceName: "refresh"), type: .normal, tag:"refresh")
+        //moreViewController.addItems(title: "搜索页面内容", image: #imageLiteral(resourceName: "search"), type: .normal, tag:"search")
         
-        gankLog.debug(gankURL)
-        
-        shareViewController.addInfo(gankURL.toGankUrl())
-        shareViewController.addItems(title: "微信", image: #imageLiteral(resourceName: "wechat"), type: .important, tag: "wechat")
-        shareViewController.addItems(title: "朋友圈", image: #imageLiteral(resourceName: "moments"), type: .important, tag: "moments")
-        shareViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
-        shareViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
-        shareViewController.addItems(title: "印象笔记", image: #imageLiteral(resourceName: "evernote"), type: .important, tag: "evernote")
-        shareViewController.addItems(title: "Pocket", image: #imageLiteral(resourceName: "Pocket"), type: .important, tag: "Pocket")
-        shareViewController.addItems(title: "有道云笔记", image: #imageLiteral(resourceName: "youdao"), type: .important, tag:"youdao")
-        shareViewController.addItems(title: "Safari打开", image: #imageLiteral(resourceName: "safari"), type: .normal, tag:"safari")
-        shareViewController.addItems(title: "复制链接", image: #imageLiteral(resourceName: "copylink"), type: .normal, tag:"copylink")
-        shareViewController.addItems(title: "刷新", image: #imageLiteral(resourceName: "refresh"), type: .normal, tag:"refresh")
-        //shareViewController.addItems(title: "搜索页面内容", image: #imageLiteral(resourceName: "search"), type: .normal, tag:"search")
-        
-        shareViewController.showFromBottom()
+        moreViewController.showFromBottom()
     }
     
 }
 
-extension GankDetailViewController: YFShareViewDelegate {
+extension GankDetailViewController: YFMoreViewDelegate {
     
-    func shareView(_ shareview: YFShareViewController, didSelectItemAt tag: String, type: YFShareItemType) {
+    func moreView(_ moreview: YFMoreViewController, didSelectItemAt tag: String, type: YFMoreItemType) {
         switch tag {
         case "wechat":
             return
@@ -168,4 +167,5 @@ extension GankDetailViewController: YFShareViewDelegate {
             return
         }
     }
+    
 }

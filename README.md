@@ -34,10 +34,14 @@
 
 ## 功能
 
-- [x]~~集成 [flow.ci](http://flow.ci/)~~，已替换成 [Travis CI](https://travis-ci.org)
-- [x]集成 [codecov](https://codecov.io)
-- [x]集成 [codebeat](https://codebeat.co/)
-- [ ]集成 [DateHelper](https://github.com/melvitax/DateHelper)
+- [x] ~~集成 [flow.ci](http://flow.ci/)~~，已替换成 [Travis CI](https://travis-ci.org)
+- [x] 每日提醒（[利用 Background Fetch + UNUserNotificationCenter 实现伪推送](http://yeziahehe.com/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/)）
+
+## 开源组件
+
+在开发干货集中营的时候，对应开源了一些组件，欢迎 Star！
+
+- [YFMoreViewController](https://github.com/yeziahehe/YFMoreViewController)
 
 ## 运行环境
 
