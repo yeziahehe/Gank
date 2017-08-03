@@ -14,6 +14,7 @@ def pods
     pod 'SKPhotoBrowser'
     pod 'Proposer', '~> 1.1.0'
     pod 'SVProgressHUD'
+    pod 'YFMoreViewController'
 end
 
 target 'Gank' do
