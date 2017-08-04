@@ -88,13 +88,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-jR-kRR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="hgN-EX-T6T"/>
+                                    <constraint firstAttribute="height" constant="120" id="hgN-EX-T6T"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="干货推送" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edM-gw-C0n">
-                                <rect key="frame" x="30" y="25" width="97.5" height="24"/>
+                                <rect key="frame" x="30" y="37" width="97.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Jwm-FC-XXT"/>
                                 </constraints>
@@ -103,7 +103,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有新干货会第一时间推送给你~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvG-ja-Qc0">
-                                <rect key="frame" x="30" y="57" width="194" height="17"/>
+                                <rect key="frame" x="30" y="69" width="194" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="eQI-QR-v3U"/>
                                 </constraints>
@@ -112,14 +112,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaq-o4-8Fb">
-                                <rect key="frame" x="310" y="35" width="51" height="31"/>
+                                <rect key="frame" x="310" y="44.5" width="51" height="31"/>
                                 <color key="onTintColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="switchAction:" destination="4a4-FF-QT5" eventType="valueChanged" id="e50-0j-avm"/>
                                 </connections>
                             </switch>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ib5-id-5mP">
-                                <rect key="frame" x="15" y="115" width="345" height="532"/>
+                                <rect key="frame" x="15" y="135" width="345" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">干货推送是利用系统特性解决第三方干货集中营客户端无法拥有原生推送的方案，你可以在这里选择开启或者关闭。你的 iOS 设备可以根据你使用干货集中营的频率和时间智能的安排干货集中营来获取每日更新的干货，并显示在应用图标上。你需要确保以下设置均为正确状态：
 
@@ -143,10 +143,10 @@
                             <constraint firstAttribute="trailing" secondItem="gaq-o4-8Fb" secondAttribute="trailing" constant="16" id="STT-uj-pQW"/>
                             <constraint firstAttribute="trailing" secondItem="Ngm-jR-kRR" secondAttribute="trailing" id="ZOL-gt-HQT"/>
                             <constraint firstAttribute="trailing" secondItem="Ib5-id-5mP" secondAttribute="trailing" constant="15" id="dLD-zB-ynf"/>
-                            <constraint firstItem="gaq-o4-8Fb" firstAttribute="top" secondItem="0X0-9N-agZ" secondAttribute="top" constant="35" id="gxe-zl-iqc"/>
                             <constraint firstItem="edM-gw-C0n" firstAttribute="leading" secondItem="0X0-9N-agZ" secondAttribute="leading" constant="30" id="gyz-qE-bj3"/>
                             <constraint firstItem="Ngm-jR-kRR" firstAttribute="leading" secondItem="0X0-9N-agZ" secondAttribute="leading" id="kZK-Xm-JHv"/>
-                            <constraint firstItem="edM-gw-C0n" firstAttribute="top" secondItem="0X0-9N-agZ" secondAttribute="top" constant="25" id="vUZ-n6-ETD"/>
+                            <constraint firstItem="edM-gw-C0n" firstAttribute="top" secondItem="0X0-9N-agZ" secondAttribute="top" constant="37" id="vUZ-n6-ETD"/>
+                            <constraint firstItem="gaq-o4-8Fb" firstAttribute="centerY" secondItem="Ngm-jR-kRR" secondAttribute="centerY" id="y4h-4o-wKS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="干货推送" id="FLF-q9-Xbm"/>
@@ -315,7 +315,7 @@
                 <viewControllerPlaceholder storyboardName="WebView" id="LW8-Dd-r0g" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTD-dK-XXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-29" y="638"/>
+            <point key="canvasLocation" x="798" y="1126"/>
         </scene>
         <!--版本更新-->
         <scene sceneID="jvA-sc-EAD">
@@ -440,7 +440,7 @@
         <image name="end_dot" width="14" height="14"/>
         <image name="logo" width="80" height="80"/>
         <image name="nav_add" width="21" height="21"/>
-        <image name="notification_bg" width="375" height="100"/>
+        <image name="notification_bg" width="375" height="120"/>
         <image name="smile" width="30" height="30"/>
         <image name="version_bg" width="375" height="58"/>
         <image name="version_line" width="2" height="171"/>

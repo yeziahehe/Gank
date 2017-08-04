@@ -8,7 +8,6 @@
 
 import UIKit
 import Kingfisher
-import FaceAware
 import UserNotifications
 
 final class NewViewController: BaseViewController {
