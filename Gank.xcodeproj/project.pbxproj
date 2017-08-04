@@ -45,6 +45,21 @@
 		2C5446C31F2E1A3D007E43C2 /* CustomFooterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5446C11F2E1A3D007E43C2 /* CustomFooterCollectionView.xib */; };
 		2C5446C61F2E1E1A007E43C2 /* NoDataFooterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5446C41F2E1E1A007E43C2 /* NoDataFooterCollectionView.swift */; };
 		2C5446C71F2E1E1A007E43C2 /* NoDataFooterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5446C51F2E1E1A007E43C2 /* NoDataFooterCollectionView.xib */; };
+		2C5E3CBC1F330C8F007C4BA4 /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CBA1F330C8F007C4BA4 /* UserInfoCell.swift */; };
+		2C5E3CBD1F330C8F007C4BA4 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E3CBB1F330C8F007C4BA4 /* UserInfoCell.xib */; };
+		2C5E3CC21F330CCC007C4BA4 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CC01F330CCC007C4BA4 /* SettingCell.swift */; };
+		2C5E3CC31F330CCC007C4BA4 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E3CC11F330CCC007C4BA4 /* SettingCell.xib */; };
+		2C5E3CC61F330D88007C4BA4 /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CC41F330D88007C4BA4 /* LogoutCell.swift */; };
+		2C5E3CC71F330D88007C4BA4 /* LogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E3CC51F330D88007C4BA4 /* LogoutCell.xib */; };
+		2C5E3CC91F331815007C4BA4 /* VersionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CC81F331815007C4BA4 /* VersionFooterView.swift */; };
+		2C5E3CCB1F331828007C4BA4 /* VersionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E3CCA1F331828007C4BA4 /* VersionFooterView.xib */; };
+		2C5E3CCD1F3397ED007C4BA4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CCC1F3397ED007C4BA4 /* NotificationViewController.swift */; };
+		2C5E3CCF1F339967007C4BA4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CCE1F339967007C4BA4 /* AboutViewController.swift */; };
+		2C5E3CD11F339A0D007C4BA4 /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CD01F339A0D007C4BA4 /* VersionViewController.swift */; };
+		2C5E3CD31F3470AE007C4BA4 /* PodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CD21F3470AE007C4BA4 /* PodsViewController.swift */; };
+		2C5E3CD71F349341007C4BA4 /* VersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CD51F349341007C4BA4 /* VersionCell.swift */; };
+		2C5E3CD81F349341007C4BA4 /* VersionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E3CD61F349341007C4BA4 /* VersionCell.xib */; };
+		2C5E3CDA1F34B402007C4BA4 /* UIApplication+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CD91F34B402007C4BA4 /* UIApplication+Gank.swift */; };
 		2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */; };
 		2C6425241F2ADF87000CCE7B /* UITextView+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */; };
 		2C6425261F2CDFF9000CCE7B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6425251F2CDFF9000CCE7B /* SearchViewController.swift */; };
@@ -90,6 +105,7 @@
 		2CF53F7D1F30BDDD001C3D0A /* GankHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF53F7C1F30BDDD001C3D0A /* GankHUD.swift */; };
 		2CF53F7F1F31F2E6001C3D0A /* SearchFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF53F7E1F31F2E6001C3D0A /* SearchFooterView.swift */; };
 		2CF53F811F31F2F0001C3D0A /* SearchFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF53F801F31F2F0001C3D0A /* SearchFooterView.xib */; };
+		2CF53FC41F330572001C3D0A /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF53FC31F330572001C3D0A /* Me.storyboard */; };
 		97C3B78E580C1CFD9009E70B /* Pods_Gank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7CD6BF2000B54F8882894B0 /* Pods_Gank.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +165,21 @@
 		2C5446C11F2E1A3D007E43C2 /* CustomFooterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomFooterCollectionView.xib; sourceTree = "<group>"; };
 		2C5446C41F2E1E1A007E43C2 /* NoDataFooterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataFooterCollectionView.swift; sourceTree = "<group>"; };
 		2C5446C51F2E1E1A007E43C2 /* NoDataFooterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataFooterCollectionView.xib; sourceTree = "<group>"; };
+		2C5E3CBA1F330C8F007C4BA4 /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
+		2C5E3CBB1F330C8F007C4BA4 /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
+		2C5E3CC01F330CCC007C4BA4 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		2C5E3CC11F330CCC007C4BA4 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		2C5E3CC41F330D88007C4BA4 /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
+		2C5E3CC51F330D88007C4BA4 /* LogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutCell.xib; sourceTree = "<group>"; };
+		2C5E3CC81F331815007C4BA4 /* VersionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionFooterView.swift; sourceTree = "<group>"; };
+		2C5E3CCA1F331828007C4BA4 /* VersionFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionFooterView.xib; sourceTree = "<group>"; };
+		2C5E3CCC1F3397ED007C4BA4 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		2C5E3CCE1F339967007C4BA4 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		2C5E3CD01F339A0D007C4BA4 /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
+		2C5E3CD21F3470AE007C4BA4 /* PodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodsViewController.swift; sourceTree = "<group>"; };
+		2C5E3CD51F349341007C4BA4 /* VersionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCell.swift; sourceTree = "<group>"; };
+		2C5E3CD61F349341007C4BA4 /* VersionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionCell.xib; sourceTree = "<group>"; };
+		2C5E3CD91F34B402007C4BA4 /* UIApplication+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Gank.swift"; sourceTree = "<group>"; };
 		2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankNotificationService.swift; sourceTree = "<group>"; };
 		2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Gank.swift"; sourceTree = "<group>"; };
 		2C6425251F2CDFF9000CCE7B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +232,7 @@
 		2CF53F7C1F30BDDD001C3D0A /* GankHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankHUD.swift; path = Helpers/GankHUD.swift; sourceTree = "<group>"; };
 		2CF53F7E1F31F2E6001C3D0A /* SearchFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFooterView.swift; sourceTree = "<group>"; };
 		2CF53F801F31F2F0001C3D0A /* SearchFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFooterView.xib; sourceTree = "<group>"; };
+		2CF53FC31F330572001C3D0A /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		7E9A160EDC9C3F33678E041B /* Pods-Gank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.release.xcconfig"; sourceTree = "<group>"; };
 		B7CD6BF2000B54F8882894B0 /* Pods_Gank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E61A210F557598C5D18E83F4 /* Pods-Gank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.debug.xcconfig"; sourceTree = "<group>"; };
@@ -310,6 +342,8 @@
 				2C74F13D1F28CAF1002A9EEF /* Category */,
 				2C7CE2C11F29BEA300B578A1 /* LoadMore */,
 				2C5446B31F2E0CF7007E43C2 /* Meizi */,
+				2C5E3CB91F330C6F007C4BA4 /* Me */,
+				2C5E3CD41F349327007C4BA4 /* Version */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -342,6 +376,28 @@
 			path = Meizi;
 			sourceTree = "<group>";
 		};
+		2C5E3CB91F330C6F007C4BA4 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				2C5E3CBA1F330C8F007C4BA4 /* UserInfoCell.swift */,
+				2C5E3CBB1F330C8F007C4BA4 /* UserInfoCell.xib */,
+				2C5E3CC01F330CCC007C4BA4 /* SettingCell.swift */,
+				2C5E3CC11F330CCC007C4BA4 /* SettingCell.xib */,
+				2C5E3CC41F330D88007C4BA4 /* LogoutCell.swift */,
+				2C5E3CC51F330D88007C4BA4 /* LogoutCell.xib */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		2C5E3CD41F349327007C4BA4 /* Version */ = {
+			isa = PBXGroup;
+			children = (
+				2C5E3CD51F349341007C4BA4 /* VersionCell.swift */,
+				2C5E3CD61F349341007C4BA4 /* VersionCell.xib */,
+			);
+			path = Version;
+			sourceTree = "<group>";
+		};
 		2C6AEC6B1F094ACE005B79F9 /* GankHeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +422,8 @@
 				2C5446C51F2E1E1A007E43C2 /* NoDataFooterCollectionView.xib */,
 				2CF53F7E1F31F2E6001C3D0A /* SearchFooterView.swift */,
 				2CF53F801F31F2F0001C3D0A /* SearchFooterView.xib */,
+				2C5E3CC81F331815007C4BA4 /* VersionFooterView.swift */,
+				2C5E3CCA1F331828007C4BA4 /* VersionFooterView.xib */,
 			);
 			path = GankFooterView;
 			sourceTree = "<group>";
@@ -495,6 +553,7 @@
 				2C279E641F10911C00A256FF /* String+Named.swift */,
 				2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */,
 				2C5446B11F2E0BA1007E43C2 /* UICollectionView+Gank.swift */,
+				2C5E3CD91F34B402007C4BA4 /* UIApplication+Gank.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -513,6 +572,11 @@
 			isa = PBXGroup;
 			children = (
 				2C971B771DC2040400843481 /* MeViewController.swift */,
+				2C5E3CCC1F3397ED007C4BA4 /* NotificationViewController.swift */,
+				2C5E3CCE1F339967007C4BA4 /* AboutViewController.swift */,
+				2C5E3CD01F339A0D007C4BA4 /* VersionViewController.swift */,
+				2C5E3CD21F3470AE007C4BA4 /* PodsViewController.swift */,
+				2CF53FC31F330572001C3D0A /* Me.storyboard */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -701,9 +765,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5E3CD81F349341007C4BA4 /* VersionCell.xib in Resources */,
 				2C5446C71F2E1E1A007E43C2 /* NoDataFooterCollectionView.xib in Resources */,
 				2C3867C31F277F68004952A3 /* Category.storyboard in Resources */,
 				2CAC73641F124BF500AB51D0 /* tabbar.m4a in Resources */,
+				2C5E3CC71F330D88007C4BA4 /* LogoutCell.xib in Resources */,
 				2C5446B71F2E0D1C007E43C2 /* MeiziCollectionCell.xib in Resources */,
 				2C7CE2C51F29BEC100B578A1 /* LoadMoreCell.xib in Resources */,
 				2C5446C31F2E1A3D007E43C2 /* CustomFooterCollectionView.xib in Resources */,
@@ -711,9 +777,12 @@
 				2C83C8F11DAE0F4500FCE89A /* LaunchScreen.storyboard in Resources */,
 				2C74F1411F28CB36002A9EEF /* ArticleGankLoadingCell.xib in Resources */,
 				2C5446BB1F2E0ECB007E43C2 /* MeiziLoadingCollectionCell.xib in Resources */,
+				2CF53FC41F330572001C3D0A /* Me.storyboard in Resources */,
 				2C6AEC761F0959F6005B79F9 /* CustomFooterView.xib in Resources */,
 				2C83C8EE1DAE0F4500FCE89A /* Assets.xcassets in Resources */,
 				2C83C8EC1DAE0F4500FCE89A /* Main.storyboard in Resources */,
+				2C5E3CBD1F330C8F007C4BA4 /* UserInfoCell.xib in Resources */,
+				2C5E3CCB1F331828007C4BA4 /* VersionFooterView.xib in Resources */,
 				2CCE93281F1E1729009DABA9 /* WebView.storyboard in Resources */,
 				2C7CE2CB1F29CBBD00B578A1 /* NoDataFooterView.xib in Resources */,
 				2C4D021E1DE1EAE800C044B5 /* New.storyboard in Resources */,
@@ -721,6 +790,7 @@
 				2C5446BF1F2E0EE5007E43C2 /* LoadMoreCollectionCell.xib in Resources */,
 				2C2B78B81F0A768E00863819 /* CoverHeaderView.xib in Resources */,
 				2C4D02471DE2076800C044B5 /* DailyGankLoadingCell.xib in Resources */,
+				2C5E3CC31F330CCC007C4BA4 /* SettingCell.xib in Resources */,
 				2C6AEC6F1F094AFC005B79F9 /* GankHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -797,7 +867,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Gank/Pods-Gank-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
-				"${BUILT_PRODUCTS_DIR}/FaceAware/FaceAware.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
@@ -813,7 +882,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaceAware.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
@@ -839,12 +907,16 @@
 			files = (
 				2CBC3B771F172C5B00A49286 /* GankBackgroundFetchService.swift in Sources */,
 				2C971B781DC2040400843481 /* MeViewController.swift in Sources */,
+				2C5E3CCD1F3397ED007C4BA4 /* NotificationViewController.swift in Sources */,
 				2C75352C1DC8D02900C957A4 /* GankConfig.swift in Sources */,
+				2C5E3CC91F331815007C4BA4 /* VersionFooterView.swift in Sources */,
 				2C98A41B1DDDFBDB001CBE37 /* Date+Gank.swift in Sources */,
 				2C279E721F11F2DB00A256FF /* GankSoundEffect.swift in Sources */,
 				2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */,
 				2C5446B61F2E0D1C007E43C2 /* MeiziCollectionCell.swift in Sources */,
+				2C5E3CC21F330CCC007C4BA4 /* SettingCell.swift in Sources */,
 				2CF53F7F1F31F2E6001C3D0A /* SearchFooterView.swift in Sources */,
+				2C5E3CBC1F330C8F007C4BA4 /* UserInfoCell.swift in Sources */,
 				2C421CA51F161B4A0027C388 /* GankDateCell.swift in Sources */,
 				2C7CE2C91F29CBAF00B578A1 /* NoDataFooterView.swift in Sources */,
 				2C2B78BA1F0A9CF600863819 /* UILabel+Gank.swift in Sources */,
@@ -858,7 +930,9 @@
 				2C74F1321F287CCD002A9EEF /* ArticleViewController.swift in Sources */,
 				2C971B741DC203E200843481 /* NewViewController.swift in Sources */,
 				2C279E631F0FF9B400A256FF /* GankAlert.swift in Sources */,
+				2C5E3CC61F330D88007C4BA4 /* LogoutCell.swift in Sources */,
 				2C279E741F11F3C400A256FF /* GankFeedbackEffect.swift in Sources */,
+				2C5E3CDA1F34B402007C4BA4 /* UIApplication+Gank.swift in Sources */,
 				2C971B6F1DC2019500843481 /* UIColor+Gank.swift in Sources */,
 				2C971B761DC203F400843481 /* CategoryViewController.swift in Sources */,
 				2C4D02441DE2076800C044B5 /* DailyGankCell.swift in Sources */,
@@ -884,6 +958,7 @@
 				2C74F1341F2880F5002A9EEF /* MeiziViewController.swift in Sources */,
 				2C5446C21F2E1A3D007E43C2 /* CustomFooterCollectionView.swift in Sources */,
 				2C531D951DE6DD6500C920FB /* NibLoadable.swift in Sources */,
+				2C5E3CD31F3470AE007C4BA4 /* PodsViewController.swift in Sources */,
 				2C4DFB351F0022500068A73F /* SafeDispatch.swift in Sources */,
 				2C30764D1F037E0100F595F2 /* Array+Gank.swift in Sources */,
 				2C279E651F10911C00A256FF /* String+Named.swift in Sources */,
@@ -895,6 +970,9 @@
 				2CCFD9B71DCF611100526C15 /* GankNetworking.swift in Sources */,
 				2C74F1401F28CB36002A9EEF /* ArticleGankLoadingCell.swift in Sources */,
 				2C4D02461DE2076800C044B5 /* DailyGankLoadingCell.swift in Sources */,
+				2C5E3CD11F339A0D007C4BA4 /* VersionViewController.swift in Sources */,
+				2C5E3CCF1F339967007C4BA4 /* AboutViewController.swift in Sources */,
+				2C5E3CD71F349341007C4BA4 /* VersionCell.swift in Sources */,
 				2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

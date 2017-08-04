@@ -9,7 +9,6 @@ def pods
     pod 'ReachabilitySwift'
     pod 'SwiftyJSON'
     pod 'Kingfisher','~> 3.1.0'
-    pod 'FaceAware'
     pod 'JTAppleCalendar', '~> 7.0'
     pod 'SKPhotoBrowser'
     pod 'Proposer', '~> 1.1.0'

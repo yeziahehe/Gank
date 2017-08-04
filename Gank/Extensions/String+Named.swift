@@ -69,4 +69,56 @@ extension String {
     static var promptCancelOpenCameraRoll: String {
         return "暂时不用"
     }
+    
+    static var promptNotification: String {
+        return "干货推送"
+    }
+    
+    static var promptThanks: String {
+        return "感谢编辑们"
+    }
+    
+    static var promptAbout: String {
+        return "关于"
+    }
+    
+    static var promptVersion: String {
+        return "版本更新"
+    }
+    
+    static var promptRecommend: String {
+        return "推荐给朋友"
+    }
+    
+    static var promptScore: String {
+        return "给干货集中营评分"
+    }
+    
+    static var promptStar: String {
+        return "给项目 Star"
+    }
+    
+    static var messageSetNotification: String {
+        return "【通知】权限为关闭状态，打开后才能正常获取干货推送~"
+    }
+    
+    static var promptConfirmSetNotification: String {
+        return "前往设置"
+    }
+    
+    static var promptAboutAuthor: String {
+        return "关于作者"
+    }
+    
+    static var promptAuthorGitHub: String {
+        return "作者 GitHub"
+    }
+    
+    static var promptGank: String {
+        return "致谢干货集中营及代码家"
+    }
+    
+    static var promptPods: String {
+        return "开源组件"
+    }
 }
