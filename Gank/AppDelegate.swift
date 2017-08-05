@@ -10,6 +10,7 @@ import UIKit
 import ReachabilitySwift
 import Alamofire
 import AlamofireNetworkActivityIndicator
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Background Fetch timer
         UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
+        
+        IQKeyboardManager.sharedManager().enable = true
         
         let storyboard = UIStoryboard.gank_main
         window?.rootViewController = storyboard.instantiateInitialViewController()

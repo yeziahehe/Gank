@@ -14,6 +14,7 @@ def pods
     pod 'Proposer', '~> 1.1.0'
     pod 'SVProgressHUD'
     pod 'YFMoreViewController'
+    pod 'IQKeyboardManagerSwift'
 end
 
 target 'Gank' do

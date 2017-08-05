@@ -27,6 +27,10 @@ class PodsViewController: BaseViewController {
             url: "https://github.com/Alamofire/AlamofireNetworkActivityIndicator"
         ),
         Pod(
+            name: "IQKeyboardManager",
+            url: "https://github.com/hackiftekhar/IQKeyboardManager"
+        ),
+        Pod(
             name: "JTAppleCalendar",
             url: "https://github.com/patchthecode/JTAppleCalendar"
         ),
