@@ -101,7 +101,8 @@ final class MeViewController: BaseViewController {
     }
     
     @IBAction func showAddGank(_ sender: Any) {
-        
+        // TODO: Github Name is login
+        performSegue(withIdentifier: "showAddGank", sender: nil)
     }
     
     @objc fileprivate func reloadMeTableView(_ notification: Notification) {
