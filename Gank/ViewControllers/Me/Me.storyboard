@@ -59,7 +59,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="showAddGank:" destination="Sft-rG-AZi" id="lla-lI-rry"/>
-                                <segue destination="YiH-RL-c8J" kind="show" identifier="showAddGank" id="cUk-0o-Kva"/>
+                                <segue destination="YiH-RL-c8J" kind="show" identifier="showAddGank" id="Xcj-ZE-juI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -199,7 +199,7 @@
                                                 <color key="textColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择分类" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mIN-7v-ot5">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择分类" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mIN-7v-ot5" customClass="IQDropDownTextField" customModule="Gank" customModuleProvider="target">
                                                 <rect key="frame" x="45" y="431.5" width="285" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="9lw-G6-czr"/>
@@ -207,6 +207,13 @@
                                                 <color key="textColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isOptionalDropDown" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="optionalItemText" value="请选择分类"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="YiH-RL-c8J" id="x2z-1V-aGN"/>
+                                                </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="wm6-fl-kvq">
                                                 <rect key="frame" x="45" y="471.5" width="285" height="1"/>
@@ -221,7 +228,10 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="YiH-RL-c8J" id="qFp-Fw-gOf"/>
+                                                </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="P4l-1C-IIW">
                                                 <rect key="frame" x="45" y="511.5" width="285" height="1"/>
@@ -236,7 +246,10 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="YiH-RL-c8J" id="oKc-rg-6Yk"/>
+                                                </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="07T-yj-PH8">
                                                 <rect key="frame" x="45" y="552.5" width="285" height="1"/>
@@ -306,10 +319,13 @@
                                     <constraint firstItem="juF-XM-QXj" firstAttribute="leading" secondItem="za1-nA-oIU" secondAttribute="leading" id="kkU-0k-fCM"/>
                                     <constraint firstAttribute="bottom" secondItem="juF-XM-QXj" secondAttribute="bottom" id="uf2-3u-ksJ"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="YiH-RL-c8J" id="JNA-Nt-jjc"/>
+                                </connections>
                             </scrollView>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urc-0c-WoS">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urc-0c-WoS">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.83137254900000002" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="n6h-yA-aEX"/>
                                 </constraints>
@@ -317,6 +333,15 @@
                                 <state key="normal" title="(｡◕∀◕｡) 发射!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" title="(｡◕∀◕｡) 发射!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" title="(｡◕∀◕｡) 发射!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitClicked:" destination="YiH-RL-c8J" eventType="touchUpInside" id="mQS-nM-R7p"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -334,8 +359,12 @@
                     <navigationItem key="navigationItem" title="添加干货" id="4kg-eM-hOk"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="mIN-7v-ot5" id="l9K-oA-CX4"/>
+                        <outlet property="descTextField" destination="dtk-Gy-9Mn" id="eCi-ED-C0t"/>
                         <outlet property="step0Content" destination="ePM-Ga-5ko" id="u0c-Yg-Nrm"/>
                         <outlet property="step1Content" destination="73J-Pr-VuH" id="MGt-a3-VRp"/>
+                        <outlet property="submitButton" destination="urc-0c-WoS" id="cxQ-61-Tas"/>
+                        <outlet property="urlTextField" destination="m2p-SS-Ys6" id="mwv-3a-WsY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyU-qw-pff" userLabel="First Responder" sceneMemberID="firstResponder"/>

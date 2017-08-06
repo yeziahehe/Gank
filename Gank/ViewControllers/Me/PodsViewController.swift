@@ -27,6 +27,10 @@ class PodsViewController: BaseViewController {
             url: "https://github.com/Alamofire/AlamofireNetworkActivityIndicator"
         ),
         Pod(
+            name: "IQDropDownTextField",
+            url: "https://github.com/hackiftekhar/IQDropDownTextField"
+        ),
+        Pod(
             name: "IQKeyboardManager",
             url: "https://github.com/hackiftekhar/IQKeyboardManager"
         ),

@@ -15,6 +15,7 @@ def pods
     pod 'SVProgressHUD'
     pod 'YFMoreViewController'
     pod 'IQKeyboardManagerSwift'
+    pod 'IQDropDownTextField'
 end
 
 target 'Gank' do

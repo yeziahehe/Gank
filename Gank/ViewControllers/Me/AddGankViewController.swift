@@ -7,32 +7,57 @@
 //
 
 import UIKit
+import IQDropDownTextField
 
 class AddGankViewController: BaseViewController {
     @IBOutlet weak var step0Content: UITextView!
     @IBOutlet weak var step1Content: UILabel!
+    @IBOutlet weak var categoryTextField: IQDropDownTextField!
+    @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var descTextField: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    
+    deinit {
+        categoryTextField.resignFirstResponder()
+        urlTextField.resignFirstResponder()
+        descTextField.resignFirstResponder()
+        gankLog.debug("deinit AddGankViewController")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         step0Content.setLineHeight(lineHeight: 1.5)
         step1Content.setLineHeight(lineHeight: 1.5)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+                
+        categoryTextField.itemList = ["Android", "iOS", "前端", "瞎推荐", "休息视频", "拓展资源", "福利", "App"]
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func submitClicked(_ sender: UIButton) {
+        
     }
-    */
+    
+}
 
+extension AddGankViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if !categoryTextField.selectedItem!.isEmpty && !urlTextField.text!.isEmpty && !descTextField.text!.isEmpty {
+            submitButton.isEnabled = true
+            submitButton.backgroundColor = UIColor.gankTintColor()
+        } else {
+            submitButton.isEnabled = false
+            submitButton.backgroundColor = UIColor.gankFooterColor()
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == urlTextField {
+            urlTextField.resignFirstResponder()
+            descTextField.becomeFirstResponder()
+        } else if textField == descTextField {
+            descTextField.resignFirstResponder()
+        }
+        return true
+    }
 }
