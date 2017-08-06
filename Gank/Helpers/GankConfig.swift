@@ -29,6 +29,7 @@ final class GankConfig {
     
     struct NotificationName {
         static let chooseGank = Notification.Name(rawValue: "GankConfig.Notification.chooseGank")
+        static let watchNew = Notification.Name(rawValue: "GankConfig.Notification.watchNew")
     }
 
 }

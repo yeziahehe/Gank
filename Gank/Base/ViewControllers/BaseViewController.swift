@@ -23,7 +23,6 @@ class BaseViewController: SegueViewController {
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        view.backgroundColor = UIColor.white
         
         #if DEBUG
             view.addSubview(newFPSLabel)

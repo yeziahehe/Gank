@@ -32,7 +32,8 @@ final class GankBackgroundFetchService: NSObject {
     
     public func turnOn() {
         GankUserDefaults.isBackgroundEnable.value = true
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+//        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
     }
     
     public func turnOff() {

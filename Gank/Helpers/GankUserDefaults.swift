@@ -11,6 +11,7 @@ import UIKit
 private let notificationDayKey = "notificationDay"
 private let isBackgroundEnableKey = "isBackgroundEnable"
 private let historyDateKey = "historyDate"
+private let isVersionNewHiddenKey = "isVersionNewHidden"
 
 public struct Listener<T>: Hashable {
     
@@ -106,6 +107,14 @@ final public class GankUserDefaults {
                 let encodedObject = NSKeyedArchiver.archivedData(withRootObject: object)
                 defaults.set(historyDate, forKey: historyDateKey)
             }
+        }
+    }()
+    
+    public static var isVersionNewHidden: Listenable<Bool?> = {
+        let isVersionNewHidden = defaults.bool(forKey: isVersionNewHiddenKey)
+        
+        return Listenable<Bool?>(isVersionNewHidden) { isVersionNewHidden in
+            defaults.set(isVersionNewHidden, forKey: isVersionNewHiddenKey)
         }
     }()
 

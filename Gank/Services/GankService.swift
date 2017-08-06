@@ -182,3 +182,25 @@ public func gankSearch(query: String, category: String = "all", count: Int = 10,
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
+
+// MARK: - 提交干货
+public func addToGank(url: String, desc: String, who: String, type: String, failureHandler: FailureHandler?, completion: @escaping () -> Void) {
+    var debug: String = "false"
+    #if DEBUG
+        debug = "true"
+    #endif
+    let requestParameters: Parameters = [
+        "url": url,
+        "desc": desc,
+        "who": who,
+        "type": type,
+        "debug": debug,
+    ]
+    
+    let parse: (JSON) -> Void? = { data in
+        return
+    }
+    let resource = Resource(path: "/add2gank", method: .post, requestParamters: requestParameters, parse: parse)
+    
+    apiRequest({_ in}, baseURL: URL(string: "https://gank.io/api")!, resource: resource, failure: failureHandler, completion: completion)
+}

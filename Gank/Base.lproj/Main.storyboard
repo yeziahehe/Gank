@@ -29,25 +29,6 @@
             <point key="canvasLocation" x="-1090" y="-275"/>
         </scene>
         <!--我-->
-        <scene sceneID="fnB-vd-TKJ">
-            <objects>
-                <viewController storyboardIdentifier="MeViewController" id="Sft-rG-AZi" customClass="MeViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IRf-fN-fI7"/>
-                        <viewControllerLayoutGuide type="bottom" id="7ST-83-Gyl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2wC-XR-Km4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="我" id="eMu-nH-Moq"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I2T-uG-Vip" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-271" y="1178"/>
-        </scene>
-        <!--我-->
         <scene sceneID="OR2-yO-YJk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ByC-VK-wfX" customClass="GankNavigationController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +44,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Sft-rG-AZi" kind="relationship" relationship="rootViewController" id="m9V-PQ-bVs"/>
+                        <segue destination="uyw-vF-Ojr" kind="relationship" relationship="rootViewController" id="m9V-PQ-bVs"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGX-kH-JzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -85,7 +66,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4l-dd-Rit">
                                 <rect key="frame" x="15" y="0.0" width="345" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text"> 如果干货集中营一直无法连接网络，不要担心，这其实是 iOS10 中国区系统的一个错误，你可能未开启干货集中营使用网络的权限，可以用一下简单的方法来尝试解决：
+                                <string key="text"> 如果干货集中营一直无法连接网络，不要担心，这其实是 iOS10 中国区系统的一个错误，你可能未开启干货集中营使用网络的权限，可以用一下简单的方法来尝试解决：
 
 方法一：检查网络权限是否打开
 
@@ -100,7 +81,7 @@
 方法三：检查本地网络状况
 
 你可以尝试其他APP是否能正常使用，检查是否本地的无线网络或手机信号差导致干货集中营不能使用。
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -109,7 +90,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="g4l-dd-Rit" secondAttribute="trailing" constant="15" id="0cT-j4-ZTJ"/>
                             <constraint firstItem="g4l-dd-Rit" firstAttribute="leading" secondItem="8u2-46-x1m" secondAttribute="leading" constant="15" id="DwP-rc-LF3"/>
-                            <constraint firstItem="QZo-x3-iQL" firstAttribute="top" secondItem="g4l-dd-Rit" secondAttribute="bottom" id="PPJ-tX-FRG"/>
+                            <constraint firstAttribute="bottom" secondItem="g4l-dd-Rit" secondAttribute="bottom" id="PPJ-tX-FRG"/>
                             <constraint firstItem="g4l-dd-Rit" firstAttribute="top" secondItem="8u2-46-x1m" secondAttribute="top" id="m3o-a2-HhU"/>
                         </constraints>
                     </view>
@@ -187,6 +168,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D4n-8E-ZzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1090" y="1178"/>
+        </scene>
+        <!--MeViewController-->
+        <scene sceneID="GJo-He-Iar">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MeViewController" storyboardName="Me" referencedIdentifier="MeViewController" id="uyw-vF-Ojr" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Cxh-HQ-Asj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8et-JD-lzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-271" y="1178"/>
         </scene>
     </scenes>
     <resources>
