@@ -31,6 +31,9 @@ class AddGankViewController: BaseViewController {
         step1Content.setLineHeight(lineHeight: 1.5)
                 
         categoryTextField.itemList = ["Android", "iOS", "前端", "瞎推荐", "休息视频", "拓展资源", "福利", "App"]
+        categoryTextField.addTarget(self, action: #selector(AddGankViewController.textChange(_:)), for: .editingChanged)
+        urlTextField.addTarget(self, action: #selector(AddGankViewController.textChange(_:)), for: .editingChanged)
+        descTextField.addTarget(self, action: #selector(AddGankViewController.textChange(_:)), for: .editingChanged)
     }
     
     @IBAction func submitClicked(_ sender: UIButton) {
@@ -40,20 +43,19 @@ class AddGankViewController: BaseViewController {
 }
 
 extension AddGankViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if !categoryTextField.selectedItem!.isEmpty && !urlTextField.text!.isEmpty && !descTextField.text!.isEmpty {
+    
+    func textChange(_ textField: UITextField) {
+        if categoryTextField.selectedItem != nil && !urlTextField.text!.isEmpty && !descTextField.text!.isEmpty {
             submitButton.isEnabled = true
             submitButton.backgroundColor = UIColor.gankTintColor()
         } else {
             submitButton.isEnabled = false
             submitButton.backgroundColor = UIColor.gankFooterColor()
         }
-        return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == urlTextField {
-            urlTextField.resignFirstResponder()
             descTextField.becomeFirstResponder()
         } else if textField == descTextField {
             descTextField.resignFirstResponder()
