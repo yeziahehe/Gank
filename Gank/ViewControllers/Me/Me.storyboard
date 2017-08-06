@@ -209,7 +209,6 @@
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="optionalItemText" value="请选择分类"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isOptionalDropDown" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="YiH-RL-c8J" id="WMt-Ab-VKV"/>

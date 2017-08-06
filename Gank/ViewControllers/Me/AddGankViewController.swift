@@ -29,7 +29,8 @@ class AddGankViewController: BaseViewController {
 
         step0Content.setLineHeight(lineHeight: 1.5)
         step1Content.setLineHeight(lineHeight: 1.5)
-                
+        
+        categoryTextField.isOptionalDropDown = false
         categoryTextField.itemList = ["Android", "iOS", "前端", "瞎推荐", "休息视频", "拓展资源", "福利", "App"]
         categoryTextField.addTarget(self, action: #selector(AddGankViewController.textChange(_:)), for: .editingChanged)
         urlTextField.addTarget(self, action: #selector(AddGankViewController.textChange(_:)), for: .editingChanged)
@@ -37,7 +38,28 @@ class AddGankViewController: BaseViewController {
     }
     
     @IBAction func submitClicked(_ sender: UIButton) {
-        
+        // TODO: who
+        submitButton.isUserInteractionEnabled = false
+        addToGank(url: urlTextField.text!, desc: descTextField.text!, who: "Fan Ye", type: categoryTextField.selectedItem!, failureHandler: { (reason, error) in
+            
+            SafeDispatch.async { [weak self] in
+                self?.submitButton.isUserInteractionEnabled = true
+                gankLog.debug(error)
+                
+                GankAlert.alertKnown(title: String.titleSubmitError, message: error!, inViewController: self)
+            }
+            
+        }, completion: {
+            
+            SafeDispatch.async { [weak self] in
+                self?.submitButton.isUserInteractionEnabled = true
+                GankAlert.alertKnown(title: nil, message: String.messageSubmitSuccess, inViewController: self)
+                self?.categoryTextField.setSelectedRow(0, animated: false)
+                self?.urlTextField.text = ""
+                self?.descTextField.text = ""
+                self?.textChange((self?.urlTextField)!)
+            }
+        })
     }
     
 }

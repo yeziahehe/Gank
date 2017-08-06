@@ -121,4 +121,12 @@ extension String {
     static var promptPods: String {
         return "开源组件"
     }
+    
+    static var titleSubmitError: String {
+        return "提交干货失败"
+    }
+    
+    static var messageSubmitSuccess: String {
+        return "棒呆! 成功了!"
+    }
 }

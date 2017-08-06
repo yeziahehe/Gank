@@ -72,12 +72,8 @@ public func apiRequest<A>(_ modifyRequest: (URLRequest) -> (), baseURL: URL, res
     
     let url = baseURL.appendingPathComponent(resource.path)
     let method = resource.method
-    
-    if resource.requestParamters != nil {
-        return
-    }
-    
-    Alamofire.request(url, method: method).validate().responseJSON { response in
+        
+    Alamofire.request(url, method: method, parameters:resource.requestParamters).validate().responseJSON { response in
         switch response.result {
         case .success(let value):
             let error = isErrorInData(value)
