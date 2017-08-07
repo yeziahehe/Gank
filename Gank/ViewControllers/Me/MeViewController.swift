@@ -305,6 +305,7 @@ extension MeViewController: YFMoreViewDelegate {
             MonkeyKing.deliver(.qq(.zone(info: info))) { result in
                 print("result: \(result)")
             }
+            return
         default:
             return
         }

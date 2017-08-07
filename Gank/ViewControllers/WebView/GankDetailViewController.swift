@@ -138,9 +138,9 @@ extension GankDetailViewController {
         moreViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
         moreViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
         moreViewController.addItems(title: "QQ空间", image: #imageLiteral(resourceName: "QQZone"), type: .important, tag: "QQZone")
-        moreViewController.addItems(title: "印象笔记", image: #imageLiteral(resourceName: "evernote"), type: .important, tag: "evernote")
+        //moreViewController.addItems(title: "印象笔记", image: #imageLiteral(resourceName: "evernote"), type: .important, tag: "evernote")
         moreViewController.addItems(title: "Pocket", image: #imageLiteral(resourceName: "Pocket"), type: .important, tag: "Pocket")
-        moreViewController.addItems(title: "有道云笔记", image: #imageLiteral(resourceName: "youdao"), type: .important, tag:"youdao")
+        //moreViewController.addItems(title: "有道云笔记", image: #imageLiteral(resourceName: "youdao"), type: .important, tag:"youdao")
         moreViewController.addItems(title: "系统", image: #imageLiteral(resourceName: "more"), type: .important, tag: "Activity")
         moreViewController.addItems(title: "Safari打开", image: #imageLiteral(resourceName: "safari"), type: .normal, tag:"safari")
         moreViewController.addItems(title: "复制链接", image: #imageLiteral(resourceName: "copylink"), type: .normal, tag:"copylink")
@@ -156,19 +156,52 @@ extension GankDetailViewController: YFMoreViewDelegate {
     
     func moreView(_ moreview: YFMoreViewController, didSelectItemAt tag: String, type: YFMoreItemType) {
         let url = URL(string: gankURL)!
+        let title = self.title!
         let info = MonkeyKing.Info(
-            title: "干货集中营 - Gank",
-            description: String.promptRecommend,
+            title: title,
+            description: gankURL,
             thumbnail: UIImage.gank_logo,
             media: .url(url)
         )
         switch tag {
         case "wechat":
+            MonkeyKing.deliver(.weChat(.session(info: info))) { result in
+                print("result: \(result)")
+            }
+            return
+        case "moments":
+            MonkeyKing.deliver(.weChat(.timeline(info: info))) { result in
+                print("result: \(result)")
+            }
+            return
+        case "weibo":
+            MonkeyKing.deliver(.weibo(.default(info: info, accessToken: nil))) { result in
+                print("result: \(result)")
+            }
+            return
+        case "QQ":
+            MonkeyKing.deliver(.qq(.friends(info: info))) { result in
+                print("result: \(result)")
+            }
+            return
+        case "QQZone":
+            MonkeyKing.deliver(.qq(.zone(info: info))) { result in
+                print("result: \(result)")
+            }
+            return
+        case "Pocket":
+            return
+        case "Activity":
+            let activityViewController = UIActivityViewController(activityItems: [title, UIImage.gank_logo, url], applicationActivities: nil)
+            present(activityViewController, animated: true, completion: nil)
             return
         case "safari":
             UIApplication.shared.open(URL(string: gankURL)!, options: [:], completionHandler: nil)
             return
         case "copylink":
+            let paste = UIPasteboard.general
+            paste.string = gankURL
+            GankHUD.success("已复制到剪贴板")
             return
         case "refresh":
             webView.load(URLRequest(url: URL(string: gankURL)!))
