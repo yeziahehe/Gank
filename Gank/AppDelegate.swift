@@ -11,6 +11,7 @@ import ReachabilitySwift
 import Alamofire
 import AlamofireNetworkActivityIndicator
 import IQKeyboardManagerSwift
+import MonkeyKing
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Global Configure
         configureGankConfig()
+        
+        // Share Configure
+        configureShare()
         
         // Background Fetch timer
         UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
@@ -68,6 +72,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
         reachability.stopNotifier()
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        
+        if MonkeyKing.handleOpenURL(url) {
+            return true
+        }
+        
+        return false
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -133,6 +146,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GankNotificationService.shared.initAuthorization()
         
     }
-
+    
+    func configureShare() {
+        MonkeyKing.registerAccount(.weChat(appID: GankConfig.Wechat.appID, appKey: GankConfig.Wechat.appKey))
+        MonkeyKing.registerAccount(.weibo(appID: GankConfig.Weibo.appID, appKey: GankConfig.Weibo.appKey, redirectURL: GankConfig.Weibo.redirectURL))
+        MonkeyKing.registerAccount(.qq(appID: GankConfig.QQ.appID))
+        MonkeyKing.registerAccount(.pocket(appID: GankConfig.Pocket.appID))
+    }
 }
 

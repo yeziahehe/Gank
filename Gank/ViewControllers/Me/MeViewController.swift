@@ -8,6 +8,7 @@
 
 import UIKit
 import YFMoreViewController
+import MonkeyKing
 
 final class MeViewController: BaseViewController {
     
@@ -245,11 +246,18 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
             if indexPath.row == 0 {
                 let moreViewController = YFMoreViewController.init()
                 moreViewController.delegate = self
-                moreViewController.addInfo("推荐给朋友")
-                moreViewController.addItems(title: "微信", image: #imageLiteral(resourceName: "wechat"), type: .important, tag: "wechat")
-                moreViewController.addItems(title: "朋友圈", image: #imageLiteral(resourceName: "moments"), type: .important, tag: "moments")
-                moreViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
-                moreViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
+                moreViewController.addInfo(String.promptRecommend)
+                if MonkeyKing.SupportedPlatform.weChat.isAppInstalled {
+                    moreViewController.addItems(title: "微信", image: #imageLiteral(resourceName: "wechat"), type: .important, tag: "wechat")
+                    moreViewController.addItems(title: "朋友圈", image: #imageLiteral(resourceName: "moments"), type: .important, tag: "moments")
+                }
+                if MonkeyKing.SupportedPlatform.weibo.isAppInstalled {
+                    moreViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
+                }
+                if MonkeyKing.SupportedPlatform.qq.isAppInstalled {
+                    moreViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
+                    moreViewController.addItems(title: "QQ空间", image: #imageLiteral(resourceName: "QQZone"), type: .important, tag: "QQZone")
+                }
                 moreViewController.showFromBottom()
             } else if indexPath.row == 1 {
                 UIApplication.shared.reviewOnTheAppStore()
@@ -265,15 +273,38 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
 extension MeViewController: YFMoreViewDelegate {
     
     func moreView(_ moreview: YFMoreViewController, didSelectItemAt tag: String, type: YFMoreItemType) {
+        let gankURL = URL(string: "https://itunes.apple.com/cn/app/id1164948361?mt=8")!
+        let info = MonkeyKing.Info(
+            title: "干货集中营 - Gank",
+            description: String.promptRecommend,
+            thumbnail: UIImage.gank_logo,
+            media: .url(gankURL)
+        )
         switch tag {
         case "wechat":
+            MonkeyKing.deliver(.weChat(.session(info: info))) { result in
+                print("result: \(result)")
+            }
             return
         case "moments":
+            MonkeyKing.deliver(.weChat(.timeline(info: info))) { result in
+                print("result: \(result)")
+            }
             return
         case "weibo":
+            MonkeyKing.deliver(.weibo(.default(info: info, accessToken: nil))) { result in
+                print("result: \(result)")
+            }
             return
         case "QQ":
+            MonkeyKing.deliver(.qq(.friends(info: info))) { result in
+                print("result: \(result)")
+            }
             return
+        case "QQZone":
+            MonkeyKing.deliver(.qq(.zone(info: info))) { result in
+                print("result: \(result)")
+            }
         default:
             return
         }

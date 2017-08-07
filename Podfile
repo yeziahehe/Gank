@@ -16,6 +16,7 @@ def pods
     pod 'YFMoreViewController'
     pod 'IQKeyboardManagerSwift'
     pod 'IQDropDownTextField'
+    pod 'MonkeyKing'
 end
 
 target 'Gank' do

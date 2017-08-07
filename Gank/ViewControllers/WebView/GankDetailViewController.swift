@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import YFMoreViewController
+import MonkeyKing
 
 class GankDetailViewController: BaseViewController, WKNavigationDelegate {
     
@@ -136,9 +137,11 @@ extension GankDetailViewController {
         moreViewController.addItems(title: "朋友圈", image: #imageLiteral(resourceName: "moments"), type: .important, tag: "moments")
         moreViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
         moreViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
+        moreViewController.addItems(title: "QQ空间", image: #imageLiteral(resourceName: "QQZone"), type: .important, tag: "QQZone")
         moreViewController.addItems(title: "印象笔记", image: #imageLiteral(resourceName: "evernote"), type: .important, tag: "evernote")
         moreViewController.addItems(title: "Pocket", image: #imageLiteral(resourceName: "Pocket"), type: .important, tag: "Pocket")
         moreViewController.addItems(title: "有道云笔记", image: #imageLiteral(resourceName: "youdao"), type: .important, tag:"youdao")
+        moreViewController.addItems(title: "系统", image: #imageLiteral(resourceName: "more"), type: .important, tag: "Activity")
         moreViewController.addItems(title: "Safari打开", image: #imageLiteral(resourceName: "safari"), type: .normal, tag:"safari")
         moreViewController.addItems(title: "复制链接", image: #imageLiteral(resourceName: "copylink"), type: .normal, tag:"copylink")
         moreViewController.addItems(title: "刷新", image: #imageLiteral(resourceName: "refresh"), type: .normal, tag:"refresh")
@@ -152,6 +155,13 @@ extension GankDetailViewController {
 extension GankDetailViewController: YFMoreViewDelegate {
     
     func moreView(_ moreview: YFMoreViewController, didSelectItemAt tag: String, type: YFMoreItemType) {
+        let url = URL(string: gankURL)!
+        let info = MonkeyKing.Info(
+            title: "干货集中营 - Gank",
+            description: String.promptRecommend,
+            thumbnail: UIImage.gank_logo,
+            media: .url(url)
+        )
         switch tag {
         case "wechat":
             return

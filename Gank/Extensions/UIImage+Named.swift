@@ -41,4 +41,8 @@ extension UIImage {
     static var gank_navSave: UIImage {
         return UIImage(named: "nav_save")!
     }
+    
+    static var gank_logo: UIImage {
+        return UIImage(named: "logo")!
+    }
 }

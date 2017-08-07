@@ -43,6 +43,10 @@ class PodsViewController: BaseViewController {
             url: "https://github.com/onevcat/Kingfisher"
         ),
         Pod(
+            name: "MonkeyKing",
+            url: "https://github.com/nixzhu/MonkeyKing"
+        ),
+        Pod(
             name: "Proposer",
             url: "https://github.com/nixzhu/Proposer"
         ),
