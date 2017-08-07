@@ -133,13 +133,21 @@ extension GankDetailViewController {
         moreViewController.delegate = self
                 
         moreViewController.addInfo(gankURL.toGankUrl())
-        moreViewController.addItems(title: "微信", image: #imageLiteral(resourceName: "wechat"), type: .important, tag: "wechat")
-        moreViewController.addItems(title: "朋友圈", image: #imageLiteral(resourceName: "moments"), type: .important, tag: "moments")
-        moreViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
-        moreViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
-        moreViewController.addItems(title: "QQ空间", image: #imageLiteral(resourceName: "QQZone"), type: .important, tag: "QQZone")
+        if MonkeyKing.SupportedPlatform.weChat.isAppInstalled {
+            moreViewController.addItems(title: "微信", image: #imageLiteral(resourceName: "wechat"), type: .important, tag: "wechat")
+            moreViewController.addItems(title: "朋友圈", image: #imageLiteral(resourceName: "moments"), type: .important, tag: "moments")
+        }
+        if MonkeyKing.SupportedPlatform.weibo.isAppInstalled {
+            moreViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
+        }
+        if MonkeyKing.SupportedPlatform.qq.isAppInstalled {
+            moreViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
+            moreViewController.addItems(title: "QQ空间", image: #imageLiteral(resourceName: "QQZone"), type: .important, tag: "QQZone")
+        }
+        if MonkeyKing.SupportedPlatform.pocket.isAppInstalled {
+            moreViewController.addItems(title: "Pocket", image: #imageLiteral(resourceName: "Pocket"), type: .important, tag: "Pocket")
+        }
         //moreViewController.addItems(title: "印象笔记", image: #imageLiteral(resourceName: "evernote"), type: .important, tag: "evernote")
-        moreViewController.addItems(title: "Pocket", image: #imageLiteral(resourceName: "Pocket"), type: .important, tag: "Pocket")
         //moreViewController.addItems(title: "有道云笔记", image: #imageLiteral(resourceName: "youdao"), type: .important, tag:"youdao")
         moreViewController.addItems(title: "系统", image: #imageLiteral(resourceName: "more"), type: .important, tag: "Activity")
         moreViewController.addItems(title: "Safari打开", image: #imageLiteral(resourceName: "safari"), type: .normal, tag:"safari")
@@ -190,6 +198,7 @@ extension GankDetailViewController: YFMoreViewDelegate {
             }
             return
         case "Pocket":
+            
             return
         case "Activity":
             let activityViewController = UIActivityViewController(activityItems: [title, UIImage.gank_logo, url], applicationActivities: nil)
