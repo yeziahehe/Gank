@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: BaseViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -37,11 +37,13 @@ class LoginViewController: BaseViewController {
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         loginButton.isUserInteractionEnabled = false
+        GankHUD.show()
         
         loginWithGitHub(username: usernameTextField.text!, password: passwordTextField.text!, failureHandler: { (reason, error) in
             SafeDispatch.async { [weak self] in
-                self?.loginButton.isUserInteractionEnabled = true
                 gankLog.debug(error)
+                GankHUD.dismiss()
+                self?.loginButton.isUserInteractionEnabled = true
                 
                 guard let error = error else {
                     GankAlert.alertKnown(title: nil, message: String.titleLoginError, inViewController: self)
@@ -52,6 +54,7 @@ class LoginViewController: BaseViewController {
             }
         }, completion: { loginUser in
             SafeDispatch.async { [weak self] in
+                GankHUD.dismiss()
                 self?.loginButton.isUserInteractionEnabled = true
                 saveUserInfoOfLoginUser(loginUser)
                 NotificationCenter.default.post(name: GankConfig.NotificationName.login, object: nil)

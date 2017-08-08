@@ -175,11 +175,8 @@ public func jsonResource<A>(path: String, method: HTTPMethod, requestParameters:
 }
 
 public func authJsonResource<A>(username: String, password: String, path: String, method: HTTPMethod, parse: @escaping (JSON) -> A?) -> Resource<A> {
-//    let headers = [
-//        "X-Accept": "application/json",
-//        ]
-    var headers: HTTPHeaders = [:]
     
+    var headers: HTTPHeaders = [:]
     if let authorizationHeader = Request.authorizationHeader(user: username, password: password) {
         headers[authorizationHeader.key] = authorizationHeader.value
     }

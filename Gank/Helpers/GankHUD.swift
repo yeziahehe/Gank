@@ -24,4 +24,12 @@ public class GankHUD {
         SVProgressHUD.setMinimumDismissTimeInterval(2)
         SVProgressHUD.showError(withStatus: status)
     }
+    
+    public class func show() {
+        SVProgressHUD.show()
+    }
+    
+    public class func dismiss() {
+        SVProgressHUD.dismiss()
+    }
 }

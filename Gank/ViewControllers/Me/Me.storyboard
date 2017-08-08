@@ -70,7 +70,7 @@
                         <segue destination="Kdv-92-xDF" kind="show" identifier="showVersion" id="PEA-dJ-rBE"/>
                         <segue destination="LW8-Dd-r0g" kind="show" identifier="showDetail" id="eWd-Yl-Y4G"/>
                         <segue destination="YiH-RL-c8J" kind="show" identifier="showAddGank" id="co2-qq-IYj"/>
-                        <segue destination="3CG-5r-jSD" kind="presentation" identifier="showLogin" id="NFj-kl-umF"/>
+                        <segue destination="3CG-5r-jSD" kind="presentation" identifier="showLogin" modalPresentationStyle="currentContext" id="NFj-kl-umF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2T-uG-Vip" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -180,7 +180,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="closeLoginAction:" destination="3CG-5r-jSD" eventType="touchUpInside" id="Kss-eR-ANj"/>
                                     <action selector="loginAction:" destination="3CG-5r-jSD" eventType="touchUpInside" id="e88-4c-naS"/>
                                 </connections>
                             </button>
