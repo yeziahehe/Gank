@@ -62,7 +62,7 @@ final class GankShareService: NSObject {
             MonkeyKing.oauth(for: .pocket, requestToken: requestToken) { (dictionary, response, error) in
                 
                 guard error == nil else {
-                    print(error!)
+                    gankLog.debug(error!)
                     return
                 }
                 

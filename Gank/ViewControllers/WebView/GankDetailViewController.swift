@@ -174,6 +174,7 @@ extension GankDetailViewController: YFMoreViewDelegate {
         switch tag {
         case "wechat":
             MonkeyKing.deliver(.weChat(.session(info: info))) { result in
+                //TODO
                 print("result: \(result)")
             }
             return
