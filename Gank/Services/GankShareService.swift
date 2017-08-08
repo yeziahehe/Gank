@@ -34,7 +34,7 @@ final class GankShareService: NSObject {
         let parse: (JSON) -> Int? = { data in
             return data["status"].intValue
         }
-        let resource = Resource(path: "/add", method: .post, requestParameters: parameters, encoding: JSONEncoding.default, parse: parse)
+        let resource = jsonResource(path: "/add", method: .post, requestParameters: parameters, parse: parse)
         
         apiRequest({_ in}, baseURL: pocketBaseURL, resource: resource, failure: failureHandler , completion: completion)
     }
@@ -51,7 +51,7 @@ final class GankShareService: NSObject {
         let parse: (JSON) -> JSON? = { data in
             return data
         }
-        let resource = Resource(path: "/oauth/request", method: .post, requestParameters: parameters, encoding: JSONEncoding.default, parse: parse)
+        let resource = jsonResource(path: "/oauth/request", method: .post, requestParameters: parameters, parse: parse)
         
         apiRequest({_ in}, baseURL: pocketBaseURL, resource: resource, failure: { (error, message) in
         }, completion: { info in
@@ -76,7 +76,7 @@ final class GankShareService: NSObject {
                 let parse: (JSON) -> JSON? = { data in
                     return data
                 }
-                let resource = Resource(path: "/oauth/authorize", method: .post, requestParameters: parameters, encoding: JSONEncoding.default, parse: parse)
+                let resource = jsonResource(path: "/oauth/authorize", method: .post, requestParameters: parameters, parse: parse)
                 
                 apiRequest({_ in}, baseURL: self.pocketBaseURL, resource: resource, failure: { (error, message) in
                     }, completion: { info in
