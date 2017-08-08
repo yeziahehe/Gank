@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     deinit {
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
+        GankHUD.dismiss()
         gankLog.debug("deinit LoginViewController")
     }
     

@@ -7,29 +7,23 @@
 //
 
 import UIKit
-import SVProgressHUD
+import JJHUD
 
 public class GankHUD {
     
     public class func success(_ status: String!) {
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setMinimumSize(CGSize(width: 120, height: 120))
-        SVProgressHUD.setMinimumDismissTimeInterval(2)
-        SVProgressHUD.showSuccess(withStatus: status)
+        JJHUD.showSuccess(text: status, delay: 2.0)
     }
     
     public class func error(_ status: String!) {
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setMinimumSize(CGSize(width: 120, height: 120))
-        SVProgressHUD.setMinimumDismissTimeInterval(2)
-        SVProgressHUD.showError(withStatus: status)
+        JJHUD.showError(text: status, delay: 2.0)
     }
     
     public class func show() {
-        SVProgressHUD.show()
+        JJHUD.showLoading()
     }
     
     public class func dismiss() {
-        SVProgressHUD.dismiss()
+        JJHUD.hide()
     }
 }
