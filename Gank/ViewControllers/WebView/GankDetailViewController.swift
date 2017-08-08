@@ -198,7 +198,18 @@ extension GankDetailViewController: YFMoreViewDelegate {
             }
             return
         case "Pocket":
-            
+            GankShareService.shared.saveUrl(title: title, url: gankURL, failureHandler: { (error, message) in
+                gankLog.debug("Pocket add url failure")
+                GankAlert.alertKnown(title: nil, message: String.messageShareFailure, inViewController: self)
+            }, completion: { info in
+                guard info == 1 else {
+                    gankLog.debug("Pocket add url failure")
+                    GankAlert.alertKnown(title: nil, message: String.messageShareFailure, inViewController: self)
+                    return
+                }
+                gankLog.debug("Pocket add url successfully")
+                GankAlert.alertKnown(title: nil, message: String.messageShareSuccess, inViewController: self)
+            })
             return
         case "Activity":
             let activityViewController = UIActivityViewController(activityItems: [title, UIImage.gank_logo, url], applicationActivities: nil)

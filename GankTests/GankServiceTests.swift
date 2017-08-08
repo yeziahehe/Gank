@@ -10,15 +10,5 @@ import XCTest
 @testable import Gank
 
 final class GankServiceTests: XCTestCase {
-    func testAllGankHistoryDate() {
-        let expectation = self.expectation(description: "get all history date")
-        
-        allGankHistoryDate(failureHandler: nil, completion: { dates in
-            if !dates.isEmpty {
-                expectation.fulfill()
-            }
-        })
-        
-        waitForExpectations(timeout: 15, handler: nil)
-    }
+
 }

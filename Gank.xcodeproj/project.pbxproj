@@ -103,7 +103,7 @@
 		2CCFD9BA1DCFA6DE00526C15 /* GankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD9B91DCFA6DE00526C15 /* GankService.swift */; };
 		2CE80D601DC24BB90011BB48 /* UIFont+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */; };
 		2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE80D681DC260B20011BB48 /* GankNavigationController.swift */; };
-		2CF0EAC21F38DD15006EF8E3 /* GankShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0EAC11F38DD15006EF8E3 /* GankShare.swift */; };
+		2CF0EAC41F38E2BD006EF8E3 /* GankShareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0EAC31F38E2BD006EF8E3 /* GankShareService.swift */; };
 		2CF53F7D1F30BDDD001C3D0A /* GankHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF53F7C1F30BDDD001C3D0A /* GankHUD.swift */; };
 		2CF53F7F1F31F2E6001C3D0A /* SearchFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF53F7E1F31F2E6001C3D0A /* SearchFooterView.swift */; };
 		2CF53F811F31F2F0001C3D0A /* SearchFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF53F801F31F2F0001C3D0A /* SearchFooterView.xib */; };
@@ -232,7 +232,7 @@
 		2CCFD9B91DCFA6DE00526C15 /* GankService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankService.swift; sourceTree = "<group>"; };
 		2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Gank.swift"; sourceTree = "<group>"; };
 		2CE80D681DC260B20011BB48 /* GankNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankNavigationController.swift; sourceTree = "<group>"; };
-		2CF0EAC11F38DD15006EF8E3 /* GankShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankShare.swift; path = Helpers/GankShare.swift; sourceTree = "<group>"; };
+		2CF0EAC31F38E2BD006EF8E3 /* GankShareService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankShareService.swift; sourceTree = "<group>"; };
 		2CF53F7C1F30BDDD001C3D0A /* GankHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GankHUD.swift; path = Helpers/GankHUD.swift; sourceTree = "<group>"; };
 		2CF53F7E1F31F2E6001C3D0A /* SearchFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFooterView.swift; sourceTree = "<group>"; };
 		2CF53F801F31F2F0001C3D0A /* SearchFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFooterView.xib; sourceTree = "<group>"; };
@@ -274,6 +274,7 @@
 				2CCFD9B91DCFA6DE00526C15 /* GankService.swift */,
 				2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */,
 				2CBC3B761F172C5B00A49286 /* GankBackgroundFetchService.swift */,
+				2CF0EAC31F38E2BD006EF8E3 /* GankShareService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -619,7 +620,6 @@
 				2C279E731F11F3C400A256FF /* GankFeedbackEffect.swift */,
 				2C53F4041F14D59B0071A3AC /* GankUserDefaults.swift */,
 				2CF53F7C1F30BDDD001C3D0A /* GankHUD.swift */,
-				2CF0EAC11F38DD15006EF8E3 /* GankShare.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -926,6 +926,7 @@
 				2C279E721F11F2DB00A256FF /* GankSoundEffect.swift in Sources */,
 				2C2A15711DC1F237003D5444 /* GankTabBarController.swift in Sources */,
 				2C5446B61F2E0D1C007E43C2 /* MeiziCollectionCell.swift in Sources */,
+				2CF0EAC41F38E2BD006EF8E3 /* GankShareService.swift in Sources */,
 				2C5E3CC21F330CCC007C4BA4 /* SettingCell.swift in Sources */,
 				2CF53F7F1F31F2E6001C3D0A /* SearchFooterView.swift in Sources */,
 				2C5E3CBC1F330C8F007C4BA4 /* UserInfoCell.swift in Sources */,
@@ -952,7 +953,6 @@
 				2C7CE2CE1F29E42B00B578A1 /* NetworkViewController.swift in Sources */,
 				2C4DF4FD1F36174B001CC06B /* AddGankViewController.swift in Sources */,
 				2C53F4051F14D59B0071A3AC /* GankUserDefaults.swift in Sources */,
-				2CF0EAC21F38DD15006EF8E3 /* GankShare.swift in Sources */,
 				2C531D931DE6DD2000C920FB /* Reusable.swift in Sources */,
 				2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */,
 				2C5446BA1F2E0ECB007E43C2 /* MeiziLoadingCollectionCell.swift in Sources */,

@@ -129,4 +129,12 @@ extension String {
     static var messageSubmitSuccess: String {
         return "棒呆! 成功了!"
     }
+    
+    static var messageShareSuccess: String {
+        return "分享成功"
+    }
+    
+    static var messageShareFailure: String {
+        return "分享失败"
+    }
 }
