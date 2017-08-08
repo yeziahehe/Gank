@@ -42,6 +42,12 @@
                             <constraint firstAttribute="width" constant="60" id="HHe-Bb-bbv"/>
                             <constraint firstAttribute="height" constant="60" id="Z8u-LZ-gj7"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -56,6 +62,11 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="avatarImageView" destination="LvP-mV-4hM" id="b4b-Ua-t2F"/>
+                <outlet property="loginLabel" destination="BhX-VZ-AdF" id="YlN-T9-erA"/>
+                <outlet property="nameLabel" destination="tIJ-B5-DbS" id="b49-C5-4AC"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

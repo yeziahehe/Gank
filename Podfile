@@ -12,10 +12,11 @@ def pods
     pod 'JTAppleCalendar', '~> 7.0'
     pod 'SKPhotoBrowser'
     pod 'Proposer', '~> 1.1.0'
-    pod 'SVProgressHUD'
+    pod 'JJHUD'
     pod 'YFMoreViewController'
     pod 'IQKeyboardManagerSwift'
     pod 'IQDropDownTextField'
+    pod 'MonkeyKing'
 end
 
 target 'Gank' do

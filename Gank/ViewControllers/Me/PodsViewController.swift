@@ -35,12 +35,20 @@ class PodsViewController: BaseViewController {
             url: "https://github.com/hackiftekhar/IQKeyboardManager"
         ),
         Pod(
+            name: "JJHUD",
+            url: "https://github.com/Jinxiansen/JJHUD"
+        ),
+        Pod(
             name: "JTAppleCalendar",
             url: "https://github.com/patchthecode/JTAppleCalendar"
         ),
         Pod(
             name: "Kingfisher",
             url: "https://github.com/onevcat/Kingfisher"
+        ),
+        Pod(
+            name: "MonkeyKing",
+            url: "https://github.com/nixzhu/MonkeyKing"
         ),
         Pod(
             name: "Proposer",
@@ -53,10 +61,6 @@ class PodsViewController: BaseViewController {
         Pod(
             name: "SKPhotoBrowser",
             url: "https://github.com/suzuki-0000/SKPhotoBrowser"
-        ),
-        Pod(
-            name: "SVProgressHUD",
-            url: "https://github.com/SVProgressHUD/SVProgressHUD"
         ),
         Pod(
             name: "SwiftyJSON",

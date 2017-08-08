@@ -36,7 +36,7 @@ final class GankAlert {
         
         alert(title: title, message: message, dismissTitle: String.titleKnown, inViewController: viewController, withDismissAction: nil)
     }
-    
+        
     class func confirmOrCancel(title: String?, message: String, confirmTitle: String, cancelTitle: String, inViewController viewController: UIViewController?, withConfirmAction confirmAction: @escaping () -> Void, cancelAction: @escaping () -> Void) {
         
         SafeDispatch.async {

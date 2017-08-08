@@ -12,6 +12,7 @@ import SwiftyJSON
 
 public let gankHost = "gank.io"
 public let gankBaseURL = URL(string: "http://gank.io/api")!
+public let githubBaseURL = URL(string: "https://api.github.com")!
 
 // MARK: - 干货历史日期
 public func allGankHistoryDate(failureHandler: FailureHandler?, completion: @escaping (Array<String>) -> Void) {
@@ -22,7 +23,7 @@ public func allGankHistoryDate(failureHandler: FailureHandler?, completion: @esc
         return historyDateArray
     }
     
-    let resource = Resource(path: "/day/history", method: .get, requestParamters: nil, parse: parse)
+    let resource = urlResource(path: "/day/history", method: .get, requestParameters: nil, parse: parse)
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 
@@ -37,7 +38,7 @@ public func lastestGankDate(failureHandler: FailureHandler?, completion: @escapi
         return (lastestDate == now.toString(), lastestDate)
     }
     
-    let resource = Resource(path: "/day/history", method: .get, requestParamters: nil, parse: parse)
+    let resource = urlResource(path: "/day/history", method: .get, requestParameters: nil, parse: parse)
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
@@ -131,7 +132,7 @@ public func gankWithDay(date: String, failureHandler: FailureHandler?, completio
     }
     
     let dateFormat = date.replacingOccurrences(of: "-", with: "/")
-    let resource = Resource(path: "/day/\(dateFormat)", method: .get, requestParamters: nil, parse: parse)
+    let resource = urlResource(path: "/day/\(dateFormat)", method: .get, requestParameters: nil, parse: parse)
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
@@ -163,7 +164,7 @@ public func gankofCategory(category: String, count: Int = 20, page: Int, failure
         }
         return gankArray
     }
-    let resource = Resource(path: String(format:"/data/%@/%d/%d", category, count, page), method: .get, requestParamters: nil, parse: parse)
+    let resource = urlResource(path: String(format:"/data/%@/%d/%d", category, count, page), method: .get, requestParameters: nil, parse: parse)
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
@@ -178,7 +179,7 @@ public func gankSearch(query: String, category: String = "all", count: Int = 10,
         }
         return gankArray
     }
-    let resource = Resource(path: String(format:"/search/query/%@/category/%@/count/%d/page/%d", query, category, count, page), method: .get, requestParamters: nil, parse: parse)
+    let resource = urlResource(path: String(format:"/search/query/%@/category/%@/count/%d/page/%d", query, category, count, page), method: .get, requestParameters: nil, parse: parse)
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
@@ -200,7 +201,47 @@ public func addToGank(url: String, desc: String, who: String, type: String, fail
     let parse: (JSON) -> Void? = { data in
         return
     }
-    let resource = Resource(path: "/add2gank", method: .post, requestParamters: requestParameters, parse: parse)
+    let resource = urlResource(path: "/add2gank", method: .post, requestParameters: requestParameters, parse: parse)
     
     apiRequest({_ in}, baseURL: URL(string: "https://gank.io/api")!, resource: resource, failure: failureHandler, completion: completion)
+}
+
+// MARK: - GitHub User Model
+public struct LoginUser: CustomStringConvertible {
+    
+    public let login: String
+    public let avatarUrl: String
+    public let name: String
+    
+    public var description: String {
+        return "LoginUser(login: \(login), avatarUrl: \(avatarUrl), name: \(name))"
+    }
+    
+    public static func fromJSON(_ data: JSON) -> LoginUser? {
+        guard let login = data["login"].string,
+              let avatarUrl = data["avatar_url"].string,
+              let name = data["name"].string else {
+                return nil
+        }
+        
+        
+        return LoginUser(login: login, avatarUrl: avatarUrl, name: name)
+    }
+}
+
+public func saveUserInfoOfLoginUser(_ loginUser: LoginUser) {
+    GankUserDefaults.login.value = loginUser.login
+    GankUserDefaults.avatarUrl.value = loginUser.avatarUrl
+    GankUserDefaults.name.value = loginUser.name
+}
+
+// GitHub 登录
+public func loginWithGitHub(username: String, password: String, failureHandler: FailureHandler?, completion: @escaping (LoginUser) -> Void) {
+    let parse: (JSON) -> (LoginUser)? = { data in
+        return LoginUser.fromJSON(data)
+    }
+    
+    let resource = authJsonResource(username: username, password: password, path: "/user", method: .get, parse: parse)
+    
+    apiRequest({_ in}, baseURL: githubBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }

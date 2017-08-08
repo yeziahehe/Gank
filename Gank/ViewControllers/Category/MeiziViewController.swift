@@ -300,7 +300,7 @@ extension MeiziViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 break
             }
             
-            print("load more gank")
+            gankLog.debug("load more gank")
             
             if !cell.isLoading {
                 cell.isLoading = true

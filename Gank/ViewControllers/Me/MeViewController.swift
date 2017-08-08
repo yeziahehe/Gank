@@ -8,6 +8,7 @@
 
 import UIKit
 import YFMoreViewController
+import MonkeyKing
 
 final class MeViewController: BaseViewController {
     
@@ -81,6 +82,8 @@ final class MeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(MeViewController.reloadMeTableView(_:)), name: GankConfig.NotificationName.login, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MeViewController.reloadMeTableView(_:)), name: GankConfig.NotificationName.logout, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(MeViewController.reloadMeTableView(_:)), name: GankConfig.NotificationName.watchNew, object: nil)
     }
     
@@ -100,9 +103,12 @@ final class MeViewController: BaseViewController {
         }
     }
     
-    @IBAction func showAddGank(_ sender: Any) {
-        // TODO: Github Name is login
-        performSegue(withIdentifier: "showAddGank", sender: nil)
+    @IBAction func showAddGank(_ sender: UIBarButtonItem) {
+        if GankUserDefaults.isLogined {
+            performSegue(withIdentifier: "showAddGank", sender: nil)
+        } else {
+            performSegue(withIdentifier: "showLogin", sender: nil)
+        }
     }
     
     @objc fileprivate func reloadMeTableView(_ notification: Notification) {
@@ -127,8 +133,7 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        // TODO: is login
-        return Section.count
+        return GankUserDefaults.isLogined ? Section.count : Section.count - 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -171,9 +176,7 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
         switch section {
         case .userInfo:
             let cell: UserInfoCell = tableView.dequeueReusableCell()
-            
-            // TODO: is login
-            
+            cell.configure()
             return cell
         case .setting:
             let cell: SettingCell = tableView.dequeueReusableCell()
@@ -233,8 +236,9 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch section {
         case .userInfo:
-        // TODO: is login
-            break
+            if !GankUserDefaults.isLogined {
+                performSegue(withIdentifier: "showLogin", sender: nil)
+            }
         case .setting:
             let annotation = settingAnnotations[indexPath.row]
             performSegue(withIdentifier: annotation.segue, sender: annotation.url)
@@ -245,18 +249,28 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
             if indexPath.row == 0 {
                 let moreViewController = YFMoreViewController.init()
                 moreViewController.delegate = self
-                moreViewController.addInfo("推荐给朋友")
-                moreViewController.addItems(title: "微信", image: #imageLiteral(resourceName: "wechat"), type: .important, tag: "wechat")
-                moreViewController.addItems(title: "朋友圈", image: #imageLiteral(resourceName: "moments"), type: .important, tag: "moments")
-                moreViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
-                moreViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
+                moreViewController.addInfo(String.promptRecommend)
+                if MonkeyKing.SupportedPlatform.weChat.isAppInstalled {
+                    moreViewController.addItems(title: "微信", image: #imageLiteral(resourceName: "wechat"), type: .important, tag: "wechat")
+                    moreViewController.addItems(title: "朋友圈", image: #imageLiteral(resourceName: "moments"), type: .important, tag: "moments")
+                }
+                if MonkeyKing.SupportedPlatform.weibo.isAppInstalled {
+                    moreViewController.addItems(title: "微博", image: #imageLiteral(resourceName: "weibo"), type: .important, tag: "weibo")
+                }
+                if MonkeyKing.SupportedPlatform.qq.isAppInstalled {
+                    moreViewController.addItems(title: "QQ", image: #imageLiteral(resourceName: "QQ"), type: .important, tag: "QQ")
+                    moreViewController.addItems(title: "QQ空间", image: #imageLiteral(resourceName: "QQZone"), type: .important, tag: "QQZone")
+                }
                 moreViewController.showFromBottom()
             } else if indexPath.row == 1 {
                 UIApplication.shared.reviewOnTheAppStore()
             }
             break
         case .logout:
-            // TODO:
+            GankAlert.confirmOrCancel(title: String.titleLogout, message: String.messageLogout, confirmTitle: String.promptConfirmLogout, cancelTitle: String.promptCancelLogout, inViewController: self, withConfirmAction: {
+                GankUserDefaults.cleanLoginUserDefaults()
+                NotificationCenter.default.post(name: GankConfig.NotificationName.logout, object: nil)
+            }, cancelAction: {})
             break
         }
     }
@@ -265,14 +279,39 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
 extension MeViewController: YFMoreViewDelegate {
     
     func moreView(_ moreview: YFMoreViewController, didSelectItemAt tag: String, type: YFMoreItemType) {
+        let gankURL = URL(string: "https://itunes.apple.com/cn/app/id1164948361?mt=8")!
+        let info = MonkeyKing.Info(
+            title: "干货集中营 - Gank",
+            description: String.promptRecommend,
+            thumbnail: UIImage.gank_logo,
+            media: .url(gankURL)
+        )
         switch tag {
         case "wechat":
+            MonkeyKing.deliver(.weChat(.session(info: info))) { result in
+                //TODO
+                print("result: \(result)")
+            }
             return
         case "moments":
+            MonkeyKing.deliver(.weChat(.timeline(info: info))) { result in
+                print("result: \(result)")
+            }
             return
         case "weibo":
+            MonkeyKing.deliver(.weibo(.default(info: info, accessToken: nil))) { result in
+                print("result: \(result)")
+            }
             return
         case "QQ":
+            MonkeyKing.deliver(.qq(.friends(info: info))) { result in
+                print("result: \(result)")
+            }
+            return
+        case "QQZone":
+            MonkeyKing.deliver(.qq(.zone(info: info))) { result in
+                print("result: \(result)")
+            }
             return
         default:
             return

@@ -18,8 +18,59 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>WeChat</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx1e11dfd8e7673779</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>QQ</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent101415627</string>
+				<string>QQ060B7ACB</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Weibo</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb319020087</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.readitlater</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pocketapp69596</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1098</string>
+	<string>1229</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>pocket-oauth-v1</string>
+		<string>weixin</string>
+		<string>mqqapi</string>
+		<string>weibosdk</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
