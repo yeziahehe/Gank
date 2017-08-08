@@ -63,7 +63,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1229</string>
+	<string>1237</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>pocket-oauth-v1</string>

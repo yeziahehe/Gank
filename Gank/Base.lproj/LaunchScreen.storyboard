@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,37 +21,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GankLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="lbA-ho-m8q">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GankFont" translatesAutoresizingMaskIntoConstraints="NO" id="nCv-kg-jaT">
-                                <rect key="frame" x="118.5" y="305" width="138" height="27"/>
+                                <rect key="frame" x="136" y="617" width="102" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="138" id="AiO-9k-oaw"/>
-                                    <constraint firstAttribute="height" constant="27" id="DU6-2g-WXW"/>
+                                    <constraint firstAttribute="width" constant="102" id="9fo-Hp-dJy"/>
+                                    <constraint firstAttribute="height" constant="20" id="XBL-Ag-4JP"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="- 妹子图片 技术干货 -" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I5N-oY-kdj">
-                                <rect key="frame" x="118.5" y="342" width="138" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GN-pc-KK9">
+                                <rect key="frame" x="170" y="202.5" width="34.5" height="162.5"/>
+                                <string key="text">技
+术
+干
+货</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="34"/>
+                                <color key="textColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ERk-xR-Lrj">
+                                <rect key="frame" x="162" y="555" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="138" id="X7n-J0-zIH"/>
-                                    <constraint firstAttribute="height" constant="20" id="xV5-Op-ufe"/>
+                                    <constraint firstAttribute="height" constant="50" id="W76-pU-AkE"/>
+                                    <constraint firstAttribute="width" constant="50" id="i5B-Wv-ZhQ"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="lbA-ho-m8q" secondAttribute="bottom" id="Bnq-3x-m3j"/>
-                            <constraint firstItem="I5N-oY-kdj" firstAttribute="top" secondItem="nCv-kg-jaT" secondAttribute="bottom" constant="10" id="HIQ-Tj-ALD"/>
-                            <constraint firstItem="I5N-oY-kdj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="KhV-ks-ujy"/>
-                            <constraint firstItem="lbA-ho-m8q" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="jCV-De-FGV"/>
-                            <constraint firstItem="nCv-kg-jaT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lng-ca-XQC"/>
-                            <constraint firstAttribute="trailing" secondItem="lbA-ho-m8q" secondAttribute="trailing" id="oU1-wF-c47"/>
-                            <constraint firstItem="nCv-kg-jaT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-15" id="odO-7Q-vrn"/>
-                            <constraint firstItem="lbA-ho-m8q" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="wHY-Ob-WRq"/>
+                            <constraint firstItem="nCv-kg-jaT" firstAttribute="top" secondItem="ERk-xR-Lrj" secondAttribute="bottom" constant="12" id="0rl-ya-MEo"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="nCv-kg-jaT" secondAttribute="bottom" constant="30" id="5iQ-FO-K5H"/>
+                            <constraint firstItem="nCv-kg-jaT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SZo-Uc-O9q"/>
+                            <constraint firstItem="ERk-xR-Lrj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bMs-gR-DXA"/>
+                            <constraint firstItem="4GN-pc-KK9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iTK-xZ-po4"/>
+                            <constraint firstItem="4GN-pc-KK9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="j99-Ms-S8F"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -62,6 +64,6 @@
     </scenes>
     <resources>
         <image name="GankFont" width="138" height="27"/>
-        <image name="GankLaunch" width="375" height="667"/>
+        <image name="logo" width="80" height="80"/>
     </resources>
 </document>
