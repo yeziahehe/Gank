@@ -82,6 +82,8 @@ final class MeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(MeViewController.reloadMeTableView(_:)), name: GankConfig.NotificationName.login, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MeViewController.reloadMeTableView(_:)), name: GankConfig.NotificationName.logout, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(MeViewController.reloadMeTableView(_:)), name: GankConfig.NotificationName.watchNew, object: nil)
     }
     
@@ -101,9 +103,12 @@ final class MeViewController: BaseViewController {
         }
     }
     
-    @IBAction func showAddGank(_ sender: Any) {
-        // TODO: Github Name is login
-        performSegue(withIdentifier: "showAddGank", sender: nil)
+    @IBAction func showAddGank(_ sender: UIBarButtonItem) {
+        if GankUserDefaults.isLogined {
+            performSegue(withIdentifier: "showAddGank", sender: nil)
+        } else {
+            performSegue(withIdentifier: "showLogin", sender: nil)
+        }
     }
     
     @objc fileprivate func reloadMeTableView(_ notification: Notification) {
@@ -128,8 +133,7 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        // TODO: is login
-        return Section.count
+        return GankUserDefaults.isLogined ? Section.count : Section.count - 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -172,9 +176,7 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
         switch section {
         case .userInfo:
             let cell: UserInfoCell = tableView.dequeueReusableCell()
-            
-            // TODO: is login
-            
+            cell.configure()
             return cell
         case .setting:
             let cell: SettingCell = tableView.dequeueReusableCell()
@@ -234,8 +236,9 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch section {
         case .userInfo:
-        // TODO: is login
-            break
+            if !GankUserDefaults.isLogined {
+                performSegue(withIdentifier: "showLogin", sender: nil)
+            }
         case .setting:
             let annotation = settingAnnotations[indexPath.row]
             performSegue(withIdentifier: annotation.segue, sender: annotation.url)
@@ -264,7 +267,10 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
             }
             break
         case .logout:
-            // TODO:
+            GankAlert.confirmOrCancel(title: String.titleLogout, message: String.messageLogout, confirmTitle: String.promptConfirmLogout, cancelTitle: String.promptCancelLogout, inViewController: self, withConfirmAction: {
+                GankUserDefaults.cleanLoginUserDefaults()
+                NotificationCenter.default.post(name: GankConfig.NotificationName.logout, object: nil)
+            }, cancelAction: {})
             break
         }
     }

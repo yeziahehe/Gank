@@ -70,6 +70,7 @@
 		2C6AEC711F095575005B79F9 /* UIView+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC701F095575005B79F9 /* UIView+Gank.swift */; };
 		2C6AEC741F0959EE005B79F9 /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC731F0959EE005B79F9 /* CustomFooterView.swift */; };
 		2C6AEC761F0959F6005B79F9 /* CustomFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AEC751F0959F6005B79F9 /* CustomFooterView.xib */; };
+		2C6B38201F3A198A006EC849 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B381F1F3A198A006EC849 /* LoginViewController.swift */; };
 		2C74F1321F287CCD002A9EEF /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F1311F287CCD002A9EEF /* ArticleViewController.swift */; };
 		2C74F1341F2880F5002A9EEF /* MeiziViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F1331F2880F5002A9EEF /* MeiziViewController.swift */; };
 		2C74F1401F28CB36002A9EEF /* ArticleGankLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74F13E1F28CB36002A9EEF /* ArticleGankLoadingCell.swift */; };
@@ -192,6 +193,7 @@
 		2C6AEC701F095575005B79F9 /* UIView+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gank.swift"; sourceTree = "<group>"; };
 		2C6AEC731F0959EE005B79F9 /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
 		2C6AEC751F0959F6005B79F9 /* CustomFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomFooterView.xib; sourceTree = "<group>"; };
+		2C6B381F1F3A198A006EC849 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2C74F1311F287CCD002A9EEF /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		2C74F1331F2880F5002A9EEF /* MeiziViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeiziViewController.swift; sourceTree = "<group>"; };
 		2C74F13E1F28CB36002A9EEF /* ArticleGankLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleGankLoadingCell.swift; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 				2C5E3CD01F339A0D007C4BA4 /* VersionViewController.swift */,
 				2C5E3CD21F3470AE007C4BA4 /* PodsViewController.swift */,
 				2C4DF4FC1F36174B001CC06B /* AddGankViewController.swift */,
+				2C6B381F1F3A198A006EC849 /* LoginViewController.swift */,
 				2CF53FC31F330572001C3D0A /* Me.storyboard */,
 			);
 			path = Me;
@@ -953,6 +956,7 @@
 				2C7CE2CE1F29E42B00B578A1 /* NetworkViewController.swift in Sources */,
 				2C4DF4FD1F36174B001CC06B /* AddGankViewController.swift in Sources */,
 				2C53F4051F14D59B0071A3AC /* GankUserDefaults.swift in Sources */,
+				2C6B38201F3A198A006EC849 /* LoginViewController.swift in Sources */,
 				2C531D931DE6DD2000C920FB /* Reusable.swift in Sources */,
 				2CE80D691DC260B20011BB48 /* GankNavigationController.swift in Sources */,
 				2C5446BA1F2E0ECB007E43C2 /* MeiziLoadingCollectionCell.swift in Sources */,

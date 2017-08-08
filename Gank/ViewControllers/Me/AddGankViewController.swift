@@ -38,15 +38,18 @@ class AddGankViewController: BaseViewController {
     }
     
     @IBAction func submitClicked(_ sender: UIButton) {
-        // TODO: who
         submitButton.isUserInteractionEnabled = false
-        addToGank(url: urlTextField.text!, desc: descTextField.text!, who: "Fan Ye", type: categoryTextField.selectedItem!, failureHandler: { (reason, error) in
+        addToGank(url: urlTextField.text!, desc: descTextField.text!, who: GankUserDefaults.name.value!, type: categoryTextField.selectedItem!, failureHandler: { (reason, error) in
             
             SafeDispatch.async { [weak self] in
                 self?.submitButton.isUserInteractionEnabled = true
                 gankLog.debug(error)
                 
-                GankAlert.alertKnown(title: String.titleSubmitError, message: error!, inViewController: self)
+                guard let error = error else {
+                    GankAlert.alertKnown(title: nil, message: String.titleSubmitError, inViewController: self)
+                    return
+                }
+                GankAlert.alertKnown(title: String.titleSubmitError, message: error, inViewController: self)
             }
             
         }, completion: {

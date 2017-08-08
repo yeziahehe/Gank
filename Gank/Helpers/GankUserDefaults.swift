@@ -12,6 +12,9 @@ private let notificationDayKey = "notificationDay"
 private let isBackgroundEnableKey = "isBackgroundEnable"
 private let historyDateKey = "historyDate"
 private let isVersionNewHiddenKey = "isVersionNewHidden"
+private let loginKey = "login"
+private let avatarUrlKey = "avatarUrl"
+private let nameKey = "name"
 
 public struct Listener<T>: Hashable {
     
@@ -80,6 +83,30 @@ final public class GankUserDefaults {
     
     static let defaults = UserDefaults(suiteName: GankConfig.appGroupID)!
     
+    public class func cleanLoginUserDefaults() {
+        
+        do {
+            login.removeAllListeners()
+            avatarUrl.removeAllListeners()
+            name.removeAllListeners()
+        }
+        
+        do { // manually reset
+            GankUserDefaults.login.value = nil
+            GankUserDefaults.avatarUrl.value = nil
+            GankUserDefaults.name.value = nil
+            defaults.synchronize()
+        }
+    }
+    
+    public static var isLogined: Bool {
+        if let _ = GankUserDefaults.login.value {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     public static var notificationDay: Listenable<String?> = {
         let notificationDay = defaults.string(forKey: notificationDayKey)
         
@@ -115,6 +142,30 @@ final public class GankUserDefaults {
         
         return Listenable<Bool?>(isVersionNewHidden) { isVersionNewHidden in
             defaults.set(isVersionNewHidden, forKey: isVersionNewHiddenKey)
+        }
+    }()
+    
+    public static var login: Listenable<String?> = {
+        let login = defaults.string(forKey: loginKey)
+        
+        return Listenable<String?>(login) { login in
+            defaults.set(login, forKey: loginKey)
+        }
+    }()
+    
+    public static var avatarUrl: Listenable<String?> = {
+        let avatarUrl = defaults.string(forKey: avatarUrlKey)
+        
+        return Listenable<String?>(avatarUrl) { avatarUrl in
+            defaults.set(avatarUrl, forKey: avatarUrlKey)
+        }
+    }()
+    
+    public static var name: Listenable<String?> = {
+        let name = defaults.string(forKey: nameKey)
+        
+        return Listenable<String?>(name) { name in
+            defaults.set(name, forKey: nameKey)
         }
     }()
 

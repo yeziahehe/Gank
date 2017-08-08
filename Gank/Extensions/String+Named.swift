@@ -137,4 +137,28 @@ extension String {
     static var messageShareFailure: String {
         return "分享失败"
     }
+    
+    static var titleLogout: String {
+        return "退出登录"
+    }
+    
+    static var messageLogout: String {
+        return "退出登录后将无法提交干货，确定退出吗？"
+    }
+    
+    static var promptConfirmLogout: String {
+        return "退出"
+    }
+    
+    static var promptCancelLogout: String {
+        return "取消"
+    }
+    
+    static var messageAddGank: String {
+        return "请先登录后才能提交干货"
+    }
+    
+    static var titleLoginError: String {
+        return "登录失败"
+    }
 }

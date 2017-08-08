@@ -12,6 +12,7 @@ import SwiftyJSON
 
 public let gankHost = "gank.io"
 public let gankBaseURL = URL(string: "http://gank.io/api")!
+public let githubBaseURL = URL(string: "https://api.github.com")!
 
 // MARK: - 干货历史日期
 public func allGankHistoryDate(failureHandler: FailureHandler?, completion: @escaping (Array<String>) -> Void) {
@@ -203,4 +204,44 @@ public func addToGank(url: String, desc: String, who: String, type: String, fail
     let resource = urlResource(path: "/add2gank", method: .post, requestParameters: requestParameters, parse: parse)
     
     apiRequest({_ in}, baseURL: URL(string: "https://gank.io/api")!, resource: resource, failure: failureHandler, completion: completion)
+}
+
+// MARK: - GitHub User Model
+public struct LoginUser: CustomStringConvertible {
+    
+    public let login: String
+    public let avatarUrl: String
+    public let name: String
+    
+    public var description: String {
+        return "LoginUser(login: \(login), avatarUrl: \(avatarUrl), name: \(name))"
+    }
+    
+    public static func fromJSON(_ data: JSON) -> LoginUser? {
+        guard let login = data["login"].string,
+              let avatarUrl = data["avatar_url"].string,
+              let name = data["name"].string else {
+                return nil
+        }
+        
+        
+        return LoginUser(login: login, avatarUrl: avatarUrl, name: name)
+    }
+}
+
+public func saveUserInfoOfLoginUser(_ loginUser: LoginUser) {
+    GankUserDefaults.login.value = loginUser.login
+    GankUserDefaults.avatarUrl.value = loginUser.avatarUrl
+    GankUserDefaults.name.value = loginUser.name
+}
+
+// GitHub 登录
+public func loginWithGitHub(username: String, password: String, failureHandler: FailureHandler?, completion: @escaping (LoginUser) -> Void) {
+    let parse: (JSON) -> (LoginUser)? = { data in
+        return LoginUser.fromJSON(data)
+    }
+    
+    let resource = authJsonResource(username: username, password: password, path: "/user", method: .get, parse: parse)
+    
+    apiRequest({_ in}, baseURL: githubBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
