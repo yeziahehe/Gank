@@ -20,6 +20,11 @@ final class GankNotificationService: NSObject {
         initAuthorization()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        gankLog.debug("deinit GankNotificationService")
+    }
+    
     public func initAuthorization() {
         UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { settings in
             SafeDispatch.async { [weak self] in
@@ -87,7 +92,7 @@ extension GankNotificationService: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        // TODO
+        NotificationCenter.default.post(name: GankConfig.NotificationName.push, object: nil)
         completionHandler()
     }
 }

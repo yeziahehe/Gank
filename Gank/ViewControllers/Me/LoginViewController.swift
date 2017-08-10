@@ -23,9 +23,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.dismissVC(_:)), name: GankConfig.NotificationName.push, object: nil)
         usernameTextField.addTarget(self, action: #selector(LoginViewController.textChange(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(LoginViewController.textChange(_:)), for: .editingChanged)
+    }
+    
+    @objc fileprivate func dismissVC(_ notification: Notification) {
+        dismiss(animated: false, completion: nil)
     }
 
     @IBAction func closeLoginAction(_ sender: UIButton) {

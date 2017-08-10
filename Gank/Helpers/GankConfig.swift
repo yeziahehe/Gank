@@ -32,6 +32,7 @@ final class GankConfig {
         static let watchNew = Notification.Name(rawValue: "GankConfig.Notification.watchNew")
         static let login = Notification.Name(rawValue: "YepConfig.Notification.login")
         static let logout = Notification.Name(rawValue: "GankConfig.Notification.logout")
+        static let push = Notification.Name(rawValue: "GankConfig.Notification.push")
     }
     
     // Share
