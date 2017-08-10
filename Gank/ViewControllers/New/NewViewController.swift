@@ -79,6 +79,7 @@ final class NewViewController: BaseViewController {
         updateNewView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(NewViewController.refreshUIWithNotification(_:)), name: GankConfig.NotificationName.chooseGank, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(NewViewController.refreshUIWithPush(_:)), name: GankConfig.NotificationName.push, object: nil)
         
     }
     
@@ -117,6 +118,10 @@ final class NewViewController: BaseViewController {
         }
         
         updateNewView(mode: .date, isChoose: true, date: date)
+    }
+    
+    @objc fileprivate func refreshUIWithPush(_ notification: Notification) {
+        updateNewView(mode: .today)
     }
     
 }

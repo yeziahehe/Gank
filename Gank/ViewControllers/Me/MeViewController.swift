@@ -289,28 +289,32 @@ extension MeViewController: YFMoreViewDelegate {
         switch tag {
         case "wechat":
             MonkeyKing.deliver(.weChat(.session(info: info))) { result in
-                //TODO
-                print("result: \(result)")
+                gankLog.debug("result: \(result)")
+                GankShareService.shared.resultHandler(result: result, vc: self)
             }
             return
         case "moments":
             MonkeyKing.deliver(.weChat(.timeline(info: info))) { result in
-                print("result: \(result)")
+                gankLog.debug("result: \(result)")
+                GankShareService.shared.resultHandler(result: result, vc: self)
             }
             return
         case "weibo":
             MonkeyKing.deliver(.weibo(.default(info: info, accessToken: nil))) { result in
-                print("result: \(result)")
+                gankLog.debug("result: \(result)")
+                GankShareService.shared.resultHandler(result: result, vc: self)
             }
             return
         case "QQ":
             MonkeyKing.deliver(.qq(.friends(info: info))) { result in
-                print("result: \(result)")
+                gankLog.debug("result: \(result)")
+                GankShareService.shared.resultHandler(result: result, vc: self)
             }
             return
         case "QQZone":
             MonkeyKing.deliver(.qq(.zone(info: info))) { result in
-                print("result: \(result)")
+                gankLog.debug("result: \(result)")
+                GankShareService.shared.resultHandler(result: result, vc: self)
             }
             return
         default:

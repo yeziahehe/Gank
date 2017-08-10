@@ -12,6 +12,7 @@ import Alamofire
 import AlamofireNetworkActivityIndicator
 import IQKeyboardManagerSwift
 import MonkeyKing
+import Bugly
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // IQKeyboardManager Configure
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        
+        // Bugly
+        Bugly.start(withAppId: "66bade34d0")
         
         let storyboard = UIStoryboard.gank_main
         window?.rootViewController = storyboard.instantiateInitialViewController()

@@ -36,6 +36,7 @@
 
 - [x] ~~集成 [flow.ci](http://flow.ci/)~~，已替换成 [Travis CI](https://travis-ci.org)
 - [x] 每日提醒（[利用 Background Fetch + UNUserNotificationCenter 实现伪推送](http://yeziahehe.com/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/)）
+- [x] GitHub 登录提交干货
 
 ## 开源组件
 
@@ -51,15 +52,15 @@
 
 ## 文档
 
-- 根据项目和干货集中营文档整理的 [Gank API 文档](https://github.com/yeziahehe/Gank/blob/master/API.md)。
-- 详情请查看 [版本日志](https://github.com/yeziahehe/Gank/blob/master/RELEASES.md)。
-- 个人整理的 [Git Commit Message 规范文档](https://github.com/yeziahehe/Gank/blob/master/COMMIT_zh_CN.md)。
+- 详情请查看 [版本日志](https://github.com/yeziahehe/Gank/blob/master/RELEASES.md)
+- 个人整理的 [Git Commit Message 规范文档](https://github.com/yeziahehe/Gank/blob/master/COMMIT_zh_CN.md)
 
 ## 贡献
 
-- 感谢你愿意为 Gank 尽到你的一份力，你的创意能够帮助项目变得更好。
-- 提交 PR 是参与到项目中最好的方式，我会用最快的速度回复你。
-- 如果发现 Bug 或者问题，可以提交 Issue。
+- 感谢你愿意为 Gank 尽到你的一份力，你的创意能够帮助项目变得更好
+- 提交 PR 是参与到项目中最好的方式，我会用最快的速度回复你
+- 如果发现 Bug 或者问题，可以提交 Issue
+- 如果你对项目有兴趣，可以参照 [Projects](https://github.com/yeziahehe/Gank/projects/2)，和我一起开发接下来的版本
 
 ## 致谢
 

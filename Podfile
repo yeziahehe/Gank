@@ -17,6 +17,7 @@ def pods
     pod 'IQKeyboardManagerSwift'
     pod 'IQDropDownTextField'
     pod 'MonkeyKing'
+    pod 'Bugly'
 end
 
 target 'Gank' do
