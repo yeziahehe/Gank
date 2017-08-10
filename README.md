@@ -30,6 +30,10 @@
 
 ## 前言
 
+| ![1](http://7xkvt5.com1.z0.glb.clouddn.com/gank/Guide1.png) | ![2](http://7xkvt5.com1.z0.glb.clouddn.com/gank/Guide2.png) | ![3](http://7xkvt5.com1.z0.glb.clouddn.com/gank/Guide3.png) | ![4](http://7xkvt5.com1.z0.glb.clouddn.com/gank/Guide4.png) | ![5](http://7xkvt5.com1.z0.glb.clouddn.com/gank/Guide5.png) |
+| :--: | :--: | :--: | :--: | :--: |
+| 每日干货 | 历史干货 | 分类搜索 | 个人中心 | 提交干货 |
+
 非官方版本的干货集中营 iOS App。
 
 ## 功能
