@@ -91,4 +91,13 @@ final class GankShareService: NSObject {
             }
         })
     }
+    
+    public func resultHandler(result: MonkeyKing.DeliverResult, vc: UIViewController?) {
+        switch result {
+        case .success:
+            GankAlert.alertKnown(title: nil, message: String.messageShareSuccess, inViewController: vc)
+        case .failure:
+            GankAlert.alertKnown(title: nil, message: String.messageShareFailure, inViewController: vc)
+        }
+    }
 }
