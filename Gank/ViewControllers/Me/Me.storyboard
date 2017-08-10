@@ -70,7 +70,7 @@
                         <segue destination="Kdv-92-xDF" kind="show" identifier="showVersion" id="PEA-dJ-rBE"/>
                         <segue destination="LW8-Dd-r0g" kind="show" identifier="showDetail" id="eWd-Yl-Y4G"/>
                         <segue destination="YiH-RL-c8J" kind="show" identifier="showAddGank" id="co2-qq-IYj"/>
-                        <segue destination="3CG-5r-jSD" kind="presentation" identifier="showLogin" modalPresentationStyle="currentContext" id="NFj-kl-umF"/>
+                        <segue destination="3CG-5r-jSD" kind="presentation" identifier="showLogin" id="NFj-kl-umF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2T-uG-Vip" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -80,7 +80,7 @@
         <!--Login View Controller-->
         <scene sceneID="NjG-gL-cad">
             <objects>
-                <viewController id="3CG-5r-jSD" customClass="LoginViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="3CG-5r-jSD" customClass="LoginViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ucg-4V-ofW"/>
                         <viewControllerLayoutGuide type="bottom" id="ruT-Q7-Sck"/>
