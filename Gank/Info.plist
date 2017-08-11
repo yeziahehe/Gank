@@ -63,7 +63,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1250</string>
+	<string>1264</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>pocket-oauth-v1</string>
@@ -79,13 +79,13 @@
 		<true/>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string></string>
+	<string>使用日历</string>
 	<key>NSContactsUsageDescription</key>
-	<string></string>
+	<string>使用通讯录</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string>使用麦克风</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>使用相册</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
