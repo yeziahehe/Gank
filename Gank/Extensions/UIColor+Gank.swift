@@ -34,6 +34,18 @@ extension UIColor {
         return UIColor.white
     }
     
+    class func gankNavgationBarTintColor() -> UIColor {
+        return UIColor.black
+    }
+    
+    class func gankNavgationBarGradientStartColor() -> UIColor {
+        return UIColor(red: 60/255.0, green: 60/255.0, blue: 60/255.0, alpha: 1.0)
+    }
+    
+    class func gankNavgationBarGradientEndColor() -> UIColor {
+        return UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1.0)
+    }
+    
     class func gankIosTagColor() -> UIColor {
         return UIColor(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1.0)
     }

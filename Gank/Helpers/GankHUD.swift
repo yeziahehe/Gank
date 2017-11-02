@@ -7,23 +7,23 @@
 //
 
 import UIKit
-import JJHUD
+import PKHUD
 
 public class GankHUD {
     
     public class func success(_ status: String!) {
-        JJHUD.showSuccess(text: status, delay: 2.0)
+        HUD.flash(.labeledSuccess(title: nil, subtitle: status), delay: 2.0)
     }
     
     public class func error(_ status: String!) {
-        JJHUD.showError(text: status, delay: 2.0)
+        HUD.flash(.labeledError(title: nil, subtitle: status), delay: 2.0)
     }
     
     public class func show() {
-        JJHUD.showLoading()
+        HUD.show(.progress)
     }
     
     public class func dismiss() {
-        JJHUD.hide()
+        HUD.hide()
     }
 }

@@ -81,7 +81,7 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: UITextFieldDelegate {
-    func textChange(_ textField: UITextField) {
+    @objc func textChange(_ textField: UITextField) {
         if !usernameTextField.text!.isEmpty && !passwordTextField.text!.isEmpty {
             loginButton.isEnabled = true
             loginButton.alpha = 1.0
