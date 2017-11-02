@@ -40,7 +40,7 @@ extension String {
     
     public var toTimeFormat: String {
         var string = self.replacingOccurrences(of: "T", with: " ")
-        string = string[startIndex...string.index(startIndex, offsetBy: 18)]
+        string = String(string[startIndex...string.index(startIndex, offsetBy: 18)])
         return string
     }
     

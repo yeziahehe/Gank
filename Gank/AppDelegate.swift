@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ReachabilitySwift
+import Reachability
 import Alamofire
 import AlamofireNetworkActivityIndicator
 import IQKeyboardManagerSwift
@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkActivityIndicatorManager.shared.isEnabled = true
         
         reachability.whenReachable = { reachability in
-            if reachability.isReachableViaWiFi {
+            if reachability.connection == .wifi {
                 gankLog.debug("当前是 WiFi 网络连接")
             } else {
                 gankLog.debug("当前 2G/3G/4G 网络连接")
