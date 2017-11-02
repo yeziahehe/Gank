@@ -69,7 +69,7 @@ class AddGankViewController: BaseViewController {
 
 extension AddGankViewController: UITextFieldDelegate {
     
-    func textChange(_ textField: UITextField) {
+    @objc func textChange(_ textField: UITextField) {
         if categoryTextField.selectedItem != nil && !urlTextField.text!.isEmpty && !descTextField.text!.isEmpty {
             submitButton.isEnabled = true
             submitButton.backgroundColor = UIColor.gankTintColor()

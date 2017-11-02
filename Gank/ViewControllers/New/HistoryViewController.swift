@@ -68,6 +68,10 @@ extension HistoryViewController: JTAppleCalendarViewDataSource {
 }
 
 extension HistoryViewController: JTAppleCalendarViewDelegate {
+    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+        //
+    }
+    
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "GankDateCell", for: indexPath) as! GankDateCell
         cell.dayLabel.text = cellState.text

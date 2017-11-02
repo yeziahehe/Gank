@@ -62,6 +62,8 @@
 		2C5E3CD81F349341007C4BA4 /* VersionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E3CD61F349341007C4BA4 /* VersionCell.xib */; };
 		2C5E3CDA1F34B402007C4BA4 /* UIApplication+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E3CD91F34B402007C4BA4 /* UIApplication+Gank.swift */; };
 		2C604FD41F13FB7E00E12F06 /* GankNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */; };
+		2C636FE61FAAD012009B19F8 /* UIDevice+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C636FE51FAAD012009B19F8 /* UIDevice+Gank.swift */; };
+		2C636FE81FAAD0A2009B19F8 /* UIImage+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C636FE71FAAD0A2009B19F8 /* UIImage+Gank.swift */; };
 		2C6425241F2ADF87000CCE7B /* UITextView+Gank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */; };
 		2C6425261F2CDFF9000CCE7B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6425251F2CDFF9000CCE7B /* SearchViewController.swift */; };
 		2C6AEC601F08FD30005B79F9 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */; };
@@ -185,6 +187,8 @@
 		2C5E3CD61F349341007C4BA4 /* VersionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionCell.xib; sourceTree = "<group>"; };
 		2C5E3CD91F34B402007C4BA4 /* UIApplication+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Gank.swift"; sourceTree = "<group>"; };
 		2C604FD31F13FB7E00E12F06 /* GankNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankNotificationService.swift; sourceTree = "<group>"; };
+		2C636FE51FAAD012009B19F8 /* UIDevice+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Gank.swift"; sourceTree = "<group>"; };
+		2C636FE71FAAD0A2009B19F8 /* UIImage+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gank.swift"; sourceTree = "<group>"; };
 		2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Gank.swift"; sourceTree = "<group>"; };
 		2C6425251F2CDFF9000CCE7B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2C6AEC5F1F08FD30005B79F9 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
@@ -548,6 +552,7 @@
 				2C971B6E1DC2019500843481 /* UIColor+Gank.swift */,
 				2CE80D5F1DC24BB90011BB48 /* UIFont+Gank.swift */,
 				2C221C681DC4B58E00428928 /* UIStoryBoard+Gank.swift */,
+				2C636FE71FAAD0A2009B19F8 /* UIImage+Gank.swift */,
 				2C136C301DC631EF0067E280 /* UIImage+Named.swift */,
 				2C136C351DC6DAF20067E280 /* Bundle+Gank.swift */,
 				2C98A41A1DDDFBDB001CBE37 /* Date+Gank.swift */,
@@ -561,6 +566,7 @@
 				2C6425231F2ADF87000CCE7B /* UITextView+Gank.swift */,
 				2C5446B11F2E0BA1007E43C2 /* UICollectionView+Gank.swift */,
 				2C5E3CD91F34B402007C4BA4 /* UIApplication+Gank.swift */,
+				2C636FE51FAAD012009B19F8 /* UIDevice+Gank.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -738,12 +744,14 @@
 					2C83C8F61DAE0F4500FCE89A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 3WTM5PLDUE;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2C83C8E21DAE0F4500FCE89A;
 					};
 					2C83C9011DAE0F4500FCE89A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 3WTM5PLDUE;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2C83C8E21DAE0F4500FCE89A;
 					};
@@ -878,13 +886,13 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/IQDropDownTextField/IQDropDownTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/JJHUD/JJHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MonkeyKing/MonkeyKing.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Proposer/Proposer.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
@@ -896,13 +904,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQDropDownTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JJHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MonkeyKing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Proposer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
@@ -935,12 +943,14 @@
 				2C5E3CBC1F330C8F007C4BA4 /* UserInfoCell.swift in Sources */,
 				2C421CA51F161B4A0027C388 /* GankDateCell.swift in Sources */,
 				2C7CE2C91F29CBAF00B578A1 /* NoDataFooterView.swift in Sources */,
+				2C636FE61FAAD012009B19F8 /* UIDevice+Gank.swift in Sources */,
 				2C2B78BA1F0A9CF600863819 /* UILabel+Gank.swift in Sources */,
 				2C6AEC711F095575005B79F9 /* UIView+Gank.swift in Sources */,
 				2C531D901DE6DAF500C920FB /* UITableView+Gank.swift in Sources */,
 				2C6AEC6D1F094AF2005B79F9 /* GankHeaderView.swift in Sources */,
 				2C531D981DE6DEC900C920FB /* FPSLabel.swift in Sources */,
 				2C971B6A1DC200DA00843481 /* BaseViewController.swift in Sources */,
+				2C636FE81FAAD0A2009B19F8 /* UIImage+Gank.swift in Sources */,
 				2C5446B21F2E0BA1007E43C2 /* UICollectionView+Gank.swift in Sources */,
 				2C6425241F2ADF87000CCE7B /* UITextView+Gank.swift in Sources */,
 				2C74F1321F287CCD002A9EEF /* ArticleViewController.swift in Sources */,
@@ -1153,7 +1163,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c377fe83-0151-48c1-ae90-fbd49957b1ed";
 				PROVISIONING_PROFILE_SPECIFIER = gank_dev;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1172,7 +1182,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4292be3a-6d1c-4f0c-8971-c3ad3d0730f1";
 				PROVISIONING_PROFILE_SPECIFIER = gank_dis;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1186,7 +1196,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coryphaei.GankTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gank.app/Gank";
 			};
 			name = Debug;
@@ -1201,7 +1212,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coryphaei.GankTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gank.app/Gank";
 			};
 			name = Release;
@@ -1215,7 +1227,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coryphaei.GankUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Gank;
 			};
 			name = Debug;
@@ -1229,7 +1242,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coryphaei.GankUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Gank;
 			};
 			name = Release;

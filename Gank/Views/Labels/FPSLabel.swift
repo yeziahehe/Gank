@@ -38,7 +38,7 @@ final class FPSLabel: UILabel {
         displayLink?.add(to: RunLoop.current, forMode: RunLoopMode.commonModes)
     }
     
-    func tick(_ displayLink: CADisplayLink) {
+    @objc func tick(_ displayLink: CADisplayLink) {
         
         if lastTime == 0 {
             lastTime = displayLink.timestamp
