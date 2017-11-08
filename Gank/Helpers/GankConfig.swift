@@ -14,6 +14,7 @@ final class GankConfig {
     public static var heavyFeedbackEffectAction: (() -> Void)?
     
     public static let appGroupID: String = "group.coryphaei.Gank"
+    public static let versionObjectId: String = "5a02c1f42f301e0069f15b65"
 
     class func getScreenRect() -> CGRect {
         return UIScreen.main.bounds

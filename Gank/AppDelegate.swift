@@ -13,6 +13,7 @@ import AlamofireNetworkActivityIndicator
 import IQKeyboardManagerSwift
 import MonkeyKing
 import Bugly
+import LeanCloud
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,6 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Bugly
         Bugly.start(withAppId: "66bade34d0")
+        
+        // LeanCloud
+        LeanCloud.initialize(applicationID: "xUyRzoEBJGdOFUDjQ5ADtxRi-gzGzoHsz", applicationKey: "ctMjwiEyOSXcWyKA6YlLT47p")
+        configureVersion()
         
         let storyboard = UIStoryboard.gank_main
         window?.rootViewController = storyboard.instantiateInitialViewController()
@@ -151,11 +156,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func configureShare() {
+    fileprivate func configureShare() {
         MonkeyKing.registerAccount(.weChat(appID: GankConfig.Wechat.appID, appKey: GankConfig.Wechat.appKey))
         MonkeyKing.registerAccount(.weibo(appID: GankConfig.Weibo.appID, appKey: GankConfig.Weibo.appKey, redirectURL: GankConfig.Weibo.redirectURL))
         MonkeyKing.registerAccount(.qq(appID: GankConfig.QQ.appID))
         MonkeyKing.registerAccount(.pocket(appID: GankConfig.Pocket.appID))
+    }
+    
+    fileprivate func configureVersion() {
+        let tb_version = LCQuery(className: "Version")
+        tb_version.get(GankConfig.versionObjectId) { result in
+            switch result {
+            case .success(let query):
+                let version = query.get("version") as! LCString
+                GankUserDefaults.version.value = version.value == Bundle.releaseVersionNumber
+            case .failure(let error):
+                gankLog.debug(error)
+                GankUserDefaults.version.value = false
+            }
+        }
     }
 }
 
