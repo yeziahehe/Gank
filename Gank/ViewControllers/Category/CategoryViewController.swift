@@ -10,15 +10,21 @@ import UIKit
 
 final class CategoryViewController: BaseViewController {
     
-    @IBOutlet weak var androidButton: UIButton!
-    @IBOutlet weak var androidLabel: UILabel!
+    let categoryArray = GankUserDefaults.version.value! ? ["all", "iOS", "Android", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"] : ["all", "iOS", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"]
+    
+    @IBOutlet weak var categoryCollectionView: UICollectionView! {
+        didSet {
+            categoryCollectionView.registerNibOf(CategoryCollectionCell.self)
+        }
+    }
+    
+    deinit {
+        categoryCollectionView?.delegate = nil
+        gankLog.debug("deinit CategoryViewController")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !GankUserDefaults.version.value! {
-            androidLabel.isHidden = true
-            androidButton.isHidden = true
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,56 +35,39 @@ final class CategoryViewController: BaseViewController {
         switch identifier {
         case "showArticle":
             let vc = segue.destination as! ArticleViewController
-            let categoryButton = sender as! UIButton
-            let categoryEnum: category = category(rawValue: categoryButton.tag)!
-            switch categoryEnum {
-            case .all:
-                vc.category = "all"
-                break
-            case .ios:
-                vc.category = "iOS"
-                break
-            case .android:
-                vc.category = "Android"
-                break
-            case .frontend:
-                vc.category = "前端"
-                break
-            case .resource:
-                vc.category = "拓展资源"
-                break
-            case .app:
-                vc.category = "App"
-                break
-            case .recomm:
-                vc.category = "瞎推荐"
-                break
-            case .video:
-                vc.category = "休息视频"
-            }
+            let categoryString = sender as! String
+            vc.category = categoryString
             
         default:
             break
         }
     }
     
-    enum category: Int {
-        case all = 0
-        case ios
-        case android
-        case frontend
-        case resource
-        case app
-        case recomm
-        case video
-    }
-    
     @IBAction func showSearch(_ sender: Any) {
         self.performSegue(withIdentifier: "showSearch", sender: nil)
     }
     
-    @IBAction func showArticle(_ sender: Any?) {
-        self.performSegue(withIdentifier: "showArticle", sender: nil)
+}
+
+extension CategoryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categoryArray.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: CategoryCollectionCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.configure(categoryArray[indexPath.row])
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        if categoryArray[indexPath.row] == "福利" {
+            self.performSegue(withIdentifier: "showMeizi", sender: nil)
+        } else {
+            self.performSegue(withIdentifier: "showArticle", sender: categoryArray[indexPath.row])
+        }
+    }
 }
