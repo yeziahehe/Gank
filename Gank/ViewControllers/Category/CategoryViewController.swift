@@ -10,7 +10,7 @@ import UIKit
 
 final class CategoryViewController: BaseViewController {
     
-    let categoryArray = GankUserDefaults.version.value! ? ["all", "iOS", "Android", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"] : ["all", "iOS", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"]
+    var categoryArray: [String] = []
     
     @IBOutlet weak var categoryCollectionView: UICollectionView! {
         didSet {
@@ -25,6 +25,7 @@ final class CategoryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryArray = GankUserDefaults.version.value! ? ["all", "iOS", "Android", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"] : ["all", "iOS", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
