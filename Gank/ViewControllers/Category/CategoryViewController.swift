@@ -10,8 +10,15 @@ import UIKit
 
 final class CategoryViewController: BaseViewController {
     
+    @IBOutlet weak var androidButton: UIButton!
+    @IBOutlet weak var androidLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !GankUserDefaults.version.value! {
+            androidLabel.isHidden = true
+            androidButton.isHidden = true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

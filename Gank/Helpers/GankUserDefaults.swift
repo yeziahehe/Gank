@@ -15,6 +15,7 @@ private let isVersionNewHiddenKey = "isVersionNewHidden"
 private let loginKey = "login"
 private let avatarUrlKey = "avatarUrl"
 private let nameKey = "name"
+private let versionKey = "version"
 
 public struct Listener<T>: Hashable {
     
@@ -166,6 +167,14 @@ final public class GankUserDefaults {
         
         return Listenable<String?>(name) { name in
             defaults.set(name, forKey: nameKey)
+        }
+    }()
+    
+    public static var version: Listenable<Bool?> = {
+        let version = defaults.bool(forKey: versionKey)
+        
+        return Listenable<Bool?>(version) { version in
+            defaults.set(version, forKey: versionKey)
         }
     }()
 

@@ -109,7 +109,7 @@ public func gankWithDay(date: String, failureHandler: FailureHandler?, completio
     let parse: (JSON) -> (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>)? = { data in
         
         let categoryArray: [String] = data["category"].arrayValue.map({$0.stringValue})
-        let categories = Array<String>().sortByGankOrder(categoryArray)
+        let categories = GankUserDefaults.version.value! ?  Array<String>().sortByGankOrder(categoryArray) : Array<String>().sortByGankOrder(categoryArray).filter({$0 != "Android"})
         let now = Date()
         var gank: [String: Array<Gank>] = [:]
         var meiziGank: Gank!
@@ -223,7 +223,6 @@ public struct LoginUser: CustomStringConvertible {
               let name = data["name"].string else {
                 return nil
         }
-        
         
         return LoginUser(login: login, avatarUrl: avatarUrl, name: name)
     }

@@ -255,6 +255,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="androidButton" destination="MwW-Bo-eMa" id="3vi-Iu-LZa"/>
+                        <outlet property="androidLabel" destination="EbL-kI-pmy" id="O3i-2g-8jH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQY-9j-o59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
