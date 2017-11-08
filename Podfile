@@ -18,6 +18,7 @@ def pods
     pod 'IQDropDownTextField'
     pod 'MonkeyKing'
     pod 'Bugly'
+    pod 'LeanCloud'
 end
 
 target 'Gank' do

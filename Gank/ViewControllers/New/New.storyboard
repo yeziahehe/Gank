@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h5I-6G-k4S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h5I-6G-k4S">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,10 +15,6 @@
         <scene sceneID="OEN-Hi-j6u">
             <objects>
                 <viewController storyboardIdentifier="NewViewController" id="R68-Me-JLF" customClass="NewViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HJn-M7-U5p"/>
-                        <viewControllerLayoutGuide type="bottom" id="Pqc-4n-ead"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dwi-dg-lBe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,13 +67,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1Rp-Wb-QiC" firstAttribute="top" secondItem="Dwi-dg-lBe" secondAttribute="top" id="Miz-0Y-QFN"/>
-                            <constraint firstAttribute="trailing" secondItem="J3B-e5-F1e" secondAttribute="trailing" id="TtC-gK-b0g"/>
-                            <constraint firstItem="1Rp-Wb-QiC" firstAttribute="leading" secondItem="Dwi-dg-lBe" secondAttribute="leading" id="XOd-7Y-jfP"/>
-                            <constraint firstItem="J3B-e5-F1e" firstAttribute="leading" secondItem="Dwi-dg-lBe" secondAttribute="leading" id="br6-N5-GR6"/>
+                            <constraint firstItem="iSj-IV-3Y5" firstAttribute="trailing" secondItem="J3B-e5-F1e" secondAttribute="trailing" id="TtC-gK-b0g"/>
+                            <constraint firstItem="1Rp-Wb-QiC" firstAttribute="leading" secondItem="iSj-IV-3Y5" secondAttribute="leading" id="XOd-7Y-jfP"/>
+                            <constraint firstItem="J3B-e5-F1e" firstAttribute="leading" secondItem="iSj-IV-3Y5" secondAttribute="leading" id="br6-N5-GR6"/>
                             <constraint firstAttribute="bottom" secondItem="J3B-e5-F1e" secondAttribute="bottom" id="db4-SQ-Mv4"/>
                             <constraint firstItem="J3B-e5-F1e" firstAttribute="top" secondItem="Dwi-dg-lBe" secondAttribute="top" id="ghr-uZ-Fkl"/>
-                            <constraint firstAttribute="trailing" secondItem="1Rp-Wb-QiC" secondAttribute="trailing" id="n2R-CE-QBZ"/>
+                            <constraint firstItem="iSj-IV-3Y5" firstAttribute="trailing" secondItem="1Rp-Wb-QiC" secondAttribute="trailing" id="n2R-CE-QBZ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="iSj-IV-3Y5"/>
                     </view>
                     <navigationItem key="navigationItem" title="干货集中营" id="1Oh-tJ-1bP">
                         <rightBarButtonItems>
@@ -112,10 +110,6 @@
         <scene sceneID="aeQ-4J-dyX">
             <objects>
                 <viewController storyboardIdentifier="HistoryViewController" hidesBottomBarWhenPushed="YES" id="KBr-gx-4HX" customClass="HistoryViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="66n-3c-VUM"/>
-                        <viewControllerLayoutGuide type="bottom" id="jKx-Ce-cQU"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hSQ-lK-fh3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,13 +289,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lgh-cu-vbb" firstAttribute="leading" secondItem="hSQ-lK-fh3" secondAttribute="leading" id="7wC-5e-UI4"/>
+                            <constraint firstItem="lgh-cu-vbb" firstAttribute="leading" secondItem="eLI-vg-jmW" secondAttribute="leading" id="7wC-5e-UI4"/>
                             <constraint firstItem="Jro-ml-p0b" firstAttribute="top" secondItem="lgh-cu-vbb" secondAttribute="bottom" constant="8" id="8za-dp-DFJ"/>
-                            <constraint firstAttribute="trailing" secondItem="Jro-ml-p0b" secondAttribute="trailing" constant="12" id="XQi-AU-PQ7"/>
-                            <constraint firstAttribute="trailing" secondItem="lgh-cu-vbb" secondAttribute="trailing" id="aCg-ls-RIF"/>
-                            <constraint firstItem="Jro-ml-p0b" firstAttribute="leading" secondItem="hSQ-lK-fh3" secondAttribute="leading" constant="12" id="fWr-Pk-bAo"/>
+                            <constraint firstItem="eLI-vg-jmW" firstAttribute="trailing" secondItem="Jro-ml-p0b" secondAttribute="trailing" constant="12" id="XQi-AU-PQ7"/>
+                            <constraint firstItem="eLI-vg-jmW" firstAttribute="trailing" secondItem="lgh-cu-vbb" secondAttribute="trailing" id="aCg-ls-RIF"/>
+                            <constraint firstItem="Jro-ml-p0b" firstAttribute="leading" secondItem="eLI-vg-jmW" secondAttribute="leading" constant="12" id="fWr-Pk-bAo"/>
                             <constraint firstItem="lgh-cu-vbb" firstAttribute="top" secondItem="hSQ-lK-fh3" secondAttribute="top" id="nC7-Jd-buF"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="eLI-vg-jmW"/>
                     </view>
                     <navigationItem key="navigationItem" title="历史的车轮" id="DV6-he-Twp"/>
                     <connections>
@@ -319,7 +314,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h5I-6G-k4S" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y0t-NZ-ePj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

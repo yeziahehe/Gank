@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZyB-vR-zFu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZyB-vR-zFu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,7 +36,7 @@
                     <tabBarItem key="tabBarItem" title="我" image="me" selectedImage="me_active" id="m68-hK-B4B"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="avp-cD-7XP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -55,10 +56,6 @@
         <scene sceneID="TwH-kC-rOE">
             <objects>
                 <viewController storyboardIdentifier="NetworkViewController" hidesBottomBarWhenPushed="YES" id="Fnh-Vb-xVm" customClass="NetworkViewController" customModule="Gank" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CWE-4N-8pT"/>
-                        <viewControllerLayoutGuide type="bottom" id="QZo-x3-iQL"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8u2-46-x1m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,11 +85,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="g4l-dd-Rit" secondAttribute="trailing" constant="15" id="0cT-j4-ZTJ"/>
-                            <constraint firstItem="g4l-dd-Rit" firstAttribute="leading" secondItem="8u2-46-x1m" secondAttribute="leading" constant="15" id="DwP-rc-LF3"/>
+                            <constraint firstItem="opV-CZ-K2c" firstAttribute="trailing" secondItem="g4l-dd-Rit" secondAttribute="trailing" constant="15" id="0cT-j4-ZTJ"/>
+                            <constraint firstItem="g4l-dd-Rit" firstAttribute="leading" secondItem="opV-CZ-K2c" secondAttribute="leading" constant="15" id="DwP-rc-LF3"/>
                             <constraint firstAttribute="bottom" secondItem="g4l-dd-Rit" secondAttribute="bottom" id="PPJ-tX-FRG"/>
                             <constraint firstItem="g4l-dd-Rit" firstAttribute="top" secondItem="8u2-46-x1m" secondAttribute="top" id="m3o-a2-HhU"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="opV-CZ-K2c"/>
                     </view>
                     <navigationItem key="navigationItem" title="解决方案" id="EWm-eI-6cF"/>
                     <connections>
@@ -110,7 +108,7 @@
                     <tabBarItem key="tabBarItem" title="分类" image="category" selectedImage="category_active" id="DR3-ur-nTs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bwg-wi-OuC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -133,7 +131,7 @@
                     <tabBarItem key="tabBarItem" title="今日" image="new" selectedImage="new_active" id="Wyb-gN-AtM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NJM-aW-ceN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
