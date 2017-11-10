@@ -25,7 +25,7 @@ final class CategoryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryArray = GankUserDefaults.version.value! ? ["all", "iOS", "Android", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"] : ["all", "iOS", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"]
+        categoryArray = GankUserDefaults.version.value! ? ["all", "iOS", "Android", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"] : ["all", "iOS", "前端", "瞎推荐", "拓展资源", "App", "休息视频", "福利"] // 审核，禁止 Android
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

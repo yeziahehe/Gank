@@ -109,7 +109,7 @@ public func gankWithDay(date: String, failureHandler: FailureHandler?, completio
     let parse: (JSON) -> (Bool, Gank, Array<String>, Dictionary<String, Array<Gank>>)? = { data in
         
         let categoryArray: [String] = data["category"].arrayValue.map({$0.stringValue})
-        let categories = GankUserDefaults.version.value! ?  Array<String>().sortByGankOrder(categoryArray) : Array<String>().sortByGankOrder(categoryArray).filter({$0 != "Android"})
+        let categories = GankUserDefaults.version.value! ?  Array<String>().sortByGankOrder(categoryArray) : Array<String>().sortByGankOrder(categoryArray).filter({$0 != "Android"}) // 审核，禁止 Android
         let now = Date()
         var gank: [String: Array<Gank>] = [:]
         var meiziGank: Gank!
@@ -156,6 +156,12 @@ public func gankInToday(failureHandler: FailureHandler?, completion: @escaping (
 // MARK: - 干货分类
 public func gankofCategory(category: String, count: Int = 20, page: Int, failureHandler: FailureHandler?, completion: @escaping (Array<Gank>) -> Void) {
     
+    // 审核，禁止 Android
+    var newCategory = category
+    if !GankUserDefaults.version.value! && category == "all" {
+        newCategory = "iOS"
+    }
+    
     let parse: (JSON) -> (Array<Gank>)? = { data in
         var gankArray = [Gank]()
         for (_, gankJSON):(String, JSON) in data["results"] {
@@ -164,7 +170,7 @@ public func gankofCategory(category: String, count: Int = 20, page: Int, failure
         }
         return gankArray
     }
-    let resource = urlResource(path: String(format:"/data/%@/%d/%d", category, count, page), method: .get, requestParameters: nil, parse: parse)
+    let resource = urlResource(path: String(format:"/data/%@/%d/%d", newCategory, count, page), method: .get, requestParameters: nil, parse: parse)
     
     apiRequest({_ in}, baseURL: gankBaseURL, resource: resource, failure: failureHandler, completion: completion)
 }
@@ -175,6 +181,9 @@ public func gankSearch(query: String, category: String = "all", count: Int = 10,
         var gankArray = [Gank]()
         for (_, gankJSON):(String, JSON) in data["results"] {
             let gankInfo = Gank.fromJSON(gankJSON)
+            if !GankUserDefaults.version.value! && gankInfo?.type == "Android" {
+                continue
+            }
             gankArray.append(gankInfo!)
         }
         return gankArray
