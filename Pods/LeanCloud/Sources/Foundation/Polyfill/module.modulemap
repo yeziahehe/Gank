@@ -1,0 +1,4 @@
+module _LeanCloud_Polyfill {
+    export *
+    header "Polyfill.h"
+}

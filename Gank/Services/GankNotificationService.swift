@@ -35,6 +35,8 @@ final class GankNotificationService: NSObject {
                     self?.isAskAuthorization = true
                 case .denied:
                     self?.isAskAuthorization = true
+                case .provisional:
+                    self?.isAskAuthorization = true
                 }
             }
         })
@@ -49,7 +51,9 @@ final class GankNotificationService: NSObject {
                 case .authorized:
                     gankLog.debug("UserNotifications authorized")
                 case .denied:
-                    UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                case .provisional:
+                    gankLog.debug("UserNotifications authorized")
                 }
             }
         })
@@ -73,7 +77,7 @@ final class GankNotificationService: NSObject {
         let content = UNMutableNotificationContent()
         content.title = String.titleContentTitle
         content.body = String.messageTodayGank
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let requestIdentifier = "gank update"
         let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)

@@ -1,0 +1,6 @@
+framework module YFMoreViewController {
+  umbrella header "YFMoreViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}

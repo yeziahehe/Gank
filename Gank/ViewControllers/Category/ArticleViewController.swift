@@ -120,7 +120,7 @@ class ArticleViewController: BaseViewController {
             maxPage = 1
             canLoadMore = true
             articleTableView.estimatedRowHeight = 195.5
-            articleTableView.rowHeight = UITableViewAutomaticDimension
+            articleTableView.rowHeight = UITableView.automaticDimension
         case .loadMore:
             maxPage += 1
         }
@@ -304,7 +304,7 @@ extension ArticleViewController: UITableViewDataSource, UITableViewDelegate {
                 } else {
                     cell.configure(withGankDetail: gankDetail)
                 }
-                cell.selectionStyle = UITableViewCellSelectionStyle.default
+                cell.selectionStyle = UITableViewCell.SelectionStyle.default
                 
                 return cell
                 
@@ -316,7 +316,7 @@ extension ArticleViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let cell: ArticleGankLoadingCell = tableView.dequeueReusableCell()
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
     }

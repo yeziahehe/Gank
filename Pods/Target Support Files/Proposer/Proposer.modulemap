@@ -1,0 +1,6 @@
+framework module Proposer {
+  umbrella header "Proposer-umbrella.h"
+
+  export *
+  module * { export * }
+}

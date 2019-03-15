@@ -24,19 +24,19 @@ class GankDetailViewController: BaseViewController, WKNavigationDelegate {
     
     fileprivate lazy var closeButton: UIButton = {
         let closeButton = UIButton(type: .custom)
-        closeButton.titleEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0)
+        closeButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0)
         closeButton.frame = CGRect(x: 0, y: 0, width: 35, height: 44)
-        closeButton.setTitle("关闭", for: UIControlState())
+        closeButton.setTitle("关闭", for: UIControl.State())
         closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         closeButton.contentHorizontalAlignment = .left
-        closeButton.setTitleColor(UIColor.white, for: UIControlState())
+        closeButton.setTitleColor(UIColor.white, for: UIControl.State())
         closeButton.addTarget(self, action: #selector(closeItemClicked), for: .touchUpInside)
         return closeButton
     }()
     
     fileprivate lazy var customBackBarItem: UIBarButtonItem = {
         let customBackBarItem = UIBarButtonItem.init(image: UIImage.gank_navBack, style: .plain, target: self, action: #selector(customBackItemClicked))
-        customBackBarItem.imageInsets = UIEdgeInsetsMake(0, -8, 0, 0)
+        customBackBarItem.imageInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0)
         return customBackBarItem
     }()
     
@@ -91,7 +91,7 @@ class GankDetailViewController: BaseViewController, WKNavigationDelegate {
             progressView.setProgress(Float(webView.estimatedProgress), animated: animated)
             
             if Float(webView.estimatedProgress) >= 1.0{
-                UIView.animate(withDuration: 1, delay:0.01,options:UIViewAnimationOptions.curveEaseOut, animations:{()-> Void in
+                UIView.animate(withDuration: 1, delay:0.01,options:UIView.AnimationOptions.curveEaseOut, animations:{()-> Void in
                     self.progressView.alpha = 0.0
                 },completion:{(finished:Bool) -> Void in
                     self.progressView.setProgress(0.0, animated: false)

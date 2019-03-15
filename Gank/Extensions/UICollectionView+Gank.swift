@@ -59,23 +59,23 @@ extension UICollectionView {
     func registerHeaderNibOf<T: UICollectionReusableView>(_: T.Type) where T: Reusable, T: NibLoadable {
         
         let nib = UINib(nibName: T.gank_nibName, bundle: nil)
-        register(nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: T.gank_reuseIdentifier)
+        register(nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: T.gank_reuseIdentifier)
     }
     
     func registerHeaderClassOf<T: UICollectionReusableView>(_: T.Type) where T: Reusable {
         
-        register(T.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: T.gank_reuseIdentifier)
+        register(T.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: T.gank_reuseIdentifier)
     }
     
     func registerFooterClassOf<T: UICollectionReusableView>(_: T.Type) where T: Reusable {
         
-        register(T.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: T.gank_reuseIdentifier)
+        register(T.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: T.gank_reuseIdentifier)
     }
     
     func registerFooterNibOf<T: UICollectionReusableView>(_: T.Type) where T: Reusable, T: NibLoadable {
         
         let nib = UINib(nibName: T.gank_nibName, bundle: nil)
-        register(nib, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: T.gank_reuseIdentifier)
+        register(nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: T.gank_reuseIdentifier)
     }
     
     func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T where T: Reusable {

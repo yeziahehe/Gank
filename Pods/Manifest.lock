@@ -1,0 +1,95 @@
+PODS:
+  - Alamofire (4.8.1)
+  - AlamofireNetworkActivityIndicator (2.3.0):
+    - Alamofire (~> 4.7)
+  - Bugly (2.5.0)
+  - IQDropDownTextField (1.1.1)
+  - IQKeyboardManagerSwift (6.2.0)
+  - JTAppleCalendar (7.1.7)
+  - Kingfisher (5.2.0)
+  - LeanCloud (15.0.0):
+    - LeanCloud/Foundation (= 15.0.0)
+    - LeanCloud/LocalStorage (= 15.0.0)
+    - LeanCloud/Storage (= 15.0.0)
+  - LeanCloud/Foundation (15.0.0)
+  - LeanCloud/LocalStorage (15.0.0):
+    - LeanCloud/Foundation
+  - LeanCloud/Storage (15.0.0):
+    - Alamofire (~> 4.8.0)
+    - LeanCloud/Foundation
+    - LeanCloud/LocalStorage
+  - MonkeyKing (1.13.0)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - PKHUD (5.2.1)
+  - Proposer (1.2.1)
+  - ReachabilitySwift (4.3.0)
+  - SKPhotoBrowser (6.0.0)
+  - SwiftyJSON (4.2.0)
+  - XCGLogger (6.1.0):
+    - XCGLogger/Core (= 6.1.0)
+  - XCGLogger/Core (6.1.0):
+    - ObjcExceptionBridging
+  - YFMoreViewController (1.2.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireNetworkActivityIndicator
+  - Bugly
+  - IQDropDownTextField
+  - IQKeyboardManagerSwift
+  - JTAppleCalendar
+  - Kingfisher
+  - LeanCloud
+  - MonkeyKing
+  - PKHUD
+  - Proposer
+  - ReachabilitySwift
+  - SKPhotoBrowser
+  - SwiftyJSON
+  - XCGLogger
+  - YFMoreViewController
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireNetworkActivityIndicator
+    - Bugly
+    - IQDropDownTextField
+    - IQKeyboardManagerSwift
+    - JTAppleCalendar
+    - Kingfisher
+    - LeanCloud
+    - MonkeyKing
+    - ObjcExceptionBridging
+    - PKHUD
+    - Proposer
+    - ReachabilitySwift
+    - SKPhotoBrowser
+    - SwiftyJSON
+    - XCGLogger
+    - YFMoreViewController
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  AlamofireNetworkActivityIndicator: 18346ff6d770d9513d0ac6f2d99706f40f93dbaa
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  IQDropDownTextField: 3d2e5728a2b83ff5dbb14cb9b497a80005124cbe
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  JTAppleCalendar: 96da4d8388fa6dc82d6a60d41ef36a015e167e2f
+  Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
+  LeanCloud: 62fe4e615494425081fd719c0d56fae130f764ea
+  MonkeyKing: cdaa3e93d4802464eceea619aba87f70c31db2e1
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  PKHUD: 4e6162c4c39ac367c6934e9855c6b4762ee16256
+  Proposer: 97409ade1f80d8b19bba20972c03c9253bdd59b1
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  SKPhotoBrowser: 76eb862685761707b5745fde7762757966565e07
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
+  YFMoreViewController: 9ec190670d7ca31cbfbc02efd2bf7b1135a3be5f
+
+PODFILE CHECKSUM: 3ef0092e1f00894ef417c547e7e360491fd90d2d
+
+COCOAPODS: 1.5.3

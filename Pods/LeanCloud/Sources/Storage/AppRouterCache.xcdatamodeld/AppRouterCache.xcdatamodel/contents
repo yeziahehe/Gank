@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AppRouterRecord" representedClassName="AppRouterRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="table" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppRouterTable" inverseName="records" inverseEntity="AppRouterTable" syncable="YES"/>
+    </entity>
+    <entity name="AppRouterTable" representedClassName="AppRouterTable" syncable="YES" codeGenerationType="class">
+        <attribute name="expirationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AppRouterRecord" inverseName="table" inverseEntity="AppRouterRecord" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AppRouterTable" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="AppRouterRecord" positionX="-54" positionY="-9" width="128" height="90"/>
+    </elements>
+</model>

@@ -12,7 +12,7 @@ final public class GankFeedbackEffect: NSObject {
     
     var feedbackGenerator : UIImpactFeedbackGenerator?
     
-    public init(style: UIImpactFeedbackStyle) {
+    public init(style: UIImpactFeedbackGenerator.FeedbackStyle) {
         super.init()
         feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         if let feedbackGenerator = feedbackGenerator {

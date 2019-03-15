@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let reachability = Reachability()!
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window?.backgroundColor = UIColor.white
         
@@ -43,14 +43,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
         
         // IQKeyboardManager Configure
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         // Bugly
         Bugly.start(withAppId: "66bade34d0")
         
         // LeanCloud
-        LeanCloud.initialize(applicationID: "xUyRzoEBJGdOFUDjQ5ADtxRi-gzGzoHsz", applicationKey: "ctMjwiEyOSXcWyKA6YlLT47p")
+        LCApplication.default.set(
+            id:  "xUyRzoEBJGdOFUDjQ5ADtxRi-gzGzoHsz",
+            key: "ctMjwiEyOSXcWyKA6YlLT47p"
+        )
         configureVersion()
         
         let storyboard = UIStoryboard.gank_main
@@ -157,7 +160,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     fileprivate func configureShare() {
-        MonkeyKing.registerAccount(.weChat(appID: GankConfig.Wechat.appID, appKey: GankConfig.Wechat.appKey))
+        MonkeyKing.registerAccount(.weChat(appID: GankConfig.Wechat.appID, appKey: GankConfig.Wechat.appKey, miniAppID: nil))
         MonkeyKing.registerAccount(.weibo(appID: GankConfig.Weibo.appID, appKey: GankConfig.Weibo.appKey, redirectURL: GankConfig.Weibo.redirectURL))
         MonkeyKing.registerAccount(.qq(appID: GankConfig.QQ.appID))
         MonkeyKing.registerAccount(.pocket(appID: GankConfig.Pocket.appID))

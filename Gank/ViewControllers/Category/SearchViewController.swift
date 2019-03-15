@@ -22,7 +22,7 @@ class SearchViewController: BaseViewController {
             searchTableView.tableFooterView = searchFooterView
             searchTableView.separatorStyle = .none
             searchTableView.estimatedRowHeight = 195.5
-            searchTableView.rowHeight = UITableViewAutomaticDimension
+            searchTableView.rowHeight = UITableView.automaticDimension
             
             searchTableView.registerNibOf(DailyGankCell.self)
             searchTableView.registerNibOf(LoadMoreCell.self)
@@ -305,7 +305,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             let gankDetail: Gank = searchArray[indexPath.row]
             cell.configure(withGankDetail: gankDetail, isHiddenTag: false)
             
-            cell.selectionStyle = UITableViewCellSelectionStyle.default
+            cell.selectionStyle = UITableViewCell.SelectionStyle.default
             
             return cell
             
