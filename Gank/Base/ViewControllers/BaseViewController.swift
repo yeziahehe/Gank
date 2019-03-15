@@ -45,7 +45,7 @@ class BaseViewController: SegueViewController {
         
         let gradient = CAGradientLayer()
         let sizeLength = UIScreen.main.bounds.size.height * 2
-        let sizeHeight: CGFloat = UIDevice.current.iPhoneX ? 88.0 : 64.0
+        let sizeHeight: CGFloat = UIDevice.current.iPhoneX_later ? 88.0 : 64.0
         let defaultNavigationBarFrame = CGRect(x: 0, y: 0, width: sizeLength, height: sizeHeight)
         gradient.frame = defaultNavigationBarFrame
         gradient.colors = [UIColor.gankNavgationBarGradientStartColor().cgColor, UIColor.gankNavgationBarGradientEndColor().cgColor]

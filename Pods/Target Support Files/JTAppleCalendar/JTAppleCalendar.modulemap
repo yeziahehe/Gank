@@ -1,0 +1,6 @@
+framework module JTAppleCalendar {
+  umbrella header "JTAppleCalendar-umbrella.h"
+
+  export *
+  module * { export * }
+}

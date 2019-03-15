@@ -38,8 +38,10 @@ class NotificationViewController: BaseViewController {
                     gankLog.debug("UserNotifications authorized")
                 case .denied:
                     GankAlert.confirmOrCancel(title: nil, message: String.messageSetNotification, confirmTitle: String.promptConfirmSetNotification, cancelTitle: String.promptCancelOpenNotification, inViewController: self, withConfirmAction: {
-                        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
                     }, cancelAction: {})
+                case .provisional:
+                    gankLog.debug("UserNotifications authorized")
                 }
             }
         })

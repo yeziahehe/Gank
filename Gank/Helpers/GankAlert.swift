@@ -70,7 +70,7 @@ extension UIViewController {
         SafeDispatch.async {
             GankAlert.confirmOrCancel(title: String.titleSorry, message: "请设置允许 Gank 访问你的照片。", confirmTitle: String.promptConfirmOpenCameraRoll, cancelTitle: String.promptCancelOpenCameraRoll, inViewController: self, withConfirmAction: {
                 
-                UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
                 
             }, cancelAction: {
             })

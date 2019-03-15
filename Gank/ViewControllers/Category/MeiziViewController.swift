@@ -330,7 +330,7 @@ extension MeiziViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        if kind == UICollectionElementKindSectionFooter {
+        if kind == UICollectionView.elementKindSectionFooter {
             if isNoData {
                 let noDataFooterView: NoDataFooterCollectionView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, forIndexPath: indexPath)
                 noDataFooterView.reasonAction = { [weak self] in

@@ -30,7 +30,7 @@ final class NewViewController: BaseViewController {
     }
     
     fileprivate lazy var activityIndicatorView: UIActivityIndicatorView = {
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        let activityView = UIActivityIndicatorView(style: .white)
         activityView.hidesWhenStopped = true
         return activityView
     }()
@@ -246,7 +246,7 @@ extension NewViewController {
         newTableView.tableHeaderView = coverHeaderView
         newTableView.tableFooterView = customFooterView
         newTableView.estimatedRowHeight = 195.5
-        newTableView.rowHeight = UITableViewAutomaticDimension
+        newTableView.rowHeight = UITableView.automaticDimension
         let height = coverHeaderView.configure(meiziData: meiziGank)
         coverHeaderView.frame.size = CGSize(width: GankConfig.getScreenWidth(), height: height)
         newTableView.reloadData()
@@ -330,13 +330,13 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             let key: String = gankCategories[indexPath.section]
             let gankDetail: Gank = gankDictionary[key]![indexPath.row]
             cell.configure(withGankDetail: gankDetail)
-            cell.selectionStyle = UITableViewCellSelectionStyle.default
+            cell.selectionStyle = UITableViewCell.SelectionStyle.default
             
             return cell
         }
         
         let cell: DailyGankLoadingCell = tableView.dequeueReusableCell()
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
         
